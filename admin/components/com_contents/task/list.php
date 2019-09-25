@@ -130,9 +130,9 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
             <th width="30" align="center">STT</th>
             <th width="30" align="center"><input type="checkbox" name="chkall" id="chkall" value="" onclick="docheckall('chk',this.checked);" /></th>
             <th>Bài tin</th>
-            <th>Giá</th>
-            <th align="center" width="100">Tình trạng</th>
-            <th align="center" width="100">Ngày đăng</th>
+            <!-- <th>Giá</th> -->
+            <!-- <th align="center" width="100">Tình trạng</th> -->
+            <th align="center">Ngày đăng</th>
             <th align="center" width="70">Lượt xem</th>
             <th width="70" align="center" style="text-align: center;">Sắp xếp
                 <a href="javascript:saveOrder()"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
@@ -150,10 +150,10 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
                 $ids        = $rows['id'];
                 $cat_id     = $rows['category_id'];
                 $title      = Substring(stripslashes($rows['title']),0,10);
-                $cdate      = date('d-m-Y H:i:sa',strtotime($rows['cdate']));
+                $cdate      = date('d-m-Y H:i:sa',$rows['cdate']);
                 $visited    = number_format($rows['visited']);
                 $order      = number_format($rows['order']);
-                $price      = number_format($rows['price']);
+                // $price      = number_format($rows['price']);
                 $ispay      = (int)$rows['ispay'];
                 if($rows['thumb'] == '')
                     $thumb  = '<img src="'.IMG_DEFAULT.'" alt="'.$title.'" width="60px">';
@@ -163,9 +163,9 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
                     $icon_active    = "<i class='fa fa-check cgreen' aria-hidden='true'></i>";
                 else $icon_active   = '<i class="fa fa-times-circle-o cred" aria-hidden="true"></i>';
 
-                if($ispay == 1) 
-                    $html_ispay    = "<span class='btn ispay green'>Chưa bán</span>";
-                else $html_ispay   = "<span class='btn ispay'>Đã bán</span>";
+                // if($ispay == 1) 
+                //     $html_ispay    = "<span class='btn ispay green'>Chưa bán</span>";
+                // else $html_ispay   = "<span class='btn ispay'>Đã bán</span>";
 
                 // Get category name
                 $sql_cate = "SELECT name FROM tbl_categories WHERE id = ".$cat_id;
@@ -186,8 +186,8 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
                 <span>".$category."</span>
                 </div>
                 </td>";
-                echo "<td><input class='ajax-price' data-id='".$ids."' onchange=\"ajax_update_price(this)\" type='text' name='txt_price[]' value='".$price."'></td>";
-                echo "<td>$html_ispay</td>";
+                // echo "<td><input class='ajax-price' data-id='".$ids."' onchange=\"ajax_update_price(this)\" type='text' name='txt_price[]' value='".$price."'></td>";
+                // echo "<td>$html_ispay</td>";
                 echo "<td>$cdate</td>";
                 echo "<td align='center'>$visited</td>";
 

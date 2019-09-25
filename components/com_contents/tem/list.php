@@ -1,99 +1,181 @@
 <?php
-global $tmp; 
-global $conf;
-$thisurl= ROOTHOST.$_SERVER['REQUEST_URI'];
-$objcat = new CLS_CATEGORY();
-$objcon = new CLS_CONTENTS();
-$cate_alias = ($_GET['code']) ? $_GET['code'] : "";
-$cat_id = $par_id = 0; $cat_name ='';
-$objcat->getList(' AND `code` = "' . $cate_alias . '"');
-if($objcat->Num_rows()>0) {
-	$cate = $objcat->Fetch_Assoc();
-	$cat_id = $cate['id'];
-	$par_id = $cate['par_id'];
-	$cat_name = stripslashes($cate['name']);
-} ?>
-<section class="banner_page_header"></section>
-<section class="wrapper-report component">
+// Begin pagging
+define('OBJ_PAGE','LIST_CONTENTS');
+if(!isset($_SESSION['CUR_PAGE_'.OBJ_PAGE])){
+	$_SESSION['CUR_PAGE_'.OBJ_PAGE] = 1;
+}
+if(isset($_POST['txtCurnpage'])){
+	$_SESSION['CUR_PAGE_'.OBJ_PAGE] = (int)$_POST['txtCurnpage'];
+}
+
+$sql_count = "SELECT COUNT(*) AS count FROM tbl_contents WHERE isactive = 1";
+$objmysql->Query($sql_count);
+$row_count = $objmysql->Fetch_Assoc();
+$total_rows = $row_count['count'];
+
+$MAX_ROWS = 9;
+if($_SESSION['CUR_PAGE_'.OBJ_PAGE] > ceil($total_rows/$MAX_ROWS)){
+	$_SESSION['CUR_PAGE_'.OBJ_PAGE] = ceil($total_rows/$MAX_ROWS);
+}
+$cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAGE] : 1;
+// End pagging
+
+?>
+<section class="page page-contents">
 	<div class="container">
-		<div class="bread">
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item">
-						<a href="<?php echo ROOTHOST; ?>" title="Trang chủ">
-							<i class="fa fa-home" aria-hidden="true"></i>
-						</a>
-					</li>
-					<li class="breadcrumb-item active" aria-current="page"><?php echo $cat_name; ?></li>
-				</ol>
-			</nav>
-		</div>
-		<div class="wrapper-content">
+		<nav>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="<?= ROOTHOST; ?>" title="Trang chủ">
+						Trang chủ
+					</a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">
+					Tin tức
+				</li>
+			</ol>
+		</nav>
+		<div class="page-content">
 			<div class="row">
-				<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-					<div class="wrapper-right">
-						<div class="top">
-							<h1 class="main-title"><span><?php echo $cate['name']; ?></span></h1>
-						</div>
-						<div class="row">
-							<?php
-							$cur_page=isset($_GET['page'])? $_GET['page']: '1';
-							$cur_page=isset($_POST['txtCurnpage'])? $_POST['txtCurnpage']: '1';
-							$strWhere = " AND category_id=$cat_id";
-							$total_rows = $objcon->getCount($strWhere);
-							if($total_rows>0){
-								$max_page=ceil($total_rows/MAX_ROWS);
+				<div class="col-md-9 col-sm-8">
+					<h1 class="page-title"><span>Tin tức</span></h1>
+					<div class="list-articles">
+						<?php
+						$star = ($cur_page - 1) * $MAX_ROWS;
+						$sql = "SELECT * FROM tbl_contents WHERE isactive = 1 ORDER BY `cdate` DESC LIMIT $star,".$MAX_ROWS;
+						$objmysql->Query($sql);
+						while ($r_con = $objmysql->Fetch_Assoc()) {
+							$title 	= stripcslashes($r_con['title']);
+							$code 	= $r_con['code'];
+							$thumb 	= getThumb($r_con['thumb'], 'img-responsive', '');
+							$views 	= (int)$r_con['visited'];
+							$cdate 	= convert_date($r_con['cdate']);
+							$intro 	= stripslashes($r_con['intro']);
 
-								if($cur_page>$max_page) $cur_page=$max_page;
-								$start=($cur_page-1)*MAX_ROWS;
-
-								$objcon->getList($strWhere." ORDER BY pin DESC,ishot DESC,`order` ASC,id DESC"," LIMIT $start,".MAX_ROWS);
-								$i=0;
-								while ($row=$objcon->Fetch_Assoc()) {
-									$i++;
-									$id = $row['id'];
-									$title = stripslashes(html_entity_decode($row['title']));
-									$code  = $row['code'];
-									$info_cate = $objcat->getInfo(" AND id=".$row['category_id']);
-									$link  = ROOTHOST.$info_cate['code'].'/'.$code.'.html';
-									$thumb = getThumb($row['thumb'],'img-responsive',$title);
-									$thumb='<a href="'.$link.'" title="'.$title.'" class="box_img">'.$thumb.'</a>';
-									$cdate = date('d/m/Y H:i A',strtotime($row['cdate']));
-									$intro = stripslashes(html_entity_decode($row['intro']));
-									echo '<div class="box_news">';
-									echo '<div class="img col-md-4 col-sm-4 col-xs-12">'.$thumb.'</div>
-									<div class="box_info col-md-8 col-sm-8 col-xs-12">
-									<h2 class="title"><a href="'.$link.'" class="name" title="'.$title.'">'.$title.'</a></h2>
-									<div class="create_date"><small><i>'.$cdate.'</i></small></div>';
-									if($intro!='') echo '<div class="intro">'.$intro.'</div>';
-									echo '<div class="readmore"><a href="'.$link.'">xem thêm <i class="fa fa-angle-double-right"></i></a></div>
-									</div><div class="clearfix"></div>';
-									echo '</div>';
-								}
-								echo '<div class="clearfix"></div><div class="text-center">';
-								paging_index($total_rows,MAX_ROWS,$cur_page);
-								echo '</div>';
-							} ?>
-						</div>
+							$sql_cate="SELECT * FROM tbl_categories WHERE isactive=1 AND id=".$r_con['category_id'];
+							$objdata->Query($sql_cate);
+							$r_cate = $objdata->Fetch_Assoc();
+							$link 	= ROOTHOST.$r_cate['code'].'/'.$code.'.html';
+						
+							echo '<div class="item">
+								<div class="box-thumb">
+									<a href="'.$link.'" title="'.$title.'">'.$thumb.'</a>
+									<h3 class="title"><a href="'.$link.'" title="'.$title.'">'.$title.'</a></h3>
+								</div>
+								<div class="content">
+									<div class="sapo">'.$intro.'</div>
+									<div class="info">
+										<span class="date">'.$cdate.'</span>
+										<div class="readmore"><a href="'.$link.'" title="Xem chi tiết">Xem chi tiết</a></div>
+									</div>
+								</div>
+							</div>';
+						}
+						?>
+					</div>
+					<div class="text-center">
+						<?php paging($total_rows,$MAX_ROWS,$cur_page); ?>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs colright">
-					<?php
-					include_once("modules/mod_category/layout.php");
-					include_once("modules/mod_lastestnews/hotnews.php");
-					include_once("modules/mod_video/left.php");
-					$this->loadModule('right');
-					?>
+
+				<div class="col-md-3 col-sm-4 wrap-aside">
+					<aside class="aside subscribe">
+						<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Đăng ký nhận tin</span></h3>
+						<form id="frm-subscribe" method="post" action="">
+							<input type="text" name="txt-name" class="form-control" placeholder="Họ và tên" required>
+							<input type="email" name="txt-email" class="form-control" placeholder="Email" required>
+							<div class="text-center">
+								<input type="submit" id="txt-save" class="btn" name="txt-save" value="ĐĂNG KÝ NGAY">
+							</div>
+						</form>
+					</aside>
+					<aside class="aside feedback">
+						<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Ý kiến khách hàng</span></h3>
+						<div id="aside-feedback" class="owl-carousel owl-theme">
+							<?php
+							$sql="SELECT * FROM tbl_feedback WHERE isactive = 1 ORDER BY `order` DESC LIMIT 0, 3";
+							$objmysql->Query($sql);
+							while($row 	= $objmysql->Fetch_Assoc()) {
+								$name 		= stripcslashes($row['name']);
+								$comment 	= stripcslashes($row['comment']);
+								$career 	= stripcslashes($row['career']);
+								$thumb 		= getThumb($row['avatar'], 'img-responsive', '');
+								?>
+								<div class="item">
+									<div class="box-thumb">
+										<?php echo $thumb;?>
+										<div class="name"><?php echo $name; ?></div>
+										<div class="career"><?php echo $career; ?></div>
+									</div>
+									<div class="content"><?php echo $comment; ?></div>
+								</div>
+							<?php } ?>
+						</div>
+					</aside>
+					<aside class="aside latest-news">
+						<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Tin mới nhất</span></h3>
+						<?php
+						$sql="SELECT * FROM tbl_contents WHERE isactive=1 ORDER BY cdate DESC LIMIT 0,5";
+						$objmysql->Query($sql);
+						$i=1;
+						while ($row = $objmysql->Fetch_Assoc()) {
+							$title 	= stripcslashes($row['title']);
+							$code 	= $row['code'];
+							$thumb 	= getThumb($row['thumb'], 'img-responsive', '');
+							$views 	= (int)$row['visited'];
+							$cdate 	= convert_date($row['cdate']);
+
+							$sql_cate="SELECT * FROM tbl_categories WHERE isactive=1 AND id=".$row['category_id'];
+							$objdata->Query($sql_cate);
+							$r_cate = $objdata->Fetch_Assoc();
+							$link 	= ROOTHOST.$r_cate['code'].'/'.$code.'.html';
+
+							echo '<div class="item">
+							<div class="number">'.$i.'.</div>
+							<div class="content">
+							<div class="title"><a href="'.$link.'" title="'.$title.'">'.$title.'</a></div>
+							<div class="info">
+							<span class="date">'.$cdate.'</span>';
+							if($views > 0){
+								echo '<span class="views">'.$views.'views</span>';
+							}
+							echo '</div>
+							</div>
+							<div class="box-thumb"><a href="'.$link.'" title="'.$title.'">'.$thumb.'</a></div>
+							</div>';
+							$i++;
+						}
+						?>
+					</aside>
+
+					<aside class="aside advertisement">
+						<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Trending</span></h3>
+						<div>
+							<a href="" title="Trending"><img src="<?php echo ROOTHOST; ?>images/advantisement.jpg" align=""></a>
+						</div>
+					</aside>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div class="shake-hands">
+		<div class="bg-overlay"></div>
+		<div class="content text-center">
+			<h2>BẠN CẦN DỊCH TÀI LIỆU SANG TIẾNG VIỆT?</h2>
+			<a href="" title="" class="btn">LIÊN HỆ LETOTRANS NGAY</a>
+		</div>
+	</div>
 </section>
-<script>
-	$(document).ready(function(){
-		$('.colleft .list_category li').each(function(){
-			if($(this).attr('class')=='<?php echo $cate_alias;?>')
-			$(this).addClass('active');
-		});
+<script type="text/javascript">
+	$('#aside-feedback').owlCarousel({
+		navigation : true,
+		slideSpeed : 3000,
+		paginationSpeed : 400,
+		loop: true,
+		items : 1, 
+		itemsDesktop : false,
+		itemsDesktopSmall : false,
+		itemsTablet: false,
+		itemsMobile : false
 	})
 </script>

@@ -37,13 +37,13 @@ $row_seo    = $objmysql->Fetch_Assoc();
 <div id="path">
     <ol class="breadcrumb">
         <li><a href="<?php echo ROOTHOST_ADMIN;?>">Admin</a></li>
-        <li><a href="<?php echo ROOTHOST_ADMIN.COMS;?>">Danh sách tin đất đai</a></li>
-        <li class="active">Cập nhật tin đất đai</li>
+        <li><a href="<?php echo ROOTHOST_ADMIN.COMS;?>">Danh sách tin </a></li>
+        <li class="active">Cập nhật tin </li>
     </ol>
 </div>
 
 <div class="com_header color">
-    <h1>Cập nhật tin đất đai</h1>
+    <h1>Cập nhật tin </h1>
     <div class="pull-right">
         <form id="frm_menu" name="frm_menu" method="post" action="">
             <input type="hidden" name="txtorders" id="txtorders" />
@@ -97,39 +97,39 @@ $row_seo    = $objmysql->Fetch_Assoc();
                         </div>
                     </div>
 
-                    <div class='form-group'>
+                   <!--  <div class='form-group'>
                         <label>Chọn thêm ảnh<span id="err_images" class="mes-error"></span></label>
                         <div id="response_img">
                             <?php
-                            $images = $row['images'];
-                            if($images !== '[]'){
-                                $images = json_decode($images);
-                                foreach ($images as $k => $val) {
-                                    echo '<div class="info-item" data-number="'. $k .'">
-                                    <input type="hidden" name="txt_images[]" value="'.$val->url.'"/>
-                                    <input type="hidden" name="txt_alt[]" value="'.$val->alt.'"/>
-                                    <img class="thumb" src="'.$val->url.'" width="150px">
-                                    <div class="name">'.$val->alt.'</div>
-                                    <div class="wrap-item-info">
-                                    <div class="del-item" onclick="images_delete_item(this);" title="Xóa"></div>
-                                    <div class="edit-item" data-number="'. $k .'" data-url="'.$val->url.'" data-alt="'.$val->alt.'" onclick="images_edit_item(this);" title="Đổi tên"></div>
-                                    </div>
-                                    </div>';
-                                }
-                            }else{
-                                echo '<input type="hidden" name="txt_images[]" value=""/>';
-                            }
+                            // $images = $row['images'];
+                            // if($images !== '[]'){
+                            //     $images = json_decode($images);
+                            //     foreach ($images as $k => $val) {
+                            //         echo '<div class="info-item" data-number="'. $k .'">
+                            //         <input type="hidden" name="txt_images[]" value="'.$val->url.'"/>
+                            //         <input type="hidden" name="txt_alt[]" value="'.$val->alt.'"/>
+                            //         <img class="thumb" src="'.$val->url.'" width="150px">
+                            //         <div class="name">'.$val->alt.'</div>
+                            //         <div class="wrap-item-info">
+                            //         <div class="del-item" onclick="images_delete_item(this);" title="Xóa"></div>
+                            //         <div class="edit-item" data-number="'. $k .'" data-url="'.$val->url.'" data-alt="'.$val->alt.'" onclick="images_edit_item(this);" title="Đổi tên"></div>
+                            //         </div>
+                            //         </div>';
+                            //     }
+                            // }else{
+                            //     echo '<input type="hidden" name="txt_images[]" value=""/>';
+                            // }
                             ?>
                             <div class="default">
-                                <img src="<?php echo ROOTHOST_ADMIN;?>images/images.png" class="thumb-default" onclick="OpenPopup('<?php echo ROOTHOST_ADMIN;?>extensions/upload_images.php');">
+                                <img src="<?php //echo ROOTHOST_ADMIN;?>images/images.png" class="thumb-default" onclick="OpenPopup('<?php //echo ROOTHOST_ADMIN;?>extensions/upload_images.php');">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Sapo</label>
-                        <textarea name="txt_sapo" class="form-control" rows="5"><?php echo $row['sapo'];?></textarea>
-                    </div>
+                        <textarea name="txt_sapo" class="form-control" rows="5"><?php //echo $row['sapo'];?></textarea>
+                    </div> -->
 
                     <div class="form-group">
                         <label>Mô tả</label>
@@ -144,7 +144,7 @@ $row_seo    = $objmysql->Fetch_Assoc();
 
                 <div class="col-md-3 col-sm-4">
                     <div class='form-group'>
-                        <label>Danh mục đất đai<small class="cred"> (*)</small><span id="err_cate" class="mes-error"></span></label>
+                        <label>Danh mục tin<small class="cred"> (*)</small><span id="err_cate" class="mes-error"></span></label>
                         <select class="form-control" id="cbo_cata" name="cbo_cata" style="width: 100%" required>
                             <option value="">Root</option>
                             <?php $obj_cate->getListCate(0,0); ?>
@@ -155,21 +155,21 @@ $row_seo    = $objmysql->Fetch_Assoc();
                         <div class="clearfix"></div>
                     </div>
                     
-                    <div class='form-group'>
+                    <!-- <div class='form-group'>
                         <label>Loại hình đất đai<small class="cred"> (*)</small><span id="err_type_of_land" class="mes-error"></span></label>
                         <select class="form-control" id="cbo_type_of_land" name="cbo_type_of_land" style="width: 100%" required>
                             <option value="">Root</option>
                             <?php
-                            $sql_tol = "SELECT * FROM tbl_type_of_land WHERE isactive = 1";
-                            $objmysql->Query($sql_tol);
+                            // $sql_tol = "SELECT * FROM tbl_type_of_land WHERE isactive = 1";
+                            // $objmysql->Query($sql_tol);
 
-                            while ($r_tol = $objmysql->Fetch_Assoc()) {
-                                echo '<option value="'.$r_tol['id'].'">'.$r_tol['title'].'</option>';
-                            }
+                            // while ($r_tol = $objmysql->Fetch_Assoc()) {
+                            //     echo '<option value="'.$r_tol['id'].'">'.$r_tol['title'].'</option>';
+                            // }
                             ?>
                         </select>
                         <script type="text/javascript">
-                            cbo_Selected('cbo_type_of_land','<?php echo $row['type_of_land_id'];?>');
+                            cbo_Selected('cbo_type_of_land','<?php //echo $row['type_of_land_id'];?>');
                         </script>
                         <div class="clearfix"></div>
                     </div>
@@ -182,7 +182,7 @@ $row_seo    = $objmysql->Fetch_Assoc();
                     <div class="form-group">
                         <label>Giá (VNĐ)<small class="cred"> (*)</small><span id="err_price" class="mes-error"></span></label>
                         <input type="number" name="txt_price" value="<?php echo $row['price'];?>" class="form-control" id="txt_price" placeholder="Giá">
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <label>Tác giả <span class="cred">*</span></label>

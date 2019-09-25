@@ -9,8 +9,8 @@
 						</a>
 					</div>
 					<div class="media-body padding-left-10">
-						<h4 class="media-heading"><a href="<?php echo ROOTHOST_ADMIN;?>contents" title="Tin đất đai">Quản lý tin đất đai</a></h4>
-						<small class="text-muted">Xem danh sách và cập nhật tin đất đai mới nhất cho người dùng...</small><br>
+						<h4 class="media-heading"><a href="<?php echo ROOTHOST_ADMIN;?>contents" title="Tin tức">Quản lý tin tức</a></h4>
+						<small class="text-muted">Xem danh sách và cập nhật tin tức mới nhất cho người dùng...</small><br>
 						<a class="btn btn-primary btn-xs pull-right" href="<?php echo ROOTHOST_ADMIN;?>contents" style="margin-top:5px;"><i class="fa fa-plus fa-fw"></i>Chi tiết</a>
 					</div>
 				</div>
@@ -28,8 +28,8 @@
 						</a>
 					</div>
 					<div class="media-body padding-left-10">
-						<h4 class="media-heading"><a href="<?php echo ROOTHOST_ADMIN;?>category" title="Quản lý danh mục đất đai">Quản lý danh mục đất đai</a></h4>
-						<small class="text-muted">Quản lý các nhóm đất đai</small><br>
+						<h4 class="media-heading"><a href="<?php echo ROOTHOST_ADMIN;?>category" title="Quản lý danh mục tin tức">Quản lý danh mục tin tức</a></h4>
+						<small class="text-muted">Quản lý các nhóm tin tức</small><br>
 						<a class="btn btn-primary btn-xs pull-right" href="<?php echo ROOTHOST_ADMIN;?>category" style="margin-top:5px;"><i class="fa fa-plus fa-fw"></i>Chi tiết</a>
 					</div>
 				</div>
@@ -37,7 +37,7 @@
 		</div>
 	</div>
 
-	<div class="box col-md-3">
+	<!-- <div class="box col-md-3">
 		<div class="panel panel-warning">
 			<div class="panel-body">
 				<div class="media">
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<div class="box col-md-3">
 		<div class="panel panel-warning">

@@ -865,72 +865,12 @@
 	#welcome .content{
 		width: 100%;
 	}
-	.sec_wha{
-		color: #FFF;
-		background: #e74c3c;
-	}
-	.sec_wha .header h2, #main .sec_our h2.text-center, .section-6 h3, #welcome .content .title{
-		font-size: 26px;
-	}
-	.sec_wha .header h2{
-		margin-bottom: 30px;
-	}
-	.sec_wha .custom-row .c-col-md-4{
-		width: 100%;
-	}
-	.sec_wha .c-col-md-4.col-2{ display: none; }
-	.sec_wha .c-col-md-4.col-1 .item:before, .sec_wha .c-col-md-4.col-3 .item:before{ background: none; }
-	.sec_wha .c-col-md-4.col-1 .item:nth-child(1), .sec_wha .c-col-md-4.col-1 .item:nth-child(2){
-		background-position: 6px 50%;
-		background-size: 60px;
-	}
-	.sec_wha .c-col-md-4.col-3 .item:nth-child(1), .sec_wha .c-col-md-4.col-3 .item:nth-child(2){
-		background-position: 0px 50%;
-		background-size: 60px;
-	}
-	.sec_wha .c-col-md-4.col-1 .item{
-		padding-right: 0;
-		padding-left: 75px
-	}
-	.sec_wha .c-col-md-4.col-3 .item{
-		padding-left: 70px;
-	}
-	.sec_wha .content .item{
-		margin-bottom: 20px;
-	}
-	.sec_wha .item.fea_saf{
-		margin-bottom: 0px;
-	}
-	#main .sec_our, #main .sec_how, section.padding{
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-	.sec_our{
-		position: relative;
-		background-image: url(../images/home-img-01.png);
-		background-size: 290px;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-	.sec_our .box-left {
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		background: #333333c7;
-		bottom: 0;
-	}
-	.component{
-		margin-top: 60px;
-	}
 	.component h1{
 		font-size: 26px;
 		margin-top: 0px;
 	}
-	footer{
+	.footer{
 		font-size: 14px;
-		border-top: 1px solid #c11f0e;
-		background-color: #eee;
 	}
 
 	/*Feed back*/
@@ -946,6 +886,26 @@
 	aside.module.hot-news {
 		padding-left: 15px;
 	}
+	/* Page contents */
+	.page-contents .article .row-flex{
+		display: block;
+	}
+	.page-contents .article .row-flex .col-right{
+		padding-left: 0px;
+	}
+	.page-contents .article h1{
+		padding-top: 10px;
+	}
+	.list-articles .item .box-thumb img{
+		width: auto;
+		margin: auto;
+		float: unset;
+		margin-bottom: 10px;
+	}
+	.shake-hands .content{
+		top: 25%;
+	}
+	/* End Page contents */
 }
 @media (max-width: 450px) {
 	#main-banner .item .content .title{ font-size: 20px; }

@@ -14,12 +14,12 @@ $objmysql = new CLS_MYSQL();
 		</li>
 
 		<li>
-			<div class="title"><i class="fa fa-list" aria-hidden="true"></i> <span>Tin đất đai</span></div>
+			<div class="title"><i class="fa fa-list" aria-hidden="true"></i> <span>Tin tức</span></div>
 			<ul class="sub">
-				<li><a href="<?php echo ROOTHOST_ADMIN;?>contents/add" title="Thêm bài viết"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm tin đất đai</span></a></li>
-				<li><a href="<?php echo ROOTHOST_ADMIN;?>contents" title="Ds bài viết"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds tin đất đai</span></a></li>
-				<li><a href="<?php echo ROOTHOST_ADMIN;?>category" title="Ds nhóm tin"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds danh mục đất đai</span></a></li>
-				<li><a href="<?php echo ROOTHOST_ADMIN;?>type_of_land" title="Ds loại hình đất"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds loại hình đất</span></a></li>
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>contents/add" title="Thêm bài viết"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm tin</span></a></li>
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>contents" title="Ds bài viết"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds tin</span></a></li>
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>category" title="Ds nhóm tin"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds danh mục tin</span></a></li>
+				<!-- <li><a href="<?php echo ROOTHOST_ADMIN;?>type_of_land" title="Ds loại hình đất"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds loại hình đất</span></a></li> -->
 			</ul>
 		</li>
 

@@ -23,13 +23,13 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
 <div id="path">
     <ol class="breadcrumb">
         <li><a href="<?php echo ROOTHOST_ADMIN;?>">Admin</a></li>
-        <li><a href="<?php echo ROOTHOST_ADMIN.COMS;?>">Danh sách tin đất đai</a></li>
-        <li class="active">Thêm mới tin đất đai</li>
+        <li><a href="<?php echo ROOTHOST_ADMIN.COMS;?>">Danh sách tin</a></li>
+        <li class="active">Thêm mới tin</li>
     </ol>
 </div>
 
 <div class="com_header color">
-    <h1>Thêm mới tin đất đai</h1>
+    <h1>Thêm mới tin</h1>
     <div class="pull-right">
         <form id="frm_menu" name="frm_menu" method="post" action="">
             <input type="hidden" name="txtorders" id="txtorders" />
@@ -82,19 +82,19 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
                         <div class="clearfix"></div>
                     </div>
 
-                    <div class='form-group'>
+                    <!-- <div class='form-group'>
                         <label>Chọn thêm ảnh<span id="err_images" class="mes-error"></span></label>
                         <div id="response_img">
                             <div class="default">
                                 <img src="<?php echo ROOTHOST_ADMIN;?>images/images.png" class="thumb-default" onclick="OpenPopup('<?php echo ROOTHOST_ADMIN;?>extensions/upload_images.php');">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Sapo</label>
                         <textarea name="txt_sapo" class="form-control" rows="5"></textarea>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <label>Mô tả</label>
@@ -109,24 +109,24 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
 
                 <div class="col-md-3 col-sm-4">
                     <div class="form-group">
-                        <label>Danh mục đất đai<small class="cred"> (*)</small><span id="err_cate" class="mes-error"></span></label>
+                        <label>Danh mục tin<small class="cred"> (*)</small><span id="err_cate" class="mes-error"></span></label>
                         <select class="form-control" id="cbo_cata" name="cbo_cata" style="width: 100%" required>
                             <option value="">Root</option>
                             <?php $obj_cate->getListCate(0,0); ?>
                         </select>
                         <div class="clearfix"></div>
                     </div>
-                    <div class='form-group'>
-                        <label>Loại hình đất đai<small class="cred"> (*)</small><span id="err_type_of_land" class="mes-error"></span></label>
+                    <!-- <div class='form-group'>
+                        <label>Loại hình tin<small class="cred"> (*)</small><span id="err_type_of_land" class="mes-error"></span></label>
                         <select class="form-control" id="cbo_type_of_land" name="cbo_type_of_land" style="width: 100%" required>
                             <option value="">Root</option>
                             <?php
-                            $sql_tol = "SELECT * FROM tbl_type_of_land WHERE isactive = 1";
-                            $objmysql->Query($sql_tol);
+                            // $sql_tol = "SELECT * FROM tbl_type_of_land WHERE isactive = 1";
+                            // $objmysql->Query($sql_tol);
 
-                            while ($r_tol = $objmysql->Fetch_Assoc()) {
-                                echo '<option value="'.$r_tol['id'].'">'.$r_tol['title'].'</option>';
-                            }
+                            // while ($r_tol = $objmysql->Fetch_Assoc()) {
+                            //     echo '<option value="'.$r_tol['id'].'">'.$r_tol['title'].'</option>';
+                            // }
                             ?>
                         </select>
                         <div class="clearfix"></div>
@@ -139,8 +139,7 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
                     <div class="form-group">
                         <label>Giá<small class="cred"> (*)</small><span id="err_price" class="mes-error"></span></label>
                         <input type="number" name="txt_price" value="" class="form-control" id="txt_price" placeholder="Giá">
-                    </div>
-
+                    </div> -->
                     <div class="form-group">
                         <label>Tác giả <span class="cred">*</span></label>
                         <input type="text" name="txt_author" value="<?php echo $_SESSION[MD5($_SERVER['HTTP_HOST']).'_USERLOGIN']['username']; ?>" class="form-control" id="txt_author" readonly placeholder="">

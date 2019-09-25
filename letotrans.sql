@@ -262,8 +262,8 @@ CREATE TABLE `tbl_feedback` (
 -- ----------------------------
 -- Records of tbl_feedback
 -- ----------------------------
-INSERT INTO `tbl_feedback` VALUES ('1', 'Layla', 'http://localhost:8000/letotrans/images/hinh-anh/avata-1.jpg', 'Tôi thật sự bị ấn tượng bởi sự nhiệt tình và chu đáo dành cho khách hàng ở đây. Không chỉ chuyên sửa Lexus uy tín, mà chất lượng phục vụ cũng rất tốt. Dịch vụ ở đây hoàn toàn thuyết phục', 'Doanh nhân', '1', '1');
-INSERT INTO `tbl_feedback` VALUES ('2', 'DAVID MATIN', 'http://localhost:8000/letotrans/images/hinh-anh/avata-1.jpg', 'Tôi hài lòng về dịch vụ bảo hành ở đây, các kỹ sư sau khi sửa ô tô Lexus còn gọi điện chăm sóc và hỏi thăm tình trạng ô tô sau khi sửa chữa. Dịch vụ ở đây hoàn toàn thuyết phục một khách hàng khó tính như tôi', 'Student', '0', '1');
+INSERT INTO `tbl_feedback` VALUES ('1', 'Layla', 'http://localhost/letotrans/images/hinh-anh/avata-1.jpg', 'Tôi thật sự bị ấn tượng bởi sự nhiệt tình và chu đáo dành cho khách hàng ở đây. Không chỉ chuyên sửa Lexus uy tín, mà chất lượng phục vụ cũng rất tốt. Dịch vụ ở đây hoàn toàn thuyết phục', 'Doanh nhân', '1', '1');
+INSERT INTO `tbl_feedback` VALUES ('2', 'DAVID MATIN', 'http://localhost/letotrans/images/hinh-anh/avata-1.jpg', 'Tôi hài lòng về dịch vụ bảo hành ở đây, các kỹ sư sau khi sửa ô tô Lexus còn gọi điện chăm sóc và hỏi thăm tình trạng ô tô sau khi sửa chữa. Dịch vụ ở đây hoàn toàn thuyết phục một khách hàng khó tính như tôi', 'Student', '0', '1');
 INSERT INTO `tbl_feedback` VALUES ('3', 'Võ Văn Vẻ', 'http://localhost/mydinhTHC/images/hinh-anh/avata-1.jpg', 'Tôi hài lòng về dịch vụ bảo hành ở đây, các kỹ sư sau khi sửa ô tô Lexus còn gọi điện chăm sóc và hỏi thăm tình trạng ô tô sau khi sửa chữa. Dịch vụ ở đây hoàn toàn thuyết phục một khách hàng khó tính như tôi', 'Nhân viên văn phòng', null, '1');
 INSERT INTO `tbl_feedback` VALUES ('4', 'Hoàng Rapper', 'http://localhost/mydinhTHC/images/hinh-anh/avata-1.jpg', 'Tôi hài lòng về dịch vụ bảo hành ở đây, các kỹ sư sau khi sửa ô tô Lexus còn gọi điện chăm sóc và hỏi thăm tình trạng ô tô sau khi sửa chữa. Dịch vụ ở đây hoàn toàn thuyết phục một khách hàng khó tính như tôi', 'Nhân viên văn phòng', null, '1');
 
@@ -283,17 +283,17 @@ CREATE TABLE `tbl_gallery` (
 -- ----------------------------
 -- Records of tbl_gallery
 -- ----------------------------
-INSERT INTO `tbl_gallery` VALUES ('1', '8', 'hinh-anh-1', 'http://localhost:8000/letotrans/images/gallery/bd5.jpg', '1');
-INSERT INTO `tbl_gallery` VALUES ('2', '8', 'hinh-anh-2', 'http://localhost:8000/letotrans/images/gallery/bd6.jpg', '1');
-INSERT INTO `tbl_gallery` VALUES ('3', '8', 'hinh-anh-3', 'http://localhost:8000/letotrans/images/gallery/bd7.jpg', '1');
-INSERT INTO `tbl_gallery` VALUES ('4', '8', 'hinh-anh-4', 'http://localhost:8000/letotrans/images/gallery/bd8.jpg', '1');
-INSERT INTO `tbl_gallery` VALUES ('5', '8', 'hinh-anh-5', 'http://localhost:8000/letotrans/images/gallery/bd1.jpg', '1');
-INSERT INTO `tbl_gallery` VALUES ('6', '8', 'hinh-anh-6', 'http://localhost:8000/letotrans/images/gallery/bd2.jpg', '1');
-INSERT INTO `tbl_gallery` VALUES ('7', '8', 'hinh-anh-7', 'http://localhost:8000/letotrans/images/gallery/bd4.jpg', '1');
-INSERT INTO `tbl_gallery` VALUES ('8', '8', 'ha1', 'http://localhost:8000/letotrans/images/gallery/block-4-img-5.jpg', '1');
-INSERT INTO `tbl_gallery` VALUES ('9', '8', 'ha2', 'http://localhost:8000/letotrans/images/gallery/block-4-img-6.jpg', '1');
-INSERT INTO `tbl_gallery` VALUES ('10', '8', 'ha3', 'http://localhost:8000/letotrans/images/gallery/block-4-img-7.jpg', '1');
-INSERT INTO `tbl_gallery` VALUES ('11', '8', 'ha4', 'http://localhost:8000/letotrans/images/gallery/block-4-img-8.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('1', '8', 'hinh-anh-1', 'http://localhost/letotrans/images/gallery/bd5.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('2', '8', 'hinh-anh-2', 'http://localhost/letotrans/images/gallery/bd6.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('3', '8', 'hinh-anh-3', 'http://localhost/letotrans/images/gallery/bd7.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('4', '8', 'hinh-anh-4', 'http://localhost/letotrans/images/gallery/bd8.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('5', '8', 'hinh-anh-5', 'http://localhost/letotrans/images/gallery/bd1.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('6', '8', 'hinh-anh-6', 'http://localhost/letotrans/images/gallery/bd2.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('7', '8', 'hinh-anh-7', 'http://localhost/letotrans/images/gallery/bd4.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('8', '8', 'ha1', 'http://localhost/letotrans/images/gallery/block-4-img-5.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('9', '8', 'ha2', 'http://localhost/letotrans/images/gallery/block-4-img-6.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('10', '8', 'ha3', 'http://localhost/letotrans/images/gallery/block-4-img-7.jpg', '1');
+INSERT INTO `tbl_gallery` VALUES ('11', '8', 'ha4', 'http://localhost/letotrans/images/gallery/block-4-img-8.jpg', '1');
 
 -- ----------------------------
 -- Table structure for tbl_mail_config
@@ -360,7 +360,7 @@ CREATE TABLE `tbl_mnuitems` (
 -- ----------------------------
 -- Records of tbl_mnuitems
 -- ----------------------------
-INSERT INTO `tbl_mnuitems` VALUES ('1', '0', '1', 'Trang chủ', 'trang-chu', '', 'link', '0', '0', 'http://localhost:8000/letotrans/', 'fa fa-home', 'home', '0', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('1', '0', '1', 'Trang chủ', 'trang-chu', '', 'link', '0', '0', 'http://localhost/letotrans/', 'fa fa-home', 'home', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('2', '2', '1', 'Giới thiệu', 'gioi-thieu', '<img src=\"http://daihocdongdo.edu.vn/images/DD.jpg\" alt=\"\" align=\"\" border=\"0px\">', 'block', '44', '0', '', '', '', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('3', '0', '1', 'TP Hòa Bình', 'tp-hoa-binh', '', 'block', '2', '0', '', '', '', '1', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('4', '0', '1', 'TP Hà Nội', 'tp-ha-noi', '', 'block', '60', '0', '', '', '', '2', '1');
@@ -425,12 +425,12 @@ CREATE TABLE `tbl_modules` (
 -- Records of tbl_modules
 -- ----------------------------
 INSERT INTO `tbl_modules` VALUES ('2', 'mainmenu', 'Main menu', '', '', '0', '1', '', '0', null, '', 'navitor', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('54', 'html', 'Sửa chữa thành công', '', '<div class=\"circle\"><div><img src=\"http://localhost:8000/letotrans/images/icons/icon_car.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">850</div></div><div class=\"title\">Sửa chữa thành công</div>', '0', '0', null, '0', null, '', 'box4', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('54', 'html', 'Sửa chữa thành công', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_car.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">850</div></div><div class=\"title\">Sửa chữa thành công</div>', '0', '0', null, '0', null, '', 'box4', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('55', 'news', 'Dịch vụ của chúng tôi', '', '', '1', '0', null, '59', null, 'branch', 'box5', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('15', 'html', 'Logo', '', '<img src=\"http://localhost:8000/letotrans/images/logo/logo_mydinh_thc.png\" class=\"img-responsive\">', '0', '0', '', '0', null, '', 'user1', 'logo', '1', '1');
-INSERT INTO `tbl_modules` VALUES ('51', 'html', 'Dịch vụ phương tiện', '', '<div class=\"circle\"><div><img src=\"http://localhost:8000/letotrans/images/icons/icon_car.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">850</div></div><div class=\"title\">Dịch vụ phương tiện</div>', '0', '0', null, '0', null, '', 'box1', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('52', 'html', 'Chuyên gia của chúng tôi', '', '<div class=\"circle\"><div><img src=\"http://localhost:8000/letotrans/images/icons/icon_user.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">250</div></div><div class=\"title\">Chuyên gia của chúng tôi</div>', '0', '0', null, '0', null, '', 'box2', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('53', 'html', 'Khách hàng hài lòng', '', '<div class=\"circle\"><div><img src=\"http://localhost:8000/letotrans/images/icons/icon_customer.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">1500</div></div><div class=\"title\">Khách hàng hài lòng</div>', '0', '0', null, '0', null, '', 'box3', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('15', 'html', 'Logo', '', '<img src=\"http://localhost/letotrans/images/logo/logo_mydinh_thc.png\" class=\"img-responsive\">', '0', '0', '', '0', null, '', 'user1', 'logo', '1', '1');
+INSERT INTO `tbl_modules` VALUES ('51', 'html', 'Dịch vụ phương tiện', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_car.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">850</div></div><div class=\"title\">Dịch vụ phương tiện</div>', '0', '0', null, '0', null, '', 'box1', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('52', 'html', 'Chuyên gia của chúng tôi', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_user.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">250</div></div><div class=\"title\">Chuyên gia của chúng tôi</div>', '0', '0', null, '0', null, '', 'box2', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('53', 'html', 'Khách hàng hài lòng', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_customer.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">1500</div></div><div class=\"title\">Khách hàng hài lòng</div>', '0', '0', null, '0', null, '', 'box3', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('44', 'html', 'Logo trên di động', '', '<img src=\"http://daihocdongdo.edu.vn/images/logo-mobile.jpg\" class=\"img-responsive\">', '0', '0', null, '0', null, '', 'mobile1', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('50', 'html', 'Video giới thiệu', '', '<iframe width=\"560\" height=\"320\" src=\"https://www.youtube.com/embed/G3Qih-C6xEw\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>', '0', '0', null, '0', null, '', 'user6', 'video', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('21', 'html', 'Copyright', '', '<p>Bản quyền thuộc về Leto Trans</p>', '0', '0', null, '0', '0', '', 'bottom', '', '0', '1');
@@ -489,11 +489,11 @@ CREATE TABLE `tbl_partner` (
 -- ----------------------------
 -- Records of tbl_partner
 -- ----------------------------
-INSERT INTO `tbl_partner` VALUES ('1', 'Đối t&aacute;c 1', 'http://localhost:8000/letotrans/images/hinh-anh/logo1.jpg', '', '1', '1');
-INSERT INTO `tbl_partner` VALUES ('2', 'Đối t&aacute;c 2', 'http://localhost:8000/letotrans/images/hinh-anh/logo2.jpg', '', '2', '1');
-INSERT INTO `tbl_partner` VALUES ('3', 'Đối t&aacute;c 3', 'http://localhost:8000/letotrans/images/hinh-anh/logo3.jpg', '', '3', '1');
-INSERT INTO `tbl_partner` VALUES ('4', 'Đối t&aacute;c 4', 'http://localhost:8000/letotrans/images/hinh-anh/logo4.jpg', '', '4', '1');
-INSERT INTO `tbl_partner` VALUES ('5', 'Đối t&aacute;c 5', 'http://localhost:8000/letotrans/images/hinh-anh/logo1.jpg', '', '5', '1');
+INSERT INTO `tbl_partner` VALUES ('1', 'Đối t&aacute;c 1', 'http://localhost/letotrans/images/hinh-anh/logo1.jpg', '', '1', '1');
+INSERT INTO `tbl_partner` VALUES ('2', 'Đối t&aacute;c 2', 'http://localhost/letotrans/images/hinh-anh/logo2.jpg', '', '2', '1');
+INSERT INTO `tbl_partner` VALUES ('3', 'Đối t&aacute;c 3', 'http://localhost/letotrans/images/hinh-anh/logo3.jpg', '', '3', '1');
+INSERT INTO `tbl_partner` VALUES ('4', 'Đối t&aacute;c 4', 'http://localhost/letotrans/images/hinh-anh/logo4.jpg', '', '4', '1');
+INSERT INTO `tbl_partner` VALUES ('5', 'Đối t&aacute;c 5', 'http://localhost/letotrans/images/hinh-anh/logo1.jpg', '', '5', '1');
 
 -- ----------------------------
 -- Table structure for tbl_personnel
@@ -512,12 +512,12 @@ CREATE TABLE `tbl_personnel` (
 -- ----------------------------
 -- Records of tbl_personnel
 -- ----------------------------
-INSERT INTO `tbl_personnel` VALUES ('1', 'Benson Casero', 'http://localhost:8000/letotrans/images/nhan-su/ns1.jpg', 'Tổng giám đốc', '1', '1');
-INSERT INTO `tbl_personnel` VALUES ('2', 'Nguyễn Thanh Hải', 'http://localhost:8000/letotrans/images/nhan-su/ns4.jpg', 'Trưởng phòng kinh doanh', '2', '1');
-INSERT INTO `tbl_personnel` VALUES ('3', 'Trần Quốc Chí', 'http://localhost:8000/letotrans/images/nhan-su/ns3.jpg', 'Phó tổng giám đốc', '3', '1');
-INSERT INTO `tbl_personnel` VALUES ('4', 'Võ Chí Công', 'http://localhost:8000/letotrans/images/nhan-su/ns4.jpg', 'Trưởng phòng kỹ thuật', '4', '1');
-INSERT INTO `tbl_personnel` VALUES ('5', 'Nguyễn Thị Thủy', 'http://localhost:8000/letotrans/images/nhan-su/ns5.jpg', 'Nhân viên kinh doanh', '5', '1');
-INSERT INTO `tbl_personnel` VALUES ('6', 'Nguyễn Hồng', 'http://localhost:8000/letotrans/images/nhan-su/ns6.jpg', 'Nhân viên kinh doanh', '6', '1');
+INSERT INTO `tbl_personnel` VALUES ('1', 'Benson Casero', 'http://localhost/letotrans/images/nhan-su/ns1.jpg', 'Tổng giám đốc', '1', '1');
+INSERT INTO `tbl_personnel` VALUES ('2', 'Nguyễn Thanh Hải', 'http://localhost/letotrans/images/nhan-su/ns4.jpg', 'Trưởng phòng kinh doanh', '2', '1');
+INSERT INTO `tbl_personnel` VALUES ('3', 'Trần Quốc Chí', 'http://localhost/letotrans/images/nhan-su/ns3.jpg', 'Phó tổng giám đốc', '3', '1');
+INSERT INTO `tbl_personnel` VALUES ('4', 'Võ Chí Công', 'http://localhost/letotrans/images/nhan-su/ns4.jpg', 'Trưởng phòng kỹ thuật', '4', '1');
+INSERT INTO `tbl_personnel` VALUES ('5', 'Nguyễn Thị Thủy', 'http://localhost/letotrans/images/nhan-su/ns5.jpg', 'Nhân viên kinh doanh', '5', '1');
+INSERT INTO `tbl_personnel` VALUES ('6', 'Nguyễn Hồng', 'http://localhost/letotrans/images/nhan-su/ns6.jpg', 'Nhân viên kinh doanh', '6', '1');
 
 -- ----------------------------
 -- Table structure for tbl_schedule
@@ -569,10 +569,10 @@ CREATE TABLE `tbl_seo` (
 -- ----------------------------
 -- Records of tbl_seo
 -- ----------------------------
-INSERT INTO `tbl_seo` VALUES ('1', 'Câu hỏi thường gặp', 'http://localhost:8000/letotrans/cau-hoi-thuong-gap', '', '', '', '', '0', '0', '1');
-INSERT INTO `tbl_seo` VALUES ('2', 'Câu hỏi tổng quan', 'http://localhost:8000/letotrans/cau-hoi-tong-quan', '', '', '', '', '0', '0', '1');
-INSERT INTO `tbl_seo` VALUES ('3', 'Câu hỏi về phiên dịch viên', 'http://localhost:8000/letotrans/cau-hoi-ve-phien-dich-vien', '', '', '', '', '0', '0', '1');
-INSERT INTO `tbl_seo` VALUES ('4', 'Câu hỏi về phí dịch vụ', 'http://localhost:8000/letotrans/cau-hoi-ve-phi-dich-vu', '', '', '', '', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('1', 'Câu hỏi thường gặp', 'http://localhost/letotrans/cau-hoi-thuong-gap', '', '', '', '', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('2', 'Câu hỏi tổng quan', 'http://localhost/letotrans/cau-hoi-tong-quan', '', '', '', '', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('3', 'Câu hỏi về phiên dịch viên', 'http://localhost/letotrans/cau-hoi-ve-phien-dich-vien', '', '', '', '', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('4', 'Câu hỏi về phí dịch vụ', 'http://localhost/letotrans/cau-hoi-ve-phi-dich-vu', '', '', '', '', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for tbl_service
@@ -641,9 +641,9 @@ CREATE TABLE `tbl_slider` (
 -- ----------------------------
 -- Records of tbl_slider
 -- ----------------------------
-INSERT INTO `tbl_slider` VALUES ('18', 'SỬA CHỮA PHỤC HỒI XE Ô TÔ', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost:8000/letotrans/images/banner/slide9.jpg', '', null, '1');
-INSERT INTO `tbl_slider` VALUES ('19', 'SỬA CHỮA PHỤC HỒI XE Ô TÔ', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost:8000/letotrans/images/banner/slide10.jpg', '', null, '1');
-INSERT INTO `tbl_slider` VALUES ('20', 'SỬA CHỮA PHỤC HỒI XE Ô TÔ', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost:8000/letotrans/images/banner/slide1.jpg', '', null, '1');
+INSERT INTO `tbl_slider` VALUES ('18', 'SỬA CHỮA PHỤC HỒI XE Ô TÔ', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost/letotrans/images/banner/slide9.jpg', '', null, '1');
+INSERT INTO `tbl_slider` VALUES ('19', 'SỬA CHỮA PHỤC HỒI XE Ô TÔ', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost/letotrans/images/banner/slide10.jpg', '', null, '1');
+INSERT INTO `tbl_slider` VALUES ('20', 'SỬA CHỮA PHỤC HỒI XE Ô TÔ', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost/letotrans/images/banner/slide1.jpg', '', null, '1');
 
 -- ----------------------------
 -- Table structure for tbl_tags
