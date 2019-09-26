@@ -206,8 +206,8 @@ global $tmp;global $conf;
 									$code 	= $r_con['code'];
 									$thumb 	= getThumb($r_con['thumb'], 'img-responsive', '');
 									$views 	= (int)$r_con['visited'];
-									$cdate 	= convert_date($row['cdate']);
-									$sapo 	= Substring(html_entity_decode(stripslashes($r_con['sapo'])), 0, 60);
+									$cdate 	= convert_date($r_con['cdate']);
+									$sapo 	= Substring(html_entity_decode(stripslashes($r_con['intro'])), 0, 60);
 									$link 	= ROOTHOST.$r_cate['code'].'/'.$r_con['code'].'.html';
 
 									echo '<div class="col-md-6 col-sm-6 item">

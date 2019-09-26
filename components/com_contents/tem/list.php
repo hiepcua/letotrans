@@ -103,7 +103,7 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
 								?>
 								<div class="item">
 									<div class="box-thumb">
-										<?php echo $thumb;?>
+										<div class="wrap-thumb"><?php echo $thumb;?></div>
 										<div class="name"><?php echo $name; ?></div>
 										<div class="career"><?php echo $career; ?></div>
 									</div>

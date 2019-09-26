@@ -906,6 +906,41 @@
 		top: 25%;
 	}
 	/* End Page contents */
+	/* Page introduce */
+	.page .introduce .row-0{
+		display: block;
+	}
+	/* End Page introduce */
+	/* Page feedback */
+	.list-feedback .item:nth-child(odd) .box-thumb, .list-feedback .item:nth-child(even) .box-thumb{
+		width: 100%;
+		margin-bottom: 10px;
+		margin-right: 0;
+		margin-left: 0;
+	}
+	.list-feedback .item:nth-child(odd) .content{
+		clear: both;
+		padding: 0 10px 20px;
+	}
+	.list-feedback .item:nth-child(odd) .name, .list-feedback .item:nth-child(even) .name{
+		padding-top: 0px;
+		background-size: 50px;
+	}
+	.list-feedback .item:nth-child(odd) .name:after {
+		content: '';
+		position: absolute;
+		height: 1px;
+		width: 88%;
+		bottom: 0px;
+		left: 0;
+		background-color: #ccc;
+	}
+	.list-feedback .item:nth-child(even) .content{
+		width: 100%;
+		float: right;
+		padding: 0 10px 20px;
+	}
+	/* End Page feedback */
 }
 @media (max-width: 450px) {
 	#main-banner .item .content .title{ font-size: 20px; }

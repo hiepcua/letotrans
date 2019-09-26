@@ -363,11 +363,19 @@ a:hover{
 }
 .page .page-title{
 	position: relative;
-	color: #664d2f;
+	color: #333333;
 	font-size: 30px;
 	margin-bottom: 35px;
 	overflow: hidden;
 	text-transform: uppercase;
+}
+.page .page-title:after{
+	content: '';
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	background-color: #ccc;
+	top: 50%;
 }
 .page .page-title>span{
 	padding-right: 15px;
@@ -1417,17 +1425,24 @@ aside.module{
 	overflow: hidden;
 	margin-bottom: 15px;
 }
-#aside-feedback .box-thumb img{
-	width: 70px;
-	border-radius: 50%;
-	float: left;
-	margin-right: 10px;
+#aside-feedback .box-thumb .wrap-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    background-color: #ccc;
 }
 #aside-feedback .name{
 	font-size: 16px;
 	font-weight: 500;
 	position: relative;
 	padding-bottom: 10px;
+	background-image: url('../images/icons/icon-quite.png');
+	background-repeat: no-repeat;
+	background-position: right;
 }
 #aside-feedback .name:after{
 	content: '';
@@ -1515,10 +1530,10 @@ aside.module{
 }
 .page-contents .article .intro{
 	font-size: 16px;
-    font-weight: 500;
-    padding: 0;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ccc;
+	font-weight: 500;
+	padding: 0;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ccc;
 }
 .article.component {
 	background-color: #FFF;
@@ -1533,9 +1548,12 @@ aside.module{
 	padding-left: 20px;
 }
 .page-contents .article h1{
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+.page-contents .article h1:after{
+	display: none;
 }
 .page-contents .article .intro{}
 .page-contents .article .fulltext{}
@@ -1677,3 +1695,205 @@ aside.module{
 	overflow: hidden;
 }
 /* End Page contact */
+
+/* Page introduce */
+.page .introduce{
+	background-color: #FFF;
+	margin-bottom: -40px;
+	padding-bottom: 40px;
+}
+.page .introduce hr{
+	margin-top: 40px; 
+	margin-bottom: 40px; 
+	border: 0; 
+	border-top: 1px solid #ccc;
+}
+.page .introduce .core-value .item {
+	position: relative;
+}
+.page .introduce .core-value .item:after {
+	content: '';
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	top: 30%;
+	background-color: #ff6600;
+}
+.page .introduce .core-value .item:first-child:after{
+	display: none;
+}
+.page .introduce .core-value .content {
+	text-align: center;
+	padding: 15px 0;
+}
+.page .introduce #aside-feedback{
+	position: relative;
+}
+.page .introduce #aside-feedback .item {
+	height: 220px;
+	padding: 30px 40px;
+	background-color: #f2f7fb;
+}
+.page .introduce #aside-feedback .owl-nav{
+	position: absolute;
+	width: 100%;
+	top: 0;
+}
+.page .introduce #aside-feedback .owl-nav .owl-prev{
+	position: absolute;
+	left: -50px;
+	font-size: 80px;
+}
+.page .introduce #aside-feedback .owl-nav .owl-next{
+	position: absolute;
+	right: -50px;
+	top: 10%;
+	font-size: 80px;
+}
+.page .introduce #aside-feedback .owl-dots{
+	text-align: center;
+	margin-top: 15px;
+}
+.page .introduce #aside-feedback .owl-nav [class*=owl-]:hover, .introduce #aside-feedback .owl-pre [class*=owl-]:hover {
+	background-color: inherit;
+	color: #333;
+	outline: 0;
+}
+.page .introduce .btn-view-all-feed-back{
+	margin-top: 20px;
+	border: 1px solid #ff6600;
+	padding: 10px 60px;
+	border-radius: 25px;
+	text-transform: uppercase;
+	transition-duration: 0.3s;
+}
+.page .introduce .btn-view-all-feed-back:hover{
+	color: #FFF;
+	background-color: #ff6600;
+}
+.page .introduce .row-0 {
+	border-top: 1px solid #d4e2ec;
+	box-shadow: 0px 20px 20px 0px #d1dfea;
+}
+.page .introduce .col-left.aside.web-info {
+	margin-bottom: 0;
+}
+.page .introduce .col-right{
+	padding: 0;
+}
+.page .introduce .col-right iframe {
+	height: 360px;
+	padding: 0;
+}
+.aside.web-info ul{
+	padding: 0;
+	margin: 0;
+}
+.aside.web-info ul>li{
+	position: relative;
+	list-style-type: none;
+	padding-left: 28px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.aside.web-info ul>li .glyphicon{
+	position: absolute;
+	left: 0;
+	top: 6px;
+	font-size: 18px;
+}
+/* End Page introduce */
+/* Page feedback */
+.page-feedback{
+	background-color: #FFFFFF;
+}
+.list-feedback{}
+.list-feedback .item{
+	display: block;
+	overflow: hidden;
+	margin-bottom: 40px;
+	border-top: 1px solid #eeeeee;
+	box-shadow: 0px 20px 20px 0px #bccad65c;
+}
+.list-feedback .item:nth-child(odd) .box-thumb{
+	width: 40%;
+	height: auto;
+	overflow: hidden;
+	margin-right: 15px;
+	float: left;
+}
+.list-feedback .item:nth-child(odd) .name{
+	font-size: 20px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	position: relative;
+	background-image: url(../images/icons/icon-big-quite.png);
+	background-repeat: no-repeat;
+	background-position: right 9px;
+}
+.list-feedback .item:nth-child(odd) .name:after{
+	content: '';
+	position: absolute;
+	height: 1px;
+	width: 51%;
+	bottom: 0px;
+	left: 41%;
+	background-color: #ccc;
+}
+.list-feedback .item:nth-child(odd) .name i {
+	font-size: 10px;
+	color: #ff6600;
+	margin-right: 10px;
+}
+.list-feedback .item:nth-child(odd) .career{
+	color: #777;
+	padding: 10px 0 20px;
+}
+.list-feedback .item:nth-child(odd) .content{}
+
+.list-feedback .item:nth-child(even) .box-thumb{
+	width: 40%;
+	height: auto;
+	overflow: hidden;
+	float: right;
+	margin-left: 15px;
+}
+.list-feedback .item:nth-child(even) .name{
+	font-size: 20px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	position: relative;
+	background-image: url('../images/icons/icon-big-quite.png');
+	background-repeat: no-repeat;
+	background-position: right 9px;
+}
+.list-feedback .item:nth-child(even) .name:after{
+	content: '';
+	position: absolute;
+	height: 1px;
+	width: 87%;
+	bottom: 0px;
+	right: 31%;
+	left: 0;
+	background-color: #ccc;
+}
+.list-feedback .item:nth-child(even) .name i {
+	font-size: 10px;
+	color: #ff6600;
+	margin-right: 10px;
+}
+.list-feedback .item:nth-child(even) .career{
+	color: #777;
+	padding: 10px 0 20px;
+}
+.list-feedback .item:nth-child(even) .content{
+	width: 57%;
+    float: right;
+}
+/* End Page feedback */
+/* Page FAQ */
+.page-FAQ{
+	background-color: #FFFFFF;
+}
+/* End Page FAQ */

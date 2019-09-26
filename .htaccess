@@ -2,6 +2,8 @@ RewriteEngine On
 RewriteRule ^/?$ 								        index.php
 RewriteRule ^trang-chu/?$ 								index.php
 RewriteRule ^lien-he/?$ 								index.php?com=contact
+RewriteRule ^y-kien-khach-hang/?$ 						index.php?com=feedback
+RewriteRule ^cau-hoi-thuong-gap/?$ 						index.php?com=contents&viewtype=question&code=$1
 RewriteRule ^blog/?$   									index.php?com=contents&viewtype=block
 
 RewriteRule ^gallery/?$                                 index.php?com=gallery [QSA]
@@ -9,6 +11,7 @@ RewriteRule ^gallery/([0-9]*)/([0-9a-zA-Z\-]+).html?$   index.php?com=gallery&vi
 
 
 # Contents
+RewriteRule ^gioi-thieu/?$ 	                            index.php?com=contents&viewtype=introduce
 RewriteRule ^tim-kiem/?$ 	                            index.php?com=contents&viewtype=search [QSA]
 RewriteRule ^tin-tuc/?$ 	                            index.php?com=contents&viewtype=list [QSA]
 RewriteRule ^([0-9a-zA-Z\-]+)/?$                        index.php?com=contents&viewtype=block&code=$1 [QSA]

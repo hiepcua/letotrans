@@ -36,7 +36,7 @@ if ($objmysql->Num_rows()>0) {
 }
 ?>
 <section class="page page-contents">
-	<div class="article component">
+	<div class="article">
 		<div class="container">
 			<nav>
 				<ol class="breadcrumb">
