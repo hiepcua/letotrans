@@ -370,7 +370,29 @@ global $tmp;global $conf;
 		</footer>
 	</div>
 
+	<div id="notify"></div>
+
 	<script type="text/javascript">
+		function show_message(message, property){
+			var html = '';
+	        if(message == 'error'){
+	            html = "<div class='alert alert-danger alert-dismissable' role='alert'>";
+	            html+= "<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>";
+	            html+= "<strong>Warning!</strong>"+ property +"</div>";
+	        }else if (message == 'success') {
+	            html = "<div class='alert alert-success alert-dismissable' role='alert'>";
+	            html+= "<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>"
+	            html+= "<strong>Success!</strong>"+ property +"</div>";
+	        }
+	        $('#notify').html(html);
+
+	        window.setTimeout(function() {
+	        	$(".alert").fadeTo(500, 0).slideUp(500, function(){
+	        		$(this).remove(); 
+	        	});
+	        }, 2500);
+	    }
+
 		$(document).ready(function(){
 			$('#main-banner').owlCarousel({
 				navigation : true,

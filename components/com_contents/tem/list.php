@@ -172,6 +172,7 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
 		slideSpeed : 3000,
 		paginationSpeed : 400,
 		loop: true,
+		autoplay:true,
 		items : 1, 
 		itemsDesktop : false,
 		itemsDesktopSmall : false,

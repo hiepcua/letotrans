@@ -44,13 +44,44 @@ RewriteRule ^seo/delete/([0-9]+)?$ 					index.php?com=seo&task=delete&id=$1
 RewriteRule ^seo/active/([0-9]+)?$ 					index.php?com=seo&task=active&id=$1
 
 
+# Order
+RewriteRule ^order/?$ 								index.php?com=order 	[QSA]
+RewriteRule ^order/add?$ 							index.php?com=order&task=add
+RewriteRule ^order/edit/([0-9]+)?$ 					index.php?com=order&task=edit&id=$1
+RewriteRule ^order/active/([0-9]+)?$ 				index.php?com=order&task=active&id=$1
+RewriteRule ^order/delete/([0-9]+)?$ 				index.php?com=order&task=delete&id=$1
+
+
+# Service
+RewriteRule ^service/?$ 							index.php?com=service 	[QSA]
+RewriteRule ^service/add?$ 							index.php?com=service&task=add
+RewriteRule ^service/edit/([0-9]+)?$ 				index.php?com=service&task=edit&id=$1
+RewriteRule ^service/active/([0-9]+)?$ 				index.php?com=service&task=active&id=$1
+RewriteRule ^service/delete/([0-9]+)?$ 				index.php?com=service&task=delete&id=$1
+
+
+# Service type
+RewriteRule ^service_type/?$ 						index.php?com=service_type 	[QSA]
+RewriteRule ^service_type/add?$ 					index.php?com=service_type&task=add
+RewriteRule ^service_type/edit/([0-9]+)?$ 			index.php?com=service_type&task=edit&id=$1
+RewriteRule ^service_type/active/([0-9]+)?$ 		index.php?com=service_type&task=active&id=$1
+RewriteRule ^service_type/delete/([0-9]+)?$ 		index.php?com=service_type&task=delete&id=$1
+
+
+# Service package
+RewriteRule ^package/?$ 							index.php?com=package 	[QSA]
+RewriteRule ^package/add?$ 							index.php?com=package&task=add
+RewriteRule ^package/edit/([0-9]+)?$ 				index.php?com=package&task=edit&id=$1
+RewriteRule ^package/active/([0-9]+)?$ 				index.php?com=package&task=active&id=$1
+RewriteRule ^package/delete/([0-9]+)?$ 				index.php?com=package&task=delete&id=$1
+
+
 # Contents
 RewriteRule ^contents/?$ 							index.php?com=contents 	[QSA]
 RewriteRule ^contents/add?$ 						index.php?com=contents&task=add
 RewriteRule ^contents/edit/([0-9]+)?$ 				index.php?com=contents&task=edit&id=$1
 RewriteRule ^contents/active/([0-9]+)?$ 			index.php?com=contents&task=active&id=$1
 RewriteRule ^contents/delete/([0-9]+)?$ 			index.php?com=contents&task=delete&id=$1
-RewriteRule ^contents/category/([0-9]+)?$ 			index.php?com=contents&task=list&cate=$1
 
 # Tag
 RewriteRule ^tag/?$ 								index.php?com=tag&task=list

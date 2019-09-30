@@ -108,8 +108,8 @@ class CLS_MENUITEM{
 			echo "</label></td>";
 			echo "<td width='50' align='center'>$par_id</td>";
 			echo "<td>$str_space $name</td>";
-			echo "<td align='left'>$str_space $code</td>";
 			echo "<td width='100' align='center'>$type &nbsp;</td>";
+			echo "<td align='left'>$str_space $code</td>";
 			echo "<td width='50' align='center'><input type='text' name='txt_order' id='txt_order' value='$order' size='4' class='order'></td>";
 			echo "<td width='50' align='center'>";
 			echo "<a href='".ROOTHOST_ADMIN.COMS."/".$rows['menu_id']."/active/$mnuids'>";

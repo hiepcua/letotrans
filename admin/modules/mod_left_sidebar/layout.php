@@ -14,6 +14,17 @@ $objmysql = new CLS_MYSQL();
 		</li>
 
 		<li>
+			<div class="title"><i class="fa fa-list" aria-hidden="true"></i> <span>Dịch vụ</span></div>
+			<ul class="sub">
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>service/add" title="Thêm dịch vụ"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm dịch vụ</span></a></li>
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>service" title="Ds dịch vụ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds dịch vụ</span></a></li>
+
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>service_type" title="Ds lĩnh vực"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds lĩnh vực</span></a></li>
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>package" title="Ds gói dịch vụ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds gói dịch vụ</span></a></li>
+			</ul>
+		</li>
+
+		<li>
 			<div class="title"><i class="fa fa-list" aria-hidden="true"></i> <span>Tin tức</span></div>
 			<ul class="sub">
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>contents/add" title="Thêm bài viết"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm tin</span></a></li>

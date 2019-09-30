@@ -25,12 +25,13 @@ $r_cate = $objmysql->Fetch_Assoc();
 				$sql_cate2 = "SELECT * FROM tbl_categories WHERE isactive = 1 AND `par_id` = '".$r_cate['id']."'";
 				$objmysql->Query($sql_cate2);
 				while ($r_cate2 = $objmysql->Fetch_Assoc()) {
-					$cate_name = stripslashes($r_cate2['title']);
+					$cate_name = stripslashes($r_cate2['name']);
+					echo '<div id="faq-group-'.$r_cate2['id'].'">';
 					echo '<h2>'.$cate_name.'</h2>';
 
 					$sql = "SELECT * FROM tbl_contents WHERE isactive = 1 AND `category_id` = '".$r_cate2['id']."' ORDER BY `cdate` DESC";
 					$objdata->Query($sql);
-					while ($r_con = $objmysql->Fetch_Assoc()) {
+					while ($r_con = $objdata->Fetch_Assoc()) {
 						$title 	= stripcslashes($r_con['title']);
 						$code 	= $r_con['code'];
 						$thumb 	= getThumb($r_con['thumb'], 'img-responsive', '');
@@ -40,19 +41,13 @@ $r_cate = $objmysql->Fetch_Assoc();
 						$link 	= ROOTHOST.$r_cate['code'].'/'.$code.'.html';
 					
 						echo '<div class="item">
-							<div class="box-thumb">
-								<a href="'.$link.'" title="'.$title.'">'.$thumb.'</a>
-								<h3 class="title"><a href="'.$link.'" title="'.$title.'">'.$title.'</a></h3>
-							</div>
-							<div class="content">
+							<h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i><a data-toggle="collapse" data-parent="#faq-group-'.$r_cate2['id'].'" href="#faq-collapse-'.$r_con['id'].'" title="'.$title.'">'.$title.'</a></h3>
+							<div id="faq-collapse-'.$r_con['id'].'" class="panel-collapse collapse">
 								<div class="sapo">'.$intro.'</div>
-								<div class="info">
-									<span class="date">'.$cdate.'</span>
-									<div class="readmore"><a href="'.$link.'" title="Xem chi tiết">Xem chi tiết</a></div>
-								</div>
 							</div>
 						</div>';
 					}
+					echo '</div><hr>';
 				}
 				?>
 			</div>

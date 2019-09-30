@@ -37,14 +37,14 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
 					</a>
 				</li>
 				<li class="breadcrumb-item active" aria-current="page">
-					Tin tức
+					<?php echo $r_cate['name']; ?>
 				</li>
 			</ol>
 		</nav>
 		<div class="page-content">
 			<div class="row">
 				<div class="col-md-9 col-sm-8">
-					<h1 class="page-title"><span>Tin tức</span></h1>
+					<h1 class="page-title"><span><?php echo $r_cate['name']; ?></span></h1>
 					<div class="list-articles">
 						<?php
 						$star = ($cur_page - 1) * $MAX_ROWS;
@@ -174,6 +174,7 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
 		slideSpeed : 3000,
 		paginationSpeed : 400,
 		loop: true,
+		autoplay:true,
 		items : 1, 
 		itemsDesktop : false,
 		itemsDesktopSmall : false,

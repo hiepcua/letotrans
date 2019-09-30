@@ -336,7 +336,7 @@ a:hover{
 }
 /* Page */
 .component {
-	padding-bottom: 40px;
+	padding-bottom: 0px;
 	background-color: #ecf3f9;
 	overflow: hidden;
 }
@@ -1426,14 +1426,14 @@ aside.module{
 	margin-bottom: 15px;
 }
 #aside-feedback .box-thumb .wrap-thumb {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: inline-block;
-    float: left;
-    margin-right: 10px;
-    background-color: #ccc;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	overflow: hidden;
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+	background-color: #ccc;
 }
 #aside-feedback .name{
 	font-size: 16px;
@@ -1535,9 +1535,8 @@ aside.module{
 	padding-bottom: 15px;
 	border-bottom: 1px solid #ccc;
 }
-.article.component {
-	background-color: #FFF;
-	margin-bottom: -40px;
+.page-contents .article {
+	padding-bottom: 40px;
 }
 .page-contents .article .row-flex{
 	margin-bottom: 30px;
@@ -1567,7 +1566,6 @@ aside.module{
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	margin-bottom: -40px;
 }
 .shake-hands .bg-overlay{
 	position: absolute;
@@ -1699,7 +1697,6 @@ aside.module{
 /* Page introduce */
 .page .introduce{
 	background-color: #FFF;
-	margin-bottom: -40px;
 	padding-bottom: 40px;
 }
 .page .introduce hr{
@@ -1889,11 +1886,328 @@ aside.module{
 }
 .list-feedback .item:nth-child(even) .content{
 	width: 57%;
-    float: right;
+	float: right;
 }
 /* End Page feedback */
 /* Page FAQ */
 .page-FAQ{
 	background-color: #FFFFFF;
 }
+.page-FAQ .list-items h2{
+	color: #ff6600;
+	font-weight: 500;
+	margin-bottom: 15px;
+}
+.page-FAQ .list-items .item{
+	margin-bottom: 15px;
+}
+.page-FAQ .list-items .item h3{
+	font-weight: 400;
+}
+.page-FAQ .list-items .item h3 a {
+	font-size: 15px;
+	font-weight: 300;
+	border-bottom: 1px solid #ababab;
+}
+.page-FAQ .list-items .item h3 a:hover, .page-FAQ .list-items .item h3 a:focus {
+	color: inherit;
+	outline: 0;
+	text-decoration: none;
+}
+.page-FAQ .list-items .item h3 i{
+	font-size: 8px;
+	color: #ff6600;
+	margin-right: 8px;
+}
+.page-FAQ .list-items .item .collapse.in {
+	position: relative;
+	font-size: 15px;
+	background-color: #eee;
+	padding: 20px;
+	transition-duration: 0.3s;
+	margin-top: 15px;
+}
+.page-FAQ .list-items .item .collapse.in:before {
+	content: "\A";
+	position: absolute;
+	left: 30px;
+	top: -10px;
+	border-top: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #eee;
+}
 /* End Page FAQ */
+/* End Page Language */
+.page-languages{
+	background-color: #FFFFFF;
+	padding-bottom: 40px;
+}
+.translate_item {
+	margin-bottom: 15px;
+}
+.translate_item strong{
+	margin-right: 15px;
+}
+#translate_from{
+	margin-bottom: 6px;
+}
+#trans-from, #trans-to {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+#trans-from li, #trans-to li {
+	list-style-type: none;
+}
+#trans-from li i, #trans-to li i {
+	font-size: 12px;
+	padding-left: 6px;
+}
+#toolbar-from, #toolbar-to {
+	padding: 0 20px;
+	font-size: 16px;
+}
+
+.languages_list{
+	display: block;
+	overflow: hidden;
+}
+.languages_list ul {
+	padding: 0;
+	margin: 0;
+}
+.languages_list .item{
+	width: 25%;
+	float: left;
+	list-style-type: none;
+	margin-bottom: 10px;
+}
+.languages_list .item a:focus{
+	outline: 0;
+	text-decoration: none;
+}
+.languages_list .flag{
+	width: 35px;
+	float: left;
+	margin-right: 10px;
+}
+.languages_list .name{
+	margin: 0;
+	padding-top: 10px;
+}
+.languages_list .name i.fa{
+	display: none;
+	color: green;
+	padding-left: 10px;
+}
+.languages_list .selected i.fa{
+	display: unset;
+}
+.languages_list_toolbar {
+	clear: both;
+	margin-top: 30px;
+	padding-top: 30px;
+	border-top: 1px solid #ccc;
+}
+.btn-submit-frm-languages {
+	background-color: #ff6600;
+	border-radius: 25px;
+	padding: 10px 80px;
+	text-transform: uppercase;
+	color: #FFF;
+	margin-top: 20px;
+	transition-duration: 0.3s;
+}
+/* End Page Language */
+/* Notify */
+#notify {
+	width: 350px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1060;
+	margin: auto;
+}
+/* End Notify */
+/* End Page Order */
+.page-order .page-title:after{
+	display: none;
+}
+.page-order .page-title{
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+}
+/* End Page Order */
+/* Page Service */
+.page-service{
+	background-color: #FFFFFF;
+	padding-bottom: 40px;
+}
+.list-service{}
+.list-service .view-detail{
+	margin-top: 30px;
+    margin-bottom: 50px;
+    display: inline-block;
+    border: 2px solid #ff6600;
+    padding: 10px 80px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #ff6600;
+}
+.row-service .item{
+	width: 33%;
+	float: left;
+}
+.row-service .item .inner{
+	position: relative;
+	height: 100%;
+	border: 1px solid #eee;
+	background-color: #FFF;
+	box-shadow: 0 0 30px 0 rgba(202, 235, 255, 0.62);
+	z-index: 1;
+}
+.row-service .item .header-title{
+	position: relative;
+	font-size: 22px;
+	text-transform: uppercase;
+	padding: 20px 15px 15px;
+	border-bottom: 1px solid #ccc;
+	background-color: #FFF;
+	z-index: 1;
+}
+.row-service .item .content{
+	padding: 20px 15px 40px;
+	font-size: 15px;
+    background-color: #FFF;
+}
+.row-service .item-service .header-title{
+	padding-left: 40px;
+	font-weight: 600;
+}
+.row-service .item-service .header-title i{
+	position: absolute;
+	font-size: 12px;
+	color: #ff6600;
+	top: 45%;
+	left: 15px;
+}
+.row-service .item ul{
+	padding: 0;
+	margin: 0;
+}
+.row-service .item ul li{
+	list-style-type: none;
+	position: relative;
+	padding-left: 25px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+.row-service .item ul li i{
+	position: absolute;
+	font-size: 12px;
+	color: #ff6600;
+	left: 0;
+	top: 10px;
+}
+.row-service .item.item-service-price li {
+    border-bottom: 1px solid #ccc;
+}
+.row-service .item.item-service-price li:last-child {
+    border-bottom: 0px;
+}
+.row-service .item.item-service {
+	padding-right: 52px;
+}
+.row-service .item.item-service-type{
+	padding-left: 26px;
+	padding-right: 26px;
+}
+.row-service .item.item-service-price{
+	padding-left: 52px;
+}
+.row-service .item.item-service-price .btn-order {
+    margin-top: 20px;
+    width: 80%;
+    text-align: center;
+    background-color: #ff6600;
+    color: #FFF;
+    border-radius: 25px;
+}
+.row-service .item.item-service-price .inner:after{
+	display: none;
+}
+/* End Page Service */
+/* Page Service detail */
+.block-package{
+	margin-bottom: 50px;
+}
+.block-package .item{
+	height: 100%;
+	border: 1px solid #eee;
+}
+.block-package .item.selected {
+    box-shadow: 0 0 30px 0 rgba(202, 235, 255, 0.62);
+}
+.block-package .item .header{
+	color: #FFFFFF;
+	padding: 15px;
+	text-align: center;
+	padding-bottom: 50px;
+}
+.block-package .wrap-item:nth-child(1) .header{
+    background: linear-gradient(to right, #a2a2a28c 0%, #b5b3b3 100%);
+}
+.block-package .wrap-item:nth-child(2) .header{
+    background: linear-gradient(to right, #3d3d3d 0%, #141414 100%);
+}
+.block-package .wrap-item:nth-child(3) .header{
+    background: linear-gradient(to right, #ff9a57 0%, #ff6702 100%);
+}
+.block-package .item .header .name{
+	font-weight: 600;
+	font-size: 18px;
+}
+.block-package .item .header .radio{
+	width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    margin-left: -12.5px;
+    pointer-events: none;
+}
+.block-package .item .header .radio .radio-button{
+	display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background: url('../images/icons/radio-button.png') center top no-repeat;
+}
+.block-package .wrap-item:nth-child(1) .item.selected .header .radio .radio-button{
+	background-position: 0 -77px;
+}
+.block-package .wrap-item:nth-child(2) .item.selected .header .radio .radio-button{
+	background-position: 0 -77px;
+}
+.block-package .wrap-item:nth-child(3) .item.selected .header .radio .radio-button{
+	background-position: 0 -77px;
+}
+.block-package .item .header .radio .radio-button>input{
+	display: none;
+}
+.block-package .item .content{
+	padding: 15px;
+}
+.block-package .item .content ul{
+	padding: 0;
+	margin: 0;
+}
+.block-package .item .content li{
+	list-style-type: none;
+}
+/* End Page Service detail*/

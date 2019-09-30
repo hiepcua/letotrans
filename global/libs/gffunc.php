@@ -380,8 +380,4 @@ function convert_date($int_date){
     }
     return $str_tmp;
 }
-
-function notify(){
-    
-}
 ?>

@@ -86,8 +86,8 @@
                 <th width="30" align="center"><input type="checkbox" name="chkall" id="chkall" value="" onclick="docheckall('chk',this.checked);" /></th>
                 <th width="50" align="center">Parent ID</th>
                 <th align="center">Tên</th>
-                <th align="center">Mã</th>
                 <th width="100" align="center">Kiểu hiển thị</th>
+                <th align="center">Mã</th>
                 <th width="70" style="text-align: center;">Sắp xếp
                     <a href="javascript:saveOrder()">
                         <i class="fa fa-floppy-o" aria-hidden="true"></i>

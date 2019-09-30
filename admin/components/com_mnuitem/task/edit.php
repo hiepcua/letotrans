@@ -130,7 +130,7 @@ if(isset($_POST["txt_viewtype"])){
 					</select>
 					<script type="text/javascript">
 						$(document).ready(function() {
-							cbo_Selected('cbo_cate','<?php echo $row['cate_id'];?>');
+							cbo_Selected('cbo_cate','<?php echo $row['category_id'];?>');
 							$("#cbo_cate").select2();
 						});
 					</script>

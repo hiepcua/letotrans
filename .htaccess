@@ -4,10 +4,16 @@ RewriteRule ^trang-chu/?$ 								index.php
 RewriteRule ^lien-he/?$ 								index.php?com=contact
 RewriteRule ^y-kien-khach-hang/?$ 						index.php?com=feedback
 RewriteRule ^cau-hoi-thuong-gap/?$ 						index.php?com=contents&viewtype=question&code=$1
-RewriteRule ^blog/?$   									index.php?com=contents&viewtype=block
 
-RewriteRule ^gallery/?$                                 index.php?com=gallery [QSA]
-RewriteRule ^gallery/([0-9]*)/([0-9a-zA-Z\-]+).html?$   index.php?com=gallery&viewtype=block&id=$1&code=$2 [QSA]
+
+RewriteRule ^test/?$ 									index.php?com=services&viewtype=test
+
+
+# Service
+RewriteRule ^ngon-ngu/?$ 	                            index.php?com=services&viewtype=languages
+RewriteRule ^order/?$ 	                            	index.php?com=services&viewtype=order 	[QSA]
+RewriteRule ^dich-vu/?$ 	                            index.php?com=services&viewtype=list
+RewriteRule ^dich-vu/([0-9a-zA-Z\-]+).html/?$  			index.php?com=services&viewtype=detail&code=$1
 
 
 # Contents
