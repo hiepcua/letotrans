@@ -68,6 +68,14 @@ RewriteRule ^service_type/active/([0-9]+)?$ 		index.php?com=service_type&task=ac
 RewriteRule ^service_type/delete/([0-9]+)?$ 		index.php?com=service_type&task=delete&id=$1
 
 
+# Product type
+RewriteRule ^product_type/?$ 						index.php?com=product_type 	[QSA]
+RewriteRule ^product_type/add?$ 					index.php?com=product_type&task=add
+RewriteRule ^product_type/edit/([0-9]+)?$ 			index.php?com=product_type&task=edit&id=$1
+RewriteRule ^product_type/active/([0-9]+)?$ 		index.php?com=product_type&task=active&id=$1
+RewriteRule ^product_type/delete/([0-9]+)?$ 		index.php?com=product_type&task=delete&id=$1
+
+
 # Service package
 RewriteRule ^package/?$ 							index.php?com=package 	[QSA]
 RewriteRule ^package/add?$ 							index.php?com=package&task=add

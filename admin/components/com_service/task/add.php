@@ -95,10 +95,21 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
 
                 <div class="col-md-3 col-sm-4">
                     <div class="form-group">
+                        <label>Lĩnh vực</label>
+                        <?php
+                        $sql_service_type = "SELECT * FROM tbl_service_type WHERE isactive = 1";
+                        $objmysql->Query($sql_service_type);
+                        while ($r_ser_type = $objmysql->Fetch_Assoc()) {
+                            echo '<div class="checkbox"><label><input type="checkbox" value="'.$r_ser_type['id'].'" name="chk_service[]">'.$r_ser_type['name'].'</label></div>';
+                        }
+                        ?>
+                    </div>
+                    <hr>
+                    <div class="form-group">
                         <label>Tác giả <span class="cred">*</span></label>
                         <input type="text" name="txt_author" value="<?php echo $_SESSION[MD5($_SERVER['HTTP_HOST']).'_USERLOGIN']['username']; ?>" class="form-control" id="txt_author" readonly placeholder="">
                     </div>
-
+                    <hr>
                     <div class="form-group">
                         <label>Hiển thị</label>
                         <div>

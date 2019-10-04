@@ -49,11 +49,11 @@ class CLS_MYSQL{
 	public function Query($sql){
 		if($this->connect())
 		{
-			@mysql_query('SET character_set_results=utf8');
-			@mysql_query('SET character_set_client=utf8');
-			@mysql_query('SET character_set_connection=utf8');
-			@mysql_query('SET character_set_results=utf8');
-			@mysql_query('SET collation_connection=utf8_unicode_ci');
+			@mysql_query('SET character_set_results=utf8mb4');
+			@mysql_query('SET character_set_client=utf8mb4');
+			@mysql_query('SET character_set_connection=utf8mb4');
+			@mysql_query('SET character_set_results=utf8mb4');
+			@mysql_query('SET collation_connection=utf8mb4_unicode_ci');
 			@$rs=mysql_query($sql,$this->conn);
 			@$this->lastid=mysql_insert_id();
 			$this->disconnect();
@@ -66,11 +66,11 @@ class CLS_MYSQL{
 	}
 	public function Exec($sql){
 		if($this->connect()){
-			@mysql_query('SET character_set_results=utf8');
-			@mysql_query('SET character_set_client=utf8');
-			@mysql_query('SET character_set_connection=utf8');
-			@mysql_query('SET character_set_results=utf8');
-			@mysql_query('SET collation_connection=utf8_unicode_ci');
+			@mysql_query('SET character_set_results=utf8mb4');
+			@mysql_query('SET character_set_client=utf8mb4');
+			@mysql_query('SET character_set_connection=utf8mb4');
+			@mysql_query('SET character_set_results=utf8mb4');
+			@mysql_query('SET collation_connection=utf8mb4_unicode_ci');
 			$result=mysql_query($sql,$this->conn);
 			@$this->lastid=mysql_insert_id();
 			$this->disconnect();

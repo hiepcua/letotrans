@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2019-09-30 07:33:24
+Date: 2019-10-04 07:47:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,16 +22,16 @@ DROP TABLE IF EXISTS `tbl_album`;
 CREATE TABLE `tbl_album` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) DEFAULT NULL,
-  `code` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` text COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `cdate` datetime NOT NULL,
   `visited` int(11) DEFAULT '0',
   `order` tinyint(5) DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_album
@@ -46,21 +46,21 @@ CREATE TABLE `tbl_boxes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `account_id` int(11) NOT NULL DEFAULT '0',
   `type` int(11) DEFAULT NULL COMMENT 'inbox=1 | outbox=2 | draft=0 | trash=-1',
-  `from` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `to` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `bcc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `subject` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `content` longtext COLLATE utf8_unicode_ci,
-  `encoding` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `subject_encoding` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `from` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `to` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bcc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci,
+  `encoding` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject_encoding` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `create_date` datetime DEFAULT NULL,
   `size` double DEFAULT NULL COMMENT 'Dung lượng',
-  `attachment` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Đính kèm',
+  `attachment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Đính kèm',
   `priority` int(11) DEFAULT NULL COMMENT 'Mức độ ưu tiên',
   `viewed` int(11) DEFAULT '0' COMMENT 'not view = 0 | viewed = 1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_boxes
@@ -73,16 +73,16 @@ DROP TABLE IF EXISTS `tbl_categories`;
 CREATE TABLE `tbl_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `par_id` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(11) DEFAULT '0',
   `lag_id` int(11) DEFAULT '0',
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_categories
@@ -100,33 +100,33 @@ DROP TABLE IF EXISTS `tbl_configsite`;
 CREATE TABLE `tbl_configsite` (
   `config_id` int(11) NOT NULL AUTO_INCREMENT,
   `tem_id` int(11) DEFAULT NULL,
-  `company_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `intro` longtext COLLATE utf8_unicode_ci,
-  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tel` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
-  `fax` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `website` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `banner` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `logo` text COLLATE utf8_unicode_ci,
-  `work_time` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_keyword` longtext COLLATE utf8_unicode_ci,
-  `meta_descript` longtext COLLATE utf8_unicode_ci,
+  `company_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `intro` longtext COLLATE utf8mb4_unicode_ci,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tel` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fax` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `website` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` text COLLATE utf8mb4_unicode_ci,
+  `work_time` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci,
+  `meta_descript` longtext COLLATE utf8mb4_unicode_ci,
   `lang_id` int(11) NOT NULL DEFAULT '0',
-  `contact` text COLLATE utf8_unicode_ci NOT NULL,
-  `footer` text COLLATE utf8_unicode_ci NOT NULL,
-  `nick_yahoo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `name_yahoo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `skype1` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
-  `skype2` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
-  `twitter` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `gplus` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `facebook` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `youtube` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `contact` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `footer` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nick_yahoo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_yahoo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `skype1` varchar(70) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `skype2` varchar(70) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `twitter` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gplus` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `facebook` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `youtube` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`config_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_configsite
@@ -139,16 +139,16 @@ INSERT INTO `tbl_configsite` VALUES ('1', '0', 'Mua bán nhà đất 24h', 'Mua 
 DROP TABLE IF EXISTS `tbl_contact`;
 CREATE TABLE `tbl_contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fullname` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tittle` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `contents` text COLLATE utf8_unicode_ci,
+  `fullname` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tittle` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contents` text COLLATE utf8mb4_unicode_ci,
   `cdate` int(11) DEFAULT NULL,
   `isactive` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_contact
@@ -161,19 +161,19 @@ DROP TABLE IF EXISTS `tbl_contents`;
 CREATE TABLE `tbl_contents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `code` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
-  `images` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sapo` text COLLATE utf8_unicode_ci,
-  `intro` text COLLATE utf8_unicode_ci,
-  `fulltext` longtext COLLATE utf8_unicode_ci,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `images` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sapo` text COLLATE utf8mb4_unicode_ci,
+  `intro` text COLLATE utf8mb4_unicode_ci,
+  `fulltext` longtext COLLATE utf8mb4_unicode_ci,
   `type_of_land_id` int(11) DEFAULT NULL,
   `area` float DEFAULT NULL,
   `price` float DEFAULT NULL,
-  `list_conid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `list_tagid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `author` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `list_conid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `list_tagid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `author` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cdate` int(11) DEFAULT NULL,
   `mdate` int(11) DEFAULT NULL,
   `visited` int(11) DEFAULT '0',
@@ -182,7 +182,7 @@ CREATE TABLE `tbl_contents` (
   `ishot` tinyint(4) DEFAULT '0',
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_contents
@@ -196,7 +196,7 @@ INSERT INTO `tbl_contents` VALUES ('6', '5', '5 Steps to a Successful Internatio
 INSERT INTO `tbl_contents` VALUES ('7', '5', 'How to Overcome Cross Cultural Barriers in Business Negotiations', 'how-to-overcome-cross-cultural-barriers-in-business-negotiations', 'http://localhost/letotrans/images/hinh-anh/post-07.jpg', '[]', '', '<p>Running a business and being successful at it often requires meeting people from all around the globe and doing business with them. Although you have the best possible intentions, it may happen that a business negotiation with someone from a different culture simply goes in the wrong direction and you fail to seal the deal. The reason behind it might be cultural differences.</p>', '<p>Cross-cultural barriers in international business negotiation are common and you need to find a way to overcome them. If you don&rsquo;t, you might be unable to move your business globally and continue running a successful company.</p>\r\n<p>&nbsp;</p>\r\n<p>Take a look at some useful tips on how to move past cross cultural barriers and differences in business negotiations.</p>\r\n<p>&nbsp;</p>\r\n<p>Do Your Homework</p>\r\n<p>It goes without saying that you need to find a way to pay respect to the other party&rsquo;s cultural habits and values. That means that you need to do your research and learn about their culture.</p>\r\n<p>&nbsp;</p>\r\n<p>That includes learning about:</p>\r\n<p>&nbsp;</p>\r\n<p>greetings</p>\r\n<p>cultural values</p>\r\n<p>rituals</p>\r\n<p>taboos</p>\r\n<p>expectations</p>\r\n<p>By learning about the above-mentioned, you&rsquo;ll know what to expect from the person you&rsquo;re talking to, how to react, and how to respond to certain actions.</p>\r\n<p>&nbsp;</p>\r\n<p>This will show the other person you&rsquo;re aware of their culture and they&rsquo;ll appreciate your effort. In addition, you&rsquo;ll prevent yourself from doing anything offensive or upsetting for the other party.</p>\r\n<p>&nbsp;</p>\r\n<p>Don&rsquo;t Overstep</p>\r\n<p>When you&rsquo;re getting prepared for negotiating across cultures, you&rsquo;ll try to gather as much information as possible about the culture of the person you&rsquo;re meeting.</p>\r\n<p>&nbsp;</p>\r\n<p>However, keep in mind you&rsquo;re not actually learning about the person. You&rsquo;re learning about the stereotype.</p>\r\n<p>&nbsp;</p>\r\n<p>This means that you need to be very careful about the source of information you&rsquo;re relying on.</p>\r\n<p>&nbsp;</p>\r\n<p>It&rsquo;s best that you:</p>\r\n<p>&nbsp;</p>\r\n<p>talk to a member of the same culture you&rsquo;re friends with</p>\r\n<p>talk to someone who&rsquo;s had experience with that specific culture</p>\r\n<p>The internet can be filled with stereotypical information such as &ldquo;all Russians drink vodka&rdquo;. However, if you prepare a bottle of vodka for a business meeting, the other person might get super-offended.</p>\r\n<p>&nbsp;</p>\r\n<p>Therefore, make sure you&rsquo;ve got all the right information, that actually make a difference in a conversation.</p>\r\n<p>&nbsp;</p>\r\n<p>Be Aware of Your Own Culture</p>\r\n<p>If the person you&rsquo;re negotiating with is equally as considerate as you, they&rsquo;ve probably done their own research about your culture.</p>\r\n<p>&nbsp;</p>\r\n<p>Try and understand what kind of an image they have about you as the member of a specific culture, and what is it that they expect from meeting you.</p>\r\n<p>&nbsp;</p>\r\n<p>Then, try and either rebut the bad stereotypes or empower the good ones, and make sure the other party feels comfortable talking to you from the beginning.</p>\r\n<p>&nbsp;</p>\r\n<p>Find Common Grounds</p>\r\n<p>Finally, to avoid cultural differences in negotiation, you can go ahead and try finding something you and the other person have in common.</p>\r\n<p>&nbsp;</p>\r\n<p>Finding common grounds is almost like speaking the same language. It will help both you and the other party in terms of:</p>\r\n<p>&nbsp;</p>\r\n<p>reducing stress</p>\r\n<p>If you manage to find something in common, you&rsquo;ll be able to feel less stressed out and more open towards the entire negotiation.</p>\r\n<p>&nbsp;</p>\r\n<p>breaking the ice</p>\r\n<p>Sharing ideas, customs, or elements of a culture will be a great ice-breaker for you and the other person. It&rsquo;ll help you kick start the negotiation and seal the deal in no time.</p>\r\n<p>&nbsp;</p>\r\n<p>feeling a connection</p>\r\n<p>It&rsquo;s important that you establish a connection with the other person. It may be hard when you don&rsquo;t speak the same language, but finding something in common will help you do it.</p>\r\n<p>&nbsp;</p>\r\n<p>Make sure you try out different thing until you hit the right note and engage in a meaningful conversation with the other party.</p>\r\n<p>&nbsp;</p>\r\n<p>Conclusion</p>\r\n<p>It&rsquo;s obvious that cultural differences can negatively affect international business negotiations. However, it doesn&rsquo;t have to be the case. You do have to walk the extra mile and prepare thoroughly to be able to build a bridge between the two cultures. But, once you do it, you&rsquo;ll have nothing to worry about. Make sure to use the advice we gave you and win all your international business negotiations.</p>', '0', '0', '0', null, null, 'admin', '1569431185', null, '0', '0', '1', '0', '1');
 INSERT INTO `tbl_contents` VALUES ('8', '5', 'How to Create an Effective Multilingual Content Strategy', 'how-to-create-an-effective-multilingual-content-strategy', 'http://localhost/letotrans/images/hinh-anh/post-08.jpg', '[]', '', '<p>When it comes to digital marketing, your content marketing strategy is the basis. Everyone company, regardless of how big or small, needs to have a strategic plan on how to produce and publish content for marketing and digital presence.</p>', '<p>However, if you&rsquo;re trying to act globally, and launch your business higher, you need to create an effective multilingual content strategy. That means that you need to adapt your content to different markets you&rsquo;re targeting and have a strategy for each new territory that you choose. Simply translating your initial website from English to other languages won&rsquo;t do the trick.</p>\r\n<p>&nbsp;</p>\r\n<p>If you&rsquo;re curious to find out what are the steps in creating a multilingual content mattering strategy, just keep reading.</p>\r\n<p>&nbsp;</p>\r\n<p>Target the Local Market</p>\r\n<p>First things first, you need to identify the new local market and find out as much as you can about it.</p>\r\n<p>&nbsp;</p>\r\n<p>This means that you to learn about the new market, the people who belong to it, and their needs.</p>\r\n<p>&nbsp;</p>\r\n<p>That includes:</p>\r\n<p>&nbsp;</p>\r\n<p>the language they speak</p>\r\n<p>the culture they belong to</p>\r\n<p>their typical online behavior and habits</p>\r\n<p>their needs</p>\r\n<p>their values</p>\r\n<p>their expectations</p>\r\n<p>Learn as much as you can about your potential clients on the new market and ensure you know where you&rsquo;re going with your content development strategy.</p>\r\n<p>&nbsp;</p>\r\n<p>Create the Content They Need</p>\r\n<p>Once you finish step one, you&rsquo;ll realize just how different each new target audience is. Consequentially, you&rsquo;ll realize how important it is to create specific content aimed at specific audience groups, instead of simply translating your available content.</p>\r\n<p>&nbsp;</p>\r\n<p>In other words, content creation for your global content strategy needs to cover the following:</p>\r\n<p>&nbsp;</p>\r\n<p>relevant content</p>\r\n<p>Discover what are the trending topics in a given region and what type of content is the most engaging and converting.</p>\r\n<p>&nbsp;</p>\r\n<p>search engines</p>\r\n<p>Not every country uses Google as their main search engine. Discover what the main search engine of your target audience is, and write specifically for that search engine.</p>\r\n<p>&nbsp;</p>\r\n<p>In addition, you&rsquo;ll need to find specific keywords for the new market.</p>\r\n<p>&nbsp;</p>\r\n<p>social media</p>\r\n<p>Find out which social media platforms are the most popular ones in your target area and ensure you&rsquo;re present on them.</p>\r\n<p>&nbsp;</p>\r\n<p>Developing a content strategy which is to impact people on a global level requires you to curate specific content aimed at different groups of target audiences. It does take a lot of effort, but the results will be undeniable.</p>\r\n<p>&nbsp;</p>\r\n<p>Localization</p>\r\n<p>In case you already have content written in English and believe your new target market would enjoy that same content, you need to focus on localization.</p>\r\n<p>&nbsp;</p>\r\n<p>The basis of localization is definitely translation, but there&rsquo;s much more to it. Take a look at all the essential steps in the localization process:</p>\r\n<p>&nbsp;</p>\r\n<p>translation</p>\r\n<p>Translating the initial content you published in English requires that you hire a professional translator to translate your content to the target language.</p>\r\n<p>&nbsp;</p>\r\n<p>adaptation</p>\r\n<p>When translating, it&rsquo;s important that change the following:</p>\r\n<p>&nbsp;</p>\r\n<p>measurement units</p>\r\n<p>currencies</p>\r\n<p>date formatting</p>\r\n<p>sizes</p>\r\n<p>cultural awareness</p>\r\n<p>Learn about your new audience and make sure your content is suitable for them and their cultural beliefs. You&rsquo;ll need to change some colors, images, or your entire design so as to make it appropriate for the new audience.</p>\r\n<p>&nbsp;</p>\r\n<p>For example, a cow is a sacred animal in India so you wouldn&rsquo;t want to showcase it in a disrespectful manner in your design.</p>\r\n<p>&nbsp;</p>\r\n<p>Separate platforms</p>\r\n<p>Finally, there&rsquo;s the question of whether or not you should create separate websites and separate social media profiles for each new target audience and market.</p>\r\n<p>&nbsp;</p>\r\n<p>It might be a good strategy to separate your multilingual content because your audience will find it easier to get to the content curated for them and interact with you if they feel the need.</p>\r\n<p>&nbsp;</p>\r\n<p>Therefore, consider separate websites and social media accounts as the final step in your multilingual content strategy.</p>\r\n<p>&nbsp;</p>\r\n<p>Final Thoughts</p>\r\n<p>It takes a lot of strategic planning and smart decision to create a successful multilingual content strategy. Hopefully, the tips above gave you guidance and helped you learn about the whole process.</p>\r\n<p>&nbsp;</p>\r\n<p>Now, all you have to do is get started and use the advice we gave you.</p>', '0', '0', '0', null, null, 'admin', '1569431228', null, '1', '0', '1', '0', '1');
 INSERT INTO `tbl_contents` VALUES ('9', '2', 'The Word Point is Recognized by Clutch for Outstanding Accuracy in Translation Services', 'the-word-point-is-recognized-by-clutch-for-outstanding-accuracy-in-translation-services', 'http://localhost/letotrans/images/hinh-anh/post-09.jpg', '[]', '', '<p>The Word Point specializes in innovation, and we&rsquo;d like to think that we&rsquo;ve revolutionized the translation industry as we know it</p>', '<p>Whatever, wherever our clients&rsquo; company, our team of experts and our arsenal of strategy, technology, and solutions are ready to help. We stand behind our customers and their success, a commitment that has made us a true force to be reckoned with in the industry.</p>\r\n<p>&nbsp;</p>\r\n<p>Clutch, the B2B research and reviews firm, recently released its ranking of translation services providers, and The Word Point earned the distinction of a position among the top 10 competitors in a field of more than 1000. We can&rsquo;t say enough about how proud we are of this accomplishment, but we&rsquo;d like to start by thanking Clutch for recognizing the quality of our market presence, industry experience and customer service.</p>\r\n<p>&nbsp;</p>\r\n<p>As one of our customers touted, &ldquo;The Word Point was praised for their ability to walk the line between efficiency and cost and their personal customer service &hellip; My client was happy with the translation quality, and I was pleased with their price-speed balance. They offer brilliant support and are caring and warm. They find custom solutions with a market-low price tag.&rdquo;</p>\r\n<p>&nbsp;</p>\r\n<p>Clutch&rsquo;s sister companies, The Manifest and Visual Objects, also heralded our team&rsquo;s expertise and hard work. In particular, business news website The Manifest named The Word Point one of the industry&rsquo;s best translation companies, while portfolio curator Visual Objects now showcases our experience in support of The Word Point&rsquo;s stand-out services and solutions.</p>\r\n<p>&nbsp;</p>\r\n<p>Knowing that what we do at The Word Point has validation from sources like Clutch, The Manifest, and Visual Objects, means a lot about to us, and we&rsquo;re very excited to see what new clients and challenges the future holds for us. If you&rsquo;d like to learn more about our approach or speak to a member of The Word Point, we welcome you to connect with us here. Let&rsquo;s see what we can do together!</p>', '0', '0', '0', null, null, 'admin', '1569431271', '1569601878', '2', '0', '1', '0', '1');
-INSERT INTO `tbl_contents` VALUES ('10', '2', 'How to Protect Your Brand with Trademark Translation', 'how-to-protect-your-brand-with-trademark-translation', 'http://localhost/letotrans/images/hinh-anh/post-10.jpg', '[]', '', '<p>What is a trademark definition? Your trademark can be many things. A trademark translation can be a symbol, element of design, or other signature attributes which uniquely identifies your products and services as your own. and such, trademarks can be applied to signs, brand names, logos, designs, taglines, and other visual elements that are unique to your company.</p>', '<p>What is a trademark definition? Your trademark can be many things. A trademark translation can be a symbol, element of design, or other signature attributes which uniquely identifies your products and services as your own. and such, trademarks can be applied to signs, brand names, logos, designs, taglines, and other visual elements that are unique to your company. In spite of this, there can still be issues that crop up with trademarked elements. this becomes even more complex when you have to translate one or more of your trademark elements into a different language.</p>\r\n<p>&nbsp;</p>\r\n<p>Understanding The Importance of a Name Identity: Trademark Definitions</p>\r\n<p>To illustrate just how important trademarks are to a company&rsquo;s recognition and identity, here are some examples of trademarks. As you can see trademark definition is quite flexible:</p>\r\n<p>&nbsp;</p>\r\n<p>Fictional Characters: &lsquo;Jack&rsquo; From Jack in The Box or Tony the Tiger</p>\r\n<p>Business Names: UPS or IBM</p>\r\n<p>Words and Slogans in Specific Fonts: Pop Tarts or Little Debbie</p>\r\n<p>Colors: Barbie Pink or Tiffany Blue</p>\r\n<p>Slogans: &lsquo;Just Do It&rsquo; by Nike</p>\r\n<p>Sounds: &lsquo;Dun Dun&rsquo; Sound from The Law and Order TV Series</p>\r\n<p>Product Shapes: Toblerone Bar or Glass Coca Cola Bottle</p>\r\n<p>Establishing a Global Trademark</p>\r\n<p>As you might imagine, establishing a trademark in your company&rsquo;s country of origin doesn&rsquo;t necessarily mean that your trademark is valid in other countries. If you expand your business internationally, you must establish your trademarks in each country you enter, or use the Madrid System to establish a trademark in multiple countries using a single application process.</p>\r\n<p>&nbsp;</p>\r\n<p>Trademark Translation</p>\r\n<p>Of course, the importance of brand names and other trademarked items goes beyond establishing legal protections. You also have to present these elements to customers and potential customers in other countries, and it&rsquo;s important that they make sense. They should also retain the definition intended.</p>\r\n<p>&nbsp;</p>\r\n<p>Sometimes making that happen isn&rsquo;t very easy. This is where translation and localization experts can help. One area that requires special attention is transliteration. This is the translation of written words from one language to another when the languages are based on two different character sets. For example, English and Chinese. There are no Chinese symbols that mean &lsquo;coca or &lsquo;cola&rsquo;. For that matter, there are no Chinese symbols that translate to the 26 letter alphabet. Instead, each Chinese character has a sound and a meaning.</p>\r\n<p>&nbsp;</p>\r\n<p>When Coca Cola began selling their products in China the first attempts at transliteration were a failure. One version could be translated as &lsquo;bite the wax tadpole&rsquo;. The company eventually settled on &ldquo;ke kou ke le&rdquo; which is Mandarin for a permit for the mouth to rejoice.</p>\r\n<p>&nbsp;</p>\r\n<p>There are also instances where a phrase, character, even color simply won&rsquo;t have the same meaning no matter what you do. In these cases, you may need to create something new in order to succeed in a new market. By working with a translation professional, you can identify these potential problems, and get advice on how to proceed.</p>\r\n<p>&nbsp;</p>\r\n<p>In addition to this, when it is time to file for your trademarks, you can access translation professionals with experience in intellectual property law. They can assist you in translating any of the documentation required to protect your brand in other countries.</p>\r\n<p>&nbsp;</p>\r\n<p>Final Thoughts</p>\r\n<p>By trademarking your brand in other countries, you help your efforts to become recognized by your potential customers in those regions. You also help to ensure that your intellectual property is not taken by other companies for their own purposes. Just keep in mind that this can be a complicated undertaking. You will need to work with translation professionals with expertise in marketing, localization, intellectual property, and trademarks.</p>', '0', '0', '0', null, null, 'admin', '1569431343', '1569601874', '3', '0', '1', '0', '1');
+INSERT INTO `tbl_contents` VALUES ('10', '2', 'How to Protect Your Brand with Trademark Translation', 'how-to-protect-your-brand-with-trademark-translation', 'http://localhost/letotrans/images/hinh-anh/post-10.jpg', '[]', '', '<p>What is a trademark definition? Your trademark can be many things. A trademark translation can be a symbol, element of design, or other signature attributes which uniquely identifies your products and services as your own. and such, trademarks can be applied to signs, brand names, logos, designs, taglines, and other visual elements that are unique to your company.</p>', '<p>What is a trademark definition? Your trademark can be many things. A trademark translation can be a symbol, element of design, or other signature attributes which uniquely identifies your products and services as your own. and such, trademarks can be applied to signs, brand names, logos, designs, taglines, and other visual elements that are unique to your company. In spite of this, there can still be issues that crop up with trademarked elements. this becomes even more complex when you have to translate one or more of your trademark elements into a different language.</p>\r\n<p>&nbsp;</p>\r\n<p>Understanding The Importance of a Name Identity: Trademark Definitions</p>\r\n<p>To illustrate just how important trademarks are to a company&rsquo;s recognition and identity, here are some examples of trademarks. As you can see trademark definition is quite flexible:</p>\r\n<p>&nbsp;</p>\r\n<p>Fictional Characters: &lsquo;Jack&rsquo; From Jack in The Box or Tony the Tiger</p>\r\n<p>Business Names: UPS or IBM</p>\r\n<p>Words and Slogans in Specific Fonts: Pop Tarts or Little Debbie</p>\r\n<p>Colors: Barbie Pink or Tiffany Blue</p>\r\n<p>Slogans: &lsquo;Just Do It&rsquo; by Nike</p>\r\n<p>Sounds: &lsquo;Dun Dun&rsquo; Sound from The Law and Order TV Series</p>\r\n<p>Product Shapes: Toblerone Bar or Glass Coca Cola Bottle</p>\r\n<p>Establishing a Global Trademark</p>\r\n<p>As you might imagine, establishing a trademark in your company&rsquo;s country of origin doesn&rsquo;t necessarily mean that your trademark is valid in other countries. If you expand your business internationally, you must establish your trademarks in each country you enter, or use the Madrid System to establish a trademark in multiple countries using a single application process.</p>\r\n<p>&nbsp;</p>\r\n<p>Trademark Translation</p>\r\n<p>Of course, the importance of brand names and other trademarked items goes beyond establishing legal protections. You also have to present these elements to customers and potential customers in other countries, and it&rsquo;s important that they make sense. They should also retain the definition intended.</p>\r\n<p>&nbsp;</p>\r\n<p>Sometimes making that happen isn&rsquo;t very easy. This is where translation and localization experts can help. One area that requires special attention is transliteration. This is the translation of written words from one language to another when the languages are based on two different character sets. For example, English and Chinese. There are no Chinese symbols that mean &lsquo;coca or &lsquo;cola&rsquo;. For that matter, there are no Chinese symbols that translate to the 26 letter alphabet. Instead, each Chinese character has a sound and a meaning.</p>\r\n<p>&nbsp;</p>\r\n<p>When Coca Cola began selling their products in China the first attempts at transliteration were a failure. One version could be translated as &lsquo;bite the wax tadpole&rsquo;. The company eventually settled on &ldquo;ke kou ke le&rdquo; which is Mandarin for a permit for the mouth to rejoice.</p>\r\n<p>&nbsp;</p>\r\n<p>There are also instances where a phrase, character, even color simply won&rsquo;t have the same meaning no matter what you do. In these cases, you may need to create something new in order to succeed in a new market. By working with a translation professional, you can identify these potential problems, and get advice on how to proceed.</p>\r\n<p>&nbsp;</p>\r\n<p>In addition to this, when it is time to file for your trademarks, you can access translation professionals with experience in intellectual property law. They can assist you in translating any of the documentation required to protect your brand in other countries.</p>\r\n<p>&nbsp;</p>\r\n<p>Final Thoughts</p>\r\n<p>By trademarking your brand in other countries, you help your efforts to become recognized by your potential customers in those regions. You also help to ensure that your intellectual property is not taken by other companies for their own purposes. Just keep in mind that this can be a complicated undertaking. You will need to work with translation professionals with expertise in marketing, localization, intellectual property, and trademarks.</p>', '0', '0', '0', null, null, 'admin', '1569431343', '1569601874', '4', '0', '1', '0', '1');
 
 -- ----------------------------
 -- Table structure for tbl_document
@@ -205,15 +205,15 @@ DROP TABLE IF EXISTS `tbl_document`;
 CREATE TABLE `tbl_document` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `g_id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `intro` text COLLATE utf8_unicode_ci NOT NULL,
-  `content` text COLLATE utf8_unicode_ci NOT NULL,
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `fullurl` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `author` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `filetype` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `intro` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fullurl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `author` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `filetype` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `filesize` int(11) NOT NULL,
   `date_issued` datetime DEFAULT NULL,
   `cdate` datetime NOT NULL,
@@ -222,14 +222,14 @@ CREATE TABLE `tbl_document` (
   `views` int(11) NOT NULL DEFAULT '0',
   `downloads` int(11) NOT NULL DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '0',
-  `meta_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_desc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ishot` int(11) DEFAULT NULL,
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`,`views`),
   FULLTEXT KEY `idx` (`name`,`intro`,`content`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_document
@@ -242,14 +242,14 @@ DROP TABLE IF EXISTS `tbl_document_group`;
 CREATE TABLE `tbl_document_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `par_id` int(11) DEFAULT '0',
-  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `banner` int(11) DEFAULT NULL,
   `order` int(11) NOT NULL DEFAULT '0',
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_document_group
@@ -261,14 +261,14 @@ CREATE TABLE `tbl_document_group` (
 DROP TABLE IF EXISTS `tbl_feedback`;
 CREATE TABLE `tbl_feedback` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `comment` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `career` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `comment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `career` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(4) DEFAULT NULL,
   `isactive` tinyint(2) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_feedback
@@ -284,12 +284,12 @@ INSERT INTO `tbl_feedback` VALUES ('4', 'Hoàng Rapper', 'http://localhost/letot
 DROP TABLE IF EXISTS `tbl_gallery`;
 CREATE TABLE `tbl_gallery` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `album_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `album_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `isactive` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_gallery
@@ -312,12 +312,12 @@ INSERT INTO `tbl_gallery` VALUES ('11', '8', 'ha4', 'http://localhost/letotrans/
 DROP TABLE IF EXISTS `tbl_languages`;
 CREATE TABLE `tbl_languages` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` char(49) CHARACTER SET utf8 DEFAULT NULL,
-  `iso` char(2) CHARACTER SET utf8 DEFAULT NULL,
-  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` char(49) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `iso` char(2) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `isactive` tinyint(2) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_languages
@@ -464,14 +464,14 @@ INSERT INTO `tbl_languages` VALUES ('135', 'Zulu', 'zu', '', '0');
 DROP TABLE IF EXISTS `tbl_mail_config`;
 CREATE TABLE `tbl_mail_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `hostname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `user` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `pass` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hostname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `port` int(11) NOT NULL DEFAULT '110',
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_mail_config
@@ -484,12 +484,12 @@ INSERT INTO `tbl_mail_config` VALUES ('1', 'admin', 'yourdomain.com', 'info@your
 DROP TABLE IF EXISTS `tbl_menus`;
 CREATE TABLE `tbl_menus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `desc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_menus
@@ -506,29 +506,29 @@ CREATE TABLE `tbl_mnuitems` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `par_id` int(11) NOT NULL DEFAULT '0',
   `menu_id` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `intro` text COLLATE utf8_unicode_ci,
-  `viewtype` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `intro` text COLLATE utf8mb4_unicode_ci,
+  `viewtype` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `category_id` int(11) NOT NULL DEFAULT '0',
   `content_id` int(11) NOT NULL DEFAULT '0',
-  `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `class` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `link` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `class` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order` int(11) NOT NULL DEFAULT '0',
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_mnuitems
 -- ----------------------------
 INSERT INTO `tbl_mnuitems` VALUES ('1', '0', '1', 'Trang chủ', 'trang-chu', '', 'link', '0', '0', 'http://localhost/letotrans/', 'fa fa-home', 'home', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('2', '2', '1', 'Giới thiệu', 'gioi-thieu', '<img src=\"http://daihocdongdo.edu.vn/images/DD.jpg\" alt=\"\" align=\"\" border=\"0px\">', 'block', '44', '0', '', '', '', '0', '1');
-INSERT INTO `tbl_mnuitems` VALUES ('3', '0', '1', 'Blog', 'blog', '', 'block', '5', '0', '', '', '', '1', '1');
-INSERT INTO `tbl_mnuitems` VALUES ('4', '0', '1', 'Ngôn ngữ', 'ngon-ngu', '', 'link', '0', '0', 'http://localhost/letotrans/ngon-ngu', '', '', '2', '1');
-INSERT INTO `tbl_mnuitems` VALUES ('5', '0', '1', 'Tin tức', 'tin-tuc', '', 'link', '0', '0', 'http://localhost/letotrans/tin-tuc', '', '', '0', '1');
-INSERT INTO `tbl_mnuitems` VALUES ('7', '0', '1', 'FAQ', 'faq', '', 'block', '1', '0', '', '', '', '19', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('3', '0', '1', 'Blog', 'blog', '', 'block', '5', '0', '', '', '', '1', '0');
+INSERT INTO `tbl_mnuitems` VALUES ('4', '0', '1', 'Ngôn ngữ', 'ngon-ngu', '', 'link', '0', '0', 'http://localhost/letotrans/ngon-ngu', '', '', '2', '0');
+INSERT INTO `tbl_mnuitems` VALUES ('5', '0', '1', 'Tin tức - Sự kiện', 'tin-tuc-su-kien', '', 'link', '0', '0', 'http://localhost/letotrans/tin-tuc', '', '', '5', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('7', '0', '1', 'FAQ', 'faq', '', 'link', '0', '0', 'http://localhost/letotrans/lien-he', '', '', '6', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('10', '0', '3', 'FAQs', 'faqs', null, 'link', '0', '0', '#', '', '', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('11', '0', '3', 'Liên hệ', 'lien-he', null, 'link', '0', '0', '#', '', '', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('15', '0', '2', 'Câu hỏi thường gặp', 'cau-hoi-thuong-gap', '', 'block', '1', '0', '', '', '', '0', '1');
@@ -537,6 +537,11 @@ INSERT INTO `tbl_mnuitems` VALUES ('17', '0', '2', 'Chính sách giao hàng', 'c
 INSERT INTO `tbl_mnuitems` VALUES ('18', '0', '2', 'Chính sách bảo hành', 'chinh-sach-bao-hanh', '', 'link', '0', '0', '#', '', '', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('19', '0', '2', 'Thông tin chuyển khoản', 'thong-tin-chuyen-khoan', '', 'link', '0', '0', '#', '', '', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('20', '0', '2', 'Tư vấn khách hàng', 'tu-van-khach-hang', '', 'link', '0', '0', '#', '', '', '0', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('21', '0', '1', 'Dịch vụ', 'dich-vu', '', 'link', '0', '0', 'http://localhost/letotrans/dich-vu', '', '', '2', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('22', '0', '1', 'Ý kiến khách hàng', 'y-kien-khach-hang', '', 'link', '0', '0', 'http://localhost/letotrans/y-kien-khach-hang', '', '', '4', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('23', '0', '1', 'Giới thiệu', 'gioi-thieu', '', 'link', '0', '0', 'http://localhost/letotrans/gioi-thieu', '', '', '1', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('24', '0', '1', 'Bảng giá', 'bang-gia', '', 'link', '0', '0', 'http://localhost/letotrans/bang-gia', '', '', '0', '0');
+INSERT INTO `tbl_mnuitems` VALUES ('25', '0', '1', 'Hình thức thanh toán', 'hinh-thuc-thanh-toan', '', 'link', '0', '0', '#', '', '', '3', '1');
 
 -- ----------------------------
 -- Table structure for tbl_modtype
@@ -544,22 +549,14 @@ INSERT INTO `tbl_mnuitems` VALUES ('20', '0', '2', 'Tư vấn khách hàng', 'tu
 DROP TABLE IF EXISTS `tbl_modtype`;
 CREATE TABLE `tbl_modtype` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_modtype
 -- ----------------------------
-INSERT INTO `tbl_modtype` VALUES ('1', 'mainmenu', 'Main menu');
-INSERT INTO `tbl_modtype` VALUES ('2', 'html', 'HTML');
-INSERT INTO `tbl_modtype` VALUES ('3', 'news', 'Tin tức');
-INSERT INTO `tbl_modtype` VALUES ('12', 'slide', 'Slideshow');
-INSERT INTO `tbl_modtype` VALUES ('13', 'video', 'Tin Video');
-INSERT INTO `tbl_modtype` VALUES ('14', 'gallery', 'Tin ảnh');
-INSERT INTO `tbl_modtype` VALUES ('15', 'partner', 'Đối tác');
-INSERT INTO `tbl_modtype` VALUES ('16', 'content', 'Bài viết');
 
 -- ----------------------------
 -- Table structure for tbl_modules
@@ -567,53 +564,53 @@ INSERT INTO `tbl_modtype` VALUES ('16', 'content', 'Bài viết');
 DROP TABLE IF EXISTS `tbl_modules`;
 CREATE TABLE `tbl_modules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `content` text COLLATE utf8_unicode_ci,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci,
   `viewtitle` int(11) NOT NULL DEFAULT '0',
   `menu_id` int(11) DEFAULT NULL,
-  `menu_ids` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `menu_ids` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `category_id` int(50) DEFAULT NULL,
   `content_id` int(50) DEFAULT NULL,
-  `theme` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `position` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `class` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `theme` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `position` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `class` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(11) NOT NULL DEFAULT '0',
   `isactive` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_modules
 -- ----------------------------
 INSERT INTO `tbl_modules` VALUES ('2', 'mainmenu', 'Main menu', '', '', '0', '1', '', '0', null, '', 'navitor', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('54', 'html', 'Sửa chữa thành công', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_car.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">850</div></div><div class=\"title\">Sửa chữa thành công</div>', '0', '0', null, '0', null, '', 'box4', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('55', 'news', 'Dịch vụ của chúng tôi', '', '', '1', '0', null, '59', null, 'branch', 'box5', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('15', 'html', 'Logo', '', '<img src=\"http://localhost/letotrans/images/logo/logo_mydinh_thc.png\" class=\"img-responsive\">', '0', '0', '', '0', null, '', 'user1', 'logo', '1', '1');
-INSERT INTO `tbl_modules` VALUES ('51', 'html', 'Dịch vụ phương tiện', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_car.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">850</div></div><div class=\"title\">Dịch vụ phương tiện</div>', '0', '0', null, '0', null, '', 'box1', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('52', 'html', 'Chuyên gia của chúng tôi', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_user.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">250</div></div><div class=\"title\">Chuyên gia của chúng tôi</div>', '0', '0', null, '0', null, '', 'box2', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('53', 'html', 'Khách hàng hài lòng', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_customer.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">1500</div></div><div class=\"title\">Khách hàng hài lòng</div>', '0', '0', null, '0', null, '', 'box3', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('44', 'html', 'Logo trên di động', '', '<img src=\"http://daihocdongdo.edu.vn/images/logo-mobile.jpg\" class=\"img-responsive\">', '0', '0', null, '0', null, '', 'mobile1', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('50', 'html', 'Video giới thiệu', '', '<iframe width=\"560\" height=\"320\" src=\"https://www.youtube.com/embed/G3Qih-C6xEw\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>', '0', '0', null, '0', null, '', 'user6', 'video', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('21', 'html', 'Copyright', '', '<p>Bản quyền thuộc về Leto Trans</p>', '0', '0', null, '0', '0', '', 'bottom', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('43', 'html', 'Thông tin liên hệ - Trang liên hệ', '', '<div><span style=\"font-size: 24px;\">THC AUTO SERVICE</span></div><div><br></div><div><div>XƯỞNG DỊCH VỤ 1:</div><div>430 đường Phúc Diễm, Xuân Phương, Nam Từ Liêm, HN</div><div><br></div><div>XƯỞNG DỊCH VỤ 2:</div><div>563 đường Phúc Diễm, Xuân Phương, Nam Từ Liêm, HN</div><div><br></div><div>HOTLINE:</div><div>0968.87.87.68 - 0964.10.4444 (Hỗ trợ 24/7)</div><div><br></div><div>EMAIL:</div><div>otomydinhthc@gmail.com</div></div>', '0', '0', null, '0', null, '', 'user9', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('44', 'html', 'Logo trên di động', '', '<img src=\"http://daihocdongdo.edu.vn/images/logo-mobile.jpg\" class=\"img-responsive\">', '0', '0', null, '0', null, '', 'mobile1', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('45', 'html', 'Địa chỉ (Đầu trang)', '', '<span style=\"font-weight: bold;\">430 &amp; 563 Đ.Phúc Diễn,</span><div>P.Xuân Phương, Q.Nam Từ Liêm, Hà Nội</div>', '0', '0', null, '0', null, '', 'user2', '', '2', '1');
+INSERT INTO `tbl_modules` VALUES ('46', 'html', 'Giờ làm việc (Đầu trang)', '', '<span style=\"font-weight: bold;\">Giờ làm việc</span><div>T2-T7: 8h00 - 17h00</div>', '0', '0', null, '0', null, '', 'user3', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('47', 'html', 'Hotline (Đầu trang)', '', '096.410.4444<div>096.887.8768</div>', '0', '0', null, '0', null, '', 'user4', 'pull-right', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('48', 'slide', 'Banner slideshow', '', '', '0', '0', null, '0', null, '', 'banner', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('49', 'content', 'Mỹ Đình THC Kính chào Quý khách!', '', '', '0', '0', null, '0', '2', 'default', 'user5', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('46', 'html', 'Giờ làm việc (Đầu trang)', '', '<span style=\"font-weight: bold;\">Giờ làm việc</span><div>T2-T7: 8h00 - 17h00</div>', '0', '0', null, '0', null, '', 'user3', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('45', 'html', 'Địa chỉ (Đầu trang)', '', '<span style=\"font-weight: bold;\">430 &amp; 563 Đ.Phúc Diễn,</span><div>P.Xuân Phương, Q.Nam Từ Liêm, Hà Nội</div>', '0', '0', null, '0', null, '', 'user2', '', '2', '1');
-INSERT INTO `tbl_modules` VALUES ('43', 'html', 'Thông tin liên hệ - Trang liên hệ', '', '<div><span style=\"font-size: 24px;\">THC AUTO SERVICE</span></div><div><br></div><div><div>XƯỞNG DỊCH VỤ 1:</div><div>430 đường Phúc Diễm, Xuân Phương, Nam Từ Liêm, HN</div><div><br></div><div>XƯỞNG DỊCH VỤ 2:</div><div>563 đường Phúc Diễm, Xuân Phương, Nam Từ Liêm, HN</div><div><br></div><div>HOTLINE:</div><div>0968.87.87.68 - 0964.10.4444 (Hỗ trợ 24/7)</div><div><br></div><div>EMAIL:</div><div>otomydinhthc@gmail.com</div></div>', '0', '0', null, '0', null, '', 'user9', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('50', 'html', 'Video giới thiệu', '', '<iframe width=\"560\" height=\"320\" src=\"https://www.youtube.com/embed/G3Qih-C6xEw\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>', '0', '0', null, '0', null, '', 'user6', 'video', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('51', 'html', 'Dịch vụ phương tiện', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_car.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">850</div></div><div class=\"title\">Dịch vụ phương tiện</div>', '0', '0', null, '0', null, '', 'box1', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('52', 'html', 'Chuyên gia của chúng tôi', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_user.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">250</div></div><div class=\"title\">Chuyên gia của chúng tôi</div>', '0', '0', null, '0', null, '', 'box2', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('53', 'html', 'Khách hàng hài lòng', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_customer.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">1500</div></div><div class=\"title\">Khách hàng hài lòng</div>', '0', '0', null, '0', null, '', 'box3', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('54', 'html', 'Sửa chữa thành công', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_car.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">850</div></div><div class=\"title\">Sửa chữa thành công</div>', '0', '0', null, '0', null, '', 'box4', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('55', 'news', 'Dịch vụ của chúng tôi', '', '', '1', '0', null, '59', null, 'branch', 'box5', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('56', 'gallery', 'Hình ảnh tại Mĩ Đình THC', '', '', '0', '0', null, '0', null, '', 'box6', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('58', 'news', 'Footer dịch vụ', '', '', '0', '0', null, '59', null, 'footer_dich_vu', 'box8', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('59', 'html', 'Footer liên hệ', '', '<div>&lt;div class=\"title\"&gt;Liên hệ&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"dlab-separator-outer m-b10\"&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"dlab-separator style-skew\"&gt;&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"sub_item\"&gt;</div><div><span style=\"white-space:pre\"></span>&lt;i class=\"fa fa-map-marker\" aria-hidden=\"true\"&gt;&lt;/i&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"content\"&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"name\"&gt;Xưởng dịch vụ 1:&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;p class=\"info\"&gt;430 đường Phúc Diễn, Xuân Phương, Nam Từ Liêm, HN&lt;/p&gt;</div><div><span style=\"white-space:pre\"></span>&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"sub_item\"&gt;</div><div><span style=\"white-space:pre\"></span>&lt;i class=\"fa fa-map-marker\" aria-hidden=\"true\"&gt;&lt;/i&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"content\"&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"name\"&gt;Xưởng dịch vụ 2:&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;p class=\"info\"&gt;563 đường Phúc Diễn, Xuân Phương, Nam Từ Liêm, HN&lt;/p&gt;</div><div><span style=\"white-space:pre\"></span>&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"sub_item\"&gt;</div><div><span style=\"white-space:pre\"></span>&lt;i class=\"fa fa-mobile\" aria-hidden=\"true\"&gt;&lt;/i&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"content\"&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"name phone\"&gt;HOTLINE:&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;p class=\"info\"&gt;0968.87.87.68 - 0964.10.4444 (Hỗ trợ 24/7)&lt;/p&gt;</div><div><span style=\"white-space:pre\"></span>&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"sub_item\"&gt;</div><div><span style=\"white-space:pre\"></span>&lt;i class=\"fa fa-mobile\" aria-hidden=\"true\"&gt;&lt;/i&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"content\"&gt;</div><div><span style=\"white-space:pre\"></span>&lt;div class=\"name phone\"&gt;EMAIL:&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;p class=\"info\"&gt;otomydinhthc@gmail.com&lt;/p&gt;</div><div><span style=\"white-space:pre\"></span>&lt;/div&gt;</div><div><span style=\"white-space:pre\"></span>&lt;/div&gt;</div>', '0', '0', null, '0', null, '', 'box9', '', '0', '0');
+INSERT INTO `tbl_modules` VALUES ('61', 'partner', 'Slide đối tác', '', '', '0', '0', null, '0', null, '', 'user7', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('62', 'news', 'Tin tức tại THC', '', '', '0', '0', null, '2', null, 'news1', 'user8', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('63', 'news', 'Tư vấn / Đặt lịch', '', '', '0', '0', null, '2', '0', 'events', 'banner1', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('64', 'html', 'Footer: Xưởng dịch vụ 1', '', '<div class=\"name\">Xưởng dịch vụ 1:</div><p class=\"info\">430 đường Phúc Diễn, Xuân Phương, Nam Từ Liêm, HN</p>', '0', '0', null, '0', null, '', 'footer1', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('65', 'html', 'Footer: Xưởng dịch vụ 2', '', '<div class=\"name\">Xưởng dịch vụ 2:</div><p class=\"info\">563 đường Phúc Diễn, Xuân Phương, Nam Từ Liêm, HN</p>', '0', '0', null, '0', null, '', 'footer2', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('66', 'html', 'Footer: hotline', '', '<div class=\"name phone\">HOTLINE:</div><p class=\"info\">0968.87.87.68 - 0964.10.4444 (Hỗ trợ 24/7)</p>', '0', '0', null, '0', null, '', 'footer3', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('67', 'html', 'Footer: Email', '', '<div class=\"name phone\">EMAIL:</div><p class=\"info\"><a href=\"mailto:otomydinhthc@gmail.com\">otomydinhthc@gmail.com</a></p>', '0', '0', null, '0', null, '', 'footer4', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('68', 'html', 'Footer: THC AUTO SERVICE', '', '<div class=\"title_auto_service\">THC AUTO SERVICE</div><div class=\"intro\">Mang đến cho Khách hàng sự hài lòng về chất lượng dịch vụ HƠN CẢ MONG ĐỢI</div>', '0', '0', null, '0', null, '', 'footer5', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('61', 'partner', 'Slide đối tác', '', '', '0', '0', null, '0', null, '', 'user7', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('62', 'news', 'Tin tức tại THC', '', '', '0', '0', null, '2', null, 'news1', 'user8', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('63', 'news', 'Tư vấn / Đặt lịch', '', '', '0', '0', null, '2', '0', 'events', 'banner1', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('75', 'html', 'Google map', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.7415077264172!2d105.81414881533225!3d21.04302649266612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab10301dd91f%3A0x7bf7f7b69c64e61f!2sHCMCC%20Tower!5e0!3m2!1svi!2s!4v1569397961209!5m2!1svi!2s\" width=\"100%\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"></iframe>', '0', '0', null, '0', '0', '', 'box10', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('76', 'mainmenu', 'Menu footer', '', '', '0', '2', null, '0', '0', 'menu_footer', 'box11', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('77', 'mainmenu', 'Footer menu 2', '', '', '0', '3', null, '0', '0', 'menu_footer', 'box7', '', '0', '1');
@@ -624,20 +621,38 @@ INSERT INTO `tbl_modules` VALUES ('77', 'mainmenu', 'Footer menu 2', '', '', '0'
 DROP TABLE IF EXISTS `tbl_package`;
 CREATE TABLE `tbl_package` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `price` float DEFAULT NULL,
+  `service_id` int(11) DEFAULT NULL,
+  `service_type_id` int(11) DEFAULT NULL,
+  `price_basic` float DEFAULT NULL,
+  `price_pro` float DEFAULT NULL,
+  `price_vip` float DEFAULT NULL,
+  `intro_basic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro_pro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro_vip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(11) DEFAULT '0',
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_package
 -- ----------------------------
-INSERT INTO `tbl_package` VALUES ('1', 'G&oacute;i cơ bản', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '50', '0', '1');
-INSERT INTO `tbl_package` VALUES ('2', 'G&oacute;i Pro', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '100', '1', '1');
-INSERT INTO `tbl_package` VALUES ('3', 'G&oacute;i VIP', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '500', '2', '1');
+INSERT INTO `tbl_package` VALUES ('1', '1', '1', '5', '1000', '300', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('2', '1', '2', '50', '1000', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('3', '1', '3', '50', '2000', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('4', '1', '4', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('5', '2', '1', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('6', '2', '2', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('7', '2', '3', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('8', '2', '4', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('9', '3', '1', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('10', '3', '2', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('11', '3', '3', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('12', '3', '4', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('13', '4', '5', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('14', '4', '6', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('15', '4', '7', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_package` VALUES ('16', '4', '8', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
 
 -- ----------------------------
 -- Table structure for tbl_partner
@@ -645,13 +660,13 @@ INSERT INTO `tbl_package` VALUES ('3', 'G&oacute;i VIP', '<ul>\r\n<li>everyday c
 DROP TABLE IF EXISTS `tbl_partner`;
 CREATE TABLE `tbl_partner` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `images` varchar(255) DEFAULT NULL,
-  `link` varchar(255) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `images` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` tinyint(4) DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_partner
@@ -668,13 +683,13 @@ INSERT INTO `tbl_partner` VALUES ('5', 'Đối t&aacute;c 5', 'http://localhost/
 DROP TABLE IF EXISTS `tbl_personnel`;
 CREATE TABLE `tbl_personnel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `position` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `position` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` tinyint(4) DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_personnel
@@ -687,21 +702,43 @@ INSERT INTO `tbl_personnel` VALUES ('5', 'Nguyễn Thị Thủy', 'http://localh
 INSERT INTO `tbl_personnel` VALUES ('6', 'Nguyễn Hồng', 'http://localhost/letotrans/images/nhan-su/ns6.jpg', 'Nhân viên kinh doanh', '6', '1');
 
 -- ----------------------------
+-- Table structure for tbl_product_type
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_product_type`;
+CREATE TABLE `tbl_product_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `order` int(11) DEFAULT '0',
+  `isactive` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of tbl_product_type
+-- ----------------------------
+INSERT INTO `tbl_product_type` VALUES ('1', 'Website', 'website', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_product_type` VALUES ('2', 'Hồ sơ', 'ho-so', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_product_type` VALUES ('3', 'Phần mềm', 'phan-mem', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '0', '1');
+INSERT INTO `tbl_product_type` VALUES ('4', 'Game', 'game', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '0', '1');
+
+-- ----------------------------
 -- Table structure for tbl_schedule
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_schedule`;
 CREATE TABLE `tbl_schedule` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `service_id` int(11) DEFAULT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date` datetime DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `note` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `note` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_schedule
@@ -721,17 +758,17 @@ INSERT INTO `tbl_schedule` VALUES ('8', 'DAVID MATIN', '13', 'abc@gmail.com1', '
 DROP TABLE IF EXISTS `tbl_seo`;
 CREATE TABLE `tbl_seo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `link` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_desc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ishot` tinyint(4) DEFAULT '0',
   `order` tinyint(4) DEFAULT '0',
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_seo
@@ -752,9 +789,16 @@ INSERT INTO `tbl_seo` VALUES ('13', 'How to Create an Effective Multilingual Con
 INSERT INTO `tbl_seo` VALUES ('14', 'The Word Point is Recognized by Clutch for Outstanding Accuracy in Translation Services', 'http://localhost/letotrans/cau-hoi-tong-quan/the-word-point-is-recognized-by-clutch-for-outstanding-accuracy-in-translation-services.html', 'http://localhost/letotrans/images/hinh-anh/post-09.jpg', 'The Word Point is Recognized by Clutch for Outstanding Accuracy in Translation Services', 'The Word Point is Recognized by Clutch for Outstanding Accuracy in Translation Services', 'The Word Point is Recognized by Clutch for Outstanding Accuracy in Translation Services', '0', '0', '1');
 INSERT INTO `tbl_seo` VALUES ('15', 'How to Protect Your Brand with Trademark Translation', 'http://localhost/letotrans/cau-hoi-tong-quan/how-to-protect-your-brand-with-trademark-translation.html', 'http://localhost/letotrans/images/hinh-anh/post-10.jpg', 'How to Protect Your Brand with Trademark Translation', 'How to Protect Your Brand with Trademark Translation', 'How to Protect Your Brand with Trademark Translation', '0', '0', '1');
 INSERT INTO `tbl_seo` VALUES ('20', 'Dịch vụ dịch thuật', 'http://localhost/letotrans/dich-vu/dich-vu-dich-thuat.html', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'Dịch vụ dịch thuật', 'Dịch vụ dịch thuật', 'Dịch vụ dịch thuật', '0', '0', '1');
-INSERT INTO `tbl_seo` VALUES ('21', 'Phiên dịch giấy tờ chứng nhận', 'http://localhost/letotrans/dich-vu/phien-dich-giay-to-chung-nhan.html', '', 'Phi&ecirc;n dịch giấy tờ chứng nhận', 'Phi&ecirc;n dịch giấy tờ chứng nhận', 'Phi&ecirc;n dịch giấy tờ chứng nhận', '0', '0', '1');
-INSERT INTO `tbl_seo` VALUES ('22', 'Sửa bản in thử', 'http://localhost/letotrans/dich-vu/sua-ban-in-thu.html', '', 'Sửa bản in thử', 'Sửa bản in thử', 'Sửa bản in thử', '0', '0', '1');
-INSERT INTO `tbl_seo` VALUES ('23', 'Dịch bản địa hóa', 'http://localhost/letotrans/dich-vu/dich-ban-dia-hoa.html', '', 'Dịch bản địa h&oacute;a', 'Dịch bản địa h&oacute;a', 'Dịch bản địa h&oacute;a', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('21', 'Phiên dịch giấy tờ chứng nhận', 'http://localhost/letotrans/dich-vu/phien-dich-giay-to-chung-nhan.html', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'Phi&ecirc;n dịch giấy tờ chứng nhận', 'Phi&ecirc;n dịch giấy tờ chứng nhận', 'Phi&ecirc;n dịch giấy tờ chứng nhận', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('22', 'Sửa bản in thử', 'http://localhost/letotrans/dich-vu/sua-ban-in-thu.html', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'Sửa bản in thử', 'Sửa bản in thử', 'Sửa bản in thử', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('23', 'Dịch bản địa hóa', 'http://localhost/letotrans/dich-vu/dich-ban-dia-hoa.html', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'Dịch bản địa h&oacute;a', 'Dịch bản địa h&oacute;a', 'Dịch bản địa h&oacute;a', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('24', 'Thêm mới gói dịch vụ', 'http://localhost/letotrans/dich-vu/them-moi-goi-dich-vu.html', '', '', '', '', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('25', 'Dịch vụ dịch thuật 1', 'http://localhost/letotrans/dich-vu/dich-vu-dich-thuat-1.html', '', '', '', '', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('26', 'Dịch vụ dịch thuật 1', 'http://localhost/letotrans/dich-vu/dich-vu-dich-thuat-1.html', '', '', '', '', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('27', 'DAVID MATIN', 'http://localhost/letotrans/dich-vu/david-matin.html', '', '', '', '', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('28', 'DAVID MATIN', 'http://localhost/letotrans/dich-vu/david-matin.html', '', '', '', '', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('29', 'Dịch vụ dịch thuật 123', 'http://localhost/letotrans/dich-vu/dich-vu-dich-thuat-123.html', '', '', '', '', '0', '0', '1');
+INSERT INTO `tbl_seo` VALUES ('30', 'Dịch bản địa hóa', 'http://localhost/letotrans/dich-vu/dich-ban-dia-hoa.html', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'Dịch bản địa h&oacute;a', 'Dịch bản địa h&oacute;a', 'Dịch bản địa h&oacute;a', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for tbl_service
@@ -762,28 +806,29 @@ INSERT INTO `tbl_seo` VALUES ('23', 'Dịch bản địa hóa', 'http://localhos
 DROP TABLE IF EXISTS `tbl_service`;
 CREATE TABLE `tbl_service` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `package_id` int(11) DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sapo` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `fulltext` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `thumb` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `author` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `service_type_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sapo` text COLLATE utf8mb4_unicode_ci,
+  `price` float DEFAULT NULL,
+  `fulltext` text COLLATE utf8mb4_unicode_ci,
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `author` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cdate` int(11) DEFAULT NULL,
   `mdate` int(11) DEFAULT NULL,
   `visited` int(255) DEFAULT NULL,
   `order` tinyint(4) DEFAULT '0',
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_service
 -- ----------------------------
-INSERT INTO `tbl_service` VALUES ('1', null, 'Dịch vụ dịch thuật', 'dich-vu-dich-thuat', 'Businesses, non-profits, scientific communities, and more all feel the demand for translators. Their options are to try to locate individual translators for each language, spend time with screening and checking backgrounds and experience, or to streamline the process by contracting these services out to professional and reputable online translation services.', '<p>dfsdfsdfsd</p>', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'admin', '1569774547', '1569774792', null, '3', '1');
-INSERT INTO `tbl_service` VALUES ('2', null, 'Phiên dịch giấy tờ chứng nhận', 'phien-dich-giay-to-chung-nhan', 'Businesses, non-profits, scientific communities, and more all feel the demand for translators. Their options are to try to locate individual translators for each language, spend time with screening and checking backgrounds and experience, or to streamline the process by contracting these services out to professional and reputable online translation services.', '', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'admin', '1569774847', null, null, '2', '1');
-INSERT INTO `tbl_service` VALUES ('3', null, 'Sửa bản in thử', 'sua-ban-in-thu', 'Businesses, non-profits, scientific communities, and more all feel the demand for translators. Their options are to try to locate individual translators for each language, spend time with screening and checking backgrounds and experience, or to streamline the process by contracting these services out to professional and reputable online translation services.', '', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'admin', '1569774861', null, null, '1', '1');
-INSERT INTO `tbl_service` VALUES ('4', null, 'Dịch bản địa hóa', 'dich-ban-dia-hoa', 'Businesses, non-profits, scientific communities, and more all feel the demand for translators. Their options are to try to locate individual translators for each language, spend time with screening and checking backgrounds and experience, or to streamline the process by contracting these services out to professional and reputable online translation services.', '', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'admin', '1569774901', null, null, '0', '1');
+INSERT INTO `tbl_service` VALUES ('1', '[\"1\",\"2\",\"3\",\"4\"]', 'Dịch vụ dịch thuật', 'dich-vu-dich-thuat', 'Businesses, non-profits, scientific communities, and more all feel the demand for translators. Their options are to try to locate individual translators for each language, spend time with screening and checking backgrounds and experience, or to streamline the process by contracting these services out to professional and reputable online translation services.', null, 'Tôi hài lòng về dịch vụ bảo hành ở đây, các kỹ sư sau khi sửa ô tô Lexus còn gọi điện chăm sóc và hỏi thăm tình trạng ô tô sau khi sửa chữa. Dịch vụ ở đây hoàn toàn thuyết phục một khách hàng khó tính như tôi', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'admin', '1569774547', '1569922643', null, '0', '1');
+INSERT INTO `tbl_service` VALUES ('2', '[\"1\",\"2\",\"3\",\"4\"]', 'Phiên dịch giấy tờ chứng nhận', 'phien-dich-giay-to-chung-nhan', 'Businesses, non-profits, scientific communities, and more all feel the demand for translators. Their options are to try to locate individual translators for each language, spend time with screening and checking backgrounds and experience, or to streamline the process by contracting these services out to professional and reputable online translation services.', null, '', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'admin', '1569774847', '1569922639', null, '1', '1');
+INSERT INTO `tbl_service` VALUES ('3', '[\"1\",\"2\",\"3\",\"4\"]', 'Sửa bản in thử', 'sua-ban-in-thu', 'Businesses, non-profits, scientific communities, and more all feel the demand for translators. Their options are to try to locate individual translators for each language, spend time with screening and checking backgrounds and experience, or to streamline the process by contracting these services out to professional and reputable online translation services.', null, '', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'admin', '1569774861', '1569922692', null, '2', '1');
+INSERT INTO `tbl_service` VALUES ('4', '[\"5\",\"6\",\"7\",\"8\"]', 'Dịch bản địa hóa', 'dich-ban-dia-hoa', 'Businesses, non-profits, scientific communities, and more all feel the demand for translators. Their options are to try to locate individual translators for each language, spend time with screening and checking backgrounds and experience, or to streamline the process by contracting these services out to professional and reputable online translation services.', null, '', 'http://localhost/letotrans/images/basic/politic_07.jpg', 'admin', '1569774901', '1570091737', null, '3', '1');
 
 -- ----------------------------
 -- Table structure for tbl_service_type
@@ -791,24 +836,27 @@ INSERT INTO `tbl_service` VALUES ('4', null, 'Dịch bản địa hóa', 'dich-b
 DROP TABLE IF EXISTS `tbl_service_type`;
 CREATE TABLE `tbl_service_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `service_id` int(11) DEFAULT '0',
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(255) DEFAULT NULL,
-  `sapo` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `intro` text,
-  `price` float DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sapo` text COLLATE utf8mb4_unicode_ci,
+  `intro` text COLLATE utf8mb4_unicode_ci,
   `order` tinyint(4) DEFAULT '0',
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_service_type
 -- ----------------------------
-INSERT INTO `tbl_service_type` VALUES ('3', '4', 'Chung chung', 'chung-chung', null, null, '50', '0', '1');
-INSERT INTO `tbl_service_type` VALUES ('4', '4', 'Hợp ph&aacute;p', 'hop-phap', null, null, '50', '0', '1');
-INSERT INTO `tbl_service_type` VALUES ('5', '4', 'Dược phẩm', 'duoc-pham', null, null, '50', '0', '1');
-INSERT INTO `tbl_service_type` VALUES ('6', '4', 'Kỹ thuật', 'ky-thuat', null, null, '50', '0', '1');
+INSERT INTO `tbl_service_type` VALUES ('1', 'Chung chung', 'chung-chung', 'http://localhost/letotrans/images/icons/icon-service-type-01.png', null, null, '0', '1');
+INSERT INTO `tbl_service_type` VALUES ('2', 'Hợp ph&aacute;p', 'hop-phap', 'http://localhost/letotrans/images/icons/icon-service-type-02.png', null, null, '0', '1');
+INSERT INTO `tbl_service_type` VALUES ('3', 'Dược phẩm', 'duoc-pham', 'http://localhost/letotrans/images/icons/icon-service-type-03.png', null, null, '0', '1');
+INSERT INTO `tbl_service_type` VALUES ('4', 'Kỹ thuật', 'ky-thuat', 'http://localhost/letotrans/images/icons/icon-service-type-04.png', null, null, '0', '1');
+INSERT INTO `tbl_service_type` VALUES ('5', 'Website', 'website', 'http://localhost/letotrans/images/icons/icon-service-type-05.png', null, null, '0', '1');
+INSERT INTO `tbl_service_type` VALUES ('6', 'Hồ sơ', 'ho-so', 'http://localhost/letotrans/images/icons/icon-service-type-06.png', null, null, '0', '1');
+INSERT INTO `tbl_service_type` VALUES ('7', 'Phần mềm', 'phan-mem', 'http://localhost/letotrans/images/icons/icon-service-type-07.png', null, null, '0', '1');
+INSERT INTO `tbl_service_type` VALUES ('8', 'Game', 'game', 'http://localhost/letotrans/images/icons/icon-service-type-08.png', null, null, '0', '1');
 
 -- ----------------------------
 -- Table structure for tbl_slider
@@ -816,22 +864,22 @@ INSERT INTO `tbl_service_type` VALUES ('6', '4', 'Kỹ thuật', 'ky-thuat', nul
 DROP TABLE IF EXISTS `tbl_slider`;
 CREATE TABLE `tbl_slider` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `slogan` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT '0',
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `link` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slogan` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_slider
 -- ----------------------------
-INSERT INTO `tbl_slider` VALUES ('18', 'SỬA CHỮA PHỤC HỒI XE Ô TÔ', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost/letotrans/images/banner/slide9.jpg', '', null, '1');
-INSERT INTO `tbl_slider` VALUES ('19', 'SỬA CHỮA PHỤC HỒI XE Ô TÔ', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost/letotrans/images/banner/slide10.jpg', '', null, '1');
-INSERT INTO `tbl_slider` VALUES ('20', 'SỬA CHỮA PHỤC HỒI XE Ô TÔ', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost/letotrans/images/banner/slide1.jpg', '', null, '1');
+INSERT INTO `tbl_slider` VALUES ('18', 'DỊCH THUẬT LETO TRANS <br> PHỤC VỤ 24/24H SUỐT 365 NGÀY KỂ CẢ NGÀY NGHỈ LỄ.', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost/letotrans/images/banner/banner-01.jpg', '', null, '1');
+INSERT INTO `tbl_slider` VALUES ('19', 'DỊCH THUẬT LETO TRANS <br> PHỤC VỤ 24/24H SUỐT 365 NGÀY KỂ CẢ NGÀY NGHỈ LỄ.', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost/letotrans/images/banner/banner-01.jpg', '', null, '1');
+INSERT INTO `tbl_slider` VALUES ('20', 'DỊCH THUẬT LETO TRANS <br> PHỤC VỤ 24/24H SUỐT 365 NGÀY KỂ CẢ NGÀY NGHỈ LỄ.', 'Đặt lịch hẹn Hôm nay <span style=\"color: rgb(250, 121, 1); font-weight: bold;\">GIẢM NGAY 15%</span><div><br><div><button class=\"btn btn-view\">ĐẶT LỊCH SỬA CHỮA</button></div></div>', '0', 'http://localhost/letotrans/images/banner/banner-01.jpg', '', null, '1');
 
 -- ----------------------------
 -- Table structure for tbl_subscribe
@@ -839,11 +887,11 @@ INSERT INTO `tbl_slider` VALUES ('20', 'SỬA CHỮA PHỤC HỒI XE Ô TÔ', '�
 DROP TABLE IF EXISTS `tbl_subscribe`;
 CREATE TABLE `tbl_subscribe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_subscribe
@@ -855,13 +903,13 @@ CREATE TABLE `tbl_subscribe` (
 DROP TABLE IF EXISTS `tbl_tags`;
 CREATE TABLE `tbl_tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
-  `code` varchar(50) DEFAULT NULL,
-  `meta_title` varchar(255) DEFAULT NULL,
-  `meta_desc` text,
-  `pids` text,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_desc` text COLLATE utf8mb4_unicode_ci,
+  `pids` text COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_tags
@@ -873,14 +921,14 @@ CREATE TABLE `tbl_tags` (
 DROP TABLE IF EXISTS `tbl_type_of_land`;
 CREATE TABLE `tbl_type_of_land` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` text COLLATE utf8mb4_unicode_ci,
   `ishot` tinyint(4) DEFAULT NULL,
   `order` tinyint(4) DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_type_of_land
@@ -901,19 +949,19 @@ INSERT INTO `tbl_type_of_land` VALUES ('9', 'Đất sản xuất, kinh doanh phi
 DROP TABLE IF EXISTS `tbl_user`;
 CREATE TABLE `tbl_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `firstname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `lastname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `firstname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birthday` date NOT NULL,
-  `gender` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `address` text COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `mobile` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `identify` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `organ` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gender` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `identify` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `organ` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `joindate` datetime NOT NULL,
   `lastlogin` datetime NOT NULL,
   `gid` int(11) NOT NULL,
@@ -921,13 +969,13 @@ CREATE TABLE `tbl_user` (
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_user
 -- ----------------------------
 INSERT INTO `tbl_user` VALUES ('1', 'igf', 'd93a5def7511da3d0f2d171d9c344e91', 'IGF', 'JSC', '0000-00-00', '', '', '', '', '', null, null, null, '0000-00-00 00:00:00', '2019-09-03 01:15:04', '1', null, '1');
-INSERT INTO `tbl_user` VALUES ('2', 'admin', 'd93a5def7511da3d0f2d171d9c344e91', 'THC', 'Admin', '0000-00-00', '0', '', '123456789', '', 'a@gmail.com', null, '1111111111', '', '2019-07-23 17:13:50', '2019-09-30 02:51:57', '1', null, '1');
+INSERT INTO `tbl_user` VALUES ('2', 'admin', 'd93a5def7511da3d0f2d171d9c344e91', 'THC', 'Admin', '0000-00-00', '0', '', '123456789', '', 'a@gmail.com', null, '1111111111', '', '2019-07-23 17:13:50', '2019-10-04 07:47:02', '1', null, '1');
 
 -- ----------------------------
 -- Table structure for tbl_user_group
@@ -936,15 +984,15 @@ DROP TABLE IF EXISTS `tbl_user_group`;
 CREATE TABLE `tbl_user_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `par_id` int(11) DEFAULT '0',
-  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `intro` text COLLATE utf8_unicode_ci,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `intro` text COLLATE utf8mb4_unicode_ci,
   `permission` int(11) NOT NULL DEFAULT '0',
   `isadmin` int(11) NOT NULL DEFAULT '0',
   `isroot` tinyint(4) DEFAULT NULL,
   `isboss` tinyint(4) DEFAULT '1',
   `isactive` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_user_group
@@ -960,12 +1008,12 @@ INSERT INTO `tbl_user_group` VALUES ('4', '2', 'Dangky', '', '49152', '0', null,
 DROP TABLE IF EXISTS `tbl_video`;
 CREATE TABLE `tbl_video` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `code` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `video_id` varchar(255) DEFAULT NULL,
-  `link` varchar(255) DEFAULT NULL,
-  `thumb` varchar(255) DEFAULT NULL,
-  `intro` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `code` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `video_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
   `content` text CHARACTER SET utf8,
   `ishot` tinyint(4) DEFAULT '0',
   `order` int(11) DEFAULT '0',
@@ -974,7 +1022,7 @@ CREATE TABLE `tbl_video` (
   `visited` int(11) DEFAULT '0',
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_video

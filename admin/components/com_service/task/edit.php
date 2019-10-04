@@ -5,6 +5,7 @@ $id = isset($_GET['id']) ? (int)$_GET["id"] : 0;
 $sql = "SELECT * FROM tbl_service WHERE id = ".$id;
 $objmysql->Query($sql);
 $row = $objmysql->Fetch_Assoc();
+$service_type = ($row['service_type_id'] !== '' && $row['service_type_id'] !== NULL) ? json_decode($row['service_type_id']) : [];
 
 $seo_link   = ROOTHOST.'dich-vu/'.$row['code'].'.html';
 $sql_seo    = "SELECT * FROM tbl_seo WHERE link = '".$seo_link."'";
@@ -106,10 +107,25 @@ $row_seo    = $objmysql->Fetch_Assoc();
 
                 <div class="col-md-3 col-sm-4">
                     <div class="form-group">
+                        <label>Lĩnh vực</label>
+                        <?php
+                        $sql_service_type = "SELECT * FROM tbl_service_type WHERE isactive = 1";
+                        $objmysql->Query($sql_service_type);
+                        while ($r_ser_type = $objmysql->Fetch_Assoc()) {
+                            if(in_array($r_ser_type['id'], $service_type)){
+                                echo '<div class="checkbox"><label><input type="checkbox" value="'.$r_ser_type['id'].'" name="chk_service[]" checked>'.$r_ser_type['name'].'</label></div>';
+                            }else{
+                                echo '<div class="checkbox"><label><input type="checkbox" value="'.$r_ser_type['id'].'" name="chk_service[]">'.$r_ser_type['name'].'</label></div>';
+                            }
+                        }
+                        ?>
+                    </div>
+                    <hr>
+                    <div class="form-group">
                         <label>Tác giả <span class="cred">*</span></label>
                         <input type="text" name="txt_author" value="<?php echo $row['author'];?>" class="form-control" id="txt_author" readonly placeholder="">
                     </div>
-
+                    <hr>
                     <div class="form-group">
                         <label>Hiển thị</label>
                         <div>

@@ -5,7 +5,7 @@ define('THIS_COM_PATH',COM_PATH.'com_'.COMS.'/');
 $objmysql = new CLS_MYSQL();
 
 if(isset($_POST['cmdsave'])){
-	$Name 		= addslashes(htmlentities($_POST['txt_name']));
+	$Name 		= addslashes($_POST['txt_name']);
 	$Images 	= addslashes($_POST['txtthumb']);
 	$Link 		= addslashes($_POST['txt_link']);
 	
@@ -14,7 +14,7 @@ if(isset($_POST['cmdsave'])){
 		$sql = "UPDATE tbl_partner SET `name`='".$Name."', `images`='".$Images."', `link`='".$Link."' WHERE id='".$ID."'";
         $objmysql->Exec($sql);
 	}else{
-		$sql = "INSERT INTO `tbl_partner`(`name`,`images`,`link`) VALUES ('".$Name."','".$Images."','".$Link."','".$isActive."')";
+		$sql = "INSERT INTO tbl_partner(`name`,`images`,`link`) VALUES ('".$Name."','".$Images."','".$Link."','".$isActive."')";
 		$objmysql->Exec($sql);
 	}
 	echo "<script language=\"javascript\">window.location.href='".ROOTHOST_ADMIN.COMS."'</script>";
@@ -28,15 +28,15 @@ if(isset($_POST["txtaction"]) && $_POST["txtaction"]!=""){
 	$ids=str_replace(",","','",$ids);
 	switch ($_POST["txtaction"]){
 		case "public": 
-			$sql_active = "UPDATE `tbl_partner` SET `isactive`='1' WHERE `id` in ('$ids')";
+			$sql_active = "UPDATE tbl_partner SET `isactive`='1' WHERE `id` in ('$ids')";
 			$objmysql->Exec($sql_active);
 			break;
 		case "unpublic":
-			$sql_unactive = "UPDATE `tbl_partner` SET `isactive`='0' WHERE `id` in ('$ids')";
+			$sql_unactive = "UPDATE tbl_partner SET `isactive`='0' WHERE `id` in ('$ids')";
 			$objmysql->Exec($sql_unactive);
 			break;
 		case "delete":
-			$sql_del = "DELETE FROM `tbl_partner` WHERE `id` in ('$ids')";
+			$sql_del = "DELETE FROM tbl_partner WHERE `id` in ('$ids')";
 	        $objmysql->Exec($sql_del);
 	        break;
 		case 'order':
@@ -44,7 +44,7 @@ if(isset($_POST["txtaction"]) && $_POST["txtaction"]!=""){
 			$ids = explode(',',$_POST['txtids']);
 			$n = count($ids);
 			for($i=0;$i<$n;$i++){
-				$sql_order = "UPDATE `tbl_partner` SET `order`='".$sls[$i]."' WHERE `id` = '".$ids[$i]."' ";
+				$sql_order = "UPDATE tbl_partner SET `order`='".$sls[$i]."' WHERE `id` = '".$ids[$i]."' ";
 				$objmysql->Exec($sql_order);
 			}
 	}

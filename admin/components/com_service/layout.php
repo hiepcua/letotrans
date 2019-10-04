@@ -7,6 +7,7 @@ $objmysql 	= new CLS_MYSQL();
 
 if(isset($_POST["cmdsave"])){
 	$isActive 		= isset($_POST['opt_isactive']) ? (int)$_POST['opt_isactive'] : 0;
+	$Service_type 	= isset($_POST['chk_service']) ? json_encode($_POST["chk_service"]) : '';
 
 	$Title 			= isset($_POST['txt_name']) ? addslashes($_POST['txt_name']) : '';
 	$Code 			= un_unicode($_POST['txt_name']);
@@ -29,16 +30,17 @@ if(isset($_POST["cmdsave"])){
 
 		$objmysql->Query("BEGIN");
 		$sql = "UPDATE tbl_service SET 
-		`code` 		= '".$Code."',
-		`thumb` 	= '".$Thumb."',
-		`mdate` 	= '".$Mdate."',
-		`author` 	= '".$Author."',
-		`isactive` 	= '".$isActive."',
-		`name` 		= '".$Title."',
-		`sapo` 		= '".$Sapo."',
-		`fulltext` 	= '".$Fulltext."'
-		WHERE `id` 	= '".$ID."'";
-		
+		`code` 				= '".$Code."',
+		`thumb` 			= '".$Thumb."',
+		`mdate` 			= '".$Mdate."',
+		`author` 			= '".$Author."',
+		`isactive` 			= '".$isActive."',
+		`name` 				= '".$Title."',
+		`sapo` 				= '".$Sapo."',
+		`fulltext` 			= '".$Fulltext."',
+		`service_type_id` 	= '".$Service_type."'
+		WHERE `id` 			= '".$ID."'";
+
 		$result = $objmysql->Exec($sql);
 
 		$sql2 = "UPDATE tbl_seo SET 
@@ -61,8 +63,8 @@ if(isset($_POST["cmdsave"])){
 		$Cdate = $date;
 
 		$objmysql->Exec("BEGIN");
-		$sql = "INSERT INTO tbl_service (`code`,`thumb`,`cdate`,`author`,`isactive`,`name`,`sapo`,`fulltext`) VALUES ('".$Code."','".$Thumb."','".$Cdate."','".$Author."','".$isActive."','".$Title."','".$Sapo."', '".$Fulltext."')";
-		
+		$sql = "INSERT INTO tbl_service (`code`,`thumb`,`cdate`,`author`,`isactive`,`name`,`sapo`,`fulltext`,`service_type_id`) VALUES ('".$Code."','".$Thumb."','".$Cdate."','".$Author."','".$isActive."','".$Title."','".$Sapo."', '".$Fulltext."', '".$Service_type."')";
+
 		$result = $objmysql->Exec($sql);
 
 		$sql2 = "INSERT INTO tbl_seo (`title`,`link`,`image`,`meta_title`,`meta_key`,`meta_desc`) VALUES ('".$Title."','".$Link."','".$Thumb."','".$Meta_title."','".$Meta_key."','".$Meta_desc."')";

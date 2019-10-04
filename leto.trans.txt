@@ -1,5 +1,14 @@
-Đường dẫn order
+
 certificate_id=2        => Không có chứng chỉ
 industry_id=1           => Chuyên môn, lĩnh vực
+package_id=1			=> Gói cước
 service_id=7            => Dịch vụ
 urgency_type_id=2       => Deadline gấp rút, khẩn cấp (1, 2, 3, 4 ngày) mặc định 2 ngày
+
+
+Xem xét việc gộp 2 bảng loại dịch vụ với loại sản phẩm vào làm 1
+trang chi tiết dịch vụ thiếu module ngôn ngữ nổi bật
+trang chi tiết dịch vụ thiếu module đăng ký nhận tin
+
+trang bảng giá thiếu module ngôn ngữ nổi bật
+trang bảng giá thiếu module đăng ký nhận tin

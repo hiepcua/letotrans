@@ -11,6 +11,7 @@ RewriteRule ^test/?$ 									index.php?com=services&viewtype=test
 
 # Service
 RewriteRule ^ngon-ngu/?$ 	                            index.php?com=services&viewtype=languages
+RewriteRule ^bang-gia/?$ 	                            index.php?com=services&viewtype=table_price
 RewriteRule ^order/?$ 	                            	index.php?com=services&viewtype=order 	[QSA]
 RewriteRule ^dich-vu/?$ 	                            index.php?com=services&viewtype=list
 RewriteRule ^dich-vu/([0-9a-zA-Z\-]+).html/?$  			index.php?com=services&viewtype=detail&code=$1

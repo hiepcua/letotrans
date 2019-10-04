@@ -21,12 +21,6 @@ $row = $objmysql->Fetch_Assoc();
             return false;
         }
 
-        if($("#txt_price").val()==""){
-            $("#err_price").fadeTo(200,0.1,function(){
-                $(this).html('Vui lòng nhập giá').fadeTo(900,1);
-            });
-            return false;
-        }
         return true;
     }
 </script>
@@ -56,13 +50,6 @@ $row = $objmysql->Fetch_Assoc();
 </div>
 <div class="clearfix"></div>
 <div class="box-tabs">
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" data-toggle="tab">
-                Thông tin
-            </a>
-        </li>
-    </ul><br>
     <form id="frm_action" class="form-horizontal" name="frm_action" method="post" enctype="multipart/form-data">
         <input type="hidden" name="txtid" value="<?php echo $row['id']; ?>">
         <div class="tab-content">
@@ -72,29 +59,8 @@ $row = $objmysql->Fetch_Assoc();
                         <label>Tên lĩnh vực<small class="cred"> (*)</small><span id="err_name" class="mes-error"></span></label>
                         <input type="text" name="txt_name" class="form-control" id="txt_name" placeholder="Tên lĩnh vực" value="<?php echo $row['name']; ?>" required>
                     </div>
-                    <div class="form-group">
-                        <label>Giá mỗi từ<small class="cred"> (*)</small><span id="err_price" class="mes-error"></span></label>
-                        <input type="text" name="txt_price" class="form-control" id="txt_price" placeholder="Giá một từ" value="<?php echo $row['price']; ?>" required>
-                    </div>
                 </div>
                 <div class="col-md-3 col-sm-4">
-                    <div class="form-group">
-                        <label>Danh mục tin<small class="cred"> (*)</small><span id="err_cate" class="mes-error"></span></label>
-                        <select class="form-control" id="cbo_service" name="cbo_service" style="width: 100%" required>
-                            <option value="">Root</option>
-                            <?php
-                            $sql = "SELECT * FROM tbl_service WHERE isactive = 1 ORDER BY `name` ASC";
-                            $objmysql->Query($sql);
-                            while ($r_service = $objmysql->Fetch_Assoc()) {
-                                echo '<option value="'.$r_service['id'].'">'.$r_service['name'].'</option>';
-                            }
-                            ?>
-                        </select>
-                        <script type="text/javascript">
-                            cbo_Selected('cbo_service','<?php echo $row['service_id'];?>');
-                        </script>
-                        <div class="clearfix"></div>
-                    </div>
                     <div class="form-group">
                         <label>Hiển thị</label>
                         <div>
@@ -113,8 +79,3 @@ $row = $objmysql->Fetch_Assoc();
         </div>
     </form>
 </div>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#cbo_service").select2();
-    });
-</script>

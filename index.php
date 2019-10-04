@@ -66,37 +66,7 @@ global $tmp;global $conf;
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 	<div id="container">
-		<header id="header" class="active">
-			<div class="top-header">
-				<div class="container">
-					<div class="col-left">
-						<ul>
-							<li class="hotline">Hotline:&nbsp&nbsp<a href="tel:+6494461709">123456789</a></li>
-							<li><?php echo "Today is " . date("Y-m-d") . "<br>"; ?></li>
-						</ul>
-					</div>
-					<div class="col-right">
-						<ul class="social">
-							<li><a href="" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href="" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href="" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-						</ul>
-						<section id="search">
-							<form class="form-search-header" method="GET" action="<?php echo ROOTHOST;?>tim-kiem">
-								<label for="search-input"><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search icons</span></label>
-								<input id="search-input" name="q" class="form-control" placeholder="Tìm kiếm ...">
-							</form>
-						</section>
-					</div>
-				</div>
-			</div>
-
-			<div class="wrap-logo">
-				<a href="<?php echo ROOTHOST;?>" title="Trang chủ">
-					<img src="<?php echo ROOTHOST;?>images/logo/logo.png" class="img-responsive">
-				</a>
-			</div>
-
+		<header>
 			<div id="navbar" class="wrap-menu">
 				<div class="container">
 					<div class="navbar-header">
@@ -106,6 +76,7 @@ global $tmp;global $conf;
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
+						<a class="navbar-brand" href="<?php echo ROOTHOST;?>"><img src="<?php echo ROOTHOST;?>images/logo/logo.png"></a>
 					</div>
 					<div class="navbar-collapse collapse">
 						<nav id="main-menu"><?php $tmp->loadModule('navitor');?></nav>
@@ -115,202 +86,30 @@ global $tmp;global $conf;
 		</header>
 		<?php if($tmp->isFrontpage()){ ?>
 			<div class="main-home">
-				<section class="section-follow">
-					<div class="container">
-						<div id="slide-follow" class="owl-carousel owl-theme">
-							<?php
-							$sql="SELECT * FROM tbl_contents WHERE isactive=1 ORDER BY cdate DESC LIMIT 0, 10";
-							$objmysql->Query($sql);
-							while($row 	= $objmysql->Fetch_Assoc()) {
-								$title 	= stripcslashes($row['title']);
-								$code 	= $row['code'];
-								$thumb 	= getThumb($row['thumb'], 'img-responsive', '');
-								$views 	= (int)$row['visited'];
-								$cdate 	= convert_date($row['cdate']);
-
-								$sql_cate="SELECT * FROM tbl_categories WHERE isactive=1 AND id=".$row['category_id'];
-								$objdata->Query($sql_cate);
-								$r_cate = $objdata->Fetch_Assoc();
-								$link 	= ROOTHOST.$r_cate['code'].'/'.$code.'.html';
-								?>
-								<div class="item">
-									<div class="box-thumb"><a href="<?php echo $link;?>" title="<?php echo $title;?>"><?php echo $thumb;?></a></div>
-									<div class="content">
-										<div class="title"><a href="<?php echo $link;?>" title="<?php echo $title;?>"><?php echo $title;?></a></div>
-										<div class="info">
-											<span class="date"><?php echo $cdate;?></span>
-											<?php
-											if($views > 0){
-												echo '<span class="views">'.$views.'views</span>';
-											}
-											?>
-										</div>
-									</div>
-								</div>
-							<?php } ?>
-						</div>
-					</div>
-				</section>
-
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8 col-sm-8">
-							<div id="slide-hot-news" class="owl-carousel owl-theme">
-								<?php
-								$sql="SELECT * FROM tbl_contents WHERE isactive = 1 ORDER BY cdate DESC LIMIT 0, 3";
-								$objmysql->Query($sql);
-								while($row 	= $objmysql->Fetch_Assoc()) {
-									$title 	= stripcslashes($row['title']);
-									$code 	= $row['code'];
-									$thumb 	= getThumb($row['thumb'], 'img-responsive', '');
-									$views 	= (int)$row['visited'];
-									$cdate 	= convert_date($row['cdate']);
-									$sapo 	= Substring(html_entity_decode(stripslashes($row['sapo'])), 0, 60);
-
-									$sql_cate="SELECT * FROM tbl_categories WHERE isactive=1 AND id=".$row['category_id'];
-									$objdata->Query($sql_cate);
-									$r_cate = $objdata->Fetch_Assoc();
-									$link 	= ROOTHOST.$r_cate['code'].'/'.$code.'.html';
-									?>
-									<div class="item">
-										<div class="box-thumb"><a href="<?php echo $link;?>" title="<?php echo $title;?>"><?php echo $thumb;?></a></div>
-										<div class="content">
-											<div class="title"><a href="<?php echo $link;?>" title="<?php echo $title;?>"><?php echo $title;?></a></div>
-											<div class="info">
-												<span class="date"><?php echo $cdate;?></span>
-												<?php
-												if($views > 0){
-													echo '<span class="views">'.$views.' views</span>';
-												}
-												?>
-												<div class="sapo"><?php echo $sapo; ?></div>
-											</div>
-										</div>
-									</div>
-								<?php } ?>
+				<div class="wrap-banner">
+					<?php include_once("modules/mod_banner/default.php"); ?>
+					<div class="box-bottom">
+						<div class="container">
+							<div class="item">
+								<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-01.png" class="thumb img-responsive"></div>
+								<p>Chất lượng dịch vụ cực tốt</p>
 							</div>
-
-							<?php
-							$sql="SELECT * FROM tbl_categories WHERE isactive=1 AND par_id = 0 ORDER BY `order` ASC";
-							$objmysql->Query($sql);
-							while ($r_cate = $objmysql->Fetch_Assoc()) {
-								$cate_link = ROOTHOST.$r_cate['code'];
-								echo '<section class="sec-category">
-								<h2 class="sec-title"><i class="fa fa-circle" aria-hidden="true"></i><span><a href="'.$cate_link.'" title="'.$r_cate['name'].'">'.$r_cate['name'].'</a></span></h2>';
-
-								echo '<div class="row list-items">';
-								$sql_con="SELECT * FROM tbl_contents WHERE isactive=1 AND category_id = ".$r_cate['id']." ORDER BY cdate DESC LIMIT 0,4";
-								$objdata->Query($sql_con);
-								while ($r_con = $objdata->Fetch_Assoc()) {
-									$title 	= stripcslashes($r_con['title']);
-									$code 	= $r_con['code'];
-									$thumb 	= getThumb($r_con['thumb'], 'img-responsive', '');
-									$views 	= (int)$r_con['visited'];
-									$cdate 	= convert_date($r_con['cdate']);
-									$sapo 	= Substring(html_entity_decode(stripslashes($r_con['intro'])), 0, 60);
-									$link 	= ROOTHOST.$r_cate['code'].'/'.$r_con['code'].'.html';
-
-									echo '<div class="col-md-6 col-sm-6 item">
-									<div class="box-thumb">
-									<a href="'.$link.'" title="'.$title.'">'.$thumb.'</a>
-									</div>
-									<div class="content">
-									<div class="title"><a href="'.$link.'" title="'.$title.'">'.$title.'</a></div>
-									<div class="info">
-									<span class="date">'.$cdate.'</span>';
-									if($views > 0){
-										echo '<span class="views">'.$views.' views</span>';
-									}
-									echo '<div class="sapo">'.$sapo.'</div>
-									</div>
-									</div>
-									</div>';
-								}
-								echo '</div>';
-								echo '</section>';
-							}
-							?>
-
-						</div>
-						<div class="col-md-4 col-sm-4 wrap-aside">
-							<aside class="aside latest-news">
-								<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Tin mới nhất</span></h3>
-								<?php
-								$sql="SELECT * FROM tbl_contents WHERE isactive=1 ORDER BY cdate DESC LIMIT 0,5";
-								$objmysql->Query($sql);
-								$i=1;
-								while ($row = $objmysql->Fetch_Assoc()) {
-									$title 	= stripcslashes($row['title']);
-									$code 	= $row['code'];
-									$thumb 	= getThumb($row['thumb'], 'img-responsive', '');
-									$views 	= (int)$row['visited'];
-									$cdate 	= convert_date($row['cdate']);
-
-									$sql_cate="SELECT * FROM tbl_categories WHERE isactive=1 AND id=".$row['category_id'];
-									$objdata->Query($sql_cate);
-									$r_cate = $objdata->Fetch_Assoc();
-									$link 	= ROOTHOST.$r_cate['code'].'/'.$code.'.html';
-
-									echo '<div class="item">
-									<div class="number">'.$i.'.</div>
-									<div class="content">
-									<div class="title"><a href="'.$link.'" title="'.$title.'">'.$title.'</a></div>
-									<div class="info">
-									<span class="date">'.$cdate.'</span>';
-									if($views > 0){
-										echo '<span class="views">'.$views.'views</span>';
-									}
-									echo '</div>
-									</div>
-									<div class="box-thumb"><a href="'.$link.'" title="'.$title.'">'.$thumb.'</a></div>
-									</div>';
-									$i++;
-								}
-								?>
-							</aside>
-
-							<aside class="aside advertisement">
-								<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Trending</span></h3>
-								<div>
-									<a href="" title="Trending"><img src="<?php echo ROOTHOST; ?>images/advantisement.jpg" align=""></a>
-								</div>
-							</aside>
-
-							<aside class="aside latest-news">
-								<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Tin mới nhất</span></h3>
-								<?php
-								$sql="SELECT * FROM tbl_contents WHERE isactive=1 ORDER BY cdate DESC LIMIT 0,5";
-								$objmysql->Query($sql);
-								$i=1;
-								while ($row = $objmysql->Fetch_Assoc()) {
-									$title 	= stripcslashes($row['title']);
-									$code 	= $row['code'];
-									$thumb 	= getThumb($row['thumb'], 'img-responsive', '');
-									$views 	= (int)$row['visited'];
-									$cdate 	= convert_date($row['cdate']);
-
-									$sql_cate="SELECT * FROM tbl_categories WHERE isactive=1 AND id=".$row['category_id'];
-									$objdata->Query($sql_cate);
-									$r_cate = $objdata->Fetch_Assoc();
-									$link 	= ROOTHOST.$r_cate['code'].'/'.$code.'.html';
-
-									echo '<div class="item">
-									<div class="number">'.$i.'.</div>
-									<div class="content">
-									<div class="title"><a href="'.$link.'" title="'.$title.'">'.$title.'</a></div>
-									<div class="info">
-									<span class="date">'.$cdate.'</span>';
-									if($views > 0){
-										echo '<span class="views">'.$views.'views</span>';
-									}
-									echo '</div>
-									</div>
-									<div class="box-thumb"><a href="'.$link.'" title="'.$title.'">'.$thumb.'</a></div>
-									</div>';
-									$i++;
-								}
-								?>
-							</aside>
+							<div class="item">
+								<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-02.png" class="thumb img-responsive"></div>
+								<p>Đội ngũ nhân viên giàu kinh nghiệm</p>
+							</div>
+							<div class="item">
+								<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-03.png" class="thumb img-responsive"></div>
+								<p>Thanh toán dễ dàng tiện lợi</p>
+							</div>
+							<div class="item">
+								<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-04.png" class="thumb img-responsive"></div>
+								<p>Giá cả tốt nhất thị trường</p>
+							</div>
+							<div class="item">
+								<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-05.png" class="thumb img-responsive"></div>
+								<p>Miễn phí giao nhận tài liệu</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -395,15 +194,21 @@ global $tmp;global $conf;
 
 		$(document).ready(function(){
 			$('#main-banner').owlCarousel({
-				navigation : true,
-				slideSpeed : 3000,
-				paginationSpeed : 400,
-				loop: true,
-				items : 1, 
-				itemsDesktop : false,
-				itemsDesktopSmall : false,
-				itemsTablet: false,
-				itemsMobile : false
+				loop:true,
+				navText:["<span class='	glyphicon glyphicon-chevron-left'></span>", "<span class='glyphicon glyphicon-chevron-right'></span>"],
+				dots:true,
+				nav:true,
+				responsive:{
+					0:{
+						items:1
+					},
+					600:{
+						items:1
+					},
+					1000:{
+						items:1
+					}
+				}
 			})
 
 			$('#slide-follow').owlCarousel({

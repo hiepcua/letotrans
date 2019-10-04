@@ -2,22 +2,23 @@
 defined("ISHOME") or die("Can't acess this page, please come back!");
 $id="";
 if(isset($_GET["id"]))  $id = trim($_GET["id"]);
-$sql = "SELECT * FROM `tbl_package` WHERE id=".$id." ORDER BY `name`";
+$sql = "SELECT * FROM `tbl_package` WHERE id=".$id;
 $objmysql->Query($sql);
 $row = $objmysql->Fetch_Assoc();
+
+$sql_service = "SELECT * FROM tbl_service WHERE isactive = 1 AND id = ".$row['service_id'];
+$objmysql->Query($sql_service);
+$r_service = $objmysql->Fetch_Assoc();
+
+$sql_service_type = "SELECT * FROM tbl_service_type WHERE isactive = 1 AND id = ".$row['service_type_id'];
+$objmysql->Query($sql_service_type);
+$r_service_type = $objmysql->Fetch_Assoc();
 ?>
 <script language="javascript">
     function checkinput(){
-        if($("#txt_name").val()==""){
-            $("#txt_name_err").fadeTo(200,0.1,function(){
-                $(this).html('Vui lòng nhập tên nhóm tin').fadeTo(900,1);
-            });
-            return false;
-        }
-
-        if($("#txt_price").val()==""){
-            $("#err_price").fadeTo(200,0.1,function(){
-                $(this).html('Vui lòng nhập giá').fadeTo(900,1);
+        if($("#cbo_service").val()==""){
+            $("#err_service").fadeTo(200,0.1,function(){
+                $(this).html('Không được để trống').fadeTo(900,1);
             });
             return false;
         }
@@ -50,31 +51,59 @@ $row = $objmysql->Fetch_Assoc();
 </div>
 <div class="clearfix"></div>
 <div class="box-tabs">
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" data-toggle="tab">
-                Thông tin
-            </a>
-        </li>
-    </ul><br>
     <form id="frm_action" class="form-horizontal" name="frm_action" method="post" enctype="multipart/form-data">
         <input type="hidden" name="txtid" value="<?php echo $row['id']; ?>">
         <div class="tab-content">
             <div class="tab-pane fade active in" id="info">
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6">
-                        <label>Tên gói dịch vụ<small class="cred"> (*)</small><span id="txt_name_err" class="mes-error"></span></label>
-                        <input type="text" name="txt_name" class="form-control" id="txt_name" placeholder="Tên gói dịch vụ"  value="<?php echo $row['name']; ?>" required>
+                        <label>Dịch vụ<small class="cred"> (*)</small><span id="err_service" class="mes-error"></span></label>
+                        <input type="hidden" name="cbo_service" class="form-control" value="<?php echo $r_service['id']; ?>">
+                        <input type="text" name="cbo_service_name" class="form-control" value="<?php echo $r_service['name']; ?>" readonly>
                     </div>
-                    <div class="col-md-6 col-sm-6">
-                        <label>Giá mỗi từ<small class="cred"> đ(*)</small><span id="err_price" class="mes-error"></span></label>
-                        <input type="text" name="txt_price" class="form-control" id="txt_price" placeholder="Giá một từ" value="<?php echo $row['price']; ?>" required>
+                </div>
+                <div id="response">
+                    <label>Giá gói dịch vụ theo từng loại</label>
+                    <table class="table table-bordered">
+                        <thead>
+                            <th>Tên dịch vụ</th>
+                            <th>Lĩnh vực/Loại sản phẩm</th>
+                            <th>Gói cơ bản</th>
+                            <th>Gói pro</th>
+                            <th>Gói vip</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $r_service['name']; ?></td>
+                                <?php if($row['service_type_id'] !== 0){ ?>
+                                    <td>
+                                        <?php echo $r_service_type['name']; ?>
+                                        <input type="hidden" name="txt_service_type[]" value="<?php echo $r_service_type['id']; ?>"/>
+                                    </td>
+                                <?php } ?>
+                                <td><input type="number" name="txt_price_basic[]" value="<?php echo $row['price_basic']; ?>"></td>
+                                <td><input type="number" name="txt_price_pro[]" value="<?php echo $row['price_pro']; ?>"></td>
+                                <td><input type="number" name="txt_price_vip[]" value="<?php echo $row['price_vip']; ?>"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="form-control-label">Mô tả gói cơ bản</label>
+                        <textarea name="txt_intro1" id="txt_intro1" rows="5"><?php echo $row['intro_basic']; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <label class="form-control-label">Mô tả</label>
-                        <textarea name="txt_intro" id="txt_intro" rows="5"><?php echo $row['intro']; ?></textarea>
+                        <label class="form-control-label">Mô tả gói PRO</label>
+                        <textarea name="txt_intro2" id="txt_intro2" rows="5"><?php echo $row['intro_pro']; ?></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="form-control-label">Mô tả gói VIP</label>
+                        <textarea name="txt_intro3" id="txt_intro3" rows="5"><?php echo $row['intro_vip']; ?></textarea>
                     </div>
                 </div>
             </div>
@@ -88,6 +117,8 @@ $row = $objmysql->Fetch_Assoc();
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        tinymce.init({selector:'#txt_intro'});
+        tinymce.init({selector:'#txt_intro1'});
+        tinymce.init({selector:'#txt_intro2'});
+        tinymce.init({selector:'#txt_intro3'});
     });
 </script>

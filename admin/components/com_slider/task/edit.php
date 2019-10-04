@@ -71,22 +71,18 @@ $row = $objmysql->Fetch_Assoc();
             </div>
             <div class="clearfix"></div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 form-control-label">Slogan</label>
-            <div class="col-sm-10">
-                <input type="text" name="txt_slogan" class="form-control" id="txt_slogan" value="<?php echo $row['slogan'];?>">
-                <div id="txt_slogan_err" class="mes-error"></div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
     </div>
     <div class="clearfix"></div>
     <div class="text_inner">
-        <label class="control-label">Mô tả</label>
-        <textarea name="txt_intro" id="txt_intro" class="form-control"><?php echo $row['intro'];?></textarea>
+        <label class="control-label">Slogan</label>
+        <textarea name="txt_slogan" class="form-control" id="txt_slogan" rows="3"><?php echo $row['slogan'];?></textarea>
     </div>
-    <div class="clearfix"></div>
+    
+    <div class="text_inner">
+        <label class="control-label">Mô tả</label>
+        <textarea name="txt_intro" id="txt_intro" class="form-control" rows="5"><?php echo $row['intro'];?></textarea>
+    </div>
+    
     <input type="submit" name="cmdsave" id="cmdsave" value="Submit" style="display:none;" />
     <div class="text-center toolbar" style="margin-top: 30px;">
         <a class="save btn btn-success" href="#" onclick="dosubmitAction('frm_action','save');" title="Lưu thông tin"><i class="fa fa-floppy-o" aria-hidden="true"></i> Lưu thông tin</a>

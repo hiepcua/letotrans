@@ -113,10 +113,11 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
             $i = 0;
             while($rows = $objmysql->Fetch_Assoc()){
                 $i++;
-                $ids        = $rows['id'];
-                $title      = stripslashes($rows['name']);
-                $order      = number_format($rows['order']);
-                $sapo       = Substring(stripslashes($rows['sapo']), 0, 10);
+                $ids                = $rows['id'];
+                $service_type_id    = $rows['service_type_id'];
+                $title              = stripslashes($rows['name']);
+                $order              = number_format($rows['order']);
+                $sapo               = Substring(stripslashes($rows['sapo']), 0, 10);
 
                 if($rows['thumb'] == '')
                     $thumb  = '<img src="'.IMG_DEFAULT.'" alt="'.$title.'" width="60px">';
@@ -131,9 +132,8 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
                 echo "<td width='30' align='center'><label>";
                 echo "<input type='checkbox' name='chk' id='chk' onclick=\"docheckonce('chk');\" value='$ids'/>";
                 echo "</label></td>";
-                echo "<td>
-                <div class='title'>$title</div>
-                </td>";
+                echo "<td><div class='title'>$title</div></td>";
+
                 echo "<td>".$sapo."</td>";
 
                 echo "<td width='50' align='center'><input type='text' name='txt_order' id='txt_order' value='$order' size='4' class='order'></td>";
