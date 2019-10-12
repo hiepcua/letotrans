@@ -8,16 +8,16 @@ elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED
 }
 $REQUEST_PROTOCOL = $isSecure ? 'https://' : 'http://';
 
-// define('ROOTHOST',$REQUEST_PROTOCOL.$_SERVER['HTTP_HOST'].'/batdongsan/');
-define('ROOTHOST','http://localhost/letotrans/');
+// define('ROOTHOST',$REQUEST_PROTOCOL.$_SERVER['HTTP_HOST'].'/');
+define('ROOTHOST','http://localhost:8000/letotrans/');
 define('ROOTHOST_ADMIN',ROOTHOST.'admin/');
-define('WEBSITE',$REQUEST_PROTOCOL.$_SERVER['HTTP_HOST'].'/batdongsan/');
+define('WEBSITE',$REQUEST_PROTOCOL.$_SERVER['HTTP_HOST'].'/');
 define('BASEVIRTUAL0',ROOTHOST.'images/');
 define('IMG_DEFAULT','imgs/no-image.png');
 define('THUMB_DEFAULT','images/icons/no-img.png');
 define('PATH_GALLERY','images/gallery/');
 define('PATH_GALLERY_REVIEW','images/gallery/');
-define('UPLOAD_PATH',$_SERVER['DOCUMENT_ROOT'].'/batdongsan/');
+define('UPLOAD_PATH',$_SERVER['DOCUMENT_ROOT'].'/');
 
 define('APP_ID','1663061363962371');
 define('APP_SECRET','dd0b6d3fb803ca2a51601145a74fd9a8');

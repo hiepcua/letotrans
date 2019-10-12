@@ -5,7 +5,7 @@ $id = isset($_GET['id']) ? (int)$_GET["id"] : 0;
 $sql = "SELECT * FROM tbl_service WHERE id = ".$id;
 $objmysql->Query($sql);
 $row = $objmysql->Fetch_Assoc();
-$service_type = ($row['service_type_id'] !== '' && $row['service_type_id'] !== NULL) ? json_decode($row['service_type_id']) : [];
+// $service_type = ($row['service_type_id'] !== '' && $row['service_type_id'] !== NULL) ? json_decode($row['service_type_id']) : [];
 
 $seo_link   = ROOTHOST.'dich-vu/'.$row['code'].'.html';
 $sql_seo    = "SELECT * FROM tbl_seo WHERE link = '".$seo_link."'";
@@ -22,7 +22,7 @@ $row_seo    = $objmysql->Fetch_Assoc();
     function checkinput(){
         if($("#txt_name").val()==""){
             $("#err_name").fadeTo(200,0.1,function(){
-                $(this).html('Vui lòng nhập tên dịch vụ').fadeTo(900,1);
+                $(this).html('Vui lòng nhập tên loại tài liệu').fadeTo(900,1);
             });
             $("#txt_name").focus();
             return false;
@@ -34,13 +34,13 @@ $row_seo    = $objmysql->Fetch_Assoc();
 <div id="path">
     <ol class="breadcrumb">
         <li><a href="<?php echo ROOTHOST_ADMIN;?>">Admin</a></li>
-        <li><a href="<?php echo ROOTHOST_ADMIN.COMS;?>">Danh sách dịch vụ </a></li>
-        <li class="active">Cập nhật tin dịch vụ</li>
+        <li><a href="<?php echo ROOTHOST_ADMIN.COMS;?>">Danh sách loại tài liệu </a></li>
+        <li class="active">Cập nhật loại tài liệu</li>
     </ol>
 </div>
 
 <div class="com_header color">
-    <h1>Cập nhật tin dịch vụ</h1>
+    <h1>Cập nhật loại tài liệu</h1>
     <div class="pull-right">
         <form id="frm_menu" name="frm_menu" method="post" action="">
             <input type="hidden" name="txtorders" id="txtorders" />
@@ -78,7 +78,7 @@ $row_seo    = $objmysql->Fetch_Assoc();
                 <div class="col-md-9 col-sm-8">
                     <div class='form-group'>
                         <label>Tiêu đề<small class="cred"> (*)</small><span id="err_name" class="mes-error"></span></label>
-                        <input type="text" name="txt_name" class="form-control" id="txt_name" value="<?php echo $row['name'];?>" placeholder="Tiêu đề dịch vụ" required>
+                        <input type="text" name="txt_name" class="form-control" id="txt_name" value="<?php echo $row['name'];?>" placeholder="Tiêu đề loại tài liệu" required>
                     </div>
 
                     <div class='form-group'>
@@ -106,7 +106,7 @@ $row_seo    = $objmysql->Fetch_Assoc();
                 </div>
 
                 <div class="col-md-3 col-sm-4">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Lĩnh vực</label>
                         <?php
                         $sql_service_type = "SELECT * FROM tbl_service_type WHERE isactive = 1";
@@ -119,6 +119,18 @@ $row_seo    = $objmysql->Fetch_Assoc();
                             }
                         }
                         ?>
+                    </div> -->
+                    <div class="form-group">
+                        <label>Nhóm cha</label>
+                        <select name="cbo_par" class="form-control" id="cbo_par" style="width: 100%;">
+                            <option value="0" title="Top">Root</option>
+                            <?php $obj->getListParent(0, 0); ?>
+                        </select>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                cbo_Selected('cbo_par','<?php echo $row['par_id'];?>');
+                            });
+                        </script>
                     </div>
                     <hr>
                     <div class="form-group">

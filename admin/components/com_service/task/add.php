@@ -11,7 +11,7 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
     function checkinput(){
         if($("#txt_name").val()==""){
             $("#err_name").fadeTo(200,0.1,function(){
-                $(this).html('Vui lòng nhập tên dịch vụ').fadeTo(900,1);
+                $(this).html('Vui lòng nhập tên loại tài liệu').fadeTo(900,1);
             });
             $("#txt_name").focus();
             return false;
@@ -23,13 +23,13 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
 <div id="path">
     <ol class="breadcrumb">
         <li><a href="<?php echo ROOTHOST_ADMIN;?>">Admin</a></li>
-        <li><a href="<?php echo ROOTHOST_ADMIN.COMS;?>">Danh sách dịch vụ</a></li>
-        <li class="active">Thêm mới dịch vụ</li>
+        <li><a href="<?php echo ROOTHOST_ADMIN.COMS;?>">Danh sách loại tài liệu</a></li>
+        <li class="active">Thêm mới loại tài liệu</li>
     </ol>
 </div>
 
 <div class="com_header color">
-    <h1>Thêm mới dịch vụ</h1>
+    <h1>Thêm mới loại tài liệu</h1>
     <div class="pull-right">
         <form id="frm_menu" name="frm_menu" method="post" action="">
             <input type="hidden" name="txtorders" id="txtorders" />
@@ -63,7 +63,7 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
             <div class="tab-pane fade active in" id="info">
                 <div class="col-md-9 col-sm-8">
                     <div class="form-group">
-                        <label>Tên dịch vụ<small class="cred"> (*)</small><span id="err_name" class="mes-error"></span></label>
+                        <label>Tên loại tài liệu<small class="cred"> (*)</small><span id="err_name" class="mes-error"></span></label>
                         <input type="text" name="txt_name" class="form-control" id="txt_name" placeholder="" required>
                         <div class="clearfix"></div>
                     </div>
@@ -95,6 +95,14 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
 
                 <div class="col-md-3 col-sm-4">
                     <div class="form-group">
+                        <label>Nhóm cha</label>
+                        <select name="cbo_par" class="form-control" id="cbo_par" style="width: 100%;">
+                            <option value="0" title="Top">Root</option>
+                            <?php $obj->getListParent(0,0); ?>
+                        </select>
+                    </div>
+                    <hr>
+                    <!-- <div class="form-group">
                         <label>Lĩnh vực</label>
                         <?php
                         $sql_service_type = "SELECT * FROM tbl_service_type WHERE isactive = 1";
@@ -104,7 +112,7 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
                         }
                         ?>
                     </div>
-                    <hr>
+                    <hr> -->
                     <div class="form-group">
                         <label>Tác giả <span class="cred">*</span></label>
                         <input type="text" name="txt_author" value="<?php echo $_SESSION[MD5($_SERVER['HTTP_HOST']).'_USERLOGIN']['username']; ?>" class="form-control" id="txt_author" readonly placeholder="">

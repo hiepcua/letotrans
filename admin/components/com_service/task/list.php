@@ -48,6 +48,9 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
         background-color: #5cb85c;
         color: #FFF;
     }
+    .ajax-price{
+        width: 100px;
+    }    
 </style>
 <script language="javascript">
     function checkinput(){
@@ -100,6 +103,7 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
             <th width="30" align="center"><input type="checkbox" name="chkall" id="chkall" value="" onclick="docheckall('chk',this.checked);" /></th>
             <th>Dịch vụ</th>
             <th align="center">Mô tả</th>
+            <th align="center">Giá/ giá cơ bản</th>
             <th width="70" align="center" style="text-align: center;">Sắp xếp
                 <a href="javascript:saveOrder()"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
             </th>
@@ -107,56 +111,29 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
         </thead>
         <tbody>
             <?php
-            $star = ($cur_page - 1) * MAX_ROWS_ADMIN;
-            $sql = "SELECT * FROM tbl_service WHERE 1=1 $strwhere ORDER BY `id` DESC LIMIT $star,".MAX_ROWS_ADMIN;
-            $objmysql->Query($sql);
-            $i = 0;
-            while($rows = $objmysql->Fetch_Assoc()){
-                $i++;
-                $ids                = $rows['id'];
-                $service_type_id    = $rows['service_type_id'];
-                $title              = stripslashes($rows['name']);
-                $order              = number_format($rows['order']);
-                $sapo               = Substring(stripslashes($rows['sapo']), 0, 10);
-
-                if($rows['thumb'] == '')
-                    $thumb  = '<img src="'.IMG_DEFAULT.'" alt="'.$title.'" width="60px">';
-                else $thumb = '<img src="'.$rows["thumb"].'" alt="'.$title.'" width="60px">';
-
-                if($rows['isactive'] == 1) 
-                    $icon_active    = "<i class='fa fa-check cgreen' aria-hidden='true'></i>";
-                else $icon_active   = '<i class="fa fa-times-circle-o cred" aria-hidden="true"></i>';
-
-                echo "<tr name='trow'>";
-                echo "<td width='30' align='center'>$i</td>";
-                echo "<td width='30' align='center'><label>";
-                echo "<input type='checkbox' name='chk' id='chk' onclick=\"docheckonce('chk');\" value='$ids'/>";
-                echo "</label></td>";
-                echo "<td><div class='title'>$title</div></td>";
-
-                echo "<td>".$sapo."</td>";
-
-                echo "<td width='50' align='center'><input type='text' name='txt_order' id='txt_order' value='$order' size='4' class='order'></td>";
-
-                echo "<td align='center' width='10'><a href='".ROOTHOST_ADMIN.COMS."/active/$ids'>".$icon_active."</a></td>";
-
-                echo "<td align='center' width='10'><a href='".ROOTHOST_ADMIN.COMS."/edit/$ids'><i class='fa fa-edit' aria-hidden='true'></i></a></td>";
-
-                echo "<td align='center' width='10'><a href='".ROOTHOST_ADMIN.COMS."/delete/$ids' onclick=\" return confirm('Bạn có chắc muốn xóa ?')\"><i class='fa fa-times-circle cred' aria-hidden='true'></i></a></td>";
-
-                echo "</tr>";
-            }
+            $obj->listTable($strwhere,0,0,0);
             ?>
         </tbody>
     </table>
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="Footer_list">
-        <tr>
-            <td align="center">
-                <?php 
-                paging($total_rows,MAX_ROWS_ADMIN,$cur_page);
-                ?>
-            </td>
-        </tr>
-    </table>
 </div>
+<script type="text/javascript">
+    function ajax_update_price(attr){
+        var id = parseInt(attr.getAttribute('data-id'));
+        var price = attr.value;
+        var _price = parseFloat(price.replace(/,/g, ''));
+        $.ajax({
+            url : '<?php echo ROOTHOST_ADMIN.'ajaxs/service/update_price.php' ?>',
+            type : 'POST',
+            data : {
+                'id' : id,
+                'price' : _price,
+            },
+            cache: false,
+            success: function (res) {
+                attr.value = res;
+                console.log(res);
+            }
+        })
+    }
+</script>
 <?php //----------------------------------------------?>

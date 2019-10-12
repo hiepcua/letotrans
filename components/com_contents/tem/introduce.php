@@ -39,19 +39,19 @@ $conf->load_config();
 						<div class="row core-value">
 							<div class="col-md-4 col-sm-4 item">
 								<div class="box-thumb">
-									<img src="http://localhost/letotrans/images/icons/icon-introduce-01.jpg" alt="" class="img-responsive">
+									<img src="http://letotrans.vn/images/icons/icon-introduce-01.jpg" alt="" class="img-responsive">
 								</div>
 								<div class="content">Effective Communication</div>
 							</div>
 							<div class="col-md-4 col-sm-4 item">
 								<div class="box-thumb">
-									<img src="http://localhost/letotrans/images/icons/icon-introduce-02.jpg" alt="" class="img-responsive">
+									<img src="http://letotrans.vn/images/icons/icon-introduce-02.jpg" alt="" class="img-responsive">
 								</div>
 								<div class="content">Effective Communication</div>
 							</div>
 							<div class="col-md-4 col-sm-4 item">
 								<div class="box-thumb">
-									<img src="http://localhost/letotrans/images/icons/icon-introduce-03.jpg" alt="" class="img-responsive">
+									<img src="http://letotrans.vn/images/icons/icon-introduce-03.jpg" alt="" class="img-responsive">
 								</div>
 								<div class="content">Effective Communication</div>
 							</div>
@@ -66,7 +66,7 @@ $conf->load_config();
 								<p>
 								</div>
 								<div class="col-md-6 col-sm-6">
-									<img src="http://localhost/letotrans/images/icons/images-introduce-01.jpg" align="" class="img-responsive">
+									<img src="http://letotrans.vn/images/icons/images-introduce-01.jpg" align="" class="img-responsive">
 								</div>
 							</div>
 							<hr>
@@ -94,7 +94,7 @@ $conf->load_config();
 											</div>
 										<?php } ?>
 									</div>
-									<div class="text-center"><a href="http://localhost/letotrans/y-kien-khach-hang" title="Xem tất cả ý kiến khách hàng" class="btn btn-view-all-feed-back">Xem tất cả ý kiến khách hàng</a></div>
+									<div class="text-center"><a href="http://letotrans.vn/y-kien-khach-hang" title="Xem tất cả ý kiến khách hàng" class="btn btn-view-all-feed-back">Xem tất cả ý kiến khách hàng</a></div>
 								</div>
 								<div class="col-md-1"></div>
 							</div>

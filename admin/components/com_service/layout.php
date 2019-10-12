@@ -3,11 +3,14 @@ defined('ISHOME') or die('Can not acess this page, please come back!');
 define('COMS','service');
 define('THIS_COM_PATH',COM_PATH.'com_'.COMS.'/');
 
+require_once('libs/cls.service.php');
 $objmysql 	= new CLS_MYSQL();
+$obj 		= new CLS_SERVICE();
 
 if(isset($_POST["cmdsave"])){
+	$Par_id 		= isset($_POST['cbo_par']) ? (int)$_POST['cbo_par'] : 0;
 	$isActive 		= isset($_POST['opt_isactive']) ? (int)$_POST['opt_isactive'] : 0;
-	$Service_type 	= isset($_POST['chk_service']) ? json_encode($_POST["chk_service"]) : '';
+	// $Service_type 	= isset($_POST['chk_service']) ? json_encode($_POST["chk_service"]) : '';
 
 	$Title 			= isset($_POST['txt_name']) ? addslashes($_POST['txt_name']) : '';
 	$Code 			= un_unicode($_POST['txt_name']);
@@ -30,6 +33,7 @@ if(isset($_POST["cmdsave"])){
 
 		$objmysql->Query("BEGIN");
 		$sql = "UPDATE tbl_service SET 
+		`par_id` 			= '".$Par_id."',
 		`code` 				= '".$Code."',
 		`thumb` 			= '".$Thumb."',
 		`mdate` 			= '".$Mdate."',
@@ -37,8 +41,7 @@ if(isset($_POST["cmdsave"])){
 		`isactive` 			= '".$isActive."',
 		`name` 				= '".$Title."',
 		`sapo` 				= '".$Sapo."',
-		`fulltext` 			= '".$Fulltext."',
-		`service_type_id` 	= '".$Service_type."'
+		`fulltext` 			= '".$Fulltext."'
 		WHERE `id` 			= '".$ID."'";
 
 		$result = $objmysql->Exec($sql);
@@ -63,7 +66,7 @@ if(isset($_POST["cmdsave"])){
 		$Cdate = $date;
 
 		$objmysql->Exec("BEGIN");
-		$sql = "INSERT INTO tbl_service (`code`,`thumb`,`cdate`,`author`,`isactive`,`name`,`sapo`,`fulltext`,`service_type_id`) VALUES ('".$Code."','".$Thumb."','".$Cdate."','".$Author."','".$isActive."','".$Title."','".$Sapo."', '".$Fulltext."', '".$Service_type."')";
+		$sql = "INSERT INTO tbl_service (`par_id`,`code`,`thumb`,`cdate`,`author`,`isactive`,`name`,`sapo`,`fulltext`) VALUES ('".$Par_id."','".$Code."','".$Thumb."','".$Cdate."','".$Author."','".$isActive."','".$Title."','".$Sapo."', '".$Fulltext."')";
 
 		$result = $objmysql->Exec($sql);
 

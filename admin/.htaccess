@@ -17,6 +17,12 @@ RewriteRule ^slider/add?$ 							index.php?com=slider&task=add
 RewriteRule ^slider/edit/([0-9]+)?$ 				index.php?com=slider&task=edit&id=$1
 RewriteRule ^slider/delete/([0-9]+)?$ 				index.php?com=slider&task=delete&id=$1
 
+# Languages
+RewriteRule ^languages/?$ 							index.php?com=languages 	[QSA]
+RewriteRule ^languages/add?$ 						index.php?com=languages&task=add
+RewriteRule ^languages/edit/([0-9]+)?$ 				index.php?com=languages&task=edit&id=$1
+RewriteRule ^languages/delete/([0-9]+)?$ 			index.php?com=languages&task=delete&id=$1
+
 # Feedback
 RewriteRule ^feedback/?$ 							index.php?com=feedback
 RewriteRule ^feedback/add?$ 						index.php?com=feedback&task=add

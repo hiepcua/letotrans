@@ -155,12 +155,12 @@ global $tmp;global $conf;
 					<div class="col-md-3 item pay">
 						<div class="item-header"><span>HÌNH THỨC THANH TOÁN</span></div>
 						<ul>
-							<li><img src="http://localhost/letotrans/images/icons/paypal.jpg"></li>
-							<li><img src="http://localhost/letotrans/images/icons/visa.jpg"></li>
-							<li><img src="http://localhost/letotrans/images/icons/mastercard.jpg"></li>
-							<li><img src="http://localhost/letotrans/images/icons/american-express.jpg"></li>
-							<li><img src="http://localhost/letotrans/images/icons/discover.jpg"></li>
-							<li><img src="http://localhost/letotrans/images/icons/wire-transfer.jpg"></li>
+							<li><img src="http://letotrans.vn/images/icons/paypal.jpg"></li>
+							<li><img src="http://letotrans.vn/images/icons/visa.jpg"></li>
+							<li><img src="http://letotrans.vn/images/icons/mastercard.jpg"></li>
+							<li><img src="http://letotrans.vn/images/icons/american-express.jpg"></li>
+							<li><img src="http://letotrans.vn/images/icons/discover.jpg"></li>
+							<li><img src="http://letotrans.vn/images/icons/wire-transfer.jpg"></li>
 						</ul>
 					</div>
 				</div>
@@ -289,7 +289,7 @@ global $tmp;global $conf;
 					document.getElementById("navbar").style.top = "";
 				} else {
 					document.getElementById("navbar").style.position = "relative";
-					document.getElementById("navbar").style.top = "-50px";
+					document.getElementById("navbar").style.top = "0";
 				}
 				prevScrollpos = currentScrollPos;
 			}else{
