@@ -32,6 +32,11 @@ if($_SESSION['CUR_PAGE_'.OBJ_PAGE] > ceil($total_rows/$MAX_ROWS)){
 $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE] > 0 ? (int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]:1;
 // End pagging
 ?>
+<style type="text/css">
+    .ajax-price{
+        width: 100px;
+    }    
+</style>
 <script language="javascript">
     function checkinput(){
         var strids=document.getElementById("txtids");
@@ -95,6 +100,7 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE] > 0 ? (int)$_SESSION['CUR_PAGE_'.
         <th width="120" align="center">Hình ảnh</th>
         <th>Tên ngôn ngữ</th>
         <th>iso</th>
+        <th width="150">Giá công chứng</th>
         <th width="70" align="center" style="text-align: center;">Sắp xếp
             <a href="javascript:saveOrder()"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
         </th>
@@ -127,6 +133,10 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE] > 0 ? (int)$_SESSION['CUR_PAGE_'.
         echo "<td>".$img."</td>";
         echo "<td>".$name."</td>";
         echo "<td>".$iso."</td>";
+
+        echo "<td>
+        <input class='ajax-price' data-id='".$ids."' onchange=\"ajax_update_price(this)\" type='text' name='txt_price' value='".$rows['price_cc']."'>
+        </td>";
 
         echo "<td width=\"50\" align=\"center\"><input type=\"text\" name=\"txt_order\" id=\"txt_order\" value=\"$order\" class=\"order\"></td>";
         echo "<td align=\"center\">";

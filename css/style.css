@@ -82,12 +82,16 @@ a:hover{
 }
 
 /*===== HEADER =====*/
+header{
+	margin-bottom: 15px;
+}
 .navbar-brand {
 	float: left;
 	height: 50px;
 	padding: 7px 0;
 	font-size: 18px;
 	line-height: 20px;
+	margin-right: 40px;
 }
 /*===== NAVIGATION =====*/
 #nav-icon {
@@ -165,12 +169,9 @@ a:hover{
 	overflow: hidden;
 	background-color: #FFFFFF;
 	z-index: 10;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 10px;
-    box-shadow: 0px 0px 2px 2px #f1f1f1;
 }
 #main-menu {
-	text-align: center;
+	text-align: left;
 }
 #main-menu .navbar-nav{
 	float: none;
@@ -248,7 +249,6 @@ a:hover{
 }
 .breadcrumb{
 	padding: 0px;
-	padding-top: 10px;
 	background-color: inherit;
 }
 .breadcrumb>li {
@@ -654,16 +654,136 @@ a.contact:focus{
 	margin-right: 10px;
 }
 .wrap-banner .box-bottom .item .wrap-thumb .thumb{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+	position: absolute;
+	width: 28px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 .wrap-banner .box-bottom .item>p{
 	margin: 0;
-    padding-top: 10px;
+	padding-top: 10px;
 }
 /* End Main banner */
+/* Section */
+.section{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.section .sec-title{
+	color: #ff6600;
+	font-weight: 600;
+	font-size: 26px;
+	text-align: center;
+	margin-bottom: 25px;
+}
+/* End Section */
+/* Service type */
+.sec-service-type .item{
+	margin-bottom: 30px;
+	height: 390px;
+}
+.sec-service-type .item .title{
+	font-size: 18px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+.sec-service-type .item .description{
+	margin-bottom: 5px;
+}
+.sec-service-type .item .view-detail{
+	color: #ff6600;
+}
+.wrap-button{
+	padding-top: 30px;
+	border-top: 1px solid #ccc;
+}
+.sec-service-type .btn.btn-view-detail {
+	background-color: #ff6600;
+	color: #FFF;
+	border-radius: 25px;
+	padding: 8px 50px;
+}
+/* End Service type */
+/* Section feed back */
+.sec-feedback{
+	position: relative;
+	padding-top: 0px;
+}
+.sec-feedback .owl-nav{}
+.sec-feedback .owl-nav button{
+	position: absolute;
+	top: 32%;
+}
+.sec-feedback .owl-nav .owl-prev{
+	left: -50px;
+}
+.sec-feedback .owl-nav .owl-next{
+	right: -50px;
+}
+.sec-feedback .owl-nav [class*=owl-]:hover{
+	background: inherit;
+	outline: none;
+}
+.sec-feedback .owl-dots{
+	text-align: center !important;
+	margin-top: 30px !important;
+}
+.sec-feedback .owl-dots .owl-dot span{
+	width: 10px !important;
+	height: 10px !important;
+}
+.sec-feedback .btn-view-all-feed-back{
+	margin-top: 20px;
+	border: 1px solid #ccc;
+	padding: 10px 60px;
+	border-radius: 25px;
+	text-transform: uppercase;
+	transition-duration: 0.3s;
+}
+.sec-feedback .btn-view-all-feed-back:hover{
+	color: #FFF;
+	border: 1px solid #ff6600;
+	background-color: #ff6600;
+}
+/* End Section feed back */
+/* Section shake hand */
+.shake-hand{
+	position: relative;
+	height: 490px;
+	background: url('../images/basic/shake-hand.jpg') no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.shake-hand .shadow{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ffffff6b;
+	z-index: 1;
+}
+.shake-hand .container{
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	top: 30%;
+}
+.shake-hand h2{
+	font-size: 36px;
+}
+.shake-hand a.btn{
+	margin-top: 20px;
+	padding: 10px 60px;
+	border-radius: 25px;
+	text-transform: uppercase;
+	transition-duration: 0.3s;
+	background-color: #ff6600;
+	color: #FFF;
+	font-size: 16px;
+}
+/* End Section shake hand */
 section.padding{
 	clear: both;
 	padding-top: 50px;
@@ -1286,6 +1406,11 @@ aside.module{
 }
 /* End Subscribe */
 /* Aside feedback */
+#aside-feedback .owl-item {
+	background-color: #FFF;
+	padding: 30px;
+	height: 250px;
+}
 #aside-feedback .box-thumb{
 	display: block;
 	overflow: hidden;
@@ -1393,6 +1518,9 @@ aside.module{
 }
 .meta-info ul.list-inline.article-social{
 	float: right;
+}
+.page-contents{
+	background-color: #FFF;
 }
 .page-contents .article .intro{
 	font-size: 16px;
@@ -1508,7 +1636,9 @@ aside.module{
 }
 /* End Related news */
 /* Page contact */
-.page-contact{}
+.page-contact{
+	padding-bottom: 50px;
+}
 .page-contact .web-info .item{
 	margin-bottom: 15px;
 }
@@ -1593,26 +1723,8 @@ aside.module{
 .page .introduce #aside-feedback{
 	position: relative;
 }
-.page .introduce #aside-feedback .item {
-	height: 220px;
-	padding: 30px 40px;
+.page .introduce #aside-feedback .owl-item {
 	background-color: #f2f7fb;
-}
-.page .introduce #aside-feedback .owl-nav{
-	position: absolute;
-	width: 100%;
-	top: 0;
-}
-.page .introduce #aside-feedback .owl-nav .owl-prev{
-	position: absolute;
-	left: -50px;
-	font-size: 80px;
-}
-.page .introduce #aside-feedback .owl-nav .owl-next{
-	position: absolute;
-	right: -50px;
-	top: 10%;
-	font-size: 80px;
 }
 .page .introduce #aside-feedback .owl-dots{
 	text-align: center;
@@ -1673,11 +1785,10 @@ aside.module{
 }
 .list-feedback{}
 .list-feedback .item{
-	display: block;
-	overflow: hidden;
-	margin-bottom: 40px;
-	border-top: 1px solid #eeeeee;
-	box-shadow: 0px 20px 20px 0px #bccad65c;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0px 0px 20px 0px #d4ebff;
 }
 .list-feedback .item:nth-child(odd) .box-thumb{
 	width: 40%;

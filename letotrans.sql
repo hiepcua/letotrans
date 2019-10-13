@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2019-10-12 14:17:04
+Date: 2019-10-13 20:50:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -231,6 +231,7 @@ CREATE TABLE `tbl_languages` (
   `iso` char(2) CHARACTER SET utf8mb4 DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` tinyint(4) DEFAULT NULL,
+  `price_cc` float DEFAULT '0',
   `isactive` tinyint(2) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -238,141 +239,141 @@ CREATE TABLE `tbl_languages` (
 -- ----------------------------
 -- Records of tbl_languages
 -- ----------------------------
-INSERT INTO `tbl_languages` VALUES ('1', 'English', 'en', 'http://localhost:8000/letotrans/images/languages/england.png', null, '1');
-INSERT INTO `tbl_languages` VALUES ('2', 'Afar', 'aa', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('3', 'Abkhazian', 'ab', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('4', 'Afrikaans', 'af', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('5', 'Amharic', 'am', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('6', 'Arabic', 'ar', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('7', 'Assamese', 'as', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('8', 'Aymara', 'ay', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('9', 'Azerbaijani', 'az', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('10', 'Bashkir', 'ba', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('11', 'Belarusian', 'be', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('12', 'Bulgarian', 'bg', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('13', 'Bihari', 'bh', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('14', 'Bislama', 'bi', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('15', 'Bengali/Bangla', 'bn', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('16', 'Tibetan', 'bo', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('17', 'Breton', 'br', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('18', 'Catalan', 'ca', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('19', 'Corsican', 'co', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('20', 'Czech', 'cs', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('21', 'Welsh', 'cy', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('22', 'Danish', 'da', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('23', 'German', 'de', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('24', 'Bhutani', 'dz', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('25', 'Greek', 'el', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('26', 'Esperanto', 'eo', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('27', 'Spanish', 'es', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('28', 'Estonian', 'et', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('29', 'Basque', 'eu', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('30', 'Persian', 'fa', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('31', 'Finnish', 'fi', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('32', 'Fiji', 'fj', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('33', 'Faeroese', 'fo', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('34', 'French', 'fr', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('35', 'Frisian', 'fy', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('36', 'Irish', 'ga', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('37', 'Scots/Gaelic', 'gd', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('38', 'Galician', 'gl', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('39', 'Guarani', 'gn', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('40', 'Gujarati', 'gu', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('41', 'Hausa', 'ha', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('42', 'Hindi', 'hi', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('43', 'Croatian', 'hr', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('44', 'Hungarian', 'hu', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('45', 'Armenian', 'hy', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('46', 'Interlingua', 'ia', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('47', 'Interlingue', 'ie', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('48', 'Inupiak', 'ik', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('49', 'Indonesian', 'in', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('50', 'Icelandic', 'is', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('51', 'Italian', 'it', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('52', 'Hebrew', 'iw', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('53', 'Japanese', 'ja', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('54', 'Yiddish', 'ji', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('55', 'Javanese', 'jw', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('56', 'Georgian', 'ka', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('57', 'Kazakh', 'kk', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('58', 'Greenlandic', 'kl', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('59', 'Cambodian', 'km', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('60', 'Kannada', 'kn', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('61', 'Korean', 'ko', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('62', 'Kashmiri', 'ks', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('63', 'Kurdish', 'ku', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('64', 'Kirghiz', 'ky', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('65', 'Latin', 'la', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('66', 'Lingala', 'ln', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('67', 'Laothian', 'lo', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('68', 'Lithuanian', 'lt', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('69', 'Latvian/Lettish', 'lv', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('70', 'Malagasy', 'mg', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('71', 'Maori', 'mi', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('72', 'Macedonian', 'mk', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('73', 'Malayalam', 'ml', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('74', 'Mongolian', 'mn', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('75', 'Moldavian', 'mo', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('76', 'Marathi', 'mr', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('77', 'Malay', 'ms', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('78', 'Maltese', 'mt', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('79', 'Burmese', 'my', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('80', 'Nauru', 'na', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('81', 'Nepali', 'ne', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('82', 'Dutch', 'nl', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('83', 'Norwegian', 'no', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('84', 'Occitan', 'oc', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('85', '(Afan)/Oromoor/Oriya', 'om', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('86', 'Punjabi', 'pa', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('87', 'Polish', 'pl', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('88', 'Pashto/Pushto', 'ps', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('89', 'Portuguese', 'pt', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('90', 'Quechua', 'qu', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('91', 'Rhaeto-Romance', 'rm', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('92', 'Kirundi', 'rn', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('93', 'Romanian', 'ro', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('94', 'Russian', 'ru', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('95', 'Kinyarwanda', 'rw', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('96', 'Sanskrit', 'sa', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('97', 'Sindhi', 'sd', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('98', 'Sangro', 'sg', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('99', 'Serbo-Croatian', 'sh', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('100', 'Singhalese', 'si', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('101', 'Slovak', 'sk', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('102', 'Slovenian', 'sl', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('103', 'Samoan', 'sm', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('104', 'Shona', 'sn', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('105', 'Somali', 'so', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('106', 'Albanian', 'sq', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('107', 'Serbian', 'sr', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('108', 'Siswati', 'ss', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('109', 'Sesotho', 'st', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('110', 'Sundanese', 'su', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('111', 'Swedish', 'sv', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('112', 'Swahili', 'sw', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('113', 'Tamil', 'ta', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('114', 'Telugu', 'te', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('115', 'Tajik', 'tg', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('116', 'Thai', 'th', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('117', 'Tigrinya', 'ti', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('118', 'Turkmen', 'tk', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('119', 'Tagalog', 'tl', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('120', 'Setswana', 'tn', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('121', 'Tonga', 'to', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('122', 'Turkish', 'tr', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('123', 'Tsonga', 'ts', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('124', 'Tatar', 'tt', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('125', 'Twi', 'tw', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('126', 'Ukrainian', 'uk', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('127', 'Urdu', 'ur', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('128', 'Uzbek', 'uz', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('129', 'Vietnamese', 'vi', 'http://localhost:8000/letotrans/images/languages/vietnam.png', null, '1');
-INSERT INTO `tbl_languages` VALUES ('130', 'Volapuk', 'vo', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('131', 'Wolof', 'wo', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('132', 'Xhosa', 'xh', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('133', 'Yoruba', 'yo', '', null, '0');
-INSERT INTO `tbl_languages` VALUES ('134', 'Chinese', 'zh', 'http://localhost:8000/letotrans/images/languages/china.png', null, '1');
-INSERT INTO `tbl_languages` VALUES ('135', 'Zulu', 'zu', '', null, '0');
+INSERT INTO `tbl_languages` VALUES ('1', 'English', 'en', 'http://localhost:8000/letotrans/images/languages/england.png', null, null, '1');
+INSERT INTO `tbl_languages` VALUES ('2', 'Afar', 'aa', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('3', 'Abkhazian', 'ab', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('4', 'Afrikaans', 'af', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('5', 'Amharic', 'am', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('6', 'Arabic', 'ar', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('7', 'Assamese', 'as', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('8', 'Aymara', 'ay', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('9', 'Azerbaijani', 'az', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('10', 'Bashkir', 'ba', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('11', 'Belarusian', 'be', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('12', 'Bulgarian', 'bg', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('13', 'Bihari', 'bh', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('14', 'Bislama', 'bi', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('15', 'Bengali/Bangla', 'bn', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('16', 'Tibetan', 'bo', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('17', 'Breton', 'br', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('18', 'Catalan', 'ca', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('19', 'Corsican', 'co', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('20', 'Czech', 'cs', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('21', 'Welsh', 'cy', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('22', 'Danish', 'da', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('23', 'German', 'de', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('24', 'Bhutani', 'dz', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('25', 'Greek', 'el', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('26', 'Esperanto', 'eo', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('27', 'Spanish', 'es', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('28', 'Estonian', 'et', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('29', 'Basque', 'eu', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('30', 'Persian', 'fa', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('31', 'Finnish', 'fi', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('32', 'Fiji', 'fj', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('33', 'Faeroese', 'fo', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('34', 'French', 'fr', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('35', 'Frisian', 'fy', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('36', 'Irish', 'ga', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('37', 'Scots/Gaelic', 'gd', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('38', 'Galician', 'gl', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('39', 'Guarani', 'gn', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('40', 'Gujarati', 'gu', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('41', 'Hausa', 'ha', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('42', 'Hindi', 'hi', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('43', 'Croatian', 'hr', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('44', 'Hungarian', 'hu', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('45', 'Armenian', 'hy', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('46', 'Interlingua', 'ia', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('47', 'Interlingue', 'ie', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('48', 'Inupiak', 'ik', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('49', 'Indonesian', 'in', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('50', 'Icelandic', 'is', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('51', 'Italian', 'it', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('52', 'Hebrew', 'iw', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('53', 'Japanese', 'ja', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('54', 'Yiddish', 'ji', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('55', 'Javanese', 'jw', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('56', 'Georgian', 'ka', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('57', 'Kazakh', 'kk', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('58', 'Greenlandic', 'kl', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('59', 'Cambodian', 'km', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('60', 'Kannada', 'kn', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('61', 'Korean', 'ko', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('62', 'Kashmiri', 'ks', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('63', 'Kurdish', 'ku', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('64', 'Kirghiz', 'ky', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('65', 'Latin', 'la', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('66', 'Lingala', 'ln', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('67', 'Laothian', 'lo', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('68', 'Lithuanian', 'lt', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('69', 'Latvian/Lettish', 'lv', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('70', 'Malagasy', 'mg', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('71', 'Maori', 'mi', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('72', 'Macedonian', 'mk', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('73', 'Malayalam', 'ml', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('74', 'Mongolian', 'mn', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('75', 'Moldavian', 'mo', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('76', 'Marathi', 'mr', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('77', 'Malay', 'ms', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('78', 'Maltese', 'mt', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('79', 'Burmese', 'my', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('80', 'Nauru', 'na', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('81', 'Nepali', 'ne', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('82', 'Dutch', 'nl', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('83', 'Norwegian', 'no', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('84', 'Occitan', 'oc', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('85', '(Afan)/Oromoor/Oriya', 'om', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('86', 'Punjabi', 'pa', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('87', 'Polish', 'pl', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('88', 'Pashto/Pushto', 'ps', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('89', 'Portuguese', 'pt', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('90', 'Quechua', 'qu', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('91', 'Rhaeto-Romance', 'rm', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('92', 'Kirundi', 'rn', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('93', 'Romanian', 'ro', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('94', 'Russian', 'ru', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('95', 'Kinyarwanda', 'rw', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('96', 'Sanskrit', 'sa', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('97', 'Sindhi', 'sd', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('98', 'Sangro', 'sg', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('99', 'Serbo-Croatian', 'sh', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('100', 'Singhalese', 'si', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('101', 'Slovak', 'sk', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('102', 'Slovenian', 'sl', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('103', 'Samoan', 'sm', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('104', 'Shona', 'sn', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('105', 'Somali', 'so', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('106', 'Albanian', 'sq', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('107', 'Serbian', 'sr', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('108', 'Siswati', 'ss', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('109', 'Sesotho', 'st', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('110', 'Sundanese', 'su', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('111', 'Swedish', 'sv', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('112', 'Swahili', 'sw', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('113', 'Tamil', 'ta', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('114', 'Telugu', 'te', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('115', 'Tajik', 'tg', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('116', 'Thai', 'th', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('117', 'Tigrinya', 'ti', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('118', 'Turkmen', 'tk', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('119', 'Tagalog', 'tl', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('120', 'Setswana', 'tn', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('121', 'Tonga', 'to', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('122', 'Turkish', 'tr', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('123', 'Tsonga', 'ts', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('124', 'Tatar', 'tt', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('125', 'Twi', 'tw', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('126', 'Ukrainian', 'uk', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('127', 'Urdu', 'ur', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('128', 'Uzbek', 'uz', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('129', 'Vietnamese', 'vi', 'http://localhost:8000/letotrans/images/languages/vietnam.png', null, null, '1');
+INSERT INTO `tbl_languages` VALUES ('130', 'Volapuk', 'vo', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('131', 'Wolof', 'wo', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('132', 'Xhosa', 'xh', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('133', 'Yoruba', 'yo', '', null, null, '0');
+INSERT INTO `tbl_languages` VALUES ('134', 'Chinese', 'zh', 'http://localhost:8000/letotrans/images/languages/china.png', null, null, '1');
+INSERT INTO `tbl_languages` VALUES ('135', 'Zulu', 'zu', '', null, null, '0');
 
 -- ----------------------------
 -- Table structure for tbl_menus
@@ -421,10 +422,10 @@ CREATE TABLE `tbl_mnuitems` (
 -- ----------------------------
 INSERT INTO `tbl_mnuitems` VALUES ('1', '0', '1', 'Trang chủ', 'trang-chu', '', 'link', '0', '0', 'http://localhost:8000/letotrans/', 'fa fa-home', 'home', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('2', '2', '1', 'Giới thiệu', 'gioi-thieu', '<img src=\"http://daihocdongdo.edu.vn/images/DD.jpg\" alt=\"\" align=\"\" border=\"0px\">', 'block', '44', '0', '', '', '', '0', '1');
-INSERT INTO `tbl_mnuitems` VALUES ('3', '0', '1', 'Blog', 'blog', '', 'block', '5', '0', '', '', '', '1', '0');
-INSERT INTO `tbl_mnuitems` VALUES ('4', '0', '1', 'Ngôn ngữ', 'ngon-ngu', '', 'link', '0', '0', 'http://localhost:8000/letotrans/ngon-ngu', '', '', '2', '0');
-INSERT INTO `tbl_mnuitems` VALUES ('5', '0', '1', 'Tin tức - Sự kiện', 'tin-tuc-su-kien', '', 'link', '0', '0', 'http://localhost:8000/letotrans/tin-tuc', '', '', '5', '1');
-INSERT INTO `tbl_mnuitems` VALUES ('7', '0', '1', 'FAQ', 'faq', '', 'link', '0', '0', 'http://localhost:8000/letotrans/lien-he', '', '', '6', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('3', '0', '1', 'Blog', 'blog', '', 'block', '5', '0', '', '', '', '2', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('4', '5', '1', 'Ngôn ngữ', 'ngon-ngu', '', 'link', '0', '0', 'http://localhost:8000/letotrans/ngon-ngu', '', '', '2', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('5', '0', '1', 'More', 'more', '', 'link', '0', '0', '#', '', '', '5', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('7', '5', '1', 'FAQ', 'faq', '', 'link', '0', '0', 'http://localhost:8000/letotrans/lien-he', '', '', '6', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('10', '0', '3', 'FAQs', 'faqs', null, 'link', '0', '0', '#', '', '', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('11', '0', '3', 'Liên hệ', 'lien-he', null, 'link', '0', '0', '#', '', '', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('15', '0', '2', 'Câu hỏi thường gặp', 'cau-hoi-thuong-gap', '', 'block', '1', '0', '', '', '', '0', '1');
@@ -433,11 +434,11 @@ INSERT INTO `tbl_mnuitems` VALUES ('17', '0', '2', 'Chính sách giao hàng', 'c
 INSERT INTO `tbl_mnuitems` VALUES ('18', '0', '2', 'Chính sách bảo hành', 'chinh-sach-bao-hanh', '', 'link', '0', '0', '#', '', '', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('19', '0', '2', 'Thông tin chuyển khoản', 'thong-tin-chuyen-khoan', '', 'link', '0', '0', '#', '', '', '0', '1');
 INSERT INTO `tbl_mnuitems` VALUES ('20', '0', '2', 'Tư vấn khách hàng', 'tu-van-khach-hang', '', 'link', '0', '0', '#', '', '', '0', '1');
-INSERT INTO `tbl_mnuitems` VALUES ('21', '0', '1', 'Dịch vụ', 'dich-vu', '', 'link', '0', '0', 'http://localhost:8000/letotrans/dich-vu', '', '', '2', '1');
-INSERT INTO `tbl_mnuitems` VALUES ('22', '0', '1', 'Ý kiến khách hàng', 'y-kien-khach-hang', '', 'link', '0', '0', 'http://localhost:8000/letotrans/y-kien-khach-hang', '', '', '4', '1');
-INSERT INTO `tbl_mnuitems` VALUES ('23', '0', '1', 'Giới thiệu', 'gioi-thieu', '', 'link', '0', '0', 'http://localhost:8000/letotrans/gioi-thieu', '', '', '1', '1');
-INSERT INTO `tbl_mnuitems` VALUES ('24', '0', '1', 'Bảng giá', 'bang-gia', '', 'link', '0', '0', 'http://localhost:8000/letotrans/bang-gia', '', '', '0', '0');
-INSERT INTO `tbl_mnuitems` VALUES ('25', '0', '1', 'Hình thức thanh toán', 'hinh-thuc-thanh-toan', '', 'link', '0', '0', '#', '', '', '3', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('21', '0', '1', 'Dịch vụ', 'dich-vu', '', 'link', '0', '0', 'http://localhost:8000/letotrans/dich-vu', '', '', '1', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('22', '5', '1', 'Ý kiến khách hàng', 'y-kien-khach-hang', '', 'link', '0', '0', 'http://localhost:8000/letotrans/y-kien-khach-hang', '', '', '4', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('23', '0', '1', 'Giới thiệu', 'gioi-thieu', '', 'link', '0', '0', 'http://localhost:8000/letotrans/gioi-thieu', '', '', '4', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('24', '0', '1', 'Hợp tác', 'hop-tac', '', 'link', '0', '0', 'http://localhost:8000/letotrans/hop-tac', '', '', '3', '1');
+INSERT INTO `tbl_mnuitems` VALUES ('25', '5', '1', 'Hình thức thanh toán', 'hinh-thuc-thanh-toan', '', 'link', '0', '0', '#', '', '', '3', '1');
 
 -- ----------------------------
 -- Table structure for tbl_modtype
@@ -549,6 +550,22 @@ INSERT INTO `tbl_package` VALUES ('13', '4', '5', '50', '100', '500', '<ul>\r\n<
 INSERT INTO `tbl_package` VALUES ('14', '4', '6', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
 INSERT INTO `tbl_package` VALUES ('15', '4', '7', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
 INSERT INTO `tbl_package` VALUES ('16', '4', '8', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+
+-- ----------------------------
+-- Table structure for tbl_prices
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_prices`;
+CREATE TABLE `tbl_prices` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `lang1` int(11) DEFAULT NULL,
+  `lang2` int(11) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_prices
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for tbl_product_type
@@ -752,7 +769,7 @@ CREATE TABLE `tbl_user` (
 -- Records of tbl_user
 -- ----------------------------
 INSERT INTO `tbl_user` VALUES ('1', 'igf', 'd93a5def7511da3d0f2d171d9c344e91', 'IGF', 'JSC', '0000-00-00', '', '', '', '', '', null, null, null, '0000-00-00 00:00:00', '2019-09-03 01:15:04', '1', null, '1');
-INSERT INTO `tbl_user` VALUES ('2', 'admin', 'd93a5def7511da3d0f2d171d9c344e91', 'THC', 'Admin', '0000-00-00', '0', '', '123456789', '', 'a@gmail.com', null, '1111111111', '', '2019-07-23 17:13:50', '2019-10-10 01:39:55', '1', null, '1');
+INSERT INTO `tbl_user` VALUES ('2', 'admin', 'd93a5def7511da3d0f2d171d9c344e91', 'THC', 'Admin', '0000-00-00', '0', '', '123456789', '', 'a@gmail.com', null, '1111111111', '', '2019-07-23 17:13:50', '2019-10-12 11:52:54', '1', null, '1');
 
 -- ----------------------------
 -- Table structure for tbl_user_group

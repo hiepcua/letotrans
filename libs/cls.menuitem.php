@@ -2,7 +2,7 @@
 //ini_set('display_error',1);
 class CLS_MENUITEM{
 	private $objmysql=NULL;
-	public function CLS_MENUITEM(){
+	function __construct(){
 		$this->objmysql=new CLS_MYSQL;
 	}
 	public function getList($where='',$limit=''){

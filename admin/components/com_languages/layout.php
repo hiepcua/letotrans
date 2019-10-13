@@ -12,6 +12,7 @@ $objUpload = new CLS_UPLOAD();
 if(isset($_POST["cmdsave"])){		
 	$Name 		= isset($_POST['txt_name']) ? addslashes($_POST['txt_name']) : "";
 	$ISO 		= isset($_POST['txt_iso']) ? addslashes($_POST['txt_iso']) : "";
+	$Price 		= isset($_POST['txt_price_cc']) ? (int)$_POST['txt_price_cc'] : NULL;
 	$isActive 	= '1';
     if(isset($_POST["txtthumb"]))
         $Thumb = addslashes($_POST["txtthumb"]);
@@ -20,11 +21,12 @@ if(isset($_POST["cmdsave"])){
 		$sql = "UPDATE `tbl_languages` SET  
 		`name` 	= '".$Name."',
 		`iso` 	= '".$ISO."',
+		`price_cc` 	= ".$Price.",
 		`image` 	= '".$Thumb."'
 		WHERE `id` 	= '".$ID."'";
 		$objmysql->Exec($sql);
 	}else{
-		$sql = "INSERT INTO `tbl_languages` ( `name`, `iso`, `image`, `isactive`) VALUES ('".$Name."','".$ISO."','".$Thumb."', '".$isActive."')";
+		$sql = "INSERT INTO `tbl_languages` ( `name`, `iso`, `image`, `price_cc`, `isactive`) VALUES ('".$Name."','".$ISO."','".$Thumb."', '".$Price."', '".$isActive."')";
 		$objmysql->Exec($sql);
 	}
 	echo "<script language=\"javascript\">window.location='".ROOTHOST_ADMIN.COMS."'</script>";

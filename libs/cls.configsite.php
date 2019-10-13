@@ -29,7 +29,7 @@ class CLS_CONFIG{
         'Name_yahoo'=>''
     );
     private $objmysql=null;
-    public function CLS_CONFIG(){
+    function __construct(){
         $this->objmysql = new CLS_MYSQL;
         $this->objmysql->Query("SELECT * FROM tbl_configsite");
         $row = $this->objmysql->Fetch_Assoc();

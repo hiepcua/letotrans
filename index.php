@@ -113,6 +113,71 @@ global $tmp;global $conf;
 						</div>
 					</div>
 				</div>
+
+				<section class="section sec-service-type container">
+					<h2 class="sec-title">CÁC LĨNH VỰC NGÀNH NGHỀ CHÚNG TÔI CÓ THỂ DỊCH</h2>
+					<div class="row">
+						<div class="col-md-3 col-sm-6 item">
+							<div class="wrap-thumb">
+								<img src="<?php echo ROOTHOST; ?>images/basic/linh-vuc-01.jpg" class="img-responsive">
+							</div>
+							<div class="content">
+								<h3 class="title"><a href="" title="">Y tế - Dược</a></h3>
+								<div class="description">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris tortor, malesuada nec tortor sit amet, pretium lacinia enim. Donec dignissim, ligula sed malesuada fringilla, augue metus iaculis augue, at gravida quam odio lobortis orci. 
+								</div>
+								<a href="" title="" class="view-detail">Xem chi tiết</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 item">
+							<div class="wrap-thumb">
+								<img src="<?php echo ROOTHOST; ?>images/basic/linh-vuc-02.jpg" class="img-responsive">
+							</div>
+							<div class="content">
+								<h3 class="title"><a href="" title="">Luật pháp</a></h3>
+								<div class="description">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris tortor, malesuada nec tortor sit amet, pretium lacinia enim. Donec dignissim, ligula sed malesuada fringilla, augue metus iaculis augue, at gravida quam odio lobortis orci. 
+								</div>
+								<a href="" title="" class="view-detail">Xem chi tiết</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 item">
+							<div class="wrap-thumb">
+								<img src="<?php echo ROOTHOST; ?>images/basic/linh-vuc-03.jpg" class="img-responsive">
+							</div>
+							<div class="content">
+								<h3 class="title"><a href="" title="">Xây dựng</a></h3>
+								<div class="description">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris tortor, malesuada nec tortor sit amet, pretium lacinia enim. Donec dignissim, ligula sed malesuada fringilla, augue metus iaculis augue, at gravida quam odio lobortis orci. 
+								</div>
+								<a href="" title="" class="view-detail">Xem chi tiết</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 item">
+							<div class="wrap-thumb">
+								<img src="<?php echo ROOTHOST; ?>images/basic/linh-vuc-04.jpg" class="img-responsive">
+							</div>
+							<div class="content">
+								<h3 class="title"><a href="" title="">Kinh tế - Chính trị</a></h3>
+								<div class="description">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris tortor, malesuada nec tortor sit amet, pretium lacinia enim. Donec dignissim, ligula sed malesuada fringilla, augue metus iaculis augue, at gravida quam odio lobortis orci. 
+								</div>
+								<a href="" title="" class="view-detail">Xem chi tiết</a>
+							</div>
+						</div>
+					</div>
+					<div class="wrap-button text-center"><a href="<?php echo ROOTHOST; ?>order" title="Sử dụng dịch vụ" class="btn btn-view-detail">SỬ DỤNG DỊCH VỤ NGAY</a></div>
+				</section>
+
+				<?php include_once("modules/mod_feedback/layout.php"); ?>
+
+				<section class="shake-hand">
+					<div class="shadow"></div>
+					<div class="container">
+						<h2>BẠN CẦN DỊCH TÀI LIỆU SANG TIẾNG VIỆT?</h2>
+						<a href="<?php echo ROOTHOST; ?>lien-he" class="btn" title="Liên hệ letotrans ngay">LIÊN HỆ LETOTRANS NGAY</a>
+					</div>
+				</section>
 			</div>
 		<?php }else{ ?> 
 			<div class="component">
@@ -174,23 +239,23 @@ global $tmp;global $conf;
 	<script type="text/javascript">
 		function show_message(message, property){
 			var html = '';
-	        if(message == 'error'){
-	            html = "<div class='alert alert-danger alert-dismissable' role='alert'>";
-	            html+= "<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>";
-	            html+= "<strong>Warning!</strong>"+ property +"</div>";
-	        }else if (message == 'success') {
-	            html = "<div class='alert alert-success alert-dismissable' role='alert'>";
-	            html+= "<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>"
-	            html+= "<strong>Success!</strong>"+ property +"</div>";
-	        }
-	        $('#notify').html(html);
+			if(message == 'error'){
+				html = "<div class='alert alert-danger alert-dismissable' role='alert'>";
+				html+= "<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>";
+				html+= "<strong>Warning!</strong>"+ property +"</div>";
+			}else if (message == 'success') {
+				html = "<div class='alert alert-success alert-dismissable' role='alert'>";
+				html+= "<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>"
+				html+= "<strong>Success!</strong>"+ property +"</div>";
+			}
+			$('#notify').html(html);
 
-	        window.setTimeout(function() {
-	        	$(".alert").fadeTo(500, 0).slideUp(500, function(){
-	        		$(this).remove(); 
-	        	});
-	        }, 2500);
-	    }
+			window.setTimeout(function() {
+				$(".alert").fadeTo(500, 0).slideUp(500, function(){
+					$(this).remove(); 
+				});
+			}, 2500);
+		}
 
 		$(document).ready(function(){
 			$('#main-banner').owlCarousel({
@@ -273,11 +338,6 @@ global $tmp;global $conf;
 					}
 				}
 			});
-		});
-
-		// Search form
-		$('#frmsearch .fa.fa-search').click(function(){
-			$('#frmsearch').submit();
 		});
 
 		var prevScrollpos = window.pageYOffset;

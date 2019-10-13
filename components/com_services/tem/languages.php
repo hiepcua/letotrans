@@ -33,7 +33,7 @@
 								$sql = "SELECT * FROM tbl_languages WHERE isactive = 1";
 								$objmysql->Query($sql);
 								while ($row = $objmysql->Fetch_Assoc()) {
-									$image = ROOTHOST.'images/languages/'.$row['image'];
+									$image = $row['image'];
 									echo '<li class="f32 item" data-id="'.$row['id'].'" data-name="'.$row['name'].' ('.$row['iso'].')">
 									<a href="javascript:void(0)" onclick="language_selected(this)" data-id="'.$row['id'].'" title="'.$row['name'].' ('.$row['iso'].')">
 									<img src="'.$image.'" class="flag">

@@ -1,7 +1,7 @@
  <?php
 class CLS_TEMPLATE{
 	private $objmysql=null;
-	public function CLS_TEMPLATE(){
+	function __construct(){
 		$this->objmysql=new CLS_MYSQL;
 	}
 	public function Load_Extension(){
