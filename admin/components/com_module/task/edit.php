@@ -94,8 +94,15 @@ if(isset($_POST["txt_type"])){
             <div class="col-md-6 col-sm-6">
                 <label>Kiểu hiển thị<small class="cred"> (*)</small><span id="err1" class="mes-error"></span></label>
                 <select name="cbo_type" class="form-control" id="cbo_type" onchange="select_type();" style="width: 100%;">
-                    <?php 
-                    $obj->LoadModType();?>
+                    <?php
+                    $sql='SELECT * FROM `tbl_modtype`';
+                    $objmysql->Query($sql);
+                    while($rows = $objmysql->Fetch_Assoc()){
+                        $code = $rows['code'];
+                        $name = $rows['name'];
+                        echo "<option value=\"$code\">$name</option>";
+                    }
+                    ?>
                     <script language="javascript">
                         cbo_Selected('cbo_type','<?php echo $viewtype;?>');
                         $(document).ready(function() {
@@ -125,12 +132,25 @@ if(isset($_POST["txt_type"])){
             <div class="col-md-6 col-sm-6">
                 <label>Vị trí</label>
                 <select name="cbo_position" class="form-control" id="cbo_position" style="width: 100%;">
-                    <?php LoadPosition();?>
+                    <?php
+                    $doc = new DOMDocument();
+                    $doc->load(ROOTHOST_ADMIN.'template.xml');
+                    $options = $doc->getElementsByTagName("position");
+
+                    foreach( $options as $option )
+                    { 
+                        $opts = $option->getElementsByTagName("option");
+                        foreach($opts as $opt)
+                        {
+                            echo "<option value=\"".$opt->nodeValue."\">".$opt->nodeValue."</option>";
+                        }
+                    }
+                    ?>
                 </select>
                 <script type="text/javascript">
                     $(document).ready(function() {
-                        $("#cbo_position").select2();
                         cbo_Selected('cbo_position','<?php echo $row['position'];?>');
+                        $("#cbo_position").select2();
                     });
                 </script>
             </div>
@@ -160,7 +180,7 @@ if(isset($_POST["txt_type"])){
     </fieldset>
 
     <?php 
-    $arr_type = array('mainmenu','html','news','slide', 'partner', 'content');
+    $arr_type = array('mainmenu','html','news','slide', 'partner', 'content', 'more');
     if(in_array($viewtype,$arr_type)){ ?>
     <fieldset>
         <legend><strong><?php echo "Parameter";?>:</strong></legend>

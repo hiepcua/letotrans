@@ -13,7 +13,7 @@ $actual_link = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 require_once "global/libs/gfinit.php";
 require_once "global/libs/gfconfig.php";
 require_once "global/libs/gffunc.php";
-require_once 'libs/cls.mysql.php';
+require_once 'libs/cls.mysqli.php';
 require_once 'libs/cls.template.php';
 require_once 'libs/cls.menuitem.php';
 require_once 'libs/cls.module.php';
@@ -117,56 +117,24 @@ global $tmp;global $conf;
 				<section class="section sec-service-type container">
 					<h2 class="sec-title">CÁC LĨNH VỰC NGÀNH NGHỀ CHÚNG TÔI CÓ THỂ DỊCH</h2>
 					<div class="row">
-						<div class="col-md-3 col-sm-6 item">
-							<div class="wrap-thumb">
-								<img src="<?php echo ROOTHOST; ?>images/basic/linh-vuc-01.jpg" class="img-responsive">
-							</div>
+						<?php
+						$sql = "SELECT * FROM tbl_service WHERE isactive = 1 ORDER BY `order` ASC";
+						$objmysql->Query($sql);
+						while ($row = $objmysql->Fetch_Assoc()) {
+							$thumb 	= getThumb($row['thumb'], '', 'img-responsive');
+							$link 	= ROOTHOST.'dich-vu/'.$row['code'].'.html';
+							echo '<div class="col-md-3 col-sm-6 item">
+							<div class="wrap-thumb">'.$thumb.'</div>
 							<div class="content">
-								<h3 class="title"><a href="" title="">Y tế - Dược</a></h3>
-								<div class="description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris tortor, malesuada nec tortor sit amet, pretium lacinia enim. Donec dignissim, ligula sed malesuada fringilla, augue metus iaculis augue, at gravida quam odio lobortis orci. 
-								</div>
-								<a href="" title="" class="view-detail">Xem chi tiết</a>
+								<h3 class="title"><a href="'.$link.'" title="'.$row['name'].'">'.$row['name'].'</a></h3>
+								<div class="description">'.$row['sapo'].'</div>
+								<a href="'.$link.'" title="'.$row['sapo'].'" class="view-detail">Xem chi tiết</a>
 							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 item">
-							<div class="wrap-thumb">
-								<img src="<?php echo ROOTHOST; ?>images/basic/linh-vuc-02.jpg" class="img-responsive">
-							</div>
-							<div class="content">
-								<h3 class="title"><a href="" title="">Luật pháp</a></h3>
-								<div class="description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris tortor, malesuada nec tortor sit amet, pretium lacinia enim. Donec dignissim, ligula sed malesuada fringilla, augue metus iaculis augue, at gravida quam odio lobortis orci. 
-								</div>
-								<a href="" title="" class="view-detail">Xem chi tiết</a>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 item">
-							<div class="wrap-thumb">
-								<img src="<?php echo ROOTHOST; ?>images/basic/linh-vuc-03.jpg" class="img-responsive">
-							</div>
-							<div class="content">
-								<h3 class="title"><a href="" title="">Xây dựng</a></h3>
-								<div class="description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris tortor, malesuada nec tortor sit amet, pretium lacinia enim. Donec dignissim, ligula sed malesuada fringilla, augue metus iaculis augue, at gravida quam odio lobortis orci. 
-								</div>
-								<a href="" title="" class="view-detail">Xem chi tiết</a>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 item">
-							<div class="wrap-thumb">
-								<img src="<?php echo ROOTHOST; ?>images/basic/linh-vuc-04.jpg" class="img-responsive">
-							</div>
-							<div class="content">
-								<h3 class="title"><a href="" title="">Kinh tế - Chính trị</a></h3>
-								<div class="description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris tortor, malesuada nec tortor sit amet, pretium lacinia enim. Donec dignissim, ligula sed malesuada fringilla, augue metus iaculis augue, at gravida quam odio lobortis orci. 
-								</div>
-								<a href="" title="" class="view-detail">Xem chi tiết</a>
-							</div>
-						</div>
+						</div>';
+						}
+						?>
 					</div>
-					<div class="wrap-button text-center"><a href="<?php echo ROOTHOST; ?>order" title="Sử dụng dịch vụ" class="btn btn-view-detail">SỬ DỤNG DỊCH VỤ NGAY</a></div>
+					<div class="wrap-button text-center"><a href="<?php echo ROOTHOST; ?>order" title="Đặt dịch vụ" class="btn btn-view-detail">ĐẶT DỊCH VỤ</a></div>
 				</section>
 
 				<?php include_once("modules/mod_feedback/layout.php"); ?>
@@ -174,8 +142,8 @@ global $tmp;global $conf;
 				<section class="shake-hand">
 					<div class="shadow"></div>
 					<div class="container">
-						<h2>BẠN CẦN DỊCH TÀI LIỆU SANG TIẾNG VIỆT?</h2>
-						<a href="<?php echo ROOTHOST; ?>lien-he" class="btn" title="Liên hệ letotrans ngay">LIÊN HỆ LETOTRANS NGAY</a>
+						<h2>BẠN ĐÃ SẴN SÀNG SỬ DỤNG DỊCH VỤ CHƯA?</h2>
+						<a href="<?php echo ROOTHOST; ?>order" class="btn" title="Yêu cầu dịch vụ">YÊU CẦU DỊCH VỤ</a>
 					</div>
 				</section>
 			</div>
@@ -218,15 +186,7 @@ global $tmp;global $conf;
 						<?php $tmp->loadModule('box11'); ?>
 					</div>
 					<div class="col-md-3 item pay">
-						<div class="item-header"><span>HÌNH THỨC THANH TOÁN</span></div>
-						<ul>
-							<li><img src="http://letotrans.vn/images/icons/paypal.jpg"></li>
-							<li><img src="http://letotrans.vn/images/icons/visa.jpg"></li>
-							<li><img src="http://letotrans.vn/images/icons/mastercard.jpg"></li>
-							<li><img src="http://letotrans.vn/images/icons/american-express.jpg"></li>
-							<li><img src="http://letotrans.vn/images/icons/discover.jpg"></li>
-							<li><img src="http://letotrans.vn/images/icons/wire-transfer.jpg"></li>
-						</ul>
+						<?php $tmp->loadModule('box4'); ?>
 					</div>
 				</div>
 			</div>

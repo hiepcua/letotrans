@@ -55,6 +55,18 @@ a.sbtn_contact{
 	padding-left: 15px;
 }
 .red{color: red}
+.btn-basic{
+	color: #FFFFFF;
+	border-radius: 25px;
+	padding: 8px 50px;
+	margin-top: 15px;
+	border: 1px solid #ff6600;
+	background-color: #ff6600;
+	transition-duration: 0.3s;
+}
+.btn-basic:hover{
+	color: #333;
+}
 
 /*===== COMMON =====*/
 body {
@@ -166,9 +178,9 @@ header{
 	top: 0; /* Stay on top */
 	width: 100%; /* Full width */
 	transition: top 0.3s; /* Transition effect when sliding down (and up) */
-	overflow: hidden;
 	background-color: #FFFFFF;
 	z-index: 10;
+	box-shadow: 0px 1px 3px 0px #3333332e;
 }
 #main-menu {
 	text-align: left;
@@ -228,11 +240,11 @@ header{
 #main-menu .dropdown-menu{
 	border: 0px;
 	box-shadow: none;
-	background-color: #a9abae;
+	background-color: #eee;
 }
 #main-menu .dropdown-menu>li>a:focus, #main-menu .dropdown-menu>li>a:hover{
-	background-color: #a9abae;
-	color: #664d2f;
+	background-color: #d0d0d0;
+	color: #ff6600;
 }
 /* Page */
 .component {
@@ -690,13 +702,14 @@ a.contact:focus{
 }
 .sec-service-type .item .description{
 	margin-bottom: 5px;
+    height: 140px;
+    overflow: hidden;
 }
 .sec-service-type .item .view-detail{
 	color: #ff6600;
 }
 .wrap-button{
-	padding-top: 30px;
-	border-top: 1px solid #ccc;
+	padding-bottom: 30px;
 }
 .sec-service-type .btn.btn-view-detail {
 	background-color: #ff6600;
@@ -1296,6 +1309,7 @@ aside.module{
 	padding: 20px;
 	margin-bottom: 40px;
 	background-color: #FFFFFF;
+	box-shadow: 0px 0px 20px 0px #d4ebff;
 }
 .list-articles .item:last-child{
 	margin-bottom: 0px;
@@ -1307,9 +1321,9 @@ aside.module{
 	border-bottom: 1px solid #ccc;
 }
 .list-articles .item .box-thumb img {
-	width: 200px;
-	float: left;
-	margin-right: 15px;
+    height: 100px;
+    float: left;
+    margin-right: 15px;
 }
 .list-articles .item .box-thumb .title {
 	font-size: 20px;
@@ -1361,12 +1375,13 @@ aside.module{
 /* End Silde hot news */
 /* Aside */
 .wrap-aside{
-	border-left: 1px solid #eee;
+	/*border-left: 1px solid #eee;*/
 }
 .aside{
 	padding: 20px;
 	margin-bottom: 40px;
 	background-color: #FFF;
+	box-shadow: 0px 0px 20px 0px #d4ebff;
 }
 .aside .aside-title {
 	position: relative;
@@ -1405,6 +1420,50 @@ aside.module{
 	color: #FFF;
 }
 /* End Subscribe */
+/* Aside languages */
+.aside-languages, .aside-languages .content {
+	display: block;
+	overflow: hidden;
+}
+.aside-languages .item{
+	width: 50%;
+	float: left;
+	margin-bottom: 10px;
+}
+.aside-languages .item .wrap-thumb{
+	width: 50px;
+	float: left
+}
+.aside-languages .item .name{
+	padding-top: 15px;
+	padding-left: 60px;
+}
+.aside-languages .view-all{
+	text-align: right;
+}
+.aside-languages .view-all>a{
+	color: #ff6600;
+}
+/* End Aside languages */
+/* Aside register */
+.aside-register {
+	display: block;
+	overflow: hidden;
+}
+.aside-register .btn-register{
+	background-color: #ff6600;
+	color: #FFF;
+	padding: 8px 50px;
+	border-radius: 25px;
+	transition-duration: 0.3s;
+}
+.aside-register input{
+	border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    height: 45px;
+}
+/* End Aside register */
 /* Aside feedback */
 #aside-feedback .owl-item {
 	background-color: #FFF;
@@ -1480,7 +1539,7 @@ aside.module{
 	font-size: 30px;
 	font-weight: 600;
 	top: 25%;
-	color: #664d2f;
+	color: #ff6600;
 }
 .latest-news .item .content {
 	padding-left: 35px;
@@ -1520,7 +1579,7 @@ aside.module{
 	float: right;
 }
 .page-contents{
-	background-color: #FFF;
+	background-color: #FFFFFF;
 }
 .page-contents .article .intro{
 	font-size: 16px;
@@ -1594,7 +1653,7 @@ aside.module{
 	padding-left: 15px;
 	font-size: 18px;
 	text-transform: uppercase;
-	color: #664d2f;
+	color: #ff6600;
 	margin-bottom: 20px;
 	overflow: hidden;
 	font-weight: 500;
@@ -1635,6 +1694,26 @@ aside.module{
 	top: 30%;
 }
 /* End Related news */
+/* Block co-operate */
+.block-co-operate{
+	margin-bottom: 30px;
+}
+.block-co-operate .title{
+	font-size: 18px;
+	color: #ff6600;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+}
+.block-co-operate .form-control{
+	outline: 0;
+    height: 45px;
+    border: 0;
+	margin-bottom: 10px;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #ccc;
+}
+/* End Block co-operate */
 /* Page contact */
 .page-contact{
 	padding-bottom: 50px;
@@ -1785,10 +1864,10 @@ aside.module{
 }
 .list-feedback{}
 .list-feedback .item{
-    display: block;
-    overflow: hidden;
-    margin-bottom: 40px;
-    box-shadow: 0px 0px 20px 0px #d4ebff;
+	display: block;
+	overflow: hidden;
+	margin-bottom: 40px;
+	box-shadow: 0px 0px 20px 0px #d4ebff;
 }
 .list-feedback .item:nth-child(odd) .box-thumb{
 	width: 40%;

@@ -6,9 +6,57 @@ service_id=7            => Dịch vụ
 urgency_type_id=2       => Deadline gấp rút, khẩn cấp (1, 2, 3, 4 ngày) mặc định 2 ngày
 
 
-Xem xét việc gộp 2 bảng loại dịch vụ với loại sản phẩm vào làm 1
-trang chi tiết dịch vụ thiếu module ngôn ngữ nổi bật
-trang chi tiết dịch vụ thiếu module đăng ký nhận tin
 
-trang bảng giá thiếu module ngôn ngữ nổi bật
-trang bảng giá thiếu module đăng ký nhận tin
+trang chi tiết dịch vụ thiếu module ngôn ngữ nổi bật	=> ok
+trang chi tiết dịch vụ thiếu module đăng ký nhận tin	=> ok
+
+Dịch vụ chính
+	1. Dịch vụ biên dịch (Translation Services);
+	2. Dịch vụ Chứng nhận bản dịch (Certified Translator);
+	3. Dịch vụ Hiệu đính bản dịch (Proofreading);
+	4. Dịch vụ Bản địa hóa nội dung (Localization);
+
+- Menu
+	bỏ ngôn ngữ, giá 	=> ok
+	Thêm blog 			=> ok
+		ds bài viết (text, video, có thể đính kèm file view file trực tiếp trong bài) 
+	Thêm hợp tác 		=> ok
+		là nơi đăng các bài viết kêu gọi hợp tác. 		=> ok
+		From đăng ký thông tin của đối tác gồm Tên – Đơn vị công tác – Số điện thoại liên hệ - Email liên hệ để các đối tác điền vào đăng ký. (Dạng có sẵn thì giống như ở mục ĐÀO TẠO của leto.vn chẳng hạn 			=> ok
+
+- Trang chủ body
+	Scroll xuống hiển thị menu fix thay logo bằng translate now 			=> ok
+	Section service type là 4 loại dịch vụ chính của letotrans 				=> ok
+	Button sử dụng dịch vụ ngay thay = Đặt dịch vụ 							=> ok
+	OUR TRANSLATORS ARE CERTIFIED BY = ĐỐI TÁC THƯỜNG XUYÊN CỦA LETOtrans
+	ARE YOU READY TO START? = BẠN ĐÃ SẴN SÀNG SỬ DỤNG DỊCH VỤ CHƯA 			=> ok
+	START A PROJECT = YÊU CẦU DỊCH VỤ 										=> ok
+
+- Service detail
+	Trang dịch vụ biên dịch
+		Bỏ gói dịch vụ (basic, pro, vip) 
+		Order Translation Services = Đặt dịch tài liệu
+		module languages đưa cờ việt, anh, trung, nhật, hàn, đức lên đầu bảng
+		module nhận thông tin khuyến mãi
+
+- Trang order
+	bỏ phần Preferences
+	bỏ loại tiền ($, erro...)
+	bỏ Your Package:Basic
+	bỏ Additional Features:
+	bỏ Translator Level:Best AvailableFREE
+
+
+	dịch vụ Biên dịch => bảng tính giá dự kiến => Đề nghị báo giá
+	3 dịch vụ còn lại k có bảng tính giá => Đề nghị báo giá
+
+-	lựa chọn dịch vụ -> thay đổi loại tài liệu trong đó dịch vụ Dịch vụ Bản địa hóa nội dung thì có loại tài liệu riêng
+-	upload file tính tổng số pages
+-	Tính số tiền dựa trên lựa chọn ngôn ngữ và số pages
+
+4 dịch vụ
+8 loại tài liệu
+
+
+admin 
+Quản lý order

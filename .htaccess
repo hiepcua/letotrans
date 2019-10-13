@@ -2,6 +2,8 @@ RewriteEngine On
 RewriteRule ^/?$ 								        index.php
 RewriteRule ^trang-chu/?$ 								index.php
 RewriteRule ^lien-he/?$ 								index.php?com=contact
+RewriteRule ^register/?$ 								index.php?com=contents&viewtype=register
+RewriteRule ^dang-ky-hop-tac/?$ 						index.php?com=contents&viewtype=register_co_operate
 RewriteRule ^y-kien-khach-hang/?$ 						index.php?com=feedback
 RewriteRule ^cau-hoi-thuong-gap/?$ 						index.php?com=contents&viewtype=question&code=$1
 
@@ -22,6 +24,7 @@ RewriteRule ^gioi-thieu/?$ 	                            index.php?com=contents&v
 RewriteRule ^tim-kiem/?$ 	                            index.php?com=contents&viewtype=search [QSA]
 RewriteRule ^tin-tuc/?$ 	                            index.php?com=contents&viewtype=list [QSA]
 RewriteRule ^([0-9a-zA-Z\-]+)/?$                        index.php?com=contents&viewtype=block&code=$1 [QSA]
+RewriteRule ^hop-tac/([0-9a-zA-Z\-]+).html?$ 	        index.php?com=contents&viewtype=hoptac&par_code=hop-tac&code=$1
 RewriteRule ^([0-9a-zA-Z\-]+)/([0-9a-zA-Z\-]+).html/?$  index.php?com=contents&viewtype=article&par_code=$1&code=$2
 
 php_value memory_limit -1

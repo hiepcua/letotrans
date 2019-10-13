@@ -135,7 +135,7 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE] > 0 ? (int)$_SESSION['CUR_PAGE_'.
         echo "<td>".$iso."</td>";
 
         echo "<td>
-        <input class='ajax-price' data-id='".$ids."' onchange=\"ajax_update_price(this)\" type='text' name='txt_price' value='".$rows['price_cc']."'>
+        <input class='ajax-price' data-id='".$ids."' onchange=\"ajax_update_price(this)\" type='text' name='txt_price' value='".number_format($rows['price_cc'])."'>
         </td>";
 
         echo "<td width=\"50\" align=\"center\"><input type=\"text\" name=\"txt_order\" id=\"txt_order\" value=\"$order\" class=\"order\"></td>";
@@ -168,4 +168,24 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE] > 0 ? (int)$_SESSION['CUR_PAGE_'.
         </td>
     </tr>
 </table>
+
+<script type="text/javascript">
+    function ajax_update_price(attr){
+        var id = parseInt(attr.getAttribute('data-id'));
+        var price = attr.value;
+        var _price = parseInt(price.replace(/,/g, ''));
+        $.ajax({
+            url : '<?php echo ROOTHOST_ADMIN.'ajaxs/languages/update_price.php' ?>',
+            type : 'POST',
+            data : {
+                'id' : id,
+                'price' : _price,
+            },
+            cache: false,
+            success: function (res) {
+                attr.value = res;
+            }
+        })
+    }
+</script>
 <?php //----------------------------------------------?>

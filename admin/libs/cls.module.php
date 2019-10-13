@@ -17,8 +17,8 @@ class CLS_MODULE{
 		'isActive'=>1
 		);
 	private $objmysql=NULL;
-	public function CLS_MODULE(){
-		$this->objmysql=new CLS_MYSQL;
+	function __construct(){
+		$this->objmysql = new CLS_MYSQL;
 	}
 	// property set value
 	public function __set($proname,$value){
@@ -51,15 +51,6 @@ class CLS_MODULE{
 		while($rows=$this->objmysql->Fetch_Assoc()){
 			$pos=$rows['position'];
 			echo "<option value=\"$pos\">$pos</option>";
-		}
-	}
-	public function LoadModType(){
-		$sql='SELECT * FROM `tbl_modtype` ';
-		$this->objmysql->Query($sql);
-		while($rows=$this->objmysql->Fetch_Assoc()){
-			$code=$rows['code'];
-			$name=$rows['name'];
-			echo "<option value=\"$code\">$name</option>";
 		}
 	}
 	public function getListMod($strwhere){

@@ -105,11 +105,14 @@ class CLS_MENUITEM{
 			if($url == $urllink) $cls.=" active";
 			$cls = $cls!=''?"class='".$cls."'":'';
 
-			$str.="<li $cls>";
-			if(!$child)
+			if(!$child){
+				$str.="<li $cls>";
 				$str.="<a href='".$urllink."' title='".$title."'><span>".$name."</span></a>";
+			}
 			else {
-				$str.="<a class='dropdown-toggle' role='button' aria-haspopup='true'  aria-expanded='false' href='".$urllink."' title='".$title."'><span>".$name."</span> <i class='fa fa-caret-down'></i></a>";
+				$cls="class='dropdown'";
+				$str.="<li $cls>";
+				$str.="<a class='dropdown-toggle' role='button' aria-haspopup='true'  aria-expanded='false' href='".$urllink."' title='".$title."' data-toggle=\"dropdown\"><span>".$name."</span> <i class='fa fa-caret-down'></i></a>";
 				$str.="<span class='bulet-dropdown'></span>";
 				$str.=$child;
 			}

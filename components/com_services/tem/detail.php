@@ -42,7 +42,7 @@ if ($objmysql->Num_rows()>0) {
 
 			<div class="page-content">
 				<div class="row">
-					<div class="col-md-9 col-sm-8">
+					<div class="col-md-8 col-sm-8">
 						<h1 class="page-title">Dịch vụ dịch thuật</h1>
 						<input type="hidden" name="txt_package" id="txt_package">
 
@@ -138,7 +138,7 @@ if ($objmysql->Num_rows()>0) {
 							?>
 						</div>
 					</div>
-					<div class="col-md-3 col-sm-4">
+					<div class="col-md-4 col-sm-4">
 						<aside class="aside feedback">
 							<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Ý kiến khách hàng</span></h3>
 							<div id="aside-feedback" class="owl-carousel owl-theme">
@@ -163,12 +163,8 @@ if ($objmysql->Num_rows()>0) {
 							</div>
 						</aside>
 
-						<!-- <aside class="aside feedback">
-							<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Ngôn ngữ nổi bật</span></h3>
-							<div class="content">
-								
-							</div>
-						</aside> -->
+						<?php $this->loadModule('ads1'); ?>
+						<?php $this->loadModule('ads2'); ?>
 					</div>
 				</div>
 			</div>

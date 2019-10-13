@@ -16,8 +16,8 @@ $objmysql = new CLS_MYSQL();
 		<li>
 			<div class="title"><i class="fa fa-list" aria-hidden="true"></i> <span>Dịch vụ</span></div>
 			<ul class="sub">
-				<li><a href="<?php echo ROOTHOST_ADMIN;?>service/add" title="Thêm loại tài liệu"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm loại tài liệu</span></a></li>
-				<li><a href="<?php echo ROOTHOST_ADMIN;?>service" title="Ds loại tài liệu"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds loại tài liệu</span></a></li>
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>service/add" title="Thêm dịch vụ"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm dịch vụ</span></a></li>
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>service" title="Ds dịch vụ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds dịch vụ</span></a></li>
 
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>languages" title="Ds ngôn ngữ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds ngôn ngữ</span></a></li>
 				<!-- <li><a href="<?php echo ROOTHOST_ADMIN;?>service_type" title="Ds lĩnh vực"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds lĩnh vực</span></a></li> -->
@@ -107,13 +107,13 @@ $objmysql = new CLS_MYSQL();
 			</ul>
 		</li>
 
-		<!-- <li>
+		<li>
 			<div class="title"><i class="fa fa-users" aria-hidden="true"></i> <span>Qlý module</span></div>
 			<ul class="sub">
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>module/add" title="Thêm mới module"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm mới module</span></a></li>
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>module" title="Danh sách module"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds module</span></a></li>
 			</ul>
-		</li> -->
+		</li>
 
 		<li>
 			<div class="title"><i class="fa fa-cogs" aria-hidden="true"></i> <span>Cấu hình</span></div>
