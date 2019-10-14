@@ -28,7 +28,7 @@ Dịch vụ chính
 	Scroll xuống hiển thị menu fix thay logo bằng translate now 			=> ok
 	Section service type là 4 loại dịch vụ chính của letotrans 				=> ok
 	Button sử dụng dịch vụ ngay thay = Đặt dịch vụ 							=> ok
-	OUR TRANSLATORS ARE CERTIFIED BY = ĐỐI TÁC THƯỜNG XUYÊN CỦA LETOtrans
+	OUR TRANSLATORS ARE CERTIFIED BY = ĐỐI TÁC THƯỜNG XUYÊN CỦA LETOtrans 	=> ok
 	ARE YOU READY TO START? = BẠN ĐÃ SẴN SÀNG SỬ DỤNG DỊCH VỤ CHƯA 			=> ok
 	START A PROJECT = YÊU CẦU DỊCH VỤ 										=> ok
 
