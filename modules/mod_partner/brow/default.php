@@ -1,19 +1,42 @@
 <?php
-$objpart = new CLS_PARTNER();
-$objpart->getList(" AND isactive=1 ");
-if($objpart->Num_rows()>0) { ?>
-	<div id="owl4" class="owl-carousel owl-theme">
-		<?php while($partner = $objpart->Fetch_Assoc()) { 
-			$title = stripslashes($partner["name"]);
-			$link = $partner['link']!=''?$partner['link']:"javascript:void(0)";
-			$img = getThumb($partner['images'],'img-responsive',$title);?>
-			<div class="item">
-				<div class="ow-client-logo">
-					<div class="client-logo">
-						<?php echo $img;?>
-					</div>
-				</div>
-			</div>
-		<?php } ?>
-	</div>
-<?php } ?>
+$objmysql = new CLS_MYSQL();
+$sql="SELECT * FROM tbl_partner WHERE isactive = 1 ORDER BY `order` ASC";
+$objmysql->Query($sql);
+?>
+<div id="slide-partner" class="owl-carousel owl-theme">
+	<?php
+	while($row 	= $objmysql->Fetch_Assoc()) {
+		$name 	= stripcslashes($row['name']);
+		$link 	= stripcslashes($row['link']);
+		$thumb 	= stripcslashes($row['images']);
+		?>
+		<div class="item">
+			<div class="bn-mask"></div>
+			<a href="<?php echo $link; ?>" title="<?php echo $name; ?>">
+				<img src="<?= $thumb ?>" class="img-responsive">
+			</a>
+		</div>
+	<?php } ?>
+</div>
+<script type="text/javascript">
+	$('#slide-partner').owlCarousel({
+		loop:true,
+		margin:10,
+		responsiveClass:true,
+		responsive:{
+			0:{
+				items:2,
+				nav:true
+			},
+			600:{
+				items:4,
+				nav:false
+			},
+			1000:{
+				items:5,
+				nav:true,
+				loop:false
+			}
+		}
+	})
+</script>

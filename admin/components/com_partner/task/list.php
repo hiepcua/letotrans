@@ -44,9 +44,14 @@ $cur_page = (int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_P
 		return true;
 	}
 </script>
-<div class=''>
+<div>
     <div class="com_header color">
-        <i class="fa fa-list" aria-hidden="true"></i> Danh sách đối tác
+        <form id="frm_list" method="get" action="<?php echo ROOTHOST_ADMIN.COMS;?>">
+            <div class="frm-search-box form-inline pull-left">
+                <input class="form-control" type="text" value="<?php echo $keyword?>" name="q" id="txtkeyword" placeholder="Từ khóa"/>&nbsp;
+                <button type="submit" id="_btnSearch" class="btn btn-success">Tìm kiếm</button>
+            </div>
+        </form>
         <div class="pull-right">
             <div id="menus" class="toolbars">
                 <form id="frm_menu" name="frm_menu" method="post" action="">

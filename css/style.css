@@ -681,6 +681,7 @@ a.contact:focus{
 .section{
 	padding-top: 50px;
 	padding-bottom: 50px;
+	background-color: #FFF;
 }
 .section .sec-title{
 	color: #ff6600;

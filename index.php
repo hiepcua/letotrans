@@ -114,30 +114,39 @@ global $tmp;global $conf;
 					</div>
 				</div>
 
-				<section class="section sec-service-type container">
-					<h2 class="sec-title">CÁC LĨNH VỰC NGÀNH NGHỀ CHÚNG TÔI CÓ THỂ DỊCH</h2>
-					<div class="row">
-						<?php
-						$sql = "SELECT * FROM tbl_service WHERE isactive = 1 ORDER BY `order` ASC";
-						$objmysql->Query($sql);
-						while ($row = $objmysql->Fetch_Assoc()) {
-							$thumb 	= getThumb($row['thumb'], '', 'img-responsive');
-							$link 	= ROOTHOST.'dich-vu/'.$row['code'].'.html';
-							echo '<div class="col-md-3 col-sm-6 item">
-							<div class="wrap-thumb">'.$thumb.'</div>
-							<div class="content">
+				<section class="section sec-service-type">
+					<div class="container">
+						<h2 class="sec-title">CÁC LĨNH VỰC NGÀNH NGHỀ CHÚNG TÔI CÓ THỂ DỊCH</h2>
+						<div class="row">
+							<?php
+							$sql = "SELECT * FROM tbl_service WHERE isactive = 1 ORDER BY `order` ASC";
+							$objmysql->Query($sql);
+							while ($row = $objmysql->Fetch_Assoc()) {
+								$thumb 	= getThumb($row['thumb'], '', 'img-responsive');
+								$link 	= ROOTHOST.'dich-vu/'.$row['code'].'.html';
+								echo '<div class="col-md-3 col-sm-6 item">
+								<div class="wrap-thumb">'.$thumb.'</div>
+								<div class="content">
 								<h3 class="title"><a href="'.$link.'" title="'.$row['name'].'">'.$row['name'].'</a></h3>
 								<div class="description">'.$row['sapo'].'</div>
 								<a href="'.$link.'" title="'.$row['sapo'].'" class="view-detail">Xem chi tiết</a>
-							</div>
-						</div>';
-						}
-						?>
+								</div>
+								</div>';
+							}
+							?>
+						</div>
+						<div class="wrap-button text-center"><a href="<?php echo ROOTHOST; ?>order" title="Đặt dịch vụ" class="btn btn-view-detail">ĐẶT DỊCH VỤ</a></div>
 					</div>
-					<div class="wrap-button text-center"><a href="<?php echo ROOTHOST; ?>order" title="Đặt dịch vụ" class="btn btn-view-detail">ĐẶT DỊCH VỤ</a></div>
 				</section>
 
 				<?php include_once("modules/mod_feedback/layout.php"); ?>
+
+				<section class="section sec-partner">
+					<div class="container">
+						<?php $tmp->loadModule('box3'); ?>
+					</div>
+				</section>
+				<?php?>
 
 				<section class="shake-hand">
 					<div class="shadow"></div>

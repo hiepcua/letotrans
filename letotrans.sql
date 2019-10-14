@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2019-10-14 02:35:19
+Date: 2019-10-14 08:55:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,16 +22,16 @@ DROP TABLE IF EXISTS `tbl_album`;
 CREATE TABLE `tbl_album` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) DEFAULT NULL,
-  `code` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` text COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `cdate` datetime NOT NULL,
   `visited` int(11) DEFAULT '0',
   `order` tinyint(5) DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_album
@@ -45,16 +45,16 @@ DROP TABLE IF EXISTS `tbl_categories`;
 CREATE TABLE `tbl_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `par_id` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(11) DEFAULT '0',
   `lag_id` int(11) DEFAULT '0',
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_categories
@@ -73,33 +73,33 @@ DROP TABLE IF EXISTS `tbl_configsite`;
 CREATE TABLE `tbl_configsite` (
   `config_id` int(11) NOT NULL AUTO_INCREMENT,
   `tem_id` int(11) DEFAULT NULL,
-  `company_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `intro` longtext COLLATE utf8_unicode_ci,
-  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tel` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
-  `fax` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `website` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `banner` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `logo` text COLLATE utf8_unicode_ci,
-  `work_time` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_keyword` longtext COLLATE utf8_unicode_ci,
-  `meta_descript` longtext COLLATE utf8_unicode_ci,
+  `company_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `intro` longtext COLLATE utf8mb4_unicode_ci,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tel` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fax` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `website` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` text COLLATE utf8mb4_unicode_ci,
+  `work_time` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci,
+  `meta_descript` longtext COLLATE utf8mb4_unicode_ci,
   `lang_id` int(11) NOT NULL DEFAULT '0',
-  `contact` text COLLATE utf8_unicode_ci NOT NULL,
-  `footer` text COLLATE utf8_unicode_ci NOT NULL,
-  `nick_yahoo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `name_yahoo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `skype1` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
-  `skype2` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
-  `twitter` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `gplus` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `facebook` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `youtube` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `contact` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `footer` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nick_yahoo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_yahoo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `skype1` varchar(70) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `skype2` varchar(70) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `twitter` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gplus` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `facebook` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `youtube` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`config_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_configsite
@@ -112,16 +112,16 @@ INSERT INTO `tbl_configsite` VALUES ('1', '0', 'Mua bán nhà đất 24h', 'Mua 
 DROP TABLE IF EXISTS `tbl_contact`;
 CREATE TABLE `tbl_contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fullname` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tittle` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `contents` text COLLATE utf8_unicode_ci,
+  `fullname` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tittle` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contents` text COLLATE utf8mb4_unicode_ci,
   `cdate` int(11) DEFAULT NULL,
   `isactive` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_contact
@@ -134,19 +134,19 @@ DROP TABLE IF EXISTS `tbl_contents`;
 CREATE TABLE `tbl_contents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `code` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
-  `images` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sapo` text COLLATE utf8_unicode_ci,
-  `intro` text COLLATE utf8_unicode_ci,
-  `fulltext` longtext COLLATE utf8_unicode_ci,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `images` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sapo` text COLLATE utf8mb4_unicode_ci,
+  `intro` text COLLATE utf8mb4_unicode_ci,
+  `fulltext` longtext COLLATE utf8mb4_unicode_ci,
   `type_of_land_id` int(11) DEFAULT NULL,
   `area` float DEFAULT NULL,
   `price` float DEFAULT NULL,
-  `list_conid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `list_tagid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `author` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `list_conid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `list_tagid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `author` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cdate` int(11) DEFAULT NULL,
   `mdate` int(11) DEFAULT NULL,
   `visited` int(11) DEFAULT '0',
@@ -155,7 +155,7 @@ CREATE TABLE `tbl_contents` (
   `ishot` tinyint(4) DEFAULT '0',
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_contents
@@ -183,7 +183,7 @@ CREATE TABLE `tbl_co_operate` (
   `company` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_co_operate
@@ -197,14 +197,14 @@ INSERT INTO `tbl_co_operate` VALUES ('2', 'Trần Viết Hiệp', 'tranviethiepd
 DROP TABLE IF EXISTS `tbl_feedback`;
 CREATE TABLE `tbl_feedback` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `comment` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `career` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `comment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `career` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(4) DEFAULT NULL,
   `isactive` tinyint(2) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_feedback
@@ -220,12 +220,12 @@ INSERT INTO `tbl_feedback` VALUES ('4', 'Hoàng Rapper', 'http://localhost/letot
 DROP TABLE IF EXISTS `tbl_gallery`;
 CREATE TABLE `tbl_gallery` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `album_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `album_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `isactive` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_gallery
@@ -248,14 +248,14 @@ INSERT INTO `tbl_gallery` VALUES ('11', '8', 'ha4', 'http://localhost/letotrans/
 DROP TABLE IF EXISTS `tbl_languages`;
 CREATE TABLE `tbl_languages` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` char(49) CHARACTER SET utf8 DEFAULT NULL,
-  `iso` char(2) CHARACTER SET utf8 DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` char(49) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `iso` char(2) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` tinyint(4) DEFAULT NULL,
   `price_cc` float DEFAULT '0',
   `isactive` tinyint(2) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_languages
@@ -402,12 +402,12 @@ INSERT INTO `tbl_languages` VALUES ('135', 'Zulu', 'zu', '', '60', null, '0');
 DROP TABLE IF EXISTS `tbl_menus`;
 CREATE TABLE `tbl_menus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `desc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_menus
@@ -424,19 +424,19 @@ CREATE TABLE `tbl_mnuitems` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `par_id` int(11) NOT NULL DEFAULT '0',
   `menu_id` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `intro` text COLLATE utf8_unicode_ci,
-  `viewtype` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `intro` text COLLATE utf8mb4_unicode_ci,
+  `viewtype` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `category_id` int(11) NOT NULL DEFAULT '0',
   `content_id` int(11) NOT NULL DEFAULT '0',
-  `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `class` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `link` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `class` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order` int(11) NOT NULL DEFAULT '0',
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_mnuitems
@@ -467,10 +467,10 @@ INSERT INTO `tbl_mnuitems` VALUES ('25', '5', '1', 'Hình thức thanh toán', '
 DROP TABLE IF EXISTS `tbl_modtype`;
 CREATE TABLE `tbl_modtype` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_modtype
@@ -491,22 +491,22 @@ INSERT INTO `tbl_modtype` VALUES ('9', 'more', 'Mở rộng');
 DROP TABLE IF EXISTS `tbl_modules`;
 CREATE TABLE `tbl_modules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `content` text COLLATE utf8_unicode_ci,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci,
   `viewtitle` int(11) NOT NULL DEFAULT '0',
   `menu_id` int(11) DEFAULT NULL,
-  `menu_ids` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `menu_ids` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `category_id` int(50) DEFAULT NULL,
   `content_id` int(50) DEFAULT NULL,
-  `theme` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `position` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `class` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `theme` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `position` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `class` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(11) NOT NULL DEFAULT '0',
   `isactive` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_modules
@@ -524,7 +524,7 @@ INSERT INTO `tbl_modules` VALUES ('49', 'content', 'Mỹ Đình THC Kính chào 
 INSERT INTO `tbl_modules` VALUES ('50', 'html', 'Video giới thiệu', '', '<iframe width=\"560\" height=\"320\" src=\"https://www.youtube.com/embed/G3Qih-C6xEw\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>', '0', '0', null, '0', null, '', 'user6', 'video', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('51', 'more', 'Đăng ký nhận tin', '', '', '0', '0', null, '0', '0', 'register', 'ads2', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('52', 'html', 'Hình thức thanh toán', '', '<div class=\"item-header\"><span>HÌNH THỨC THANH TOÁN</span></div>\r\n						<ul>\r\n							<li><img src=\"http://letotrans.vn/images/icons/paypal.jpg\"></li>\r\n							<li><img src=\"http://letotrans.vn/images/icons/visa.jpg\"></li>\r\n							<li><img src=\"http://letotrans.vn/images/icons/mastercard.jpg\"></li>\r\n							<li><img src=\"http://letotrans.vn/images/icons/american-express.jpg\"></li>\r\n							<li><img src=\"http://letotrans.vn/images/icons/discover.jpg\"></li>\r\n							<li><img src=\"http://letotrans.vn/images/icons/wire-transfer.jpg\"></li>\r\n						</ul>', '0', '0', null, '0', '0', '', 'box4', '', '0', '1');
-INSERT INTO `tbl_modules` VALUES ('53', 'html', 'Khách hàng hài lòng', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_customer.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">1500</div></div><div class=\"title\">Khách hàng hài lòng</div>', '0', '0', null, '0', null, '', 'box3', '', '0', '1');
+INSERT INTO `tbl_modules` VALUES ('53', 'partner', 'ĐỐI TÁC THƯỜNG XUYÊN CỦA LETOtrans', '', '', '1', '0', null, '0', '0', 'default', 'box3', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('54', 'html', 'Sửa chữa thành công', '', '<div class=\"circle\"><div><img src=\"http://localhost/letotrans/images/icons/icon_car.png\" alt=\"\" align=\"\" border=\"0\"></div><div class=\"count\">850</div></div><div class=\"title\">Sửa chữa thành công</div>', '0', '0', null, '0', null, '', 'box4', '', '0', '0');
 INSERT INTO `tbl_modules` VALUES ('55', 'news', 'Dịch vụ của chúng tôi', '', '', '1', '0', null, '59', null, 'branch', 'box5', '', '0', '1');
 INSERT INTO `tbl_modules` VALUES ('56', 'gallery', 'Hình ảnh tại Mĩ Đình THC', '', '', '0', '0', null, '0', null, '', 'box6', '', '0', '1');
@@ -553,13 +553,13 @@ CREATE TABLE `tbl_package` (
   `price_basic` float DEFAULT NULL,
   `price_pro` float DEFAULT NULL,
   `price_vip` float DEFAULT NULL,
-  `intro_basic` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro_pro` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro_vip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `intro_basic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro_pro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro_vip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(11) DEFAULT '0',
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_package
@@ -580,6 +580,29 @@ INSERT INTO `tbl_package` VALUES ('13', '4', '5', '50', '100', '500', '<ul>\r\n<
 INSERT INTO `tbl_package` VALUES ('14', '4', '6', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
 INSERT INTO `tbl_package` VALUES ('15', '4', '7', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
 INSERT INTO `tbl_package` VALUES ('16', '4', '8', '50', '100', '500', '<ul>\r\n<li>everyday content</li>\r\n<li>blog posts</li>\r\n<li>user reviews</li>\r\n</ul>', '<ul>\r\n<li>business communication</li>\r\n<li>app or web localization</li>\r\n<li>product descriptions</li>\r\n</ul>', '<ul>\r\n<li>medical reports</li>\r\n<li>international agreements</li>\r\n<li>patents, licences</li>\r\n</ul>', '0', '1');
+
+-- ----------------------------
+-- Table structure for tbl_partner
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_partner`;
+CREATE TABLE `tbl_partner` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `images` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `link` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `order` tinyint(4) DEFAULT NULL,
+  `isactive` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_partner
+-- ----------------------------
+INSERT INTO `tbl_partner` VALUES ('1', 'Đối tác 1', 'http://localhost/letotrans/images/doi-tac/doitac1.jpg', '', '1', '1');
+INSERT INTO `tbl_partner` VALUES ('2', 'Đối tác 2', 'http://localhost/letotrans/images/doi-tac/doitac1.jpg', '', '2', '1');
+INSERT INTO `tbl_partner` VALUES ('3', 'Đối tác 3', 'http://localhost/letotrans/images/doi-tac/doitac1.jpg', '', '3', '1');
+INSERT INTO `tbl_partner` VALUES ('4', 'Đối tác 4', 'http://localhost/letotrans/images/doi-tac/doitac1.jpg', '', '4', '1');
+INSERT INTO `tbl_partner` VALUES ('5', 'Đối tác 5', 'http://localhost/letotrans/images/doi-tac/doitac1.jpg', '', '5', '1');
 
 -- ----------------------------
 -- Table structure for tbl_prices
@@ -603,13 +626,13 @@ CREATE TABLE `tbl_prices` (
 DROP TABLE IF EXISTS `tbl_product_type`;
 CREATE TABLE `tbl_product_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(11) DEFAULT '0',
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_product_type
@@ -625,17 +648,17 @@ INSERT INTO `tbl_product_type` VALUES ('4', 'Game', 'game', '<ul>\r\n<li>everyda
 DROP TABLE IF EXISTS `tbl_seo`;
 CREATE TABLE `tbl_seo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_desc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ishot` tinyint(4) DEFAULT '0',
   `order` tinyint(4) DEFAULT '0',
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_seo
@@ -674,22 +697,22 @@ INSERT INTO `tbl_seo` VALUES ('34', 'Hợp tác', 'http://localhost/letotrans/ho
 DROP TABLE IF EXISTS `tbl_service`;
 CREATE TABLE `tbl_service` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `service_type_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `service_type_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `par_id` int(11) DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sapo` text COLLATE utf8_unicode_ci,
-  `fulltext` text COLLATE utf8_unicode_ci,
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sapo` text COLLATE utf8mb4_unicode_ci,
+  `fulltext` text COLLATE utf8mb4_unicode_ci,
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `price` float DEFAULT NULL,
-  `author` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `author` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cdate` int(11) DEFAULT NULL,
   `mdate` int(11) DEFAULT NULL,
   `visited` int(255) DEFAULT NULL,
   `order` tinyint(4) DEFAULT '0',
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_service
@@ -705,15 +728,15 @@ INSERT INTO `tbl_service` VALUES ('4', '[\"5\",\"6\",\"7\",\"8\"]', '0', 'Biên 
 DROP TABLE IF EXISTS `tbl_service_type`;
 CREATE TABLE `tbl_service_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `icon` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sapo` text COLLATE utf8_unicode_ci,
-  `intro` text COLLATE utf8_unicode_ci,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sapo` text COLLATE utf8mb4_unicode_ci,
+  `intro` text COLLATE utf8mb4_unicode_ci,
   `order` tinyint(4) DEFAULT '0',
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_service_type
@@ -733,15 +756,15 @@ INSERT INTO `tbl_service_type` VALUES ('8', 'Game', 'game', 'http://localhost/le
 DROP TABLE IF EXISTS `tbl_slider`;
 CREATE TABLE `tbl_slider` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `slogan` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `intro` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT '0',
-  `thumb` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `link` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slogan` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_slider
@@ -756,11 +779,11 @@ INSERT INTO `tbl_slider` VALUES ('20', 'DỊCH THUẬT LETO TRANS <br> PHỤC V�
 DROP TABLE IF EXISTS `tbl_subscribe`;
 CREATE TABLE `tbl_subscribe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_subscribe
@@ -773,19 +796,19 @@ INSERT INTO `tbl_subscribe` VALUES ('1', 'Trần Viết Hiệp', 'tranviethiepdz
 DROP TABLE IF EXISTS `tbl_user`;
 CREATE TABLE `tbl_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `firstname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `lastname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `firstname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birthday` date NOT NULL,
-  `gender` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `address` text COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `mobile` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `identify` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `organ` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gender` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `identify` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `organ` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `joindate` datetime NOT NULL,
   `lastlogin` datetime NOT NULL,
   `gid` int(11) NOT NULL,
@@ -793,13 +816,13 @@ CREATE TABLE `tbl_user` (
   `isactive` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_user
 -- ----------------------------
 INSERT INTO `tbl_user` VALUES ('1', 'igf', 'd93a5def7511da3d0f2d171d9c344e91', 'IGF', 'JSC', '0000-00-00', '', '', '', '', '', null, null, null, '0000-00-00 00:00:00', '2019-09-03 01:15:04', '1', null, '1');
-INSERT INTO `tbl_user` VALUES ('2', 'admin', 'd93a5def7511da3d0f2d171d9c344e91', 'THC', 'Admin', '0000-00-00', '0', '', '123456789', '', 'a@gmail.com', null, '1111111111', '', '2019-07-23 17:13:50', '2019-10-14 02:24:24', '1', null, '1');
+INSERT INTO `tbl_user` VALUES ('2', 'admin', 'd93a5def7511da3d0f2d171d9c344e91', 'THC', 'Admin', '0000-00-00', '0', '', '123456789', '', 'a@gmail.com', null, '1111111111', '', '2019-07-23 17:13:50', '2019-10-14 08:49:32', '1', null, '1');
 
 -- ----------------------------
 -- Table structure for tbl_user_group
@@ -808,15 +831,15 @@ DROP TABLE IF EXISTS `tbl_user_group`;
 CREATE TABLE `tbl_user_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `par_id` int(11) DEFAULT '0',
-  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `intro` text COLLATE utf8_unicode_ci,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `intro` text COLLATE utf8mb4_unicode_ci,
   `permission` int(11) NOT NULL DEFAULT '0',
   `isadmin` int(11) NOT NULL DEFAULT '0',
   `isroot` tinyint(4) DEFAULT NULL,
   `isboss` tinyint(4) DEFAULT '1',
   `isactive` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_user_group

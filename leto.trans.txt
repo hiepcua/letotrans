@@ -58,5 +58,7 @@ Dịch vụ chính
 8 loại tài liệu
 
 
-admin 
-Quản lý order
+- 	Admin 
+	Quản lý order
+	Quản lý đăng ký tin
+	Quản lý đăng ký hợp tác

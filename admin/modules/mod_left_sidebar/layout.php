@@ -58,7 +58,7 @@ $objmysql = new CLS_MYSQL();
 			</ul>
 		</li> -->
 
-		<!-- <li>
+		<li>
 			<div class="title"><i class="fa fa-list" aria-hidden="true"></i> <span>Đối tác</span></div>
 			<ul class="sub">
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>partner/add" title="Thêm đối tác"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm đối tác</span></a></li>
@@ -66,7 +66,7 @@ $objmysql = new CLS_MYSQL();
 			</ul>
 		</li>
 
-		<li>
+		<!-- <li>
 			<div class="title"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Thư viện ảnh</span></div>
 			<ul class="sub">
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>gallery/add" title="Thêm mới"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm mới</span></a></li>
