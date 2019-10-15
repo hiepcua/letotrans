@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2019-10-14 08:55:01
+Date: 2019-10-15 08:55:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -60,7 +60,7 @@ CREATE TABLE `tbl_categories` (
 -- Records of tbl_categories
 -- ----------------------------
 INSERT INTO `tbl_categories` VALUES ('1', '0', 'Câu hỏi thường gặp', 'cau-hoi-thuong-gap', '', '', '0', '0', '1');
-INSERT INTO `tbl_categories` VALUES ('2', '1', 'Câu hỏi tổng quan', 'cau-hoi-tong-quan', '', '', '0', '0', '1');
+INSERT INTO `tbl_categories` VALUES ('2', '1', 'Câu hỏi tổng quan', 'cau-hoi-tong-quan', '', '', '0', '0', '0');
 INSERT INTO `tbl_categories` VALUES ('3', '1', 'Câu hỏi về phiên dịch viên', 'cau-hoi-ve-phien-dich-vien', '', '', '0', '0', '1');
 INSERT INTO `tbl_categories` VALUES ('4', '1', 'Câu hỏi về phí dịch vụ', 'cau-hoi-ve-phi-dich-vu', '', '', '0', '0', '1');
 INSERT INTO `tbl_categories` VALUES ('5', '0', 'Blog', 'blog', '', '', '0', '0', '1');
@@ -183,13 +183,14 @@ CREATE TABLE `tbl_co_operate` (
   `company` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_co_operate
 -- ----------------------------
 INSERT INTO `tbl_co_operate` VALUES ('1', 'Trần Viết Hiệp', 'tranviethiepdz@gmail.com', null, null, '1');
 INSERT INTO `tbl_co_operate` VALUES ('2', 'Trần Viết Hiệp', 'tranviethiepdz@gmail.com', '09695499991', 'Designbold', '1');
+INSERT INTO `tbl_co_operate` VALUES ('3', 'DAVID MATIN', 'abc@gmail.com1', '09695499991', 'Designbold', '1');
 
 -- ----------------------------
 -- Table structure for tbl_feedback
@@ -247,7 +248,7 @@ INSERT INTO `tbl_gallery` VALUES ('11', '8', 'ha4', 'http://localhost/letotrans/
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_languages`;
 CREATE TABLE `tbl_languages` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` char(49) CHARACTER SET utf8mb4 DEFAULT NULL,
   `iso` char(2) CHARACTER SET utf8mb4 DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -605,20 +606,25 @@ INSERT INTO `tbl_partner` VALUES ('4', 'Đối tác 4', 'http://localhost/letotr
 INSERT INTO `tbl_partner` VALUES ('5', 'Đối tác 5', 'http://localhost/letotrans/images/doi-tac/doitac1.jpg', '', '5', '1');
 
 -- ----------------------------
--- Table structure for tbl_prices
+-- Table structure for tbl_price
 -- ----------------------------
-DROP TABLE IF EXISTS `tbl_prices`;
-CREATE TABLE `tbl_prices` (
-  `id` int(11) NOT NULL DEFAULT '0',
+DROP TABLE IF EXISTS `tbl_price`;
+CREATE TABLE `tbl_price` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `lang1` int(11) DEFAULT NULL,
   `lang2` int(11) DEFAULT NULL,
   `price` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of tbl_prices
+-- Records of tbl_price
 -- ----------------------------
+INSERT INTO `tbl_price` VALUES ('5', '129', '1', '2000');
+INSERT INTO `tbl_price` VALUES ('6', '129', '23', '50');
+INSERT INTO `tbl_price` VALUES ('7', '129', '53', '50');
+INSERT INTO `tbl_price` VALUES ('8', '129', '61', '50');
+INSERT INTO `tbl_price` VALUES ('9', '129', '134', '50');
 
 -- ----------------------------
 -- Table structure for tbl_product_type
@@ -783,12 +789,13 @@ CREATE TABLE `tbl_subscribe` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `isactive` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_subscribe
 -- ----------------------------
 INSERT INTO `tbl_subscribe` VALUES ('1', 'Trần Viết Hiệp', 'tranviethiepdz@gmail.com', '1');
+INSERT INTO `tbl_subscribe` VALUES ('4', 'Trần Viết Hiệp', 'tranviethiepdz@gmail.com', '1');
 
 -- ----------------------------
 -- Table structure for tbl_user
@@ -822,7 +829,7 @@ CREATE TABLE `tbl_user` (
 -- Records of tbl_user
 -- ----------------------------
 INSERT INTO `tbl_user` VALUES ('1', 'igf', 'd93a5def7511da3d0f2d171d9c344e91', 'IGF', 'JSC', '0000-00-00', '', '', '', '', '', null, null, null, '0000-00-00 00:00:00', '2019-09-03 01:15:04', '1', null, '1');
-INSERT INTO `tbl_user` VALUES ('2', 'admin', 'd93a5def7511da3d0f2d171d9c344e91', 'THC', 'Admin', '0000-00-00', '0', '', '123456789', '', 'a@gmail.com', null, '1111111111', '', '2019-07-23 17:13:50', '2019-10-14 08:49:32', '1', null, '1');
+INSERT INTO `tbl_user` VALUES ('2', 'admin', 'd93a5def7511da3d0f2d171d9c344e91', 'THC', 'Admin', '0000-00-00', '0', '', '123456789', '', 'a@gmail.com', null, '1111111111', '', '2019-07-23 17:13:50', '2019-10-15 01:54:40', '1', null, '1');
 
 -- ----------------------------
 -- Table structure for tbl_user_group
