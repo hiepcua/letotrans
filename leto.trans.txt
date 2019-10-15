@@ -34,10 +34,10 @@ Dịch vụ chính
 
 - Service detail
 	Trang dịch vụ biên dịch
-		Bỏ gói dịch vụ (basic, pro, vip) 
-		Order Translation Services = Đặt dịch tài liệu
-		module languages đưa cờ việt, anh, trung, nhật, hàn, đức lên đầu bảng
-		module nhận thông tin khuyến mãi
+		Bỏ gói dịch vụ (basic, pro, vip) 										=> ok
+		Order Translation Services = Đặt dịch tài liệu 							=> ok
+		module languages đưa cờ việt, anh, trung, nhật, hàn, đức lên đầu bảng 	=> ok
+		module nhận thông tin khuyến mãi 										=> ok
 
 - Trang order
 	bỏ phần Preferences
@@ -60,5 +60,6 @@ Dịch vụ chính
 
 - 	Admin 
 	Quản lý order
-	Quản lý đăng ký tin
-	Quản lý đăng ký hợp tác
+	Quản lý price					=> ok
+	Quản lý đăng ký tin 			=> ok
+	Quản lý đăng ký hợp tác 		=> ok

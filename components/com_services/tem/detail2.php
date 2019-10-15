@@ -1,7 +1,8 @@
 <?php
-$thisUrl = curPageURL();
-$code = isset($_GET['code']) ? addslashes(trim($_GET['code'])) : '';
-if($code == '') {
+$thisUrl 	= curPageURL();
+$code 		= isset($_GET['code']) ? addslashes(trim($_GET['code'])) : '';
+$par_code 	= isset($_GET['par_code']) ? addslashes(trim($_GET['par_code'])) : '';
+if($code == '' || $par_code == '') {
 	page404();
 }
 

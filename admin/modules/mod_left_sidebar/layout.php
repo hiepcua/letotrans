@@ -14,6 +14,13 @@ $objmysql = new CLS_MYSQL();
 		</li>
 
 		<li>
+			<div class="title"><i class="fa fa-list" aria-hidden="true"></i> <span>QL yêu cầu dịch vụ</span></div>
+			<ul class="sub">
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>order" title="Ds yêu cầu dịch vụ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds yêu cầu dịch vụ</span></a></li>
+			</ul>
+		</li>
+
+		<li>
 			<div class="title"><i class="fa fa-list" aria-hidden="true"></i> <span>Dịch vụ</span></div>
 			<ul class="sub">
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>service/add" title="Thêm dịch vụ"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm dịch vụ</span></a></li>
@@ -22,7 +29,8 @@ $objmysql = new CLS_MYSQL();
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>languages" title="Ds ngôn ngữ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds ngôn ngữ</span></a></li>
 				<!-- <li><a href="<?php echo ROOTHOST_ADMIN;?>service_type" title="Ds lĩnh vực"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds lĩnh vực</span></a></li> -->
 				<!-- <li><a href="<?php echo ROOTHOST_ADMIN;?>product_type" title="Ds loại sản phẩm"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds loại sản phẩm</span></a></li> -->
-				<li><a href="<?php echo ROOTHOST_ADMIN;?>package" title="Ds gói dịch vụ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds gói dịch vụ</span></a></li>
+				<!-- <li><a href="<?php echo ROOTHOST_ADMIN;?>package" title="Ds gói dịch vụ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds gói dịch vụ</span></a></li> -->
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>price" title="Ds giá"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds giá</span></a></li>
 			</ul>
 		</li>
 
@@ -99,19 +107,27 @@ $objmysql = new CLS_MYSQL();
 		</li> -->
 
 		<li>
+			<div class="title"><i class="fa fa-users" aria-hidden="true"></i> <span>Qlý module</span></div>
+			<ul class="sub">
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>module/add" title="Thêm mới module"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm mới module</span></a></li>
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>module" title="Danh sách module"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds module</span></a></li>
+			</ul>
+		</li>
+
+		<li>
+			<div class="title"><i class="fa fa-list" aria-hidden="true"></i> <span>QL đăng ký</span></div>
+			<ul class="sub">
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>co_operate" title="Quản lý đăng ký hợp tác"><i class="fa fa-plus" aria-hidden="true"></i> <span>QL đăng ký hợp tác</span></a></li>
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>subscribe" title="Quản lý đăng ký tin"><i class="fa fa-bars" aria-hidden="true"></i> <span>QL đăng ký tin</span></a></li>
+			</ul>
+		</li>
+
+		<li>
 			<div class="title"><i class="fa fa-users" aria-hidden="true"></i> <span>Qlý người dùng</span></div>
 			<ul class="sub">
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>user/add" title="Thêm mới người dùng"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm mới</span></a></li>
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>user" title="Danh sách người dùng"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds người dùng</span></a></li>
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>user_group" title="Danh sách nhóm người dùng"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds nhóm người dùng</span></a></li>
-			</ul>
-		</li>
-
-		<li>
-			<div class="title"><i class="fa fa-users" aria-hidden="true"></i> <span>Qlý module</span></div>
-			<ul class="sub">
-				<li><a href="<?php echo ROOTHOST_ADMIN;?>module/add" title="Thêm mới module"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm mới module</span></a></li>
-				<li><a href="<?php echo ROOTHOST_ADMIN;?>module" title="Danh sách module"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds module</span></a></li>
 			</ul>
 		</li>
 

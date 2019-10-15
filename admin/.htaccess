@@ -17,11 +17,31 @@ RewriteRule ^slider/add?$ 							index.php?com=slider&task=add
 RewriteRule ^slider/edit/([0-9]+)?$ 				index.php?com=slider&task=edit&id=$1
 RewriteRule ^slider/delete/([0-9]+)?$ 				index.php?com=slider&task=delete&id=$1
 
+# Subscribe
+RewriteRule ^subscribe/?$ 							index.php?com=subscribe 	[QSA]
+RewriteRule ^subscribe/add?$ 						index.php?com=subscribe&task=add
+RewriteRule ^subscribe/edit/([0-9]+)?$ 				index.php?com=subscribe&task=edit&id=$1
+RewriteRule ^subscribe/delete/([0-9]+)?$ 			index.php?com=subscribe&task=delete&id=$1
+RewriteRule ^subscribe/active/([0-9]+)?$ 			index.php?com=subscribe&task=active&id=$1
+
+# Subscribe
+RewriteRule ^co_operate/?$ 							index.php?com=co_operate 	[QSA]
+RewriteRule ^co_operate/add?$ 						index.php?com=co_operate&task=add
+RewriteRule ^co_operate/edit/([0-9]+)?$ 			index.php?com=co_operate&task=edit&id=$1
+RewriteRule ^co_operate/delete/([0-9]+)?$ 			index.php?com=co_operate&task=delete&id=$1
+RewriteRule ^co_operate/active/([0-9]+)?$ 			index.php?com=co_operate&task=active&id=$1
+
 # Languages
 RewriteRule ^languages/?$ 							index.php?com=languages 	[QSA]
 RewriteRule ^languages/add?$ 						index.php?com=languages&task=add
 RewriteRule ^languages/edit/([0-9]+)?$ 				index.php?com=languages&task=edit&id=$1
 RewriteRule ^languages/delete/([0-9]+)?$ 			index.php?com=languages&task=delete&id=$1
+
+# Price
+RewriteRule ^price/?$ 								index.php?com=price 	[QSA]
+RewriteRule ^price/add?$ 							index.php?com=price&task=add
+RewriteRule ^price/edit/([0-9]+)?$ 					index.php?com=price&task=edit&id=$1
+RewriteRule ^price/delete/([0-9]+)?$ 				index.php?com=price&task=delete&id=$1
 
 # Feedback
 RewriteRule ^feedback/?$ 							index.php?com=feedback
