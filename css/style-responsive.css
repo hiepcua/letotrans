@@ -16,6 +16,7 @@
 		background-size: contain;
 	}
 	.row-service .item.item-service-type .inner:after{
+		content: none;
 		top: 180px;
 		background-image: url(../images/icons/icon_service_block_sep-2.png);
 		background-repeat: no-repeat;
@@ -369,6 +370,7 @@
 		background-size: contain;
 	}
 	.row-service .item.item-service-type .inner:after{
+		content: none;
 		bottom: -63px;
 		background-image: url(../images/icons/icon_service_block_sep-4.png);
 		background-repeat: no-repeat;

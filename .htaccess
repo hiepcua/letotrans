@@ -6,6 +6,7 @@ RewriteRule ^register/?$ 								index.php?com=contents&viewtype=register
 RewriteRule ^dang-ky-hop-tac/?$ 						index.php?com=contents&viewtype=register_co_operate
 RewriteRule ^y-kien-khach-hang/?$ 						index.php?com=feedback
 RewriteRule ^cau-hoi-thuong-gap/?$ 						index.php?com=contents&viewtype=question&code=$1
+RewriteRule ^yeu-cau-dich-vu/?$ 						index.php?com=services&viewtype=regis_order
 
 
 RewriteRule ^test/?$ 									index.php?com=services&viewtype=test

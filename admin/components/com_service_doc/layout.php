@@ -10,6 +10,7 @@ if(isset($_POST['cmdsave'])){
 	$Service_type_id 	= isset($_POST['cbo_service_type']) ? (int)$_POST['cbo_service_type'] : 0;
 	$Intro 				= isset($_POST['txt_intro']) ? addslashes($_POST['txt_intro']) : '';
 	$Name 				= isset($_POST['txt_name']) ? addslashes($_POST['txt_name']) : '';
+	$Code 				= un_unicode($_POST['txt_name']);
 	$Fulltext 			= isset($_POST['txt_fulltext']) ? addslashes($_POST['txt_fulltext']) : '';
 	$Thumb 				= isset($_POST['txtthumb']) ? addslashes($_POST['txtthumb']) : '';
 
@@ -33,6 +34,7 @@ if(isset($_POST['cmdsave'])){
 		$objmysql->Query("BEGIN");
 		$sql = "UPDATE tbl_service_doc SET 
 		`name` 				= '".$Name."',
+		`code` 				= '".$Code."',
 		`service_id` 		= '".$Service_id."',
 		`service_type_id` 	= '".$Service_type_id."',
 		`intro` 			= '".$Intro."',
@@ -59,7 +61,7 @@ if(isset($_POST['cmdsave'])){
 			$objmysql->Exec('ROLLBACK');
 	}else{
 		$objmysql->Exec("BEGIN");
-		$sql = "INSERT INTO tbl_service_doc (`name`, `service_id`, `service_type_id`, `intro`, `fulltext`) VALUES ('".$Name."', '".$Service_id."', '".$Service_type_id."', '".$Intro."', '".$Fulltext."')";
+		$sql = "INSERT INTO tbl_service_doc (`name`, `code`, `service_id`, `service_type_id`, `intro`, `fulltext`) VALUES ('".$Name."', '".$Code."', '".$Service_id."', '".$Service_type_id."', '".$Intro."', '".$Fulltext."')";
 		$result = $objmysql->Exec($sql);
 
 		$sql2 = "INSERT INTO tbl_seo (`title`,`link`,`image`,`meta_title`,`meta_key`,`meta_desc`) VALUES ('".$Name."','".$Link."','".$Thumb."','".$Meta_title."','".$Meta_key."','".$Meta_desc."')";

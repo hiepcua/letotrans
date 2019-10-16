@@ -34,8 +34,13 @@
 								$objmysql->Query($sql);
 								while ($row = $objmysql->Fetch_Assoc()) {
 									$image = $row['image'];
-									echo '<li class="f32 item" data-id="'.$row['id'].'" data-name="'.$row['name'].' ('.$row['iso'].')">
-									<a href="javascript:void(0)" onclick="language_selected(this)" data-id="'.$row['id'].'" title="'.$row['name'].' ('.$row['iso'].')">
+
+									if($row['default'] == 1){
+										echo '<input id="df_language" data-name="'.$row['name'].'('.$row['iso'].')" name="df_language" type="hidden" value="'.$row['id'].'">';
+									}
+
+									echo '<li class="f32 item" data-id="'.$row['id'].'" data-name="'.$row['name'].'('.$row['iso'].')">
+									<a href="javascript:void(0)" onclick="language_selected(this)" data-id="'.$row['id'].'" title="'.$row['name'].'('.$row['iso'].')">
 									<img src="'.$image.'" class="flag">
 									<p class="name">'.$row['name'].' ('.$row['iso'].')<i class="fa fa-check" aria-hidden="true"></i></p>
 									</a>
@@ -50,29 +55,7 @@
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-4 wrap-aside">
-					<aside class="aside feedback">
-						<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Ý kiến khách hàng</span></h3>
-						<div id="aside-feedback" class="owl-carousel owl-theme">
-							<?php
-							$sql="SELECT * FROM tbl_feedback WHERE isactive = 1 ORDER BY `order` DESC LIMIT 0, 3";
-							$objmysql->Query($sql);
-							while($row 	= $objmysql->Fetch_Assoc()) {
-								$name 		= stripcslashes($row['name']);
-								$comment 	= stripcslashes($row['comment']);
-								$career 	= stripcslashes($row['career']);
-								$thumb 		= getThumb($row['avatar'], 'img-responsive', '');
-								?>
-								<div class="item">
-									<div class="box-thumb">
-										<div class="wrap-thumb"><?php echo $thumb;?></div>
-										<div class="name"><?php echo $name; ?></div>
-										<div class="career"><?php echo $career; ?></div>
-									</div>
-									<div class="content"><?php echo $comment; ?></div>
-								</div>
-							<?php } ?>
-						</div>
-					</aside>
+					<?php $this->loadModule('box8'); ?>
 				</div>
 			</div>
 			
@@ -81,72 +64,117 @@
 </section>
 
 <script type="text/javascript">
-	$('#aside-feedback').owlCarousel({
-		navigation : true,
-		slideSpeed : 3000,
-		paginationSpeed : 400,
-		loop: true,
-		autoplay:true,
-		items : 1, 
-		itemsDesktop : false,
-		itemsDesktopSmall : false,
-		itemsTablet: false,
-		itemsMobile : false
-	});
-
+	var __lang_df_id 	= $('#df_language').val();
+	var __lang_df_name	= $('#df_language').attr('data-name');
+	var __flag_press 	= 1;
+	var __flag_lang_df 	= false;
 	var __trans_f 		= '';
 	var __trans_t 		= '';
-	var __trans_f_id 	= '';
-	var __trans_t_id 	= '';
 
 	function language_selected(attr){
-		attr.parentNode.classList.add('selected');
 		var name 	= attr.getAttribute('title');
 		var id 		= attr.getAttribute('data-id');
+		// console.log(id);
 
-		if(__trans_f == ''){
-			__trans_f 		= name;
-			__trans_f_id 	= id;
+		if(__flag_press == 1){
+			if(id == __lang_df_id){
+				__flag_lang_df 		= true;
+				__trans_f 	= __lang_df_name;
+				attr.parentNode.classList.add('selected');
+				
+				var shtml_from = '<strong>Dịch từ:</strong>';
+				shtml_from+= '<ul id="trans-from">';
+				shtml_from+= '<li>';
+				shtml_from+= '<span id="trans-from-name">'+ __lang_df_name +'</span>';
+				shtml_from+= '<a href="javascript:void(0)" onclick="remove_selected_language_from(this)"><i class="fa fa-times" aria-hidden="true"></i></a>';
+				shtml_from+= '</li>';
+				shtml_from+= '</ul>';
+				$('#translate_from').append(shtml_from);
 
-			var shtml_from = '<strong>Dịch từ:</strong>';
-			shtml_from+= '<ul id="trans-from">';
-			shtml_from+= '<li>';
-			shtml_from+= '<span id="trans-from-name">'+ __trans_f +'</span>';
-			shtml_from+= '<a href="javascript:void(0)" onclick="remove_selected_language_from(this)"><i class="fa fa-times" aria-hidden="true"></i></a>';
-			shtml_from+= '</li>';
-			shtml_from+= '</ul>';
-			$('#translate_from').append(shtml_from);
-		}else if(__trans_f !== '' && __trans_f !== name){
-			__trans_t 		= name;
-			__trans_t_id 	= id;
+				// Set value input trans from
+				$('#txt_from').val(__lang_df_id);
+				__flag_press = 2;
+			}else{
+				__trans_f 	= name;
+				attr.parentNode.classList.add('selected');
 
-			var shtml_to = '<strong>Sang:</strong>';
-			shtml_to+= '<ul id="trans-to">';
-			shtml_to+= '<li>';
-			shtml_to+= '<span id="trans-to-name">'+ __trans_t +'</span>';
-			shtml_to+= '<a href="javascript:void(0)" onclick="remove_selected_language_to(this)"><i class="fa fa-times" aria-hidden="true"></i></a>';
-			shtml_to+= '</li>';
-			shtml_to+= '</ul>';
-			$('#translate_to').append(shtml_to);
+				var shtml_from = '<strong>Dịch từ:</strong>';
+				shtml_from+= '<ul id="trans-from">';
+				shtml_from+= '<li>';
+				shtml_from+= '<span id="trans-from-name">'+ name +'</span>';
+				shtml_from+= '<a href="javascript:void(0)" onclick="remove_selected_language_from(this)"><i class="fa fa-times" aria-hidden="true"></i></a>';
+				shtml_from+= '</li>';
+				shtml_from+= '</ul>';
+				$('#translate_from').append(shtml_from);
 
-			var shtml_toolbar = '<div class="text-center">';
-			shtml_toolbar+= '<span id="toolbar-from">'+ __trans_f +'</span>';
-			shtml_toolbar+= '<i class="fa fa-long-arrow-right" aria-hidden="true"></i>';
-			shtml_toolbar+= '<span id="toolbar-to">'+ __trans_t +'</span>';
-			shtml_toolbar+= '<div><a href="javascript:void(0)" onclick="return submit_frm_languages();" class="btn btn-submit-frm-languages">Bắt đầu dịch</a></div>';
-			shtml_toolbar+= '</div>';
-			$('#languages_list_toolbar').append(shtml_toolbar);
+				// Set value input trans from
+				$('#txt_from').val(id);
+				// Select trans to is default language
+				select_dflanguage();
+			}
+		}else if(__flag_press == 2){
+			if(__flag_lang_df == true && id != __lang_df_id){
+				__trans_t 	= name;
+				attr.parentNode.classList.add('selected');
+				
+				var shtml_to = '<strong>Sang:</strong>';
+				shtml_to+= '<ul id="trans-to">';
+				shtml_to+= '<li>';
+				shtml_to+= '<span id="trans-to-name">'+ name +'</span>';
+				shtml_to+= '</li>';
+				shtml_to+= '</ul>';
+				$('#translate_to').append(shtml_to);
 
-			$('#txt_to').val(__trans_t_id);
-			$('#txt_from').val(__trans_f_id);
+				$('#txt_to').val(id);
+				$('#txt_from').val(__lang_df_id);
+
+				layout_toolbar();
+			}
+			__flag_press = 3;
 		}
+	}
+
+	function select_dflanguage(){
+		var list_items = $('.languages_list .item');
+		var lg = list_items.length;
+		for(var i = 0; i < lg; i++){
+			var tmp_id = list_items[i].getAttribute('data-id');
+			if(tmp_id == __lang_df_id){
+				// add class selected
+				list_items[i].classList.add('selected');
+				// set flag dflanguage is true
+				__flag_lang_df 		= true;
+				// set trans from
+				__trans_t 	= __lang_df_name;
+
+				var shtml_to = '<strong>Sang:</strong>';
+				shtml_to+= '<ul id="trans-to">';
+				shtml_to+= '<li>';
+				shtml_to+= '<span id="trans-to-name">'+ __lang_df_name +'</span>';
+				shtml_to+= '</li>';
+				shtml_to+= '</ul>';
+				$('#translate_to').append(shtml_to);
+				$('#txt_to').val(__lang_df_id);
+				layout_toolbar();
+			}
+		}
+		__flag_press = 3;
+	}
+
+	function layout_toolbar(){
+		var shtml_toolbar = '<div class="text-center">';
+		shtml_toolbar+= '<span id="toolbar-from">'+ __trans_f +'</span>';
+		shtml_toolbar+= '<i class="fa fa-long-arrow-right" aria-hidden="true"></i>';
+		shtml_toolbar+= '<span id="toolbar-to">'+ __trans_t +'</span>';
+		shtml_toolbar+= '<div><a href="javascript:void(0)" onclick="return submit_frm_languages();" class="btn btn-submit-frm-languages">Bắt đầu dịch</a></div>';
+		shtml_toolbar+= '</div>';
+		$('#languages_list_toolbar').append(shtml_toolbar);
 	}
 
 	function remove_selected_language_from(){
 		__trans_f = '';
 		__trans_f_id = '';
 		remove_selected_language_to();
-
 		$('#translate_from').empty();
 
 		var elems = document.querySelectorAll(".languages_list .item");
@@ -170,6 +198,7 @@
 				list_items[i].classList.remove('selected');
 			}
 		}
+		__flag_press = 1;
 	}
 
 	function submit_frm_languages(){
