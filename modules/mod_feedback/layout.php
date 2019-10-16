@@ -36,17 +36,28 @@
 	$(document).ready(function(){
 		$('#aside-feedback').owlCarousel({
 			nav: true,
+			loop:true,
+			margin:30,
+			autoplay:true,
 			slideSpeed : 3000,
 			paginationSpeed : 400,
-			margin: 30,
-			loop: true,
-			items : 2,
-			autoplay:true,
-			itemsDesktop : 2,
-			itemsDesktopSmall : 2,
-			itemsTablet: 2,
-			itemsMobile : 1,
-			navText: ["<img src='<?php echo ROOTHOST; ?>images/icons/arrow_left.png'>","<img src='<?php echo ROOTHOST; ?>images/icons/arrow_right.png'>"]
+			responsiveClass:true,
+			navText: ["<img src='<?php echo ROOTHOST; ?>images/icons/arrow_left.png'>","<img src='<?php echo ROOTHOST; ?>images/icons/arrow_right.png'>"],
+			responsive:{
+				0:{
+					items:1,
+					nav:true
+				},
+				600:{
+					items:1,
+					nav:false
+				},
+				1000:{
+					items:2,
+					nav:true,
+					loop:false
+				}
+			}
 		})
 	});
 </script>

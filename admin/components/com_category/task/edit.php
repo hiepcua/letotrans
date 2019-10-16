@@ -69,6 +69,12 @@ $row_seo    = $objmysql->Fetch_Assoc();
                 <input type="hidden" name="txt_seo_link" value="<?php echo $seo_link;?>">
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6">
+                        <label>Tên<small class="cred"> (*)</small><span id="err_name" class="mes-error"></span></label>
+                        <input type="text" name="txt_name" class="form-control" id="txt_name" value="<?php echo $row['name'] ?>" placeholder="Tên " required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6">
                         <label>Tên nhóm<small class="cred"> (*)</small><span id="txt_name_err" class="mes-error"></span></label>
                         <input type="text" name="txt_name" class="form-control" id="txt_name" placeholder="Tên danh mục đất đai" value="<?php echo $row['name'];?>" required>
                     </div>

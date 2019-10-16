@@ -25,9 +25,9 @@ $objmysql = new CLS_MYSQL();
 			<ul class="sub">
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>service/add" title="Thêm dịch vụ"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm dịch vụ</span></a></li>
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>service" title="Ds dịch vụ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds dịch vụ</span></a></li>
-
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>service_type" title="Ds loại tài liệu"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds loại tài liệu</span></a></li>
+				<li><a href="<?php echo ROOTHOST_ADMIN;?>service_doc" title="Quản lý dịch vụ loại tài liệu"><i class="fa fa-bars" aria-hidden="true"></i> <span>QL dịch vụ loại tài liệu</span></a></li>
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>languages" title="Ds ngôn ngữ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds ngôn ngữ</span></a></li>
-				<!-- <li><a href="<?php echo ROOTHOST_ADMIN;?>service_type" title="Ds lĩnh vực"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds lĩnh vực</span></a></li> -->
 				<!-- <li><a href="<?php echo ROOTHOST_ADMIN;?>product_type" title="Ds loại sản phẩm"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds loại sản phẩm</span></a></li> -->
 				<!-- <li><a href="<?php echo ROOTHOST_ADMIN;?>package" title="Ds gói dịch vụ"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds gói dịch vụ</span></a></li> -->
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>price" title="Ds giá"><i class="fa fa-bars" aria-hidden="true"></i> <span>Ds giá</span></a></li>

@@ -81,8 +81,22 @@ if(isset($_POST["txtaction"]) && $_POST["txtaction"]!=""){
 			$objmysql->Exec($sql_unactive);
 			break;
 		case "delete":
-			$sql_del = "DELETE FROM `tbl_categories` WHERE `id` in ('$ids')";
-	        $objmysql->Exec($sql_del);
+			$sql = "SELECT * FROM tbl_categories WHERE id in ('$ids')";
+			$objmysql->Query($sql);
+			$seo_links = array();
+
+			while ( $row = $objmysql->Fetch_Assoc() ) {
+				$seo_link = ROOTHOST.$row['code'];
+				array_push($seo_links, $seo_link);
+
+				$sql_del = "DELETE FROM `tbl_categories` WHERE `id` in ('$ids')";
+				$objdata->Exec($sql_del);
+			}
+
+			foreach ($seo_links as $key => $value) {
+				$sql_del1 = "DELETE FROM `tbl_seo` WHERE `link` = '".$value."'";
+				$objmysql->Exec($sql_del1);
+			}
 	        break;
 		case 'order':
 			$sls = explode(',',$_POST['txtorders']); 
@@ -93,7 +107,7 @@ if(isset($_POST["txtaction"]) && $_POST["txtaction"]!=""){
 				$objmysql->Exec($sql_order);
 			}
 	}
-	echo "<script language=\"javascript\">window.location='".ROOTHOST_ADMIN.COMS."'</script>";
+	// echo "<script language=\"javascript\">window.location='".ROOTHOST_ADMIN.COMS."'</script>";
 }
 
 $task='';

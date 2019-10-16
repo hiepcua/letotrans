@@ -691,6 +691,107 @@ a.contact:focus{
 	margin-bottom: 25px;
 }
 /* End Section */
+/* Section process */
+.sec-process{
+	background-color: #f3f6f8;
+	padding: 30px 40px;
+}
+.sec-process .header{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.sec-process .header .number{
+	color: #ff6600;
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	border: 2px solid #ccc;
+	border-radius: 50%;
+	padding-top: 9px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	background: #fff;    
+}
+.sec-process .content input, .sec-process .content select {
+	border-radius: 0;
+	box-shadow: none;
+	outline: 0;
+	height: 40px;
+}
+.sec-process form {
+	position: relative;
+	background-color: #FFFFFF;
+	padding: 30px 40px;
+}
+.sec-process .row {
+	margin-bottom: 25px;
+}
+.sec-process .arrow-down {
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+.sec-process .process2 .content {
+	text-align: center;
+}
+.sec-process .process2 .item {
+	width: 33%;
+	display: inline-block;
+	height: 50px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.sec-process .process3 .arrow-down {
+	opacity: -1;
+}
+.sec-process .formats {
+	margin-top: 30px;
+}
+.sec-process .formats ul{
+	list-style: none;
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+	padding-left: 0px;
+}
+.sec-process .formats ul li {
+	display: inline-block;
+	vertical-align: middle;
+}
+.sec-process .formats span {
+	font-size: 16px;
+	line-height: 18px;
+	color: #34404b;
+	font-weight: 300;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 25px;
+}
+.sec-process .formats ul li.format_item {
+	margin-right: 32px;
+}
+.sec-process .formats ul a {
+	display: inline-block;
+	vertical-align: middle;
+	color: #3098d8;
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 18px;
+	font-style: italic;
+}
+.vertical-line {
+	position: absolute;
+	background: #ff6600;
+	left: 140px;
+    right: 140px;
+	height: 1px;
+	top: 55px;
+}
+.hozirontal-line{
+	display: none;
+}
+/* End Section process */
 /* Service type */
 .sec-service-type .item{
 	margin-bottom: 30px;
@@ -703,8 +804,8 @@ a.contact:focus{
 }
 .sec-service-type .item .description{
 	margin-bottom: 5px;
-    height: 140px;
-    overflow: hidden;
+	height: 140px;
+	overflow: hidden;
 }
 .sec-service-type .item .view-detail{
 	color: #ff6600;
@@ -722,9 +823,9 @@ a.contact:focus{
 /* Section feed back */
 .sec-feedback{
 	position: relative;
-	padding-top: 0px;
+    padding-top: 50px;
+    background: #f3f6f8;
 }
-.sec-feedback .owl-nav{}
 .sec-feedback .owl-nav button{
 	position: absolute;
 	top: 32%;
@@ -1322,9 +1423,9 @@ aside.module{
 	border-bottom: 1px solid #ccc;
 }
 .list-articles .item .box-thumb img {
-    height: 100px;
-    float: left;
-    margin-right: 15px;
+	height: 100px;
+	float: left;
+	margin-right: 15px;
 }
 .list-articles .item .box-thumb .title {
 	font-size: 20px;
@@ -1460,9 +1561,9 @@ aside.module{
 }
 .aside-register input{
 	border-radius: 0;
-    box-shadow: none;
-    outline: none;
-    height: 45px;
+	box-shadow: none;
+	outline: none;
+	height: 45px;
 }
 /* End Aside register */
 /* Aside feedback */
@@ -1707,12 +1808,12 @@ aside.module{
 }
 .block-co-operate .form-control{
 	outline: 0;
-    height: 45px;
-    border: 0;
+	height: 45px;
+	border: 0;
 	margin-bottom: 10px;
-    border-radius: 0;
-    box-shadow: none;
-    border-bottom: 1px solid #ccc;
+	border-radius: 0;
+	box-shadow: none;
+	border-bottom: 1px solid #ccc;
 }
 /* End Block co-operate */
 /* Page contact */

@@ -49,12 +49,6 @@ RewriteRule ^feedback/add?$ 						index.php?com=feedback&task=add
 RewriteRule ^feedback/edit/([0-9]+)?$ 				index.php?com=feedback&task=edit&id=$1
 RewriteRule ^feedback/delete/([0-9]+)?$ 			index.php?com=feedback&task=delete&id=$1
 
-# Type of land
-RewriteRule ^type_of_land/?$ 						index.php?com=type_of_land 	[QSA]
-RewriteRule ^type_of_land/add?$ 					index.php?com=type_of_land&task=add
-RewriteRule ^type_of_land/edit/([0-9]+)?$ 			index.php?com=type_of_land&task=edit&id=$1
-RewriteRule ^type_of_land/delete/([0-9]+)?$ 		index.php?com=type_of_land&task=delete&id=$1
-
 #Category
 RewriteRule ^category/?$ 							index.php?com=category 	[QSA]
 RewriteRule ^category/add?$ 						index.php?com=category&task=add
@@ -92,6 +86,14 @@ RewriteRule ^service_type/add?$ 					index.php?com=service_type&task=add
 RewriteRule ^service_type/edit/([0-9]+)?$ 			index.php?com=service_type&task=edit&id=$1
 RewriteRule ^service_type/active/([0-9]+)?$ 		index.php?com=service_type&task=active&id=$1
 RewriteRule ^service_type/delete/([0-9]+)?$ 		index.php?com=service_type&task=delete&id=$1
+
+
+# Service document
+RewriteRule ^service_doc/?$ 						index.php?com=service_doc 	[QSA]
+RewriteRule ^service_doc/add?$ 						index.php?com=service_doc&task=add
+RewriteRule ^service_doc/edit/([0-9]+)?$ 			index.php?com=service_doc&task=edit&id=$1
+RewriteRule ^service_doc/active/([0-9]+)?$ 			index.php?com=service_doc&task=active&id=$1
+RewriteRule ^service_doc/delete/([0-9]+)?$ 			index.php?com=service_doc&task=delete&id=$1
 
 
 # Product type

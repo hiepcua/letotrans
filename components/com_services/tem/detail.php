@@ -139,30 +139,7 @@ if ($objmysql->Num_rows()>0) {
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4">
-						<aside class="aside feedback">
-							<h3 class="aside-title"><i class="fa fa-circle" aria-hidden="true"></i><span>Ý kiến khách hàng</span></h3>
-							<div id="aside-feedback" class="owl-carousel owl-theme">
-								<?php
-								$sql="SELECT * FROM tbl_feedback WHERE isactive = 1 ORDER BY `order` DESC LIMIT 0, 3";
-								$objmysql->Query($sql);
-								while($row 	= $objmysql->Fetch_Assoc()) {
-									$name 		= stripcslashes($row['name']);
-									$comment 	= stripcslashes($row['comment']);
-									$career 	= stripcslashes($row['career']);
-									$thumb 		= getThumb($row['avatar'], 'img-responsive', '');
-									?>
-									<div class="item">
-										<div class="box-thumb">
-											<div class="wrap-thumb"><?php echo $thumb;?></div>
-											<div class="name"><?php echo $name; ?></div>
-											<div class="career"><?php echo $career; ?></div>
-										</div>
-										<div class="content"><?php echo $comment; ?></div>
-									</div>
-								<?php } ?>
-							</div>
-						</aside>
-
+						<?php $this->loadModule('box8'); ?>
 						<?php $this->loadModule('ads1'); ?>
 						<?php $this->loadModule('ads2'); ?>
 					</div>
@@ -172,25 +149,11 @@ if ($objmysql->Num_rows()>0) {
 	</div>
 </div>
 <script type="text/javascript">
-	$('#aside-feedback').owlCarousel({
-		navigation : true,
-		slideSpeed : 3000,
-		paginationSpeed : 400,
-		loop: true,
-		autoplay:true,
-		items : 1, 
-		itemsDesktop : false,
-		itemsDesktopSmall : false,
-		itemsTablet: false,
-		itemsMobile : false
-	});
-
-	$('.block-package .item').click(function(){
-		$('.block-package .item').removeClass('selected');
-		$(this).addClass('selected');
-		var val = $(this).find('.radio-package').val();
-		var link = '<?php echo ROOTHOST; ?>' + 'order?service=<?php echo $result['code']; ?>' + '&service_type=<?php echo $service_type['0']; ?>' + '&urgency_type_id=2&package='+ val;
-		$('.use-service>a').attr('href', link);
-
-	})
+	// $('.block-package .item').click(function(){
+	// 	$('.block-package .item').removeClass('selected');
+	// 	$(this).addClass('selected');
+	// 	var val = $(this).find('.radio-package').val();
+	// 	var link = '<?php echo ROOTHOST; ?>' + 'order?service=<?php echo $result['code']; ?>' + '&service_type=<?php echo $service_type['0']; ?>' + '&urgency_type_id=2&package='+ val;
+	// 	$('.use-service>a').attr('href', link);
+	// })
 </script>

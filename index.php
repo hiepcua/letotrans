@@ -58,13 +58,13 @@ global $tmp;global $conf;
 <body>
 	<!-- Load Facebook SDK for JavaScript -->
 	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
+	<!-- <script>(function(d, s, id) {
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (d.getElementById(id)) return;
 		js = d.createElement(s); js.id = id;
 		js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
 		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+	}(document, 'script', 'facebook-jssdk'));</script> -->
 	<div id="container">
 		<header>
 			<div id="navbar" class="wrap-menu">
@@ -88,56 +88,11 @@ global $tmp;global $conf;
 			<div class="main-home">
 				<div class="wrap-banner">
 					<?php include_once("modules/mod_banner/default.php"); ?>
-					<div class="box-bottom">
-						<div class="container">
-							<div class="item">
-								<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-01.png" class="thumb img-responsive"></div>
-								<p>Chất lượng dịch vụ cực tốt</p>
-							</div>
-							<div class="item">
-								<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-02.png" class="thumb img-responsive"></div>
-								<p>Đội ngũ nhân viên giàu kinh nghiệm</p>
-							</div>
-							<div class="item">
-								<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-03.png" class="thumb img-responsive"></div>
-								<p>Thanh toán dễ dàng tiện lợi</p>
-							</div>
-							<div class="item">
-								<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-04.png" class="thumb img-responsive"></div>
-								<p>Giá cả tốt nhất thị trường</p>
-							</div>
-							<div class="item">
-								<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-05.png" class="thumb img-responsive"></div>
-								<p>Miễn phí giao nhận tài liệu</p>
-							</div>
-						</div>
-					</div>
+					<?php $tmp->loadModule('box1'); ?>
 				</div>
 
-				<section class="section sec-service-type">
-					<div class="container">
-						<h2 class="sec-title">CÁC LĨNH VỰC NGÀNH NGHỀ CHÚNG TÔI CÓ THỂ DỊCH</h2>
-						<div class="row">
-							<?php
-							$sql = "SELECT * FROM tbl_service WHERE isactive = 1 ORDER BY `order` ASC";
-							$objmysql->Query($sql);
-							while ($row = $objmysql->Fetch_Assoc()) {
-								$thumb 	= getThumb($row['thumb'], '', 'img-responsive');
-								$link 	= ROOTHOST.'dich-vu/'.$row['code'].'.html';
-								echo '<div class="col-md-3 col-sm-6 item">
-								<div class="wrap-thumb">'.$thumb.'</div>
-								<div class="content">
-								<h3 class="title"><a href="'.$link.'" title="'.$row['name'].'">'.$row['name'].'</a></h3>
-								<div class="description">'.$row['sapo'].'</div>
-								<a href="'.$link.'" title="'.$row['sapo'].'" class="view-detail">Xem chi tiết</a>
-								</div>
-								</div>';
-							}
-							?>
-						</div>
-						<div class="wrap-button text-center"><a href="<?php echo ROOTHOST; ?>order" title="Đặt dịch vụ" class="btn btn-view-detail">ĐẶT DỊCH VỤ</a></div>
-					</div>
-				</section>
+				<?php $tmp->loadModule('box6') ?>
+				<?php $tmp->loadModule('box2') ?>
 
 				<?php include_once("modules/mod_feedback/layout.php"); ?>
 
@@ -148,13 +103,7 @@ global $tmp;global $conf;
 				</section>
 				<?php?>
 
-				<section class="shake-hand">
-					<div class="shadow"></div>
-					<div class="container">
-						<h2>BẠN ĐÃ SẴN SÀNG SỬ DỤNG DỊCH VỤ CHƯA?</h2>
-						<a href="<?php echo ROOTHOST; ?>order" class="btn" title="Yêu cầu dịch vụ">YÊU CẦU DỊCH VỤ</a>
-					</div>
-				</section>
+				<?php $tmp->loadModule('box9') ?>
 			</div>
 		<?php }else{ ?> 
 			<div class="component">
@@ -227,6 +176,7 @@ global $tmp;global $conf;
 		}
 
 		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();
 			$('#main-banner').owlCarousel({
 				loop:true,
 				navText:["<span class='	glyphicon glyphicon-chevron-left'></span>", "<span class='glyphicon glyphicon-chevron-right'></span>"],
@@ -241,27 +191,6 @@ global $tmp;global $conf;
 					},
 					1000:{
 						items:1
-					}
-				}
-			})
-
-			$('#slide-follow').owlCarousel({
-				loop:true,
-				margin:10,
-				responsiveClass:true,
-				responsive:{
-					0:{
-						items:1,
-						nav:true
-					},
-					600:{
-						items:2,
-						nav:false
-					},
-					1000:{
-						items:4,
-						nav:true,
-						loop:false
 					}
 				}
 			})
@@ -297,7 +226,7 @@ global $tmp;global $conf;
 						nav:true
 					},
 					600:{
-						items:2,
+						items:1,
 						nav:false
 					},
 					1000:{
