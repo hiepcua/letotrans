@@ -2488,6 +2488,9 @@ aside.module{
 	background-color: #FFFFFF;
 	padding-bottom: 40px;
 }
+.page-order .mes-error{
+	display: none;
+}
 .b-item{
 	display: block;
 }
@@ -2575,7 +2578,7 @@ aside.module{
 .b-userinfo h2{
 	padding-bottom: 15px;
 	margin-bottom: 30px;
-	border-bottom: 1px solid #ccc;	
+	border-bottom: 1px solid #ccc;
 }
 .b-userinfo .block{
 	margin-bottom: 15px;
@@ -2603,13 +2606,33 @@ aside.module{
 	float: left;
 	padding: 0 5px;
 	display: inline-block;
+	position: relative;
 }
 .b-payment .col .inside{
-	padding: 10px 0px;
-	border: 1px solid #ccc;
+	padding: 15px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.b-payment .col .inside img {
+    height: 30px;
 }
 .b-payment .col img{
 	height: 50px;
+}
+.b-payment .item.active:after{
+	background: #ff6600 url(../images/icons/check.png) center center no-repeat;
+    background-size: 10px;
+    content: '';
+    display: block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: -8px;
+    right: -1px;
+    border-radius: 50%;
+}
+.b-payment .item.active .inside {
+	border: 1px solid #ff6600;
 }
 
 .b-other{

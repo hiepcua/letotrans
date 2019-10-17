@@ -82,45 +82,50 @@ class CLS_CONFIG{
     }
 
     public function load_config(){
-        $com        = isset($_GET['com']) ? addslashes($_GET['com']) : '';
-        $viewtype   = isset($_GET['viewtype']) ? addslashes($_GET['viewtype']) : '';
-        $code       = isset($_GET['code']) ? addslashes($_GET['code']) : '';
+        $curPageURL = curPageURL();
+        $sql = "SELECT * FROM tbl_seo WHERE isactive = 1 AND link = '".$curPageURL."'";
+        $this->objmysql->Query($sql);
+        if($this->objmysql->Num_rows() > 0){
+            $row = $this->objmysql->Fetch_Assoc();
+            $this->Title        = stripslashes($row['title']);
+            $this->Meta_key     = stripslashes($row['meta_key']);
+            $this->Meta_desc    = stripslashes($row['meta_desc']);
+            $this->Img          = stripslashes($row['image']);
+        }else{
+            $this->objmysql->Query("SELECT * FROM tbl_configsite");
+            $row = $this->objmysql->Fetch_Assoc();
+            $this->Title        = stripslashes($row['title']);
+            $this->Meta_key     = stripslashes($row['meta_keyword']);
+            $this->Meta_desc    = stripslashes($row['meta_descript']);
+            $this->Img          = '';
+        }
 
-        if($com=='contents'):
-            if($viewtype == 'detail'){
-                $sql = "SELECT * FROM tbl_contents WHERE isactive = 1 AND `code`='".$code."'";
-                $objmysql->Query($sql);
-                $r_con = $objmysql->Fetch_Assoc();
+        // $com        = isset($_GET['com']) ? addslashes($_GET['com']) : '';
+        // $viewtype   = isset($_GET['viewtype']) ? addslashes($_GET['viewtype']) : '';
+        // $code       = isset($_GET['code']) ? addslashes($_GET['code']) : '';
 
-                if($r_con['meta_title']!='')
-                    $this->Title    = stripslashes($r_con['meta_title']);
-                else
-                    $this->Title    = stripslashes($r_con['title']);
-                $this->Img          = stripslashes($r_con['thumb']);
-                $this->Meta_key     = stripslashes($r_con['meta_key']);
-                $this->Meta_desc    = stripslashes($r_con['meta_desc']);
-            }
-			if($viewtype=='tag'){
-                $sql = "SELECT * FROM tbl_tags WHERE isactive = 1 AND `code`='".$code."'";
-                $objmysql->Query($sql);
-                $r_con = $objmysql->Fetch_Assoc();
+        // if($com=='contents'):
+        //     if($viewtype == 'detail'){
+        //         $sql = "SELECT * FROM tbl_contents WHERE isactive = 1 AND `code`='".$code."'";
+        //         $objmysql->Query($sql);
+        //         $r_con = $objmysql->Fetch_Assoc();
 
-                if($r_con['meta_title'] != '')
-                    $this->Title    = stripslashes($r_con['meta_title']);
-                else
-                    $this->Title    = stripslashes($r_con['title']);
-                // $this->Img          = stripslashes($r_con['thumb']);
-                // $this->Meta_key     = stripslashes($r_con['meta_key']);
-                $this->Meta_desc    = stripslashes($r_con['meta_desc']);
-            }
-            elseif($viewtype == 'search'){
-                $key = '';
-                if(isset($_GET['keyword']))
-                    $key = $_GET['keyword'];
-                $this->Title        = "Tìm kiếm sản phẩm với từ khóa \"$key\"";
-                $this->Meta_desc    = "";
-            }else{}
-        endif;
+        //         if($r_con['meta_title']!='')
+        //             $this->Title    = stripslashes($r_con['meta_title']);
+        //         else
+        //             $this->Title    = stripslashes($r_con['title']);
+        //         $this->Img          = stripslashes($r_con['thumb']);
+        //         $this->Meta_key     = stripslashes($r_con['meta_key']);
+        //         $this->Meta_desc    = stripslashes($r_con['meta_desc']);
+        //     }
+        //     elseif($viewtype == 'search'){
+        //         $key = '';
+        //         if(isset($_GET['keyword']))
+        //             $key = $_GET['keyword'];
+        //         $this->Title        = "Tìm kiếm sản phẩm với từ khóa \"$key\"";
+        //         $this->Meta_desc    = "";
+        //     }else{}
+        // endif;
     }
 }
 ?>

@@ -41,10 +41,11 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 			<div class="row">
 				<div class="col-md-9 col-sm-8">
 					<h1 class="page-title">CHỌN THÔNG TIN</h1>
-					<form method="post" action="<?php echo ROOTHOST; ?>yeu-cau-dich-vu" enctype="multipart/form-data">
+					<form id="frm-action" method="post" action="<?php echo ROOTHOST; ?>yeu-cau-dich-vu" enctype="multipart/form-data">
 						<input type="hidden" id="txt_dfprice" name="txt_dfprice" value="<?php echo $dfprice; ?>">
 						<input type="hidden" id="txt_service" name="txt_service" value="<?php echo $_service; ?>">
 						<input type="hidden" id="txt_service_type" name="txt_service_type" value="<?php echo $_service_type; ?>">
+						<input type="hidden" id="txt_payment_type" name="txt_payment_type" value="4">
 						<?php
 						$sql3 = "SELECT * FROM tbl_languages WHERE isactive = 1 AND `default` = 1";
 						$objmysql->Query($sql3);
@@ -114,6 +115,7 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 							<div class="block from">
 								<div class="label-title">Dịch từ:</div>
 								<div class="content">
+									<div id="err_cbo_from" class="mes-error">Trường này là bắt buộc</div>
 									<select id="cbo_from" name="cbo_from" class="form-control" onchange="change_trans_from(this)">
 										<option value="">-- Chọn một --</option>
 										<?php
@@ -132,6 +134,7 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 							<div class="block to">
 								<div class="label-title">Sang:</div>
 								<div class="content">
+									<div id="err_cbo_to" class="mes-error">Trường này là bắt buộc</div>
 									<select id="cbo_to" name="cbo_to" class="form-control">
 										<option value="">-- Chọn một --</option>
 										<?php
@@ -154,9 +157,6 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 							<div class="block">
 								<div class="label-title">Tải file cần dịch:</div>
 								<div class="content">
-									<!-- <div class="item upload" onclick="clickFiles()">
-										<img src="<?php echo ROOTHOST; ?>images/icons/upload.png" class="img-responsive">
-									</div> -->
 									<div class="item upload" onclick="clickFiles()">
 										<input type="file" multiple id="uploadFiles" name="txt-files" onchange="changeUploadFiles()">
 									</div>
@@ -167,9 +167,9 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 								</div>
 							</div>
 							<div id="list-inputFiles" style="display: none;">
-								<!-- <input type="file" id="uploadFiles" name="txt-files[]" onchange="uploadFiles()"> -->
 							</div>
 							<div id="list-files">
+								<div id="err_txt-files" class="mes-error">Chưa upload file nào</div>
 								<strong style="padding-bottom: 10px;">Files upload:</strong>
 							</div>
 						</div>
@@ -225,27 +225,31 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 							<div class="block">
 								<div class="label-title">Họ và tên:</div>
 								<div class="content">
+									<div id="err_txt-lastname" class="mes-error">Không được để trống</div>
 									<div class="col">
-										<input type="text" class="form-control" name="txt-lastname" placeholder="Họ và tên đệm">
+										<input type="text" class="form-control" name="txt-lastname" placeholder="Họ và tên đệm" required>
 									</div>
+									<div id="err_txt-firstname" class="mes-error">Không được để trống</div>
 									<div class="col">
-										<input type="text" class="form-control" name="txt-firstname" placeholder="Tên">
+										<input type="text" class="form-control" name="txt-firstname" placeholder="Tên" required>
 									</div>
 								</div>
 							</div>
 							<div class="block">
 								<div class="label-title">Email:</div>
 								<div class="content">
+									<div id="err_txt-email" class="mes-error">Không được để trống</div>
 									<div class="col">
-										<input type="email" class="form-control" name="txt-email" placeholder="Email">
+										<input type="email" class="form-control" name="txt-email" placeholder="Email" required>
 									</div>
 								</div>
 							</div>
 							<div class="block">
 								<div class="label-title">Điện thoại:</div>
 								<div class="content">
+									<div id="err_txt-phone" class="mes-error">Không được để trống</div>
 									<div class="col">
-										<input type="text" class="form-control" name="txt-phone" placeholder="Điện thoại">
+										<input type="text" class="form-control" name="txt-phone" placeholder="Điện thoại" required>
 									</div>
 								</div>
 							</div>
@@ -253,7 +257,7 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 								<div class="label-title">Địa chỉ:</div>
 								<div class="content">
 									<div class="col full">
-										<input type="text" class="form-control" name="txt-address" placeholder="Địa chỉ">
+										<input type="text" class="form-control" name="txt-address" placeholder="Địa chỉ" required>
 									</div>
 								</div>
 							</div>
@@ -264,24 +268,24 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 							<div class="block">
 								<div class="label-title">Hình thức thanh toán</div>
 								<div class="content">
-									<div class="col">
+									<div class="item col" onclick="select_payment_type(this)" data-id="1" data-name="paypal">
 										<div class="inside">
-											<img src="http://letotrans.vn/images/icons/mastercard.jpg" class="img-responsive">
+											<img src="<?php echo ROOTHOST; ?>images/basic/pay1.png" class="img-responsive">
 										</div>
 									</div>
-									<div class="col">
+									<div class="item col" onclick="select_payment_type(this)" data-id="2" data-name="vnpay">
 										<div class="inside">
-											<img src="http://letotrans.vn/images/icons/mastercard.jpg" class="img-responsive">
+											<img src="<?php echo ROOTHOST; ?>images/basic/pay2.png" class="img-responsive">
 										</div>
 									</div>
-									<div class="col">
+									<div class="item col" onclick="select_payment_type(this)" data-id="3" data-name="momo">
 										<div class="inside">
-											<img src="http://letotrans.vn/images/icons/mastercard.jpg" class="img-responsive">
+											<img src="<?php echo ROOTHOST; ?>images/basic/pay3.png" class="img-responsive">
 										</div>
 									</div>
-									<div class="col">
+									<div class="item col active" onclick="select_payment_type(this)" data-id="4" data-name="ngân lượng">
 										<div class="inside">
-											<img src="http://letotrans.vn/images/icons/mastercard.jpg" class="img-responsive">
+											<img src="<?php echo ROOTHOST; ?>images/basic/pay4.png" class="img-responsive">
 										</div>
 									</div>
 								</div>
@@ -325,6 +329,56 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 	</div>
 </section>
 <script type="text/javascript">
+	$('#frm-action').submit(function(){
+		return validate_input();
+	});
+
+	function validate_input(){
+		var flag 		= true;
+		var lang1 		= $('#cbo_from').val();
+		var lang2 		= $('#cbo_to').val();
+		var firstname 	= $('input[name="txt-firstname"]').val();
+		var lastname 	= $('input[name="txt-lastname"]').val();
+		var email 		= $('input[name="txt-email"]').val();
+		var phone 		= $('input[name="txt-phone"]').val();
+		var files 		= document.getElementById("uploadFiles").files.length;
+		
+		if(lang1 == ''){
+			$('#err_cbo_from').css('display', 'block');
+			flag = false;
+		}
+		if(lang2 == ''){
+			$('#err_cbo_to').css('display', 'block');
+			flag = false;
+		}
+		if(firstname == ''){
+			$('#err_txt-firstname').css('display', 'block');
+			flag = false;
+		}
+		if(lastname == ''){
+			$('#err_txt-lastname').css('display', 'block');
+			flag = false;
+		}
+		if(email == ''){
+			$('#err_txt-email').css('display', 'block');
+			flag = false;
+		}
+		if(phone == ''){
+			$('#err_txt-phone').css('display', 'block');
+			flag = false;
+		}
+		if(files == 0){
+			$('#err_txt-files').css('display', 'block');
+			flag = false;
+		}
+
+		if(flag == false){
+			return false;
+		}else{
+			return true;
+		}
+	}
+
 	function first_service_click(){
 		$('.b-service .b-service1 .item:first-child').click();
 	}
@@ -332,6 +386,13 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 		$('.b-service .b-service-type .item:first-child').click();
 	}
 
+	function select_payment_type(attr){
+		var id = attr.getAttribute('data-id');
+		var name = attr.getAttribute('data-name');
+		$('.b-payment .item').removeClass('active');
+		attr.classList.add('active');
+		$('#txt_payment_type').val(id);
+	}
 	function select_service(attr){
 		var id = attr.getAttribute('data-id');
 		var name = attr.getAttribute('data-name');
