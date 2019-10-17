@@ -5,6 +5,12 @@ $objmysql = new CLS_MYSQL();
 	<div class="container">
 		<h2 class="sec-title">QUY TRÌNH THỰC HIỆN</h2>
 		<form method="get" action="<?php echo ROOTHOST; ?>order">
+			<?php
+			$sql3 = "SELECT * FROM tbl_languages WHERE isactive = 1 AND `default` = 1";
+			$objmysql->Query($sql3);
+			$row3 = $objmysql->Fetch_Assoc();
+			echo '<input type="hidden" id="lang_df" data-name="'.$row3['name'].'" value="'.$row3['id'].'">';
+			?>
 			<div class="row">
 				<div class="vertical-line"></div>
 				<div class="hozirontal-line"></div>
@@ -16,7 +22,8 @@ $objmysql = new CLS_MYSQL();
 					<div class="content">
 						<div id="lang_from">
 							<span>Dịch từ:</span>
-							<select class="form-control" name="lang1">
+							<select class="form-control" name="from" onchange="change_trans_from(this)" required>
+								<option value="">-- Chọn một ngôn ngữ --</option>
 								<?php
 								$sql="SELECT * FROM tbl_languages WHERE isactive = 1 ORDER BY `order` ASC";
 								$objmysql->Query($sql);
@@ -29,15 +36,8 @@ $objmysql = new CLS_MYSQL();
 						<div class="text-center"><img src="<?php echo ROOTHOST; ?>images/icons/arrow-down.png" class="arrow-down img-responsive"></div>
 						<div id="lang_to">
 							<span>Sang:</span>
-							<select class="form-control" name="lang2">
-								<option>Chọn ngôn ngữ</option>
-								<?php
-								$sql="SELECT * FROM tbl_languages WHERE isactive = 1 ORDER BY `order` ASC";
-								$objmysql->Query($sql);
-								while ($row = $objmysql->Fetch_Assoc()) {
-									echo '<option value="'.$row['id'].'">'.$row['name'].'('.$row['iso'].')</option>';
-								}
-								?>
+							<select id="cbo_to" class="form-control" name="to" required>
+								<option value="">-- Chọn ngôn ngữ --</option>
 							</select>
 						</div>
 					</div>
@@ -72,7 +72,7 @@ $objmysql = new CLS_MYSQL();
 						<div class="text-center"><img src="<?php echo ROOTHOST; ?>images/icons/arrow-down.png" class="arrow-down img-responsive"></div>
 						<div id="cout_page">
 							<span>Thời gian hoàn thành:</span>
-							<select class="form-control" name="times">
+							<select class="form-control" name="time">
 								<option value="0">Bình thường</option>
 								<option value="1">Gấp</option>
 							</select>
@@ -96,3 +96,22 @@ $objmysql = new CLS_MYSQL();
 		</div>
 	</div>
 </section>
+<script type="text/javascript">
+	function change_trans_from(attr){
+		var id = attr.value;
+		var lang_df = $('#lang_df').val();
+
+		$.ajax({
+			url : '<?php echo ROOTHOST.'ajaxs/get_language_to.php' ?>',
+			type : 'POST',
+			data : {
+				'id' : id,
+				'lang_df' : lang_df,
+			},
+			success: function (res) {
+				$('#cbo_to').empty();
+				$('#cbo_to').html(res);
+			}
+		})
+	}
+</script>

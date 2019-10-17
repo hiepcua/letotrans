@@ -61,7 +61,7 @@ $row = $objmysql->Fetch_Assoc();
 						<div class="full_text">
 							<?php 
 							echo stripslashes($row['fulltext']);
-							$link = ROOTHOST.'order?service='.$result['id'].'&service_type='.$row2['id'];
+							$link = ROOTHOST.'order?service='.$result['id'].'&service_name='.$result['name'].'&service_type='.$row2['id'].'&service_type_name='.$row2['name'];
 							echo '<div class="text-center use-service"><a href="'.$link.'" class="btn btn-use-service" title="">ĐẶT DỊCH TÀI LIỆU</a></div>';
 							?>
 						</div>

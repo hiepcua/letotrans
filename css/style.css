@@ -784,7 +784,7 @@ a.contact:focus{
 	position: absolute;
 	background: #ff6600;
 	left: 140px;
-    right: 140px;
+	right: 140px;
 	height: 1px;
 	top: 55px;
 }
@@ -823,8 +823,8 @@ a.contact:focus{
 /* Section feed back */
 .sec-feedback{
 	position: relative;
-    padding-top: 50px;
-    background: #f3f6f8;
+	padding-top: 50px;
+	background: #f3f6f8;
 }
 .sec-feedback .owl-nav button{
 	position: absolute;
@@ -2483,3 +2483,234 @@ aside.module{
 .page-table-price .block-service-type .item img{}
 
 /* End Page Table Price*/
+/* Page order */
+.page-order{
+	background-color: #FFFFFF;
+	padding-bottom: 40px;
+}
+.b-item{
+	display: block;
+}
+.b-item .label-title{
+	width: 20%;
+	float: left;
+	padding-top: 25px;
+}
+.b-item .content{
+	width: 80%;
+	position: relative;
+	display: inline-block;
+}
+
+.b-service .block .item{
+	width: 25%;
+    float: left;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    padding: 0px 5px 10px;
+}
+.b-service .block .item.active:after{
+	background: #ff6600 url(../images/icons/check.png) center center no-repeat;
+    background-size: 10px;
+    content: '';
+    display: block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: -8px;
+    right: -1px;
+    border-radius: 50%;
+}
+.b-service .block .item.active .inside {
+	border: 1px solid #ff6600;
+}
+.b-service .block .item .inside {
+	padding: 25px 5px;
+	cursor: pointer;
+	border: 1px solid #ccc;
+}
+.b-service-type .inside{
+	padding: 17px 5px !important;
+}
+.b-service .block .item .inside img {
+    width: 25px;
+    height: 23px;
+}
+
+.b-languages .block.from{
+	margin-bottom: 15px;
+}
+.b-languages .label-title {
+	padding-top: 10px;
+}
+.b-languages .content select {
+	width: 40%;
+	border-radius: 0;
+	height: 40px;
+	box-shadow: none;
+	outline: 0;
+}
+.b-upload .item.des {
+    width: 50%;
+    font-size: 13px;
+}
+
+.b-upload .item {
+	display: inline-block;
+}
+.b-upload .item.upload {
+	height: 40px;
+    width: 40%;
+    padding: 7px 0;
+    margin-right: 20px;
+    display: inline-block;
+    /*background-color: #ff6600;
+    cursor: pointer;*/
+}
+.b-upload .item.upload img {
+	width: 35px;
+}
+
+.b-userinfo h2{
+	padding-bottom: 15px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #ccc;	
+}
+.b-userinfo .block{
+	margin-bottom: 15px;
+}
+.b-userinfo .label-title{
+	padding-top: 10px;
+}
+.b-userinfo .content .col{
+	width: calc(50% - 20px);
+	display: inline-block;
+	margin-right: 15px;
+}
+.b-userinfo .content .col input {
+	border-radius: 0;
+	height: 40px;
+	box-shadow: none;
+	outline: 0;
+}
+.b-userinfo .content .full{
+	width: 100% !important;
+}
+
+.b-payment .col{
+	width: 25%;
+	float: left;
+	padding: 0 5px;
+	display: inline-block;
+}
+.b-payment .col .inside{
+	padding: 10px 0px;
+	border: 1px solid #ccc;
+}
+.b-payment .col img{
+	height: 50px;
+}
+
+.b-other{
+	margin-bottom: 30px;
+}
+.b-other .form-control{
+	border-radius: 0;
+	box-shadow: none;
+	outline: 0;
+}
+
+.b-more{}
+.b-more .label-title {
+    padding-top: 0;
+}
+.b-more .wr-radio{
+	display: inline-block;
+}
+.b-more .des{
+	font-weight: 500;
+    padding-left: 100px;
+    display: inline-block;
+} 
+
+.save-order{
+	margin-left: 20%;
+	width: 80%;
+	background-color: #ff6600;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	height: 45px;
+	border-radius: 25px;
+}
+
+.aside-payment{
+	padding: 0;
+}
+.aside-payment h3{
+	color: #FFF;
+	padding: 15px 30px;
+	text-transform: uppercase;
+	background-color: #ff6600;
+}
+.aside-payment .content {
+	padding: 20px;
+}
+.aside-payment ul {
+	margin: 0;
+	padding: 0;
+}
+.aside-payment li {
+    padding: 5px 0;
+    list-style-type: none;
+}
+#sum-pay {
+	color: #ffffff;
+	font-weight: 500;
+	font-size: 16px;
+	padding: 10px 0;
+	background: #ff6600;
+	margin-top: 20px;
+}
+#sum-pay .item1{
+	cursor: pointer;
+}
+#sum-pay .item2{
+	display: none;
+}
+
+#list-files{
+    padding-left: 20%;
+}
+#list-files .element {
+    padding-top: 3px;
+}
+#list-files .element .num {
+    font-size: 12px;
+    color: #999;
+    margin-right: 10px;
+}
+#list-files .element .name {
+    font-weight: 500;
+}
+#list-files .element .inline {
+    display: inline-block;
+    position: relative;
+}
+#list-files .element .del {
+    position: absolute;
+    font-size: 12px;
+    right: -30px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+}
+#list-files .element .size{
+	padding: 0 20px;
+}
+#list-files .element .numpage{
+	width: 60px;
+}
+/* End Page order */

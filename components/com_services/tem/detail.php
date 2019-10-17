@@ -61,7 +61,7 @@ if ($objmysql->Num_rows()>0) {
 							}
 							echo '</div>';
 
-							$link = ROOTHOST.'order?service='.$result['id'];
+							$link = ROOTHOST.'order?service='.$result['id'].'&service_name='.$result['name'];
 							?>
 						</div>
 						<div class="full_text">
