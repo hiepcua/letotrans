@@ -88,8 +88,13 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
                     </div>
 
                     <div class="form-group">
-                        <label>Nội dung</label>
-                        <textarea name="txt_fulltext" id="txt_fulltext" class="form-control"></textarea>
+                        <label>Sapo English</label>
+                        <textarea name="txt_sapo_en" class="form-control" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mô tả &nbsp <small>(Mô tả về các loại tài liệu, ở trang dịch vụ chi tiết)</small></label>
+                        <textarea name="txt_intro" class="form-control" rows="5"></textarea>
                     </div>
                 </div>
 
@@ -102,17 +107,6 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
                         </select>
                     </div>
                     <hr>
-                    <!-- <div class="form-group">
-                        <label>Lĩnh vực</label>
-                        <?php
-                        $sql_service_type = "SELECT * FROM tbl_service_type WHERE isactive = 1";
-                        $objmysql->Query($sql_service_type);
-                        while ($r_ser_type = $objmysql->Fetch_Assoc()) {
-                            echo '<div class="checkbox"><label><input type="checkbox" value="'.$r_ser_type['id'].'" name="chk_service[]">'.$r_ser_type['name'].'</label></div>';
-                        }
-                        ?>
-                    </div>
-                    <hr> -->
                     <div class="form-group">
                         <label>Tác giả <span class="cred">*</span></label>
                         <input type="text" name="txt_author" value="<?php echo $_SESSION[MD5($_SERVER['HTTP_HOST']).'_USERLOGIN']['username']; ?>" class="form-control" id="txt_author" readonly placeholder="">
@@ -125,6 +119,11 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
                             <label class="radio-inline"><input type="radio" value="0" name="opt_isactive">Không</label>
                         </div>
                     </div>
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <label>Nội dung</label>
+                    <textarea name="txt_fulltext" id="txt_fulltext" class="form-control"></textarea>
                 </div>
             </div>
 
@@ -157,9 +156,21 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        tinymce.init({
-            selector:'#txt_fulltext',
-            height : 500
+        $('#txt_fulltext').summernote({
+            placeholder: 'Nội dung bài viết',
+            height: 300,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video', 'hr']],
+                ['view', ['codeview']]
+            ],
         });
     });
 </script>

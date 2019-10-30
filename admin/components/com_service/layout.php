@@ -15,7 +15,9 @@ if(isset($_POST["cmdsave"])){
 	$Title 			= isset($_POST['txt_name']) ? addslashes($_POST['txt_name']) : '';
 	$Code 			= un_unicode($_POST['txt_name']);
 	$Author 		= $_SESSION[MD5($_SERVER['HTTP_HOST']).'_USERLOGIN']['username'];
+	$Intro 			= isset($_POST['txt_intro']) ? addslashes(htmlentities($_POST['txt_intro'])) : '';
 	$Sapo 			= isset($_POST['txt_sapo']) ? addslashes(htmlentities($_POST['txt_sapo'])) : '';
+	$Sapo_en 		= isset($_POST['txt_sapo_en']) ? addslashes(htmlentities($_POST['txt_sapo_en'])) : '';
 	$Fulltext 		= isset($_POST['txt_fulltext']) ? addslashes($_POST['txt_fulltext']) : '';
 	$Thumb 			= isset($_POST['txtthumb']) ? addslashes($_POST['txtthumb']) : '';
 	$date 			= time();
@@ -41,6 +43,8 @@ if(isset($_POST["cmdsave"])){
 		`isactive` 			= '".$isActive."',
 		`name` 				= '".$Title."',
 		`sapo` 				= '".$Sapo."',
+		`sapo_en` 			= '".$Sapo_en."',
+		`intro` 			= '".$Intro."',
 		`fulltext` 			= '".$Fulltext."'
 		WHERE `id` 			= '".$ID."'";
 
@@ -66,7 +70,7 @@ if(isset($_POST["cmdsave"])){
 		$Cdate = $date;
 
 		$objmysql->Exec("BEGIN");
-		$sql = "INSERT INTO tbl_service (`par_id`,`code`,`thumb`,`cdate`,`author`,`isactive`,`name`,`sapo`,`fulltext`) VALUES ('".$Par_id."','".$Code."','".$Thumb."','".$Cdate."','".$Author."','".$isActive."','".$Title."','".$Sapo."', '".$Fulltext."')";
+		$sql = "INSERT INTO tbl_service (`par_id`,`code`,`thumb`,`cdate`,`author`,`isactive`,`name`,`sapo`,`sapo_en`,`intro`,`fulltext`) VALUES ('".$Par_id."','".$Code."','".$Thumb."','".$Cdate."','".$Author."','".$isActive."','".$Title."','".$Sapo."', '".$Sapo_en."', '".$Intro."', '".$Fulltext."')";
 
 		$result = $objmysql->Exec($sql);
 

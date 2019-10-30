@@ -135,11 +135,6 @@ $row_seo    = $objmysql->Fetch_Assoc();
                         <label>Mô tả</label>
                         <textarea name="txt_intro" id="txt_intro" class="form-control" rows="5"><?php echo $row['intro'];?></textarea>
                     </div>
-
-                    <div class="form-group">
-                        <label>Nội dung</label>
-                        <textarea name="txt_fulltext" id="txt_fulltext" class="form-control"><?php echo $row['fulltext'];?></textarea>
-                    </div>
                 </div>
 
                 <div class="col-md-3 col-sm-4">
@@ -207,6 +202,11 @@ $row_seo    = $objmysql->Fetch_Assoc();
                         <div class="clearfix"></div>
                     </div>
                 </div>
+
+                <div class="col-md-12 form-group">
+                    <label>Nội dung</label>
+                    <textarea name="txt_fulltext" id="txt_fulltext" class="form-control"><?php echo $row['fulltext'];?></textarea>
+                </div>
             </div>
 
             <div class="tab-pane fade" id="seo">
@@ -238,16 +238,22 @@ $row_seo    = $objmysql->Fetch_Assoc();
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        tinymce.init({
-            selector:'#txt_intro',
-            height : 300
+        $('#txt_fulltext').summernote({
+            placeholder: 'Nội dung bài viết',
+            height: 500,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video', 'hr']],
+                ['view', ['codeview']]
+            ],
         });
-
-        tinymce.init({
-            selector:'#txt_fulltext',
-            height : 500
-        });
-        
         $("#cbo_cata").select2();
         $("#cbo_type_of_land").select2();
     });

@@ -1,7 +1,7 @@
 <?php
 $thisUrl 	= curPageURL();
-$code 		= isset($_GET['code']) ? addslashes(trim($_GET['code'])) : '';
-$par_code 	= isset($_GET['par_code']) ? addslashes(trim($_GET['par_code'])) : '';
+$code 		= isset($_GET['code']) ? addslashes(trim($_GET['code'])) : ''; // service doc
+$par_code 	= isset($_GET['par_code']) ? addslashes(trim($_GET['par_code'])) : '';  // service
 if($code == '' || $par_code == '') {
 	page404();
 }
@@ -20,13 +20,15 @@ if ($objmysql->Num_rows()>0) {
 	}
 }
 
-$sql2 = "SELECT * FROM tbl_service_type WHERE isactive = 1 AND `code` ='".$code."'";
+$sql2 = "SELECT * FROM tbl_service_doc WHERE isactive = 1 AND `code` ='".$code."'";
+// echo $sql2;
 $objmysql->Query($sql2);
-$row2 = $objmysql->Fetch_Assoc();
-
-$sql = "SELECT * FROM tbl_service_doc WHERE isactive = 1 AND service_id = ".$result['id']." AND service_type_id = ".$row2['id'];
-$objmysql->Query($sql);
 $row = $objmysql->Fetch_Assoc();
+
+// $sql = "SELECT * FROM tbl_service_doc WHERE isactive = 1 AND service_id = ".$result['id']." AND service_type_id = ".$row['id'];
+// // echo $sql;
+// $objmysql->Query($sql);
+// $row = $objmysql->Fetch_Assoc();
 ?>
 <section class="page page-service">
 	<div class="service-detail">
@@ -58,10 +60,11 @@ $row = $objmysql->Fetch_Assoc();
 				<div class="row">
 					<div class="col-md-8 col-sm-8">
 						<h1 class="page-title"><?php echo $row['name'] ?></h1>
+						<div class="sapo"><?php echo $row['intro'] ?></div>
 						<div class="full_text">
 							<?php 
 							echo stripslashes($row['fulltext']);
-							$link = ROOTHOST.'order?service='.$result['id'].'&service_name='.$result['name'].'&service_type='.$row2['id'].'&service_type_name='.$row2['name'];
+							$link = ROOTHOST.'order?service='.$result['id'].'&service_name='.$result['name'].'&service_type='.$row['id'].'&service_type_name='.$row['name'];
 							echo '<div class="text-center use-service"><a href="'.$link.'" class="btn btn-use-service" title="">ĐẶT DỊCH TÀI LIỆU</a></div>';
 							?>
 						</div>

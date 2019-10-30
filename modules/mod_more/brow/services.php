@@ -14,14 +14,14 @@ $objmysql = new CLS_MYSQL();
 				echo '<div class="col-md-3 col-sm-6 item">
 				<div class="wrap-thumb">'.$thumb.'</div>
 				<div class="content">
-				<h3 class="title"><a href="'.$link.'" title="'.$row['name'].'">'.$row['name'].'</a></h3>
-				<div class="description">'.$row['sapo'].'</div>
-				<a href="'.$link.'" title="'.$row['sapo'].'" class="view-detail">Xem chi tiết</a>
+				<h3 class="title"><a href="'.$link.'" target="_blank" title="'.$row['name'].'">'.$row['name'].'</a></h3>
+				<div class="description">'.$row['sapo'].'<br/>'.$row['sapo_en'].'</div>
+				<a href="'.$link.'" title="'.$row['name'].'" target="_blank" class="view-detail">Xem chi tiết</a>
 				</div>
 				</div>';
 			}
 			?>
 		</div>
-		<div class="wrap-button text-center"><a href="<?php echo ROOTHOST; ?>order" title="Đặt dịch vụ" class="btn btn-view-detail">ĐẶT DỊCH VỤ</a></div>
+		<div class="wrap-button text-center"><a href="<?php echo ROOTHOST; ?>order" target="_blank" title="Đặt dịch vụ" class="btn btn-view-detail">ĐẶT DỊCH VỤ</a></div>
 	</div>
 </section>

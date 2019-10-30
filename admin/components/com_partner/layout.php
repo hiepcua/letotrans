@@ -14,7 +14,7 @@ if(isset($_POST['cmdsave'])){
 		$sql = "UPDATE tbl_partner SET `name`='".$Name."', `images`='".$Images."', `link`='".$Link."' WHERE id='".$ID."'";
         $objmysql->Exec($sql);
 	}else{
-		$sql = "INSERT INTO tbl_partner(`name`,`images`,`link`) VALUES ('".$Name."','".$Images."','".$Link."','".$isActive."')";
+		$sql = "INSERT INTO tbl_partner(`name`,`images`,`link`) VALUES ('".$Name."','".$Images."','".$Link."')";
 		$objmysql->Exec($sql);
 	}
 	echo "<script language=\"javascript\">window.location.href='".ROOTHOST_ADMIN.COMS."'</script>";

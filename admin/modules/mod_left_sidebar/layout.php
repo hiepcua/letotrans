@@ -98,13 +98,13 @@ $objmysql = new CLS_MYSQL();
 			</ul>
 		</li>
 
-		<!-- <li>
+		<li>
 			<div class="title"><i class="fa fa-list" aria-hidden="true"></i> <span>Cảm nhận khách hàng</span></div>
 			<ul class="sub">
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>feedback/add" title="Thêm cảm nhận"><i class="fa fa-plus" aria-hidden="true"></i> <span>Thêm cảm nhận</span></a></li>
 				<li><a href="<?php echo ROOTHOST_ADMIN;?>feedback" title="Cảm nhận khách hàng"><i class="fa fa-bars" aria-hidden="true"></i> <span>Cảm nhận khách hàng</span></a></li>
 			</ul>
-		</li> -->
+		</li>
 
 		<li>
 			<div class="title"><i class="fa fa-users" aria-hidden="true"></i> <span>Qlý module</span></div>

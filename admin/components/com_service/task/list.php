@@ -103,7 +103,7 @@ $cur_page=(int)$_SESSION['CUR_PAGE_'.OBJ_PAGE]>0 ? $_SESSION['CUR_PAGE_'.OBJ_PAG
             <th width="30" align="center"><input type="checkbox" name="chkall" id="chkall" value="" onclick="docheckall('chk',this.checked);" /></th>
             <th>Dịch vụ</th>
             <th align="center">Mô tả</th>
-            <th align="center">Giá/ giá cơ bản</th>
+            <!-- <th align="center">Giá/ giá cơ bản</th> -->
             <th width="70" align="center" style="text-align: center;">Sắp xếp
                 <a href="javascript:saveOrder()"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
             </th>

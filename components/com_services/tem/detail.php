@@ -42,7 +42,7 @@ if ($objmysql->Num_rows()>0) {
 			<div class="page-content">
 				<div class="row">
 					<div class="col-md-8 col-sm-8">
-						<h1 class="page-title">Dịch vụ dịch thuật</h1>
+						<h1 class="page-title"><?php echo $result['name'] ?></h1>
 						<input type="hidden" name="txt_package" id="txt_package">
 
 						<div class="block-service-type">
@@ -50,7 +50,7 @@ if ($objmysql->Num_rows()>0) {
 							$sql1 = "SELECT * FROM tbl_service_doc WHERE isactive = 1 AND service_id = ".$result['id'];
 							$objmysql->Query($sql1);
 
-							echo '<div class="title">CÁC LĨNH VỰC CHÍNH</div>';
+							echo '<div class="title"><div class="left">CÁC LĨNH VỰC CHÍNH</div><div class="right">'.$result['intro'].'</div></div>';
 							echo '<div class="service-type-items">';
 							while ($r_service_doc = $objmysql->Fetch_Assoc()) {
 								$name 	= stripslashes($r_service_doc['name']);

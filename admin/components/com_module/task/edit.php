@@ -133,17 +133,10 @@ if(isset($_POST["txt_type"])){
                 <label>Vị trí</label>
                 <select name="cbo_position" class="form-control" id="cbo_position" style="width: 100%;">
                     <?php
-                    $doc = new DOMDocument();
-                    $doc->load(ROOTHOST_ADMIN.'template.xml');
-                    $options = $doc->getElementsByTagName("position");
-
-                    foreach( $options as $option )
-                    { 
-                        $opts = $option->getElementsByTagName("option");
-                        foreach($opts as $opt)
-                        {
-                            echo "<option value=\"".$opt->nodeValue."\">".$opt->nodeValue."</option>";
-                        }
+                    $sql = "SELECT * FROM tbl_position";
+                    $objmysql->Query($sql);
+                    while ($r_position = $objmysql->Fetch_Assoc()) {
+                        echo "<option value=\"".$r_position['name']."\">".$r_position['name']."</option>";
                     }
                     ?>
                 </select>
@@ -180,7 +173,7 @@ if(isset($_POST["txt_type"])){
     </fieldset>
 
     <?php 
-    $arr_type = array('mainmenu','html','news','slide', 'partner', 'content', 'more');
+    $arr_type = array('mainmenu','html','categories','slide', 'partner', 'news', 'more');
     if(in_array($viewtype,$arr_type)){ ?>
     <fieldset>
         <legend><strong><?php echo "Parameter";?>:</strong></legend>
@@ -197,6 +190,26 @@ if(isset($_POST["txt_type"])){
                     </select>
 
                     <span id="menutype_err" class="check_error"></span>
+                </div>
+            </div>
+
+        <?php }else if($viewtype=="categories"){ ?>
+            <div class="form-group">
+                <div class="col-md-6 col-sm-6">
+                    <label>Nhóm tin</label>
+                    <select name="cbo_cate" class="form-control" id="cbo_cate" style="width: 100%;">
+                        <option value="0">Chọn một nhóm tin</option>
+                        <?php
+                        if(!isset($objCate)) $objCate=new CLS_CATEGORY();
+                        $objCate->getListCate(0,0);
+                        ?>
+                    </select>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            cbo_Selected('cbo_cate','<?php echo $row['category_id'];?>');
+                            $("#cbo_cate").select2();
+                        });
+                    </script>
                 </div>
             </div>
 
@@ -221,33 +234,6 @@ if(isset($_POST["txt_type"])){
                 </div>
             </div>
 
-        <?php }else if($viewtype=="content"){ ?>
-            <div class="form-group">
-                <div class="col-md-6 col-sm-6">
-                    <label>Bài tin</label>
-                    <select name="cbo_content" class="form-control" id="cbo_content" style="width: 100%;">
-                        <option value="0">Chọn một bài tin</option>
-                        <?php
-                        $sql_con = "SELECT * FROM tbl_contents WHERE isactive = 1";
-                        $objmysql->Query($sql_con);
-
-                        while ($r = $objmysql->Fetch_Assoc()) {
-                            if($r['id'] == $row['content_id']){
-                                echo '<option value="'.$r['id'].'" selected>'.$r['title'].'</option>';
-                            }else{
-                                echo '<option value="'.$r['id'].'">'.$r['title'].'</option>';
-                            }
-                        }
-                        ?>
-                    </select>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            $("#cbo_content").select2();
-                        });
-                    </script>
-                </div>
-            </div>
-
         <?php }else if($viewtype=="html"){?>
             <div class="form-group">
                 <div class="col-xs-12">
@@ -257,9 +243,21 @@ if(isset($_POST["txt_type"])){
             </div>
             <script type="text/javascript">
                 $(document).ready(function(){
-                    tinymce.init({
-                        selector:'#txtcontent',
-                        height : 300
+                    $('#txtcontent').summernote({
+                        placeholder: 'Nội dung bài viết',
+                        height: 300,
+                        toolbar: [
+                            ['style', ['style']],
+                            ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+                            ['fontname', ['fontname']],
+                            ['fontsize', ['fontsize']],
+                            ['color', ['color']],
+                            ['para', ['ul', 'ol', 'paragraph']],
+                            ['height', ['height']],
+                            ['table', ['table']],
+                            ['insert', ['link', 'picture', 'video', 'hr']],
+                            ['view', ['codeview']]
+                        ],
                     });
                 });
             </script>

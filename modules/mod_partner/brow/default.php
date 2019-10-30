@@ -12,7 +12,7 @@ $objmysql->Query($sql);
 		?>
 		<div class="item">
 			<div class="bn-mask"></div>
-			<a href="<?php echo $link; ?>" title="<?php echo $name; ?>">
+			<a href="<?php echo $link; ?>" target="_blank" title="<?php echo $name; ?>">
 				<img src="<?= $thumb ?>" class="img-responsive">
 			</a>
 		</div>

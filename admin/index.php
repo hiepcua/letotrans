@@ -33,8 +33,9 @@ global $UserLogin;
 	<script src="<?php echo ROOTHOST;?>global/js/moment.js"></script>
 	<script src="<?php echo ROOTHOST;?>global/js/bootstrap-datetimepicker.min.js"></script>
 	<script src="<?php echo ROOTHOST_ADMIN;?>js/script.min.js"></script>
-	<!-- <script src="https://cdn.tiny.cloud/1/tyij6tzxb68u5hiflnrk17fl3zubd73o6ks0bi9noofyypiy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
-	<script type="text/javascript" src='<?php echo ROOTHOST;?>js/tinymce.min.js' referrerpolicy="origin"></script>
+	<!-- include summernote css/js -->
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
 
 	<script>	
 		var _w=0;
