@@ -100,11 +100,6 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
                         <label>Mô tả</label>
                         <textarea name="txt_intro" id="txt_intro" class="form-control" rows="5"></textarea>
                     </div>
-
-                    <div class="form-group">
-                        <label>Nội dung</label>
-                        <textarea name="txt_fulltext" id="txt_fulltext" class="form-control"></textarea>
-                    </div>
                 </div>
 
                 <div class="col-md-3 col-sm-4">
@@ -161,6 +156,10 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
                         </div>
                     </div>
                 </div>
+                <div class="col-md-12 form-group">
+                    <label>Nội dung</label>
+                    <textarea name="txt_fulltext" id="txt_fulltext" class="form-control"></textarea>
+                </div>
             </div>
 
             <div class="tab-pane fade" id="seo">
@@ -190,56 +189,24 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
         </div>
     </form>
 </div>
-<script type="text/javascript" src='<?php echo ROOTHOST;?>js/tinymce.min.js' referrerpolicy="origin"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        tinymce.init({
-            selector: 'textarea#full-featured-non-premium',
-            plugins: 'print preview fullpage paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
-            imagetools_cors_hosts: ['picsum.photos'],
-            menubar: 'file edit view insert format tools table help',
-            toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-            toolbar_sticky: true,
-            autosave_ask_before_unload: true,
-            autosave_interval: "30s",
-            autosave_prefix: "{path}{query}-{id}-",
-            autosave_restore_when_empty: false,
-            autosave_retention: "2m",
-            image_advtab: true,
-            content_css: [
-            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+        $('#txt_fulltext').summernote({
+            placeholder: 'Nội dung bài viết',
+            height: 500,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video', 'hr']],
+                ['view', ['codeview']]
             ],
-            importcss_append: true,
-            height: 400,
-            // file_picker_callback: function (callback, value, meta) {
-            //     /* Provide file and text for the link dialog */
-            //     if (meta.filetype === 'file') {
-            //         callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
-            //     }
-
-            //     /* Provide image and alt text for the image dialog */
-            //     if (meta.filetype === 'image') {
-            //         callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
-            //     }
-
-            //     /* Provide alternative source and posted for the media dialog */
-            //     if (meta.filetype === 'media') {
-            //         callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
-            //     }
-            // },
-            images_upload_url: 'postAcceptor.php',
-            image_caption: true,
-            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-            noneditable_noneditable_class: "mceNonEditable",
-            toolbar_drawer: 'sliding',
-            contextmenu: "link image imagetools table",
         });
-
-        tinymce.init({
-            selector:'#txt_fulltext',
-            height : 500
-        });
-
         $("#cbo_cata").select2();
         $("#cbo_type_of_land").select2();
     });

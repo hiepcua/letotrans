@@ -5,7 +5,6 @@ $id = isset($_GET['id']) ? (int)$_GET["id"] : 0;
 $sql = "SELECT * FROM tbl_service WHERE id = ".$id;
 $objmysql->Query($sql);
 $row = $objmysql->Fetch_Assoc();
-// $service_type = ($row['service_type_id'] !== '' && $row['service_type_id'] !== NULL) ? json_decode($row['service_type_id']) : [];
 
 $seo_link   = ROOTHOST.'dich-vu/'.$row['code'].'.html';
 $sql_seo    = "SELECT * FROM tbl_seo WHERE link = '".$seo_link."'";
@@ -100,26 +99,17 @@ $row_seo    = $objmysql->Fetch_Assoc();
                     </div>
 
                     <div class="form-group">
-                        <label>Nội dung</label>
-                        <textarea name="txt_fulltext" id="txt_fulltext" class="form-control"><?php echo $row['fulltext'];?></textarea>
+                        <label>Sapo English</label>
+                        <textarea name="txt_sapo_en" class="form-control" rows="5"><?php echo $row['sapo_en'];?></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mô tả &nbsp <small>(Mô tả về các loại tài liệu, ở trang dịch vụ chi tiết)</small></label>
+                        <textarea name="txt_intro" class="form-control" rows="5"><?php echo $row['intro'];?></textarea>
                     </div>
                 </div>
 
                 <div class="col-md-3 col-sm-4">
-                    <!-- <div class="form-group">
-                        <label>Lĩnh vực</label>
-                        <?php
-                        $sql_service_type = "SELECT * FROM tbl_service_type WHERE isactive = 1";
-                        $objmysql->Query($sql_service_type);
-                        while ($r_ser_type = $objmysql->Fetch_Assoc()) {
-                            if(in_array($r_ser_type['id'], $service_type)){
-                                echo '<div class="checkbox"><label><input type="checkbox" value="'.$r_ser_type['id'].'" name="chk_service[]" checked>'.$r_ser_type['name'].'</label></div>';
-                            }else{
-                                echo '<div class="checkbox"><label><input type="checkbox" value="'.$r_ser_type['id'].'" name="chk_service[]">'.$r_ser_type['name'].'</label></div>';
-                            }
-                        }
-                        ?>
-                    </div> -->
                     <div class="form-group">
                         <label>Nhóm cha</label>
                         <select name="cbo_par" class="form-control" id="cbo_par" style="width: 100%;">
@@ -146,6 +136,11 @@ $row_seo    = $objmysql->Fetch_Assoc();
                         </div>
                         <div class="clearfix"></div>
                     </div>
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <label>Nội dung</label>
+                    <textarea name="txt_fulltext" id="txt_fulltext" class="form-control"><?php echo $row['fulltext'];?></textarea>
                 </div>
             </div>
 
@@ -178,9 +173,21 @@ $row_seo    = $objmysql->Fetch_Assoc();
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        tinymce.init({
-            selector:'#txt_fulltext',
-            height : 500
+        $('#txt_fulltext').summernote({
+            placeholder: 'Nội dung bài viết',
+            height: 300,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video', 'hr']],
+                ['view', ['codeview']]
+            ],
         });
     });
 </script>

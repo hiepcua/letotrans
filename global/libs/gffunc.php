@@ -134,6 +134,20 @@ function showIconFun($fun,$value){
     else 
 		echo "<img border=0 height=\"16\" src=\"".ROOTHOST_ADMIN.IMG_PATH."$filename\" title=\"$title\"/>";
 }
+function LoadPosition(){
+    $doc = new DOMDocument();
+    $doc->load(ROOTHOST_ADMIN.'template.xml');
+    $options = $doc->getElementsByTagName("position");
+
+    foreach( $options as $option )
+    { 
+        $opts = $option->getElementsByTagName("option");
+        foreach($opts as $opt)
+        {
+            echo "<option value=\"".$opt->nodeValue."\">".$opt->nodeValue."</option>";
+        }
+    }
+}
 function LoadModBrow($mod_name){
     $path='../'.MOD_PATH.$mod_name."/brow";
     var_dump($path);
@@ -199,6 +213,7 @@ function getThumb($urlThumb, $class='', $alt=''){
         return "<img src=".ROOTHOST.THUMB_DEFAULT." class='".$class."'>";
     }
 }
+
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);

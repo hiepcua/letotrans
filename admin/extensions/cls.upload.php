@@ -13,7 +13,7 @@ class CLS_UPLOAD{
 	var $max_size=10000000; // 10MB
 	var $_path="";
 	
-	function CLS_UPLOAD(){}
+	function __construct(){}
 	function setType($array){
 		$this->$array_type=$array;
 	}

@@ -35,6 +35,12 @@ if($lang1 != 0 && $lang2 != 0){
 	}else{
 		$total = $dfprice * $numpage + ($dfprice * $numpage) * 0.25 + $ccg + $ccd + $ship;
 	}
+	// echo $time.'<br>';
+	// echo $dfprice.'<br>';
+	// echo $numpage.'<br>';
+	// echo $ccg.'<br>';
+	// echo $ccd.'<br>';
+	// echo $ship.'<br>';
 	echo number_format($total);
 }
 ?>

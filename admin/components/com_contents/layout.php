@@ -34,8 +34,9 @@ if(isset($_POST["cmdsave"])){
 	$Intro 			= isset($_POST['txt_intro']) ? addslashes($_POST['txt_intro']) : '';
 	$Fulltext 		= isset($_POST['txt_fulltext']) ? addslashes($_POST['txt_fulltext']) : '';
 	$Thumb 			= isset($_POST['txtthumb']) ? addslashes($_POST['txtthumb']) : '';
+
 	$Images 		= json_encode($obj_images);
-	$Images = mysql_real_escape_string($Images );
+	// $Images = mysql_real_escape_string($Images );
 	$date 			= time();
 
 	$Meta_title 	= isset($_POST['txt_metatitle']) ? addslashes(htmlentities($_POST['txt_metatitle'])) : '';
@@ -89,12 +90,13 @@ if(isset($_POST["cmdsave"])){
 			$objmysql->Exec('ROLLBACK');
 	}else{
 		$Cdate = $date;
-
 		$objmysql->Exec("BEGIN");
 		$sql = "INSERT INTO tbl_contents (`category_id`,`code`,`thumb`,`images`,`cdate`,`author`,`ishot`,`isactive`,`title`,`sapo`,`intro`,`fulltext`,`type_of_land_id`,`area`,`price`) VALUES ('".$CategoryID."','".$Code."','".$Thumb."','$Images','".$Cdate."','".$Author."','".$isHot."','".$isActive."','".$Title."','".$Sapo."', '".$Intro."', '".$Fulltext."','".$Type_of_land."','".$Area."', '".$Price."')";
+		echo $sql;
 		$result = $objmysql->Exec($sql);
 
 		$sql2 = "INSERT INTO tbl_seo (`title`,`link`,`image`,`meta_title`,`meta_key`,`meta_desc`) VALUES ('".$Title."','".$Link."','".$Thumb."','".$Meta_title."','".$Meta_key."','".$Meta_desc."')";
+		echo $sql2;
 		$result2 = $objmysql->Exec($sql2);
 
 		if($result && $result2){

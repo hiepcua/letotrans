@@ -26,7 +26,7 @@
 						<?php } ?>
 					</div>
 				</aside>
-				<div class="text-center"><a href="<?php echo ROOTHOST; ?>y-kien-khach-hang" title="Xem tất cả ý kiến khách hàng" class="btn btn-view-all-feed-back">XEM TẤT CẢ Ý KIẾN KHÁCH HÀNG</a></div>
+				<div class="text-center"><a href="<?php echo ROOTHOST; ?>y-kien-khach-hang" target="_blank" title="Xem tất cả ý kiến khách hàng" class="btn btn-view-all-feed-back">XEM TẤT CẢ Ý KIẾN KHÁCH HÀNG</a></div>
 			</div>
 			<div class="col-md-1"></div>
 		</div>

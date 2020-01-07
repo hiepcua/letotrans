@@ -13,24 +13,28 @@ $actual_link = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 require_once "global/libs/gfinit.php";
 require_once "global/libs/gfconfig.php";
 require_once "global/libs/gffunc.php";
+require_once "global/libs/detectMobile.php";
 require_once 'libs/cls.mysqli.php';
 require_once 'libs/cls.template.php';
 require_once 'libs/cls.menuitem.php';
 require_once 'libs/cls.module.php';
 require_once 'libs/cls.configsite.php';
+require_once 'libs/cls.upload.php';
 
-$tmp = new CLS_TEMPLATE();
-$objmysql = new CLS_MYSQL();
-$objdata = new CLS_MYSQL();
-$conf = new CLS_CONFIG();
+$tmp 		= new CLS_TEMPLATE();
+$objmysql 	= new CLS_MYSQL();
+$objdata 	= new CLS_MYSQL();
+$conf 		= new CLS_CONFIG();
+$detect 	= new Mobile_Detect;
 $conf->load_config();
-global $tmp;global $conf;
+global $tmp;
+global $conf;
 ?>
 <!DOCTYPE html>
 <html language='vi'>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="robots" content="noindex, nofollow" />
+	<meta name="robots" content="index" />
 	<meta property="og:type" content="website" />
 	<meta property="og:author" content='<?php echo $conf->CompanyName; ?>' />
 	<meta property="og:locale" content='vi_VN'/>
@@ -49,6 +53,8 @@ global $tmp;global $conf;
 	<link rel="stylesheet" href="<?php echo ROOTHOST; ?>css/style.css" type="text/css" media="all">
 	<link rel="stylesheet" href="<?php echo ROOTHOST; ?>css/style-responsive.css" type="text/css" media="all">
 	<link rel="stylesheet" href="<?php echo ROOTHOST; ?>css/Roboto.css" type="text/css" media="all">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo ROOTHOST; ?>favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOTHOST; ?>favicon-16x16.png">
 
 	<script src="<?php echo ROOTHOST; ?>global/js/jquery-1.11.2.min.js"></script>
 	<script src="<?php echo ROOTHOST; ?>global/js/bootstrap.min.js"></script>
@@ -87,12 +93,89 @@ global $tmp;global $conf;
 		<?php if($tmp->isFrontpage()){ ?>
 			<div class="main-home">
 				<div class="wrap-banner">
-					<?php include_once("modules/mod_banner/default.php"); ?>
-					<?php $tmp->loadModule('box1'); ?>
+					<div class="home-banner"></div>
+					<?php if($isMobile){ ?>
+						<div class="mobile-box-bottom">
+							<div class="container">
+								<div id="mobile-slide-bnbt" class="owl-carousel owl-theme">
+									<div class="item">
+										<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-01.png" class="thumb img-responsive"></div>
+										<p><?php $tmp->loadModule('box1'); ?></p>
+									</div>
+									<div class="item">
+										<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-02.png" class="thumb img-responsive"></div>
+										<p><?php $tmp->loadModule('box12'); ?></p>
+									</div>
+									<div class="item">
+										<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-03.png" class="thumb img-responsive"></div>
+										<p><?php $tmp->loadModule('box13'); ?></p>
+									</div>
+									<div class="item">
+										<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-04.png" class="thumb img-responsive"></div>
+										<p><?php $tmp->loadModule('box14'); ?></p>
+									</div>
+									<div class="item">
+										<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-05.png" class="thumb img-responsive"></div>
+										<p><?php $tmp->loadModule('box15'); ?></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<script type="text/javascript">
+							$('#mobile-slide-bnbt').owlCarousel({
+								loop:true,
+								navText: ["<img src='<?php echo ROOTHOST; ?>images/icons/arrow_left.png'>","<img src='<?php echo ROOTHOST; ?>images/icons/arrow_right.png'>"],
+								dots:true,
+								nav:true,
+								responsive:{
+									0:{
+										items:1
+									},
+									600:{
+										items:2
+									},
+									1000:{
+										items:4
+									}
+								}
+							})
+						</script>
+					<?php }else { ?>
+						<div class="box-bottom">
+							<div class="container">
+								<div class="item">
+									<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-01.png" class="thumb img-responsive"></div>
+									<p><?php $tmp->loadModule('box1'); ?></p>
+								</div>
+								<div class="item">
+									<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-02.png" class="thumb img-responsive"></div>
+									<p><?php $tmp->loadModule('box12'); ?></p>
+								</div>
+								<div class="item">
+									<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-03.png" class="thumb img-responsive"></div>
+									<p><?php $tmp->loadModule('box13'); ?></p>
+								</div>
+								<div class="item">
+									<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-04.png" class="thumb img-responsive"></div>
+									<p><?php $tmp->loadModule('box14'); ?></p>
+								</div>
+								<div class="item">
+									<div class="wrap-thumb"><img src="<?php echo ROOTHOST; ?>images/icons/icon-slide-05.png" class="thumb img-responsive"></div>
+									<p><?php $tmp->loadModule('box15'); ?></p>
+								</div>
+							</div>
+						</div>
+					<?php }; ?>
 				</div>
 
 				<?php $tmp->loadModule('box6') ?>
-				<?php $tmp->loadModule('box2') ?>
+				<?php 
+				if($isMobile){
+					$tmp->loadModule('box16');
+				}else{
+					$tmp->loadModule('box2');
+				}
+				?>
 
 				<?php include_once("modules/mod_feedback/layout.php"); ?>
 
@@ -101,7 +184,12 @@ global $tmp;global $conf;
 						<?php $tmp->loadModule('box3'); ?>
 					</div>
 				</section>
-				<?php?>
+
+				<section id="sec-faq" class="section sec-faq">
+					<div class="container">
+						<?php $tmp->loadModule('box17') ?>
+					</div>
+				</section>
 
 				<?php $tmp->loadModule('box9') ?>
 			</div>
@@ -151,7 +239,11 @@ global $tmp;global $conf;
 			<div class="copyright bg_copyright"><?php $tmp->loadModule('bottom'); ?></div>
 		</footer>
 	</div>
-
+	<div id="back-top" style="display: block;">
+		<a href="#">
+			<span class="glyphicon glyphicon-circle-arrow-up"></span>
+		</a>
+	</div>
 	<div id="notify"></div>
 
 	<script type="text/javascript">
@@ -238,22 +330,47 @@ global $tmp;global $conf;
 			});
 		});
 
-		var prevScrollpos = window.pageYOffset;
-		window.onscroll = function() {
-			var currentScrollPos = window.pageYOffset;
-			if(currentScrollPos > 300){
-				if (prevScrollpos > currentScrollPos) {
-					document.getElementById("navbar").style.position = "fixed";
-					document.getElementById("navbar").style.top = "";
+		$('#sec-faq .item').click(function(){
+			$('#sec-faq .item .answer').slideUp();
+			$(this).find('.answer').slideDown(500);
+		});
+
+		$("#back-top").hide();
+		$(function () {
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > 400) {
+					$('#back-top').fadeIn();
 				} else {
-					document.getElementById("navbar").style.position = "relative";
-					document.getElementById("navbar").style.top = "0";
+					$('#back-top').fadeOut();
 				}
-				prevScrollpos = currentScrollPos;
-			}else{
-				document.getElementById("navbar").style.position = "relative";
-			}
-		}
+			});
+			$('#back-top a').click(function () {
+				$('body,html').animate({
+					scrollTop: 0
+				}, 800);
+				return false;
+			});
+		});
 	</script>
+	<?php if(!$isMobile){ ?>
+		<script type="text/javascript">
+			var prevScrollpos = window.pageYOffset;
+			window.onscroll = function() {
+				var currentScrollPos = window.pageYOffset;
+				if(currentScrollPos > 300){
+					if (prevScrollpos > currentScrollPos) {
+						document.getElementById("navbar").style.position = "fixed";
+						document.getElementById("navbar").style.top = "";
+					} else {
+						document.getElementById("navbar").style.position = "relative";
+						document.getElementById("navbar").style.top = "0";
+					}
+					prevScrollpos = currentScrollPos;
+				}else{
+					document.getElementById("navbar").style.position = "relative";
+				}
+			}
+		</script>
+	<?php } ?>
 </body>
 </html>

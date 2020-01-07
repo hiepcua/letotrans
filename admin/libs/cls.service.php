@@ -83,7 +83,7 @@ class CLS_SERVICE{
             echo "</label></td>";
             echo "<td>$str_space$title</td>";
             echo "<td>".$sapo."</td>";
-            echo "<td><input class='ajax-price' data-id='".$ids."' onchange=\"ajax_update_price(this)\" type='text' name='txt_price' value='".$rows['price']."'></td>";
+            // echo "<td><input class='ajax-price' data-id='".$ids."' onchange=\"ajax_update_price(this)\" type='text' name='txt_price' value='".$rows['price']."'></td>";
             $order=$rows['order'];
             echo "<td width=\"50\" align=\"center\"><input type=\"text\" name=\"txt_order\" id=\"txt_order\" value=\"$order\" size=\"4\" class=\"order\"></td>";
             echo "<td align='center' width='10'><a href='".ROOTHOST_ADMIN.COMS."/delete/$ids' onclick=\" return confirm('Bạn có chắc muốn xóa ?')\"><i class='fa fa-trash cgray red' aria-hidden='true'></i></a></td>";

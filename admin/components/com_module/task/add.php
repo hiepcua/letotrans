@@ -122,17 +122,10 @@ if(isset($_POST["txt_type"])){
                 <label>Vị trí</label>
                 <select name="cbo_position" class="form-control" id="cbo_position" style="width: 100%;">
                     <?php
-                    $doc = new DOMDocument();
-                    $doc->load(ROOTHOST_ADMIN.'template.xml');
-                    $options = $doc->getElementsByTagName("position");
-
-                    foreach( $options as $option )
-                    { 
-                        $opts = $option->getElementsByTagName("option");
-                        foreach($opts as $opt)
-                        {
-                            echo "<option value=\"".$opt->nodeValue."\">".$opt->nodeValue."</option>";
-                        }
+                    $sql = "SELECT * FROM tbl_position";
+                    $objmysql->Query($sql);
+                    while ($row = $objmysql->Fetch_Assoc()) {
+                        echo "<option value=\"".$row['name']."\">".$row['name']."</option>";
                     }
                     ?>
                 </select>
@@ -234,9 +227,21 @@ if(isset($_POST["txt_type"])){
                 </div>
                 <script type="text/javascript">
                     $(document).ready(function(){
-                        tinymce.init({
-                            selector:'#txtcontent',
-                            height : 300
+                        $('#txtcontent').summernote({
+                            placeholder: 'Nội dung bài viết',
+                            height: 300,
+                            toolbar: [
+                                ['style', ['style']],
+                                ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+                                ['fontname', ['fontname']],
+                                ['fontsize', ['fontsize']],
+                                ['color', ['color']],
+                                ['para', ['ul', 'ol', 'paragraph']],
+                                ['height', ['height']],
+                                ['table', ['table']],
+                                ['insert', ['link', 'picture', 'video', 'hr']],
+                                ['view', ['codeview']]
+                            ],
                         });
                     });
                 </script>

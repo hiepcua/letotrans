@@ -117,6 +117,21 @@ defined("ISHOME") or die("Can't acess this page, please come back!");
 <script type="text/javascript">
     $(document).ready(function(){
         $("#cbo_cate").select2();
-        tinymce.init({selector:'#txtintro'});
+        $('#txtintro').summernote({
+            placeholder: 'Nội dung bài viết',
+            height: 300,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video', 'hr']],
+                ['view', ['codeview']]
+            ],
+        });
     });
 </script>

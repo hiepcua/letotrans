@@ -7,6 +7,7 @@ RewriteRule ^user_profile/?$ 						index.php?com=user&task=profile
 RewriteRule ^forgotpass/?$  						index.php?com=user&task=forgot
 RewriteRule ^changepass/?$  						index.php?com=user&task=changepass
 RewriteRule ^changetpass/?$  						index.php?com=user&task=changetpass
+RewriteRule ^download/?$ 							download.php 	[QSA]
 
 # Config
 RewriteRule ^config/?$ 	index.php?com=config
@@ -68,8 +69,6 @@ RewriteRule ^seo/active/([0-9]+)?$ 					index.php?com=seo&task=active&id=$1
 RewriteRule ^order/?$ 								index.php?com=order 	[QSA]
 RewriteRule ^order/add?$ 							index.php?com=order&task=add
 RewriteRule ^order/edit/([0-9]+)?$ 					index.php?com=order&task=edit&id=$1
-RewriteRule ^order/active/([0-9]+)?$ 				index.php?com=order&task=active&id=$1
-RewriteRule ^order/delete/([0-9]+)?$ 				index.php?com=order&task=delete&id=$1
 
 
 # Service

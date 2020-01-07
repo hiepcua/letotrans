@@ -41,7 +41,7 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 			<div class="row">
 				<div class="col-md-9 col-sm-8">
 					<h1 class="page-title">CHỌN THÔNG TIN</h1>
-					<form id="frm-action" method="post" action="<?php echo ROOTHOST; ?>yeu-cau-dich-vu" enctype="multipart/form-data">
+					<form id="frm-action" method="post" action="<?php echo ROOTHOST; ?>yeu-cau-dich-thuat" enctype="multipart/form-data">
 						<input type="hidden" id="txt_dfprice" name="txt_dfprice" value="<?php echo $dfprice; ?>">
 						<input type="hidden" id="txt_service" name="txt_service" value="<?php echo $_service; ?>">
 						<input type="hidden" id="txt_service_type" name="txt_service_type" value="<?php echo $_service_type; ?>">
@@ -83,7 +83,6 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 										while ($row = $objmysql->Fetch_Assoc()) {
 											$sql1 = "SELECT * FROM tbl_service_type WHERE isactive=1 AND id = ".$row['service_type_id'];
 											$objdata->Query($sql1);
-
 											while ($row1 = $objdata->Fetch_Assoc()) {
 												if($i == 1) {
 													$active = 'active';
@@ -158,11 +157,11 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 								<div class="label-title">Tải file cần dịch:</div>
 								<div class="content">
 									<div class="item upload" onclick="clickFiles()">
-										<input type="file" multiple id="uploadFiles" name="txt-files" onchange="changeUploadFiles()">
+										<input type="file" multiple id="uploadFiles" name="txt-files[]" onchange="changeUploadFiles()" accept=".txt,.pdf,.csv,.doc,.docx,.xls,.xlsx, .xml,.txt">
 									</div>
 									<div class="item des">
 										<p>Các file hỗ trợ dịch</p>
-										<div>.txt, .pdf, .csv, .doc, .docx, .xls, .xlsx, .xml, .txt.</div>
+										<div>.txt, .pdf, .csv, .doc, .docx, .xls, .xlsx, .xml, .html.</div>
 									</div>
 								</div>
 							</div>
@@ -180,8 +179,8 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 								<div class="label-title">Thời gian:</div>
 								<div class="content">
 									<div class="wr-radio">
-										<label class="radio-inline"><input type="radio" value="1" name="txt_time" <?php if($_time == 0) echo 'checked'; ?>>Bình thường</label>
-										<label class="radio-inline"><input type="radio" value="0" name="txt_time" <?php if($_time == 1) echo 'checked'; ?>>Gấp</label>
+										<label class="radio-inline"><input type="radio" value="0" name="txt_time" <?php if($_time == 0) echo 'checked'; ?>>Bình thường</label>
+										<label class="radio-inline"><input type="radio" value="1" name="txt_time" <?php if($_time == 1) echo 'checked'; ?>>Gấp</label>
 									</div>
 								</div>
 							</div>
@@ -190,8 +189,8 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 								<div class="label-title">Công chứng dịch:</div>
 								<div class="content">
 									<div class="wr-radio">
-										<label class="radio-inline"><input type="radio" value="1" name="txt_ccd" <?php if($_time == 0) echo 'checked'; ?>>Có</label>
-										<label class="radio-inline"><input type="radio" value="0" name="txt_ccd" <?php if($_time == 1) echo 'checked'; ?>>Không</label>
+										<label class="radio-inline"><input type="radio" value="0" name="txt_ccd" <?php if($_time == 0) echo 'checked'; ?>>Không</label>
+										<label class="radio-inline"><input type="radio" value="1" name="txt_ccd" <?php if($_time == 1) echo 'checked'; ?>>Có</label>
 									</div>
 								</div>
 							</div>
@@ -200,8 +199,8 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 								<div class="label-title">Công chứng gấp:</div>
 								<div class="content">
 									<div class="wr-radio">
-										<label class="radio-inline"><input type="radio" value="1" name="txt_ccg" <?php if($_time == 0) echo 'checked'; ?>>Có</label>
-										<label class="radio-inline"><input type="radio" value="0" name="txt_ccg" <?php if($_time == 1) echo 'checked'; ?>>Không</label>
+										<label class="radio-inline"><input type="radio" value="0" name="txt_ccg" <?php if($_time == 0) echo 'checked'; ?>>Không</label>
+										<label class="radio-inline"><input type="radio" value="1" name="txt_ccg" <?php if($_time == 1) echo 'checked'; ?>>Có</label>
 									</div>
 									<div class="des">120k</div>
 								</div>
@@ -211,8 +210,8 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 								<div class="label-title">Ship:</div>
 								<div class="content">
 									<div class="wr-radio">
-										<label class="radio-inline"><input type="radio" value="1" name="txt_ship" <?php if($_time == 0) echo 'checked'; ?>>Có</label>
-										<label class="radio-inline"><input type="radio" value="0" name="txt_ship" <?php if($_time == 1) echo 'checked'; ?>>Không</label>
+										<label class="radio-inline"><input type="radio" value="0" name="txt_ship" <?php if($_time == 0) echo 'checked'; ?>>Không</label>
+										<label class="radio-inline"><input type="radio" value="1" name="txt_ship" <?php if($_time == 1) echo 'checked'; ?>>Có</label>
 									</div>
 									<div class="des">50k</div>
 								</div>
@@ -332,7 +331,6 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 	$('#frm-action').submit(function(){
 		return validate_input();
 	});
-
 	function validate_input(){
 		var flag 		= true;
 		var lang1 		= $('#cbo_from').val();
@@ -371,21 +369,18 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 			$('#err_txt-files').css('display', 'block');
 			flag = false;
 		}
-
 		if(flag == false){
 			return false;
 		}else{
 			return true;
 		}
 	}
-
 	function first_service_click(){
 		$('.b-service .b-service1 .item:first-child').click();
 	}
 	function first_service_type_click(){
 		$('.b-service .b-service-type .item:first-child').click();
 	}
-
 	function select_payment_type(attr){
 		var id = attr.getAttribute('data-id');
 		var name = attr.getAttribute('data-name');
@@ -518,12 +513,10 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 		document.getElementById("list-files").empty;
 		document.getElementById("list-files").innerHTML = txt;
 	}
-
 	// function removeUploadedFile(attr){
 	// 	var x = document.getElementById("uploadFiles");
 	// 	var _name = attr.getAttribute('data-name');
 	// 	var newList = [];
-
 	// 	for(var i = 0; i < x.files.length; i++){
 	// 		var file = x.files[i];
 	// 		if (file.name != _name) {
@@ -532,7 +525,6 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 	// 	}
 	// 	var par = attr.parentElement.parentElement.remove();
 	// }
-
 	function convert_mb(byte){
 		var Mb = Math.ceil(parseFloat(byte * 0.000001));
 		return Mb;
@@ -578,7 +570,6 @@ $dfprice = $r_price['price'] ? (int)$r_price['price'] : 0;
 		var ccd = document.querySelector('input[name="txt_ccd"]:checked').value;
 		var ccg = document.querySelector('input[name="txt_ccg"]:checked').value;
 		var ship = document.querySelector('input[name="txt_ship"]:checked').value;
-
 		$.ajax({
 			url : '<?php echo ROOTHOST.'ajaxs/total_pay.php' ?>',
 			type : 'POST',

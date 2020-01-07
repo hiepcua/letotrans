@@ -219,6 +219,21 @@ if(isset($_POST["txt_viewtype"]))
 </form>
 <script type="text/javascript">
     $(document).ready(function(){
-        tinymce.init({selector:'#txtdesc'});
+        $('#txtdesc').summernote({
+        	placeholder: 'Nội dung bài viết',
+        	height: 300,
+        	toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video', 'hr']],
+                ['view', ['codeview']]
+            ],
+        });
     });
 </script>
