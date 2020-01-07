@@ -70,3 +70,12 @@
 [24-Oct-2019 16:57:23 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/admin/extensions/cls.upload.php on line 2
 [24-Oct-2019 16:57:36 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/admin/extensions/cls.upload.php on line 2
 [24-Oct-2019 17:59:11 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/admin/extensions/cls.upload.php on line 2
+<<<<<<< HEAD
+=======
+[28-Oct-2019 04:48:13 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/admin/extensions/cls.upload.php on line 2
+[28-Oct-2019 04:48:19 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/admin/extensions/cls.upload.php on line 2
+[28-Oct-2019 05:08:57 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/admin/extensions/cls.upload.php on line 2
+[28-Oct-2019 05:09:16 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/admin/extensions/cls.upload.php on line 2
+[28-Oct-2019 05:14:15 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/admin/extensions/cls.upload.php on line 2
+[28-Oct-2019 05:14:21 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/admin/extensions/cls.upload.php on line 2
+>>>>>>> 759aec0b508f757c8aaa9d49062f45fa9cd1a95b

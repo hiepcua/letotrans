@@ -42,7 +42,7 @@ if ($objmysql->Num_rows()>0) {
 			<div class="page-content">
 				<div class="row">
 					<div class="col-md-8 col-sm-8">
-						<h1 class="page-title">Dịch vụ dịch thuật</h1>
+						<h1 class="page-title"><?php echo $result['name'] ?></h1>
 						<input type="hidden" name="txt_package" id="txt_package">
 
 						<div class="block-service-type">

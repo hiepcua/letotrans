@@ -185,3 +185,18 @@ Stack trace:
 [18-Oct-2019 17:12:53 Asia/Ho_Chi_Minh] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/letotran/public_html/components/com_services/tem/regis_order.php on line 32
 [18-Oct-2019 17:13:09 Asia/Ho_Chi_Minh] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/letotran/public_html/components/com_services/tem/regis_order.php on line 32
 [18-Oct-2019 17:13:20 Asia/Ho_Chi_Minh] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/letotran/public_html/components/com_services/tem/regis_order.php on line 32
+<<<<<<< HEAD
+=======
+[21-Oct-2019 01:42:37 Asia/Ho_Chi_Minh] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/libs/cls.upload.php on line 2
+[21-Oct-2019 01:42:37 Asia/Ho_Chi_Minh] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/libs/cls.upload.php on line 2
+[21-Oct-2019 01:42:40 Asia/Ho_Chi_Minh] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CLS_UPLOAD has a deprecated constructor in /home/letotran/public_html/libs/cls.upload.php on line 2
+[22-Oct-2019 13:20:20 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_real_escape_string() in /home/letotran/public_html/components/com_services/tem/regis_order.php:45
+Stack trace:
+#0 /home/letotran/public_html/components/com_services/layout.php(10): include()
+#1 /home/letotran/public_html/libs/cls.template.php(65): include('/home/letotran/...')
+#2 /home/letotran/public_html/index.php(187): CLS_TEMPLATE->loadComponent()
+#3 {main}
+  thrown in /home/letotran/public_html/components/com_services/tem/regis_order.php on line 45
+[25-Oct-2019 00:43:27 Asia/Ho_Chi_Minh] PHP Warning:  require_once(libs/cls.category.php): failed to open stream: No such file or directory in /home/letotran/public_html/modules/mod_categories/brow/default.php on line 2
+[25-Oct-2019 00:43:27 Asia/Ho_Chi_Minh] PHP Fatal error:  require_once(): Failed opening required 'libs/cls.category.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/letotran/public_html/modules/mod_categories/brow/default.php on line 2
+>>>>>>> 759aec0b508f757c8aaa9d49062f45fa9cd1a95b
